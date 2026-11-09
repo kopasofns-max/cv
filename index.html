@@ -362,92 +362,74 @@
     <!-- Cases Grid -->
     <section id="cases" class="w-full max-w-[1200px] mx-auto px-6 pt-12 pb-12">
         <h2 class="text-[32px] sm:text-[40px] font-medium leading-[1.2] tracking-tight-md text-ink mb-12">
-            Избранные кейсы
+            Направления и кейсы
         </h2>
         
-        <div class="flex flex-col gap-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             
-            <!-- Category 1 -->
-            <div>
-                <h3 class="text-[24px] font-medium text-ink mb-6 border-b border-bone pb-4 flex items-center gap-3">
-                    <span class="w-2 h-2 rounded-full bg-electric-iris"></span> Таргетированная реклама и Директ
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle transition-shadow hover:shadow-relume-md flex flex-col group">
-                        <span class="text-[14px] font-medium text-electric-iris mb-2">HoReCa</span>
-                        <h4 class="text-[24px] font-medium text-ink mb-3">Снижение CPL в ВК и Директе</h4>
-                        <p class="text-[15px] text-fog leading-[1.6] mb-6">Точечная оптимизация рекламных кампаний для сети "Руки Вверх" и "Понеслось". Удержание стоимости лида при масштабировании.</p>
-                        <div class="mt-auto">
-                            <button class="btn-ghost text-[15px] font-medium underline decoration-bone underline-offset-4 group-hover:decoration-ink transition-colors">Подробнее</button>
-                        </div>
-                    </div>
+            <!-- Category Tile 1 -->
+            <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle transition-all duration-300 hover:shadow-relume-md flex flex-col group cursor-pointer hover:-translate-y-1 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-electric-iris opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <h3 class="text-[22px] font-medium text-ink mb-3 group-hover:text-electric-iris transition-colors">Digital-маркетинг</h3>
+                <p class="text-[15px] text-fog leading-[1.6] mb-8 flex-grow">Таргетированная реклама в ВК, контекстная реклама Яндекс.Директ, продвижение на Авито.</p>
+                <div class="mt-auto flex items-center justify-between text-[15px] font-medium text-ink group-hover:text-electric-iris transition-colors">
+                    Смотреть кейсы
+                    <svg class="w-5 h-5 transform transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 </div>
             </div>
 
-            <!-- Category 2 -->
-            <div>
-                <h3 class="text-[24px] font-medium text-ink mb-6 border-b border-bone pb-4 flex items-center gap-3">
-                    <span class="w-2 h-2 rounded-full bg-teal-accent"></span> Комплексный маркетинг
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle transition-shadow hover:shadow-relume-md flex flex-col group">
-                        <span class="text-[14px] font-medium text-teal-accent mb-2">FoodTech</span>
-                        <h4 class="text-[24px] font-medium text-ink mb-3">Папа Панда & Дракон Вагон</h4>
-                        <p class="text-[15px] text-fog leading-[1.6] mb-6">Перезапуск стратегии с нуля. Увеличение заказов из агрегаторов на 15%. Снижение CPO до 350-600 руб.</p>
-                        <div class="mt-auto">
-                            <button class="btn-ghost text-[15px] font-medium underline decoration-bone underline-offset-4 group-hover:decoration-ink transition-colors">Читать кейс</button>
-                        </div>
-                    </div>
+            <!-- Category Tile 2 -->
+            <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle transition-all duration-300 hover:shadow-relume-md flex flex-col group cursor-pointer hover:-translate-y-1 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-teal-accent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <h3 class="text-[22px] font-medium text-ink mb-3 group-hover:text-teal-accent transition-colors">Комплексный маркетинг</h3>
+                <p class="text-[15px] text-fog leading-[1.6] mb-8 flex-grow">Разработка стратегии, позиционирование бренда, unit-экономика и вывод проектов на окупаемость.</p>
+                <div class="mt-auto flex items-center justify-between text-[15px] font-medium text-ink group-hover:text-teal-accent transition-colors">
+                    Смотреть кейсы
+                    <svg class="w-5 h-5 transform transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 </div>
             </div>
 
-            <!-- Category 3 -->
-            <div>
-                <h3 class="text-[24px] font-medium text-ink mb-6 border-b border-bone pb-4 flex items-center gap-3">
-                    <span class="w-2 h-2 rounded-full bg-coral-accent"></span> Автоворонки и CRM
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle transition-shadow hover:shadow-relume-md flex flex-col group">
-                        <span class="text-[14px] font-medium text-coral-accent mb-2">B2B SaaS</span>
-                        <h4 class="text-[24px] font-medium text-ink mb-3">SendPulse & Deal.by</h4>
-                        <p class="text-[15px] text-fog leading-[1.6] mb-6">Геймификация email-рассылок и триггерные цепи. Снижение оттока (Churn Rate) и повышение LTV на 15%.</p>
-                        <div class="mt-auto">
-                            <button class="btn-ghost text-[15px] font-medium underline decoration-bone underline-offset-4 group-hover:decoration-ink transition-colors">Смотреть воронку</button>
-                        </div>
-                    </div>
+            <!-- Category Tile 3 -->
+            <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle transition-all duration-300 hover:shadow-relume-md flex flex-col group cursor-pointer hover:-translate-y-1 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-coral-accent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <h3 class="text-[22px] font-medium text-ink mb-3 group-hover:text-coral-accent transition-colors">Автоворонки и CRM</h3>
+                <p class="text-[15px] text-fog leading-[1.6] mb-8 flex-grow">Сценарии коммуникаций, триггерные email-цепочки, геймификация и чат-боты в Telegram/ВК.</p>
+                <div class="mt-auto flex items-center justify-between text-[15px] font-medium text-ink group-hover:text-coral-accent transition-colors">
+                    Смотреть кейсы
+                    <svg class="w-5 h-5 transform transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 </div>
             </div>
 
-            <!-- Category 4 -->
-            <div>
-                <h3 class="text-[24px] font-medium text-ink mb-6 border-b border-bone pb-4 flex items-center gap-3">
-                    <span class="w-2 h-2 rounded-full bg-electric-iris"></span> Дашборды и AI-автоматизация
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle transition-shadow hover:shadow-relume-md flex flex-col group">
-                        <span class="text-[14px] font-medium text-electric-iris mb-2">Tech</span>
-                        <h4 class="text-[24px] font-medium text-ink mb-3">Vibe-coding & Сквозная аналитика</h4>
-                        <p class="text-[15px] text-fog leading-[1.6] mb-6">Создание скриптов на Python (Cursor, Base44) для сбора данных и интеграции с iiko, Roistat. Автоматический расчет ROMI.</p>
-                        <div class="mt-auto">
-                            <button class="btn-ghost text-[15px] font-medium underline decoration-bone underline-offset-4 group-hover:decoration-ink transition-colors">Код и архитектура</button>
-                        </div>
-                    </div>
+            <!-- Category Tile 4 -->
+            <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle transition-all duration-300 hover:shadow-relume-md flex flex-col group cursor-pointer hover:-translate-y-1 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-electric-iris opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <h3 class="text-[22px] font-medium text-ink mb-3 group-hover:text-electric-iris transition-colors">Создание сайтов</h3>
+                <p class="text-[15px] text-fog leading-[1.6] mb-8 flex-grow">Проектирование UX/UI, верстка Landing Pages, e-commerce проекты и интеграция с системами аналитики.</p>
+                <div class="mt-auto flex items-center justify-between text-[15px] font-medium text-ink group-hover:text-electric-iris transition-colors">
+                    Смотреть кейсы
+                    <svg class="w-5 h-5 transform transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 </div>
             </div>
 
-            <!-- Category 5 -->
-            <div>
-                <h3 class="text-[24px] font-medium text-ink mb-6 border-b border-bone pb-4 flex items-center gap-3">
-                    <span class="w-2 h-2 rounded-full bg-acid-lemon border border-bone"></span> AI-креативы (Фото и Видео)
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Заглушки для будущих работ -->
-                    <div class="bg-cream border border-bone border-dashed rounded-[16px] h-48 flex items-center justify-center text-fog text-[14px] font-medium hover:bg-white transition-colors cursor-pointer">
-                        + Добавить видео HeyGen
-                    </div>
-                    <div class="bg-cream border border-bone border-dashed rounded-[16px] h-48 flex items-center justify-center text-fog text-[14px] font-medium hover:bg-white transition-colors cursor-pointer">
-                        + Добавить AI Фото
-                    </div>
+            <!-- Category Tile 5 -->
+            <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle transition-all duration-300 hover:shadow-relume-md flex flex-col group cursor-pointer hover:-translate-y-1 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-teal-accent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <h3 class="text-[22px] font-medium text-ink mb-3 group-hover:text-teal-accent transition-colors">Python & Дашборды</h3>
+                <p class="text-[15px] text-fog leading-[1.6] mb-8 flex-grow">Сквозная аналитика (Roistat, iiko), парсинг данных, расчет ROMI и автоматизация через скрипты.</p>
+                <div class="mt-auto flex items-center justify-between text-[15px] font-medium text-ink group-hover:text-teal-accent transition-colors">
+                    Смотреть кейсы
+                    <svg class="w-5 h-5 transform transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </div>
+            </div>
+
+            <!-- Category Tile 6 -->
+            <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle transition-all duration-300 hover:shadow-relume-md flex flex-col group cursor-pointer hover:-translate-y-1 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-acid-lemon opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <h3 class="text-[22px] font-medium text-ink mb-3">AI-Контент</h3>
+                <p class="text-[15px] text-fog leading-[1.6] mb-8 flex-grow">Генерация креативов, видеоаватаров и графики с помощью HeyGen, ElevenLabs, Midjourney.</p>
+                <div class="mt-auto flex items-center justify-between text-[15px] font-medium text-ink transition-colors">
+                    Смотреть работы
+                    <svg class="w-5 h-5 transform transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 </div>
             </div>
             
