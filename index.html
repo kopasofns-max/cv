@@ -119,7 +119,7 @@
         }
         
         /* Fade transition for dynamic cards */
-        .fade-transition {
+        .card-content-fade {
             transition: opacity 0.3s ease-in-out;
         }
 
@@ -128,9 +128,16 @@
             position: fixed;
             width: 600px;
             height: 600px;
-            top: -300px;
+            top: -300px; /* Сдвиг на половину ширины/высоты для центрирования */
             left: -300px;
             border-radius: 50%;
+            background: radial-gradient(circle, rgba(98, 72, 255, 0.15) 0%, rgba(255, 116, 72, 0.05) 40%, rgba(255, 255, 255, 0) 70%);
+            pointer-events: none;
+            z-index: 9999;
+            transition: opacity 0.3s ease;
+            filter: blur(40px);
+        }
+
         .case-tile:hover .case-arrow {
             transform: translateX(5px);
             color: theme('colors.electric-iris');
@@ -141,7 +148,7 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col bg-cream text-ink">
     <div id="glow-cursor"></div>
 
     <!-- Navbar -->
@@ -167,22 +174,22 @@
         
         <!-- Карточка 1 (Достижения) -->
         <div class="hidden lg:flex absolute top-10 left-[-2rem] xl:left-0 -rotate-3 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-64 flex-col gap-3 z-0">
+            <div class="absolute -top-3 right-4 bg-paper text-electric-iris border border-bone text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10 card-content-fade" id="card1-tag">
+                SaaS
+            </div>
             <div class="card-content-fade h-full flex flex-col justify-center" id="card1-content">
-                <div class="absolute -top-3 -right-3 bg-paper text-electric-iris text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle border border-bone z-10" id="card1-tag">
-                    SaaS
-                </div>
-                <div class="text-[13px] font-medium text-fog mb-1" id="card1-project">SendPulse</div>
+                <div class="text-[13px] font-medium text-fog mb-1" id="card1-title">SendPulse</div>
                 <div class="text-[28px] font-medium tracking-tight-md text-ink mt-1" id="card1-metric">CAC: -10%</div>
                 <div class="h-1.5 w-full bg-cream rounded-full overflow-hidden mt-3 mb-2">
-                    <div class="h-full bg-electric-iris rounded-full" style="width: 85%;"></div>
+                    <div class="h-full bg-electric-iris rounded-full transition-all duration-500" style="width: 80%;" id="card1-bar"></div>
                 </div>
-                <div class="text-[13px] text-fog" id="card1-desc">Снижение стоимости</div>
+                <div class="text-[13px] text-fog" id="card1-desc">за 6 мес</div>
             </div>
         </div>
 
         <!-- Карточка 2 (Tech Stack) -->
         <div class="hidden lg:flex absolute top-32 right-[-2rem] xl:right-0 rotate-[2deg] bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-72 flex-col gap-3 z-0">
-            <div class="absolute -top-3 -right-3 bg-acid-lemon text-ink text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle border border-bone z-10">
+            <div class="absolute -top-3 right-4 bg-acid-lemon text-ink border border-bone text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
                 Tech Stack
             </div>
             <div class="card-content-fade" id="card2-content">
@@ -197,12 +204,12 @@
 
         <!-- Карточка 3 (Leadership) -->
         <div class="hidden lg:flex absolute bottom-4 left-[-1rem] xl:left-12 rotate-[3deg] bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-72 flex-col gap-3 z-0 min-h-[140px]">
-            <div class="absolute -top-3 -right-3 bg-paper text-electric-iris text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle border border-bone z-10">
+            <div class="absolute -top-3 right-4 bg-paper text-soft-lilac border border-soft-lilac text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
                 Scale & Team
             </div>
             <div class="card-content-fade flex-grow flex flex-col justify-center" id="card3-content">
-                <div class="text-[18px] whitespace-nowrap font-medium tracking-tight-md text-ink leading-[1.2]" id="card3-title">Обучено 6 маркетологов</div>
-                <div class="text-[13px] text-fog mt-2 leading-[1.4]" id="card3-desc">Наставничество и онбординг in-house команды</div>
+                <div class="text-[18px] font-medium tracking-tight-md text-ink leading-[1.2]" id="card3-title">Бюджеты до 15 млн ₽</div>
+                <div class="text-[13px] text-fog mt-2 leading-[1.4]" id="card3-desc">Управление рекламным сплитом от 30 тыс. руб/мес</div>
             </div>
         </div>
 
@@ -492,13 +499,13 @@
     <script>
         // Card 1 Data
         const card1Data = [
-            { title: "SendPulse", tag: "SaaS", metric: "CAC -10%", bar: "80%", subtext: "за 6 мес" },
-            { title: "Solo", tag: "HoReCa", metric: "x2.5 выручки", bar: "100%", subtext: "за 4 мес" },
-            { title: "Медведь & 5 КВТ", tag: "E-commerce", metric: "+15% клиентов", bar: "85%", subtext: "за 6 мес" },
-            { title: "Папа Панда", tag: "HoReCa", metric: "+1 млн ₽", bar: "95%", subtext: "с автоворонки ВК" },
-            { title: "Руки Вверх", tag: "HoReCa", metric: "14% прибыль", bar: "70%", subtext: "доставка" },
-            { title: "Дракон Вагон", tag: "HoReCa", metric: "+5% выручки", bar: "75%", subtext: "в пицце" },
-            { title: "Папа Панда", tag: "HoReCa", metric: "+7% клиентов", bar: "80%", subtext: "на самовывоз" }
+            { title: "SendPulse", tag: "SaaS", metric: "CAC: -10%", bar: "80%", desc: "за 6 мес" },
+            { title: "Solo", tag: "HoReCa", metric: "x2.5 выручки", bar: "100%", desc: "за 4 мес" },
+            { title: "Медведь & 5 КВТ", tag: "E-commerce", metric: "+15% клиентов", bar: "85%", desc: "за 6 мес" },
+            { title: "Папа Панда", tag: "HoReCa", metric: "+1 млн ₽", bar: "95%", desc: "с автоворонки ВК" },
+            { title: "Руки Вверх", tag: "HoReCa", metric: "14% прибыль", bar: "70%", desc: "доставка" },
+            { title: "Дракон Вагон", tag: "HoReCa", metric: "+5% выручки", bar: "75%", desc: "в пицце" },
+            { title: "Папа Панда", tag: "HoReCa", metric: "+7% клиентов", bar: "80%", desc: "на самовывоз" }
         ];
         let card1Idx = 0;
         
@@ -512,33 +519,31 @@
 
         // Card 3 Data
         const card3Data = [
-            { metric: "Обучено 6 маркетологов", subtext: "Наставничество и онбординг in-house команды" },
-            { metric: "Обучено 4 SMM-специалиста", subtext: "Развитие компетенций и создание контент-отделов" },
-            { metric: "Бюджеты до 15 млн руб/мес", subtext: "Управление рекламным сплитом от 30к до 15 млн ₽" },
-            { metric: "Окупаемость за 3-6 мес", subtext: "Вывод новых проектов на стабильную прибыль" }
+            { title: "Обучено 6 маркетологов", desc: "Наставничество и онбординг in-house команды" },
+            { title: "Обучено 4 SMM-специалиста", desc: "Развитие компетенций и создание контент-отделов" },
+            { title: "Бюджеты до 15 млн ₽", desc: "Управление рекламным сплитом от 30 тыс. руб/мес" },
+            { title: "Окупаемость за 3-6 мес", desc: "Вывод новых проектов на стабильную прибыль" }
         ];
         let card3Idx = 0;
 
         // Smooth update logic
-        function updateCard(containerId, updateLogic, titleId = null, tagId = null) {
+        function updateCard(containerId, updateFn, tagId = null) {
             const container = document.getElementById(containerId);
-            const title = titleId ? document.getElementById(titleId) : null;
             const tag = tagId ? document.getElementById(tagId) : null;
+            if (!container) return; // Prevent TypeErrors if HTML is missing
             
             // Fade out
-            container.classList.add('opacity-0');
-            if (title) title.classList.add('opacity-0');
-            if (tag) tag.classList.add('opacity-0');
+            container.style.opacity = '0';
+            if (tag) tag.style.opacity = '0';
             
             setTimeout(() => {
                 // Update content while invisible
-                updateLogic();
+                updateFn();
                 
                 // Fade in
-                container.classList.remove('opacity-0');
-                if (title) title.classList.remove('opacity-0');
-                if (tag) tag.classList.remove('opacity-0');
-            }, 300); // matches the 300ms transition duration
+                container.style.opacity = '1';
+                if (tag) tag.style.opacity = '1';
+            }, 300); // 300ms transition duration matches CSS
         }
 
         // Initialize Rotations
@@ -549,8 +554,8 @@
                 document.getElementById('card1-tag').innerText = card1Data[card1Idx].tag;
                 document.getElementById('card1-metric').innerText = card1Data[card1Idx].metric;
                 document.getElementById('card1-bar').style.width = card1Data[card1Idx].bar;
-                document.getElementById('card1-subtext').innerText = card1Data[card1Idx].subtext;
-            }, 'card1-title', 'card1-tag');
+                document.getElementById('card1-desc').innerText = card1Data[card1Idx].desc;
+            }, 'card1-tag');
         }, 3500);
 
         setInterval(() => {
@@ -558,14 +563,14 @@
             updateCard('card2-content', () => {
                 document.getElementById('card2-title').innerText = card2Data[card2Idx].title;
                 document.getElementById('card2-code').innerHTML = card2Data[card2Idx].code;
-            }, 'card2-title');
+            });
         }, 4500);
 
         setInterval(() => {
             card3Idx = (card3Idx + 1) % card3Data.length;
             updateCard('card3-content', () => {
-                document.getElementById('card3-metric').innerText = card3Data[card3Idx].metric;
-                document.getElementById('card3-subtext').innerText = card3Data[card3Idx].subtext;
+                document.getElementById('card3-title').innerText = card3Data[card3Idx].title;
+                document.getElementById('card3-desc').innerText = card3Data[card3Idx].desc;
             });
         }, 4000);
 
