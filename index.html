@@ -93,6 +93,35 @@
         .btn-ghost:hover {
             color: theme('colors.fog');
         }
+
+        /* Marquee Animation */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-wrapper {
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+            width: 100%;
+        }
+        .marquee-content {
+            display: flex;
+            animation: marquee 50s linear infinite;
+        }
+        .marquee-item {
+            padding: 0 24px;
+            font-size: 20px;
+            font-weight: 500;
+            color: theme('colors.iron');
+            opacity: 0.7;
+            display: inline-block;
+        }
+        
+        /* Fade transition for dynamic cards */
+        .fade-transition {
+            transition: opacity 0.3s ease-in-out;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col overflow-x-hidden">
@@ -124,11 +153,13 @@
                 <span class="text-[14px] font-medium text-electric-iris">Performance</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#686868" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
             </div>
-            <div class="text-[24px] font-medium tracking-tight-md text-ink">ROI: +15%</div>
-            <div class="h-2 w-full bg-cream rounded-full overflow-hidden">
-                <div class="h-full bg-electric-iris w-[85%] rounded-full"></div>
+            <div id="card1-content" class="fade-transition">
+                <div id="card1-metric" class="text-[24px] font-medium tracking-tight-md text-ink">ROI: +15%</div>
+                <div class="h-2 w-full bg-cream rounded-full overflow-hidden mt-3">
+                    <div id="card1-bar" class="h-full bg-electric-iris w-[85%] rounded-full transition-all duration-500"></div>
+                </div>
+                <div id="card1-subtext" class="text-[12px] text-fog mt-2">Оптимизация кампаний</div>
             </div>
-            <div class="text-[12px] text-fog mt-1">Оптимизация кампаний</div>
         </div>
 
         <!-- Floating Card 2 (Right) -->
@@ -137,22 +168,26 @@
             <div class="absolute -top-3 -right-3 bg-acid-lemon text-ink text-[13px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle border border-bone">
                 Tech Stack
             </div>
-            <div class="text-[14px] font-medium text-ink mt-2">Python & Gemini API</div>
-            <div class="bg-cream rounded-[8px] p-2 font-mono text-[10px] text-fog text-left leading-relaxed">
-                def optimize_cpa():<br>
-                &nbsp;&nbsp;return max_roi()<br>
-                <span class="text-electric-iris"># Automation init</span>
+            <div id="card2-content" class="fade-transition w-full">
+                <div id="card2-title" class="text-[14px] font-medium text-ink mt-2 mb-3">Python & Gemini API</div>
+                <div id="card2-code" class="bg-cream rounded-[8px] p-2 font-mono text-[10px] text-fog text-left leading-relaxed min-h-[60px]">
+                    def optimize_cpa():<br>
+                    &nbsp;&nbsp;return max_roi()<br>
+                    <span class="text-electric-iris"># Automation init</span>
+                </div>
             </div>
         </div>
 
         <!-- Floating Card 3 (Bottom Left) -->
         <div class="hidden lg:flex absolute bottom-12 left-16 rotate-[4deg] bg-paper border border-bone rounded-[16px] p-4 shadow-relume-md w-48 flex-col gap-2 z-0 pointer-events-none">
-            <div class="text-[14px] font-medium text-ink">Метрики роста</div>
-            <div class="flex items-end gap-2">
-                <div class="text-[32px] font-medium tracking-tight-md text-ink leading-none">LTV</div>
-                <div class="text-[24px] text-electric-iris mb-1">↑</div>
+            <div class="text-[14px] font-medium text-ink mb-1">Метрики роста</div>
+            <div id="card3-content" class="fade-transition">
+                <div class="flex items-end gap-2">
+                    <div id="card3-metric" class="text-[32px] font-medium tracking-tight-md text-ink leading-none">LTV</div>
+                    <div id="card3-icon" class="text-[24px] text-electric-iris mb-1">↑</div>
+                </div>
+                <div id="card3-subtext" class="text-[12px] text-fog mt-2">Удержание через CRM</div>
             </div>
-            <div class="text-[12px] text-fog">Удержание через CRM</div>
         </div>
 
         <!-- Main Hero Content -->
@@ -166,15 +201,77 @@
         </div>
     </main>
 
-    <!-- Logo Strip Section -->
-    <section class="w-full bg-cream py-8 border-y border-transparent">
-        <div class="max-w-[1200px] mx-auto px-6 flex flex-wrap justify-center items-center gap-x-12 gap-y-6 opacity-70">
-            <span class="text-[20px] font-medium text-iron">SendPulse</span>
-            <span class="text-[20px] font-medium text-iron">amoCRM</span>
-            <span class="text-[20px] font-medium text-iron">Yandex Direct</span>
-            <span class="text-[20px] font-medium text-iron">Tilda</span>
-            <span class="text-[20px] font-medium text-iron">Python</span>
-            <span class="text-[20px] font-medium text-iron">Roistat</span>
+    <!-- Skills Marquee Section -->
+    <section class="w-full bg-cream py-8 border-y border-transparent overflow-hidden">
+        <div class="marquee-wrapper">
+            <div class="marquee-content">
+                <!-- Group 1 -->
+                <div class="flex items-center">
+                    <span class="marquee-item">MarTech</span>
+                    <span class="marquee-item">Product Marketing</span>
+                    <span class="marquee-item">CRM-маркетинг</span>
+                    <span class="marquee-item">Customer Journey Map (CJM)</span>
+                    <span class="marquee-item">Unit-экономика</span>
+                    <span class="marquee-item">Маркетинговые исследования</span>
+                    <span class="marquee-item">Маркетинговый анализ</span>
+                    <span class="marquee-item">Управление командой</span>
+                    <span class="marquee-item">Разработка маркетинговой стратегии</span>
+                    <span class="marquee-item">Запуск региональных рекламных кампаний</span>
+                    <span class="marquee-item">В2С маркетинг</span>
+                    <span class="marquee-item">Медиапланирование</span>
+                    <span class="marquee-item">Продвижение бренда</span>
+                    <span class="marquee-item">Internet Marketing</span>
+                    <span class="marquee-item">E-Mail Marketing</span>
+                    <span class="marquee-item">SMM</span>
+                    <span class="marquee-item">Контекстная реклама</span>
+                    <span class="marquee-item">Таргетинг</span>
+                    <span class="marquee-item">Google Analytics</span>
+                    <span class="marquee-item">Яндекс.Метрика</span>
+                    <span class="marquee-item">SEO</span>
+                    <span class="marquee-item">Omnichannel</span>
+                    <span class="marquee-item">iiko</span>
+                    <span class="marquee-item">HeyGen</span>
+                    <span class="marquee-item">ElevenLabs</span>
+                    <span class="marquee-item">Google Flow</span>
+                    <span class="marquee-item">Cursor</span>
+                    <span class="marquee-item">Base44</span>
+                    <span class="marquee-item">Gemini API</span>
+                    <span class="marquee-item">Python</span>
+                </div>
+                <!-- Group 2 (Duplicate for infinite scroll) -->
+                <div class="flex items-center">
+                    <span class="marquee-item">MarTech</span>
+                    <span class="marquee-item">Product Marketing</span>
+                    <span class="marquee-item">CRM-маркетинг</span>
+                    <span class="marquee-item">Customer Journey Map (CJM)</span>
+                    <span class="marquee-item">Unit-экономика</span>
+                    <span class="marquee-item">Маркетинговые исследования</span>
+                    <span class="marquee-item">Маркетинговый анализ</span>
+                    <span class="marquee-item">Управление командой</span>
+                    <span class="marquee-item">Разработка маркетинговой стратегии</span>
+                    <span class="marquee-item">Запуск региональных рекламных кампаний</span>
+                    <span class="marquee-item">В2С маркетинг</span>
+                    <span class="marquee-item">Медиапланирование</span>
+                    <span class="marquee-item">Продвижение бренда</span>
+                    <span class="marquee-item">Internet Marketing</span>
+                    <span class="marquee-item">E-Mail Marketing</span>
+                    <span class="marquee-item">SMM</span>
+                    <span class="marquee-item">Контекстная реклама</span>
+                    <span class="marquee-item">Таргетинг</span>
+                    <span class="marquee-item">Google Analytics</span>
+                    <span class="marquee-item">Яндекс.Метрика</span>
+                    <span class="marquee-item">SEO</span>
+                    <span class="marquee-item">Omnichannel</span>
+                    <span class="marquee-item">iiko</span>
+                    <span class="marquee-item">HeyGen</span>
+                    <span class="marquee-item">ElevenLabs</span>
+                    <span class="marquee-item">Google Flow</span>
+                    <span class="marquee-item">Cursor</span>
+                    <span class="marquee-item">Base44</span>
+                    <span class="marquee-item">Gemini API</span>
+                    <span class="marquee-item">Python</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -261,5 +358,67 @@
         </div>
     </footer>
 
+    <!-- Dynamic Scripts -->
+    <script>
+        // Card 1 Data
+        const card1Data = [
+            { metric: "ROI: +15%", bar: "85%", subtext: "Оптимизация кампаний" },
+            { metric: "CAC: -10%", bar: "70%", subtext: "Снижение стоимости" },
+            { metric: "CPO: 350 ₽", bar: "90%", subtext: "Партнерский маркетинг" }
+        ];
+        let card1Idx = 0;
+        
+        // Card 2 Data
+        const card2Data = [
+            { title: "Python & Gemini API", code: "def optimize_cpa():<br>&nbsp;&nbsp;return max_roi()<br><span class='text-electric-iris'># Automation init</span>" },
+            { title: "Roistat & Яндекс", code: "SELECT roi, cac<br>FROM campaigns<br><span class='text-electric-iris'># Data driven</span>" },
+            { title: "Senler & amoCRM", code: "webhook.send({<br>&nbsp;&nbsp;status: 'success'<br>})<br><span class='text-electric-iris'># Seamless sync</span>" }
+        ];
+        let card2Idx = 0;
+
+        // Card 3 Data
+        const card3Data = [
+            { metric: "LTV", icon: "↑", subtext: "Удержание через CRM" },
+            { metric: "CPO", icon: "↓", subtext: "Снижение цены заказа" },
+            { metric: "ROMI", icon: "↑", subtext: "Рост окупаемости" }
+        ];
+        let card3Idx = 0;
+
+        function updateCard(containerId, updateLogic) {
+            const container = document.getElementById(containerId);
+            container.style.opacity = '0';
+            setTimeout(() => {
+                updateLogic();
+                container.style.opacity = '1';
+            }, 300); // Wait for fade out
+        }
+
+        // Initialize Rotations
+        setInterval(() => {
+            card1Idx = (card1Idx + 1) % card1Data.length;
+            updateCard('card1-content', () => {
+                document.getElementById('card1-metric').innerText = card1Data[card1Idx].metric;
+                document.getElementById('card1-bar').style.width = card1Data[card1Idx].bar;
+                document.getElementById('card1-subtext').innerText = card1Data[card1Idx].subtext;
+            });
+        }, 4000);
+
+        setInterval(() => {
+            card2Idx = (card2Idx + 1) % card2Data.length;
+            updateCard('card2-content', () => {
+                document.getElementById('card2-title').innerText = card2Data[card2Idx].title;
+                document.getElementById('card2-code').innerHTML = card2Data[card2Idx].code;
+            });
+        }, 5000);
+
+        setInterval(() => {
+            card3Idx = (card3Idx + 1) % card3Data.length;
+            updateCard('card3-content', () => {
+                document.getElementById('card3-metric').innerText = card3Data[card3Idx].metric;
+                document.getElementById('card3-icon').innerText = card3Data[card3Idx].icon;
+                document.getElementById('card3-subtext').innerText = card3Data[card3Idx].subtext;
+            });
+        }, 4500);
+    </script>
 </body>
 </html>
