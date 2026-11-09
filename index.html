@@ -148,17 +148,17 @@
     <main class="w-full max-w-[1200px] mx-auto px-6 pt-24 pb-32 flex flex-col items-center text-center relative flex-grow">
         
         <!-- Floating Card 1 (Left) -->
-        <div class="hidden lg:flex absolute top-12 left-0 -rotate-3 bg-paper border border-bone rounded-[16px] p-4 shadow-relume-md w-64 flex-col gap-3 z-0 pointer-events-none">
+        <div class="hidden lg:flex absolute top-12 left-0 -rotate-3 bg-paper border border-bone rounded-[16px] p-4 shadow-relume-md w-72 flex-col gap-3 z-0 pointer-events-none">
             <div class="flex items-center justify-between">
-                <span id="card1-title" class="text-[14px] font-medium text-electric-iris">SendPulse</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#686868" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                <span id="card1-title" class="text-[14px] font-medium text-electric-iris transition-opacity duration-300">SendPulse</span>
+                <span id="card1-tag" class="text-[11px] bg-cream px-2 py-0.5 rounded-[320px] font-medium text-fog border border-bone transition-opacity duration-300">SaaS</span>
             </div>
-            <div id="card1-content" class="fade-transition">
+            <div id="card1-content" class="transition-opacity duration-300 ease-in-out">
                 <div id="card1-metric" class="text-[20px] font-medium tracking-tight-md text-ink leading-tight">CAC -10%</div>
                 <div class="h-1.5 w-full bg-cream rounded-full overflow-hidden mt-2 mb-1">
                     <div id="card1-bar" class="h-full bg-electric-iris w-[80%] rounded-full transition-all duration-500"></div>
                 </div>
-                <div id="card1-subtext" class="text-[12px] text-fog">за 6 месяцев</div>
+                <div id="card1-subtext" class="text-[12px] text-fog">за 6 мес</div>
             </div>
         </div>
 
@@ -168,7 +168,7 @@
             <div class="absolute -top-3 -right-3 bg-acid-lemon text-ink text-[13px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle border border-bone">
                 Tech Stack
             </div>
-            <div id="card2-content" class="fade-transition w-full">
+            <div id="card2-content" class="transition-opacity duration-300 ease-in-out w-full">
                 <div id="card2-title" class="text-[14px] font-medium text-ink mt-2 mb-3">Python & Gemini API</div>
                 <div id="card2-code" class="bg-cream rounded-[8px] p-2 font-mono text-[10px] text-fog text-left leading-relaxed min-h-[60px]">
                     def optimize_cpa():<br>
@@ -179,14 +179,11 @@
         </div>
 
         <!-- Floating Card 3 (Bottom Left) -->
-        <div class="hidden lg:flex absolute bottom-8 left-16 rotate-[4deg] bg-paper border border-bone rounded-[16px] p-4 shadow-relume-md w-56 flex-col gap-2 z-0 pointer-events-none">
-            <div class="text-[14px] font-medium text-ink mb-1">Опыт и команда</div>
-            <div id="card3-content" class="fade-transition">
-                <div class="flex items-end gap-2 mb-1">
-                    <div id="card3-metric" class="text-[28px] font-medium tracking-tight-md text-ink leading-none">6</div>
-                    <div id="card3-icon" class="text-[20px] mb-1 leading-none">👨‍🏫</div>
-                </div>
-                <div id="card3-subtext" class="text-[12px] text-fog leading-tight">Обучено маркетологов</div>
+        <div class="hidden lg:flex absolute bottom-8 left-16 rotate-[4deg] bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-64 flex-col gap-1 z-0 pointer-events-none">
+            <div class="text-[13px] font-medium text-fog mb-1">Масштаб и навыки</div>
+            <div id="card3-content" class="transition-opacity duration-300 ease-in-out">
+                <div id="card3-metric" class="text-[16px] font-medium tracking-tight-md text-ink leading-tight mb-2">Обучено 12+ специалистов</div>
+                <div id="card3-subtext" class="text-[12px] text-graphite leading-relaxed border-t border-bone pt-2 mt-1">6 маркетологов, 4 SMM, 2 таргетолога</div>
             </div>
         </div>
 
@@ -280,79 +277,82 @@
         <h2 class="text-[32px] sm:text-[40px] font-medium leading-[1.2] tracking-tight-md text-ink mb-10">
             Ключевой опыт
         </h2>
-        <div class="flex flex-col gap-4 relative">
-            <!-- Vertical Line (Desktop only) -->
-            <div class="hidden sm:block absolute left-[142px] top-6 bottom-6 w-px bg-bone"></div>
+        <div class="flex flex-col gap-4">
             
             <!-- Item 1 -->
-            <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle flex flex-col sm:flex-row gap-4 sm:gap-12 group hover:shadow-relume-md transition-shadow relative">
-                <div class="sm:w-[150px] flex-shrink-0 pt-1 relative">
-                    <div class="hidden sm:block absolute -right-[31px] top-3 w-3 h-3 rounded-full bg-cream border-[2px] border-electric-iris z-10 group-hover:bg-electric-iris transition-colors"></div>
-                    <div class="text-[14px] font-medium text-fog">Окт 2025 – н.в.</div>
-                </div>
-                <div class="flex flex-col">
-                    <h3 class="text-[20px] font-medium text-ink leading-tight mb-1">Маркетолог</h3>
-                    <div class="text-[16px] text-electric-iris font-medium">Проектная деятельность (deal.by, Старик Хинкалыч и др.)</div>
+            <div class="bg-paper border border-bone rounded-[16px] shadow-relume-subtle transition-shadow hover:shadow-relume-md">
+                <button class="w-full flex items-center justify-between p-6 text-left focus:outline-none group" onclick="toggleAccordion('exp1')">
+                    <div class="flex flex-col sm:flex-row gap-2 sm:gap-8 w-full items-start sm:items-center">
+                        <div class="sm:w-[150px] flex-shrink-0 text-[14px] font-medium text-fog">Окт 2025 – Н.в.</div>
+                        <div class="flex flex-col flex-grow">
+                            <h3 class="text-[20px] font-medium text-ink leading-tight mb-1 group-hover:text-electric-iris transition-colors">Маркетолог-generalist</h3>
+                            <div class="text-[16px] text-ink opacity-80 font-medium">Проектная деятельность</div>
+                        </div>
+                    </div>
+                    <svg id="icon-exp1" class="w-6 h-6 flex-shrink-0 text-fog transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div id="exp1" class="hidden">
+                    <div class="px-6 pb-6 pt-2 border-t border-bone mx-6 text-[15px] text-fog leading-[1.6]">
+                        Ведение проектов: <strong>Старик Хинкалыч, Deal.by, Solo, Медведь Электро, 5 киловатт, Понеслось, ЕваЕла.</strong><br>
+                        Разработка геймификации, настройка таргетированной рекламы, построение автоворонок и сквозной аналитики, интеграция AI и автоматизация маркетинговых процессов.
+                    </div>
                 </div>
             </div>
 
             <!-- Item 2 -->
-            <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle flex flex-col sm:flex-row gap-4 sm:gap-12 group hover:shadow-relume-md transition-shadow relative">
-                <div class="sm:w-[150px] flex-shrink-0 pt-1 relative">
-                    <div class="hidden sm:block absolute -right-[31px] top-3 w-3 h-3 rounded-full bg-cream border-[2px] border-bone z-10 group-hover:border-electric-iris transition-colors"></div>
-                    <div class="text-[14px] font-medium text-fog">Ноя 2024 – Окт 2025</div>
-                </div>
-                <div class="flex flex-col">
-                    <h3 class="text-[20px] font-medium text-ink leading-tight mb-1">Руководитель отдела маркетинга</h3>
-                    <div class="text-[16px] text-ink opacity-80 font-medium">Руки Вверх, Небар (Delivery)</div>
+            <div class="bg-paper border border-bone rounded-[16px] shadow-relume-subtle transition-shadow hover:shadow-relume-md">
+                <button class="w-full flex items-center justify-between p-6 text-left focus:outline-none group" onclick="toggleAccordion('exp2')">
+                    <div class="flex flex-col sm:flex-row gap-2 sm:gap-8 w-full items-start sm:items-center">
+                        <div class="sm:w-[150px] flex-shrink-0 text-[14px] font-medium text-fog">Ноя 2024 – Окт 2025</div>
+                        <div class="flex flex-col flex-grow">
+                            <h3 class="text-[20px] font-medium text-ink leading-tight mb-1 group-hover:text-electric-iris transition-colors">Руководитель отдела маркетинга доставки</h3>
+                            <div class="text-[16px] text-ink opacity-80 font-medium">Федеральная сеть баров (Руки Вверх бар, Небар, Сплетни)</div>
+                        </div>
+                    </div>
+                    <svg id="icon-exp2" class="w-6 h-6 flex-shrink-0 text-fog transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div id="exp2" class="hidden">
+                    <div class="px-6 pb-6 pt-2 border-t border-bone mx-6 text-[15px] text-fog leading-[1.6]">
+                        Построение маркетинга для продукта "Доставка" с нуля. Разработка стратегии продвижения, УТП, брендинга. Разработка сайта и приложения, создание системы лояльности. Управление локальными маркетологами и контроль бюджета. Окупаемость продукта 14%.
+                    </div>
                 </div>
             </div>
 
             <!-- Item 3 -->
-            <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle flex flex-col sm:flex-row gap-4 sm:gap-12 group hover:shadow-relume-md transition-shadow relative">
-                <div class="sm:w-[150px] flex-shrink-0 pt-1 relative">
-                    <div class="hidden sm:block absolute -right-[31px] top-3 w-3 h-3 rounded-full bg-cream border-[2px] border-bone z-10 group-hover:border-electric-iris transition-colors"></div>
-                    <div class="text-[14px] font-medium text-fog">Ноя 2023 – Ноя 2024</div>
-                </div>
-                <div class="flex flex-col">
-                    <h3 class="text-[20px] font-medium text-ink leading-tight mb-1">Директор по маркетингу</h3>
-                    <div class="text-[16px] text-ink opacity-80 font-medium">Папа Панда, Дракон Вагон</div>
+            <div class="bg-paper border border-bone rounded-[16px] shadow-relume-subtle transition-shadow hover:shadow-relume-md">
+                <button class="w-full flex items-center justify-between p-6 text-left focus:outline-none group" onclick="toggleAccordion('exp3')">
+                    <div class="flex flex-col sm:flex-row gap-2 sm:gap-8 w-full items-start sm:items-center">
+                        <div class="sm:w-[150px] flex-shrink-0 text-[14px] font-medium text-fog">Ноя 2023 – Ноя 2024</div>
+                        <div class="flex flex-col flex-grow">
+                            <h3 class="text-[20px] font-medium text-ink leading-tight mb-1 group-hover:text-electric-iris transition-colors">Директор по маркетингу</h3>
+                            <div class="text-[16px] text-ink opacity-80 font-medium">Папа Панда, Дракон Вагон, Фидель Гастро</div>
+                        </div>
+                    </div>
+                    <svg id="icon-exp3" class="w-6 h-6 flex-shrink-0 text-fog transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div id="exp3" class="hidden">
+                    <div class="px-6 pb-6 pt-2 border-t border-bone mx-6 text-[15px] text-fog leading-[1.6]">
+                        Управление отделом маркетинга в трех компаниях. Найм и обучение команды. Переработка маркетинговой стратегии, запуск дополнительных точек dark kitchen, снижение CPO до 350 р. Увеличение кол-ва клиентов из собственных каналов.
+                    </div>
                 </div>
             </div>
 
             <!-- Item 4 -->
-            <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle flex flex-col sm:flex-row gap-4 sm:gap-12 group hover:shadow-relume-md transition-shadow relative">
-                <div class="sm:w-[150px] flex-shrink-0 pt-1 relative">
-                    <div class="hidden sm:block absolute -right-[31px] top-3 w-3 h-3 rounded-full bg-cream border-[2px] border-bone z-10 group-hover:border-electric-iris transition-colors"></div>
-                    <div class="text-[14px] font-medium text-fog">Сен 2022 – Ноя 2023</div>
-                </div>
-                <div class="flex flex-col">
-                    <h3 class="text-[20px] font-medium text-ink leading-tight mb-1">Руководитель отдела маркетинга</h3>
-                    <div class="text-[16px] text-ink opacity-80 font-medium">Дракон Вагон</div>
-                </div>
-            </div>
-
-            <!-- Item 5 -->
-            <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle flex flex-col sm:flex-row gap-4 sm:gap-12 group hover:shadow-relume-md transition-shadow relative">
-                <div class="sm:w-[150px] flex-shrink-0 pt-1 relative">
-                    <div class="hidden sm:block absolute -right-[31px] top-3 w-3 h-3 rounded-full bg-cream border-[2px] border-bone z-10 group-hover:border-electric-iris transition-colors"></div>
-                    <div class="text-[14px] font-medium text-fog">Янв 2021 – Фев 2022</div>
-                </div>
-                <div class="flex flex-col">
-                    <h3 class="text-[20px] font-medium text-ink leading-tight mb-1">Руководитель отдела маркетинга (B2B)</h3>
-                    <div class="text-[16px] text-ink opacity-80 font-medium">SendPulse</div>
-                </div>
-            </div>
-
-            <!-- Item 6 -->
-            <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle flex flex-col sm:flex-row gap-4 sm:gap-12 group hover:shadow-relume-md transition-shadow relative">
-                <div class="sm:w-[150px] flex-shrink-0 pt-1 relative">
-                    <div class="hidden sm:block absolute -right-[31px] top-3 w-3 h-3 rounded-full bg-cream border-[2px] border-bone z-10 group-hover:border-electric-iris transition-colors"></div>
-                    <div class="text-[14px] font-medium text-fog">Май 2016 – Июл 2021</div>
-                </div>
-                <div class="flex flex-col">
-                    <h3 class="text-[20px] font-medium text-ink leading-tight mb-1">Руководитель SMM отдела</h3>
-                    <div class="text-[16px] text-ink opacity-80 font-medium">Папа Панда</div>
+            <div class="bg-paper border border-bone rounded-[16px] shadow-relume-subtle transition-shadow hover:shadow-relume-md">
+                <button class="w-full flex items-center justify-between p-6 text-left focus:outline-none group" onclick="toggleAccordion('exp4')">
+                    <div class="flex flex-col sm:flex-row gap-2 sm:gap-8 w-full items-start sm:items-center">
+                        <div class="sm:w-[150px] flex-shrink-0 text-[14px] font-medium text-fog">Янв 2021 – Фев 2022</div>
+                        <div class="flex flex-col flex-grow">
+                            <h3 class="text-[20px] font-medium text-ink leading-tight mb-1 group-hover:text-electric-iris transition-colors">Руководитель отдела маркетинга и рекламы (B2B)</h3>
+                            <div class="text-[16px] text-ink opacity-80 font-medium">SendPulse</div>
+                        </div>
+                    </div>
+                    <svg id="icon-exp4" class="w-6 h-6 flex-shrink-0 text-fog transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div id="exp4" class="hidden">
+                    <div class="px-6 pb-6 pt-2 border-t border-bone mx-6 text-[15px] text-fog leading-[1.6]">
+                        Снизил САС на 10%, увеличил платящую аудиторию на 15%. Построил комплексные автоворонки. Руководил кросс-функциональной командой из 7 человек. Внедрил систему OKR.
+                    </div>
                 </div>
             </div>
 
@@ -361,53 +361,96 @@
 
     <!-- Cases Grid -->
     <section id="cases" class="w-full max-w-[1200px] mx-auto px-6 pt-12 pb-12">
-        <h2 class="text-[32px] sm:text-[40px] font-medium leading-[1.2] tracking-tight-md text-ink mb-10">
+        <h2 class="text-[32px] sm:text-[40px] font-medium leading-[1.2] tracking-tight-md text-ink mb-12">
             Избранные кейсы
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="flex flex-col gap-16">
             
-            <!-- Card 1 -->
-            <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-md flex flex-col group relative overflow-hidden transition-transform hover:-translate-y-1 duration-300">
-                <span class="text-[14px] font-medium text-electric-iris mb-4">B2B & SaaS</span>
-                <h3 class="text-[32px] sm:text-[40px] font-medium leading-[1.2] tracking-tight-md text-ink mb-2">SendPulse</h3>
-                <p class="text-[16px] text-fog leading-[1.5] mb-8 flex-grow">
-                    Снизил CAC на 10%, увеличил платящую аудиторию на 15%. Построил омниканальные воронки и управлял кросс-функциональной командой из 7 человек.
-                </p>
-                <div class="mt-auto">
-                    <button class="btn-ghost text-[16px] font-medium underline decoration-bone underline-offset-4 group-hover:decoration-ink transition-colors">
-                        Подробнее о кейсе
-                    </button>
+            <!-- Category 1 -->
+            <div>
+                <h3 class="text-[24px] font-medium text-ink mb-6 border-b border-bone pb-4 flex items-center gap-3">
+                    <span class="w-2 h-2 rounded-full bg-electric-iris"></span> Таргетированная реклама и Директ
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle transition-shadow hover:shadow-relume-md flex flex-col group">
+                        <span class="text-[14px] font-medium text-electric-iris mb-2">HoReCa</span>
+                        <h4 class="text-[24px] font-medium text-ink mb-3">Снижение CPL в ВК и Директе</h4>
+                        <p class="text-[15px] text-fog leading-[1.6] mb-6">Точечная оптимизация рекламных кампаний для сети "Руки Вверх" и "Понеслось". Удержание стоимости лида при масштабировании.</p>
+                        <div class="mt-auto">
+                            <button class="btn-ghost text-[15px] font-medium underline decoration-bone underline-offset-4 group-hover:decoration-ink transition-colors">Подробнее</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Card 2 -->
-            <div id="cases" class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-md flex flex-col group relative overflow-hidden transition-transform hover:-translate-y-1 duration-300">
-                <span class="text-[14px] font-medium text-teal-accent mb-4">HoReCa Group</span>
-                <h3 class="text-[32px] sm:text-[40px] font-medium leading-[1.2] tracking-tight-md text-ink mb-2">Папа Панда & Дракон Вагон</h3>
-                <p class="text-[16px] text-fog leading-[1.5] mb-8 flex-grow">
-                    Перезапуск маркетинга. Увеличение заказов из агрегаторов на 15%. Снижение CPO до 350-600 руб. Внедрение сквозной аналитики и управления лояльностью.
-                </p>
-                <div class="mt-auto">
-                    <button class="btn-ghost text-[16px] font-medium underline decoration-bone underline-offset-4 group-hover:decoration-ink transition-colors">
-                        Подробнее о кейсе
-                    </button>
+            <!-- Category 2 -->
+            <div>
+                <h3 class="text-[24px] font-medium text-ink mb-6 border-b border-bone pb-4 flex items-center gap-3">
+                    <span class="w-2 h-2 rounded-full bg-teal-accent"></span> Комплексный маркетинг
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle transition-shadow hover:shadow-relume-md flex flex-col group">
+                        <span class="text-[14px] font-medium text-teal-accent mb-2">FoodTech</span>
+                        <h4 class="text-[24px] font-medium text-ink mb-3">Папа Панда & Дракон Вагон</h4>
+                        <p class="text-[15px] text-fog leading-[1.6] mb-6">Перезапуск стратегии с нуля. Увеличение заказов из агрегаторов на 15%. Снижение CPO до 350-600 руб.</p>
+                        <div class="mt-auto">
+                            <button class="btn-ghost text-[15px] font-medium underline decoration-bone underline-offset-4 group-hover:decoration-ink transition-colors">Читать кейс</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Card 3 -->
-            <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-md flex flex-col group relative overflow-hidden transition-transform hover:-translate-y-1 duration-300">
-                <span class="text-[14px] font-medium text-coral-accent mb-4">Tech & B2B</span>
-                <h3 class="text-[32px] sm:text-[40px] font-medium leading-[1.2] tracking-tight-md text-ink mb-2">AI & Автоматизация</h3>
-                <p class="text-[16px] text-fog leading-[1.5] mb-8 flex-grow">
-                    Разработка ботов и дашбордов на Python, интеграция Gemini API. Успешные проекты автоматизации для Deal.by, аутстафф компаний и Старик Хинкалыч.
-                </p>
-                <div class="mt-auto">
-                    <button class="btn-ghost text-[16px] font-medium underline decoration-bone underline-offset-4 group-hover:decoration-ink transition-colors">
-                        Подробнее о кейсе
-                    </button>
+            <!-- Category 3 -->
+            <div>
+                <h3 class="text-[24px] font-medium text-ink mb-6 border-b border-bone pb-4 flex items-center gap-3">
+                    <span class="w-2 h-2 rounded-full bg-coral-accent"></span> Автоворонки и CRM
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle transition-shadow hover:shadow-relume-md flex flex-col group">
+                        <span class="text-[14px] font-medium text-coral-accent mb-2">B2B SaaS</span>
+                        <h4 class="text-[24px] font-medium text-ink mb-3">SendPulse & Deal.by</h4>
+                        <p class="text-[15px] text-fog leading-[1.6] mb-6">Геймификация email-рассылок и триггерные цепи. Снижение оттока (Churn Rate) и повышение LTV на 15%.</p>
+                        <div class="mt-auto">
+                            <button class="btn-ghost text-[15px] font-medium underline decoration-bone underline-offset-4 group-hover:decoration-ink transition-colors">Смотреть воронку</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+            <!-- Category 4 -->
+            <div>
+                <h3 class="text-[24px] font-medium text-ink mb-6 border-b border-bone pb-4 flex items-center gap-3">
+                    <span class="w-2 h-2 rounded-full bg-electric-iris"></span> Дашборды и AI-автоматизация
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle transition-shadow hover:shadow-relume-md flex flex-col group">
+                        <span class="text-[14px] font-medium text-electric-iris mb-2">Tech</span>
+                        <h4 class="text-[24px] font-medium text-ink mb-3">Vibe-coding & Сквозная аналитика</h4>
+                        <p class="text-[15px] text-fog leading-[1.6] mb-6">Создание скриптов на Python (Cursor, Base44) для сбора данных и интеграции с iiko, Roistat. Автоматический расчет ROMI.</p>
+                        <div class="mt-auto">
+                            <button class="btn-ghost text-[15px] font-medium underline decoration-bone underline-offset-4 group-hover:decoration-ink transition-colors">Код и архитектура</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 5 -->
+            <div>
+                <h3 class="text-[24px] font-medium text-ink mb-6 border-b border-bone pb-4 flex items-center gap-3">
+                    <span class="w-2 h-2 rounded-full bg-acid-lemon border border-bone"></span> AI-креативы (Фото и Видео)
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Заглушки для будущих работ -->
+                    <div class="bg-cream border border-bone border-dashed rounded-[16px] h-48 flex items-center justify-center text-fog text-[14px] font-medium hover:bg-white transition-colors cursor-pointer">
+                        + Добавить видео HeyGen
+                    </div>
+                    <div class="bg-cream border border-bone border-dashed rounded-[16px] h-48 flex items-center justify-center text-fog text-[14px] font-medium hover:bg-white transition-colors cursor-pointer">
+                        + Добавить AI Фото
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </section>
 
@@ -447,44 +490,55 @@
 
     <!-- Dynamic Scripts -->
     <script>
-        // Card 1 Data (Updates every 3 seconds)
+        // Card 1 Data
         const card1Data = [
-            { title: "SendPulse", metric: "CAC -10%", bar: "80%", subtext: "за 6 месяцев" },
-            { title: "Solo", metric: "x2.5 выручки", bar: "100%", subtext: "за 4 месяца" },
-            { title: "5КВт & Медведь", metric: "+15% клиентов", bar: "85%", subtext: "за 6 месяцев" },
-            { title: "Папа Панда", metric: "+1 млн ₽", bar: "95%", subtext: "с автоворонки ВК" },
-            { title: "Руки Вверх", metric: "14%", bar: "70%", subtext: "рентабельность" },
-            { title: "Дракон Вагон", metric: "+5% выручки", bar: "75%", subtext: "в пицце" },
-            { title: "Папа Панда", metric: "+7%", bar: "80%", subtext: "на самовывоз" }
+            { title: "SendPulse", tag: "SaaS", metric: "CAC -10%", bar: "80%", subtext: "за 6 мес" },
+            { title: "Solo", tag: "HoReCa", metric: "x2.5 выручки", bar: "100%", subtext: "за 4 мес" },
+            { title: "Медведь & 5 КВТ", tag: "E-commerce", metric: "+15% клиентов", bar: "85%", subtext: "за 6 мес" },
+            { title: "Папа Панда", tag: "HoReCa", metric: "+1 млн ₽", bar: "95%", subtext: "с автоворонки ВК" },
+            { title: "Руки Вверх", tag: "HoReCa", metric: "14% прибыль", bar: "70%", subtext: "доставка" },
+            { title: "Дракон Вагон", tag: "HoReCa", metric: "+5% выручки", bar: "75%", subtext: "в пицце" },
+            { title: "Папа Панда", tag: "HoReCa", metric: "+7% клиентов", bar: "80%", subtext: "на самовывоз" }
         ];
         let card1Idx = 0;
         
-        // Card 2 Data (Updates every 5 seconds)
+        // Card 2 Data
         const card2Data = [
             { title: "Python & Gemini API", code: "def optimize_cpa():<br>&nbsp;&nbsp;return max_roi()<br><span class='text-electric-iris'># Automation init</span>" },
-            { title: "Roistat & Яндекс", code: "SELECT roi, cac<br>FROM campaigns<br><span class='text-electric-iris'># Data driven</span>" },
-            { title: "Senler & amoCRM", code: "webhook.send({<br>&nbsp;&nbsp;status: 'success'<br>})<br><span class='text-electric-iris'># Seamless sync</span>" }
+            { title: "Cursor & Base44", code: "import cursor<br>AI.vibe_coding(True)<br><span class='text-electric-iris'># Fast dev & deploy</span>" },
+            { title: "HeyGen & Coze", code: "generate_video(script)<br>bot.activate()<br><span class='text-electric-iris'># AI content creation</span>" }
         ];
         let card2Idx = 0;
 
-        // Card 3 Data (Updates every 4 seconds)
+        // Card 3 Data
         const card3Data = [
-            { metric: "6", icon: "👨‍🏫", subtext: "Обучено маркетологов" },
-            { metric: "4", icon: "📱", subtext: "Обучено SMM-специалистов" },
-            { metric: "2", icon: "🎯", subtext: "Обучено таргетологов" },
-            { metric: "до 15M ₽", icon: "💰", subtext: "Бюджеты в месяц (от 30k)" },
-            { metric: "AI-команда", icon: "🤖", subtext: "Создана с нуля" },
-            { metric: "12 лет", icon: "📈", subtext: "В Performance-маркетинге" }
+            { metric: "Обучено 12+ специалистов", subtext: "6 маркетологов, 4 SMM, 2 таргетолога" },
+            { metric: "Управление бюджетом", subtext: "от 30к до 15 млн руб/мес" },
+            { metric: "Кросс-функциональные", subtext: "Управление in-house и remote командами" },
+            { metric: "Vibe-coding & AI", subtext: "Внедрение нейросетей в ежедневную рутину" }
         ];
         let card3Idx = 0;
 
-        function updateCard(containerId, updateLogic) {
+        // Smooth update logic
+        function updateCard(containerId, updateLogic, titleId = null, tagId = null) {
             const container = document.getElementById(containerId);
-            container.style.opacity = '0';
+            const title = titleId ? document.getElementById(titleId) : null;
+            const tag = tagId ? document.getElementById(tagId) : null;
+            
+            // Fade out
+            container.classList.add('opacity-0');
+            if (title) title.classList.add('opacity-0');
+            if (tag) tag.classList.add('opacity-0');
+            
             setTimeout(() => {
+                // Update content while invisible
                 updateLogic();
-                container.style.opacity = '1';
-            }, 300); // Wait for fade out
+                
+                // Fade in
+                container.classList.remove('opacity-0');
+                if (title) title.classList.remove('opacity-0');
+                if (tag) tag.classList.remove('opacity-0');
+            }, 300); // matches the 300ms transition duration
         }
 
         // Initialize Rotations
@@ -492,28 +546,41 @@
             card1Idx = (card1Idx + 1) % card1Data.length;
             updateCard('card1-content', () => {
                 document.getElementById('card1-title').innerText = card1Data[card1Idx].title;
+                document.getElementById('card1-tag').innerText = card1Data[card1Idx].tag;
                 document.getElementById('card1-metric').innerText = card1Data[card1Idx].metric;
                 document.getElementById('card1-bar').style.width = card1Data[card1Idx].bar;
                 document.getElementById('card1-subtext').innerText = card1Data[card1Idx].subtext;
-            });
-        }, 3000);
+            }, 'card1-title', 'card1-tag');
+        }, 3500);
 
         setInterval(() => {
             card2Idx = (card2Idx + 1) % card2Data.length;
             updateCard('card2-content', () => {
                 document.getElementById('card2-title').innerText = card2Data[card2Idx].title;
                 document.getElementById('card2-code').innerHTML = card2Data[card2Idx].code;
-            });
-        }, 5000);
+            }, 'card2-title');
+        }, 4500);
 
         setInterval(() => {
             card3Idx = (card3Idx + 1) % card3Data.length;
             updateCard('card3-content', () => {
                 document.getElementById('card3-metric').innerText = card3Data[card3Idx].metric;
-                document.getElementById('card3-icon').innerText = card3Data[card3Idx].icon;
                 document.getElementById('card3-subtext').innerText = card3Data[card3Idx].subtext;
             });
         }, 4000);
+
+        // Accordion Logic
+        window.toggleAccordion = function(id) {
+            const content = document.getElementById(id);
+            const icon = document.getElementById('icon-' + id);
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
     </script>
 </body>
 </html>
