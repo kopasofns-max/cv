@@ -28,6 +28,8 @@
                         'cream': '#f1f0ee',
                         'paper': '#ffffff',
                         'acid-lemon': '#f0f41a',
+                        'coral-accent': '#ff7448',
+                        'teal-accent': '#0d9488',
                     },
                     fontFamily: {
                         sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
@@ -61,6 +63,7 @@
             color: theme('colors.ink');
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         /* Интерактивный курсор */
@@ -122,6 +125,64 @@
 
         .scroll-reveal { opacity: 0; }
         .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+
+        /* Thematic Background Layers */
+        .theme-layer {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.8s ease-in-out;
+            z-index: 5;
+            overflow: hidden;
+        }
+        .theme-layer.active {
+            opacity: 1;
+        }
+
+        /* Optimist Animations */
+        @keyframes floatUp {
+            0% { transform: translateY(100px) rotate(0deg); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-200px) rotate(20deg); opacity: 0; }
+        }
+        .floating-emoji {
+            position: absolute;
+            font-size: 2rem;
+            animation: floatUp 4s ease-in-out infinite;
+            opacity: 0;
+        }
+        .emoji-1 { left: 15%; animation-delay: 0s; }
+        .emoji-2 { left: 80%; animation-delay: 1.5s; font-size: 2.5rem; }
+        .emoji-3 { left: 50%; animation-delay: 2.5s; font-size: 1.5rem; }
+
+        /* Equilibrist Animations */
+        @keyframes balance {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+        .balance-board {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            width: 300px;
+            height: 4px;
+            background: theme('colors.iron');
+            margin-left: -150px;
+            animation: balance 4s ease-in-out infinite;
+        }
+
+        /* Amethyst Animations */
+        @keyframes pulseGlow {
+            0%, 100% { transform: scale(1); opacity: 0.4; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+        }
+        .amethyst-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: pulseGlow 6s ease-in-out infinite;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col relative">
@@ -144,82 +205,107 @@
         </div>
     </nav>
 
-    <!-- Hero Section (Сетка для десктопа, скролл для мобилок) -->
-    <main class="w-full max-w-[1200px] mx-auto px-6 pt-12 lg:pt-20 pb-16 lg:pb-32 grid grid-cols-1 lg:grid-cols-[260px_1fr_260px] gap-8 items-center relative z-10">
+    <!-- Hero Section -->
+    <main class="w-full max-w-[1200px] mx-auto px-6 pt-12 lg:pt-24 pb-16 flex flex-col items-center text-center relative z-10 min-h-[70vh] lg:min-h-[auto]">
         
-        <!-- Центральный текст (На мобилках он будет сверху из-за order) -->
-        <div class="relative z-20 text-center order-1 lg:order-2">
-            <h1 class="text-[40px] sm:text-[64px] md:text-[76px] font-medium leading-[1.05] tracking-tight-lg text-ink mb-6">
-                Никита Копасов — <br>
+        <!-- Thematic Background Layers -->
+        <div id="bg-generalist" class="theme-layer active">
+            <!-- Neutral state, handled by global cursor -->
+        </div>
+
+        <div id="bg-optimist" class="theme-layer">
+            <div class="floating-emoji emoji-1">😊</div>
+            <div class="floating-emoji emoji-2">🚀</div>
+            <div class="floating-emoji emoji-3">💡</div>
+        </div>
+
+        <div id="bg-alpinist" class="theme-layer">
+            <svg class="absolute bottom-10 left-1/2 -translate-x-1/2 w-[800px] max-w-full opacity-20" viewBox="0 0 800 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 200L250 50L400 120L600 20L800 200H0Z" fill="#b8adf5"/>
+            </svg>
+            <div class="absolute bottom-[130px] left-[55%] text-4xl transform -scale-x-100">🧗‍♂️</div>
+        </div>
+
+        <div id="bg-equilibrist" class="theme-layer">
+            <div class="balance-board">
+                <div class="absolute -top-[30px] left-[20%] w-[30px] h-[30px] rounded-full bg-coral-accent opacity-50"></div>
+                <div class="absolute -top-[40px] right-[20%] w-[40px] h-[40px] bg-electric-iris opacity-50 rotate-12"></div>
+            </div>
+            <div class="absolute top-[35%] left-[60%] text-5xl">🤹</div>
+        </div>
+
+        <div id="bg-amethyst" class="theme-layer">
+            <div class="amethyst-glow w-[300px] h-[300px] bg-electric-iris top-10 left-[10%]"></div>
+            <div class="amethyst-glow w-[400px] h-[400px] bg-soft-lilac bottom-10 right-[10%]" style="animation-delay: 2s;"></div>
+            <div class="absolute top-[30%] left-[20%] text-4xl animate-bounce">🔮</div>
+            <div class="absolute bottom-[30%] right-[25%] text-4xl animate-pulse">💎</div>
+        </div>
+
+        <!-- Central Text -->
+        <div class="relative z-20 max-w-[850px] mb-8 lg:mb-0 lg:mt-8">
+            <h1 class="text-[40px] sm:text-[64px] md:text-[84px] font-medium leading-[1.05] tracking-tight-lg text-ink mb-6">
+                Никита Копасов —<br>
                 маркетолог-<br>
                 <span id="dynamic-role" class="gradient-text transition-opacity duration-400">generalist</span><br>
-                с опытом > 12 лет.
+                с опытом &gt; 12 лет.
             </h1>
-            <p class="text-[16px] sm:text-[20px] font-normal leading-[1.5] text-fog max-w-[500px] mx-auto">
+            <p class="text-[16px] sm:text-[20px] font-normal leading-[1.5] text-fog max-w-[600px] mx-auto">
                 Комплексный маркетинг, performance и автоматизация для HoReCa, e-commerce и SaaS.
             </p>
         </div>
 
-        <!-- Контейнер для карточек (Горизонтальный скролл на мобилках) -->
-        <div class="order-2 lg:order-1 flex lg:contents overflow-x-auto snap-x snap-mandatory gap-6 pt-6 pb-8 hide-scrollbar -mx-6 px-6 lg:mx-0 lg:px-0">
+        <!-- Cards Container (Горизонтальный скролл на мобилках, абсолютное позиционирование на ПК) -->
+        <div class="flex flex-row lg:block w-full overflow-x-auto lg:overflow-visible snap-x snap-mandatory gap-6 pt-6 pb-8 hide-scrollbar -mx-6 px-6 lg:mx-0 lg:px-0 lg:pt-0 lg:pb-0 relative z-30">
             
-            <!-- Левая колонка (Desktop) / Первые 2 карточки (Mobile) -->
-            <div class="flex flex-row lg:flex-col gap-6 shrink-0 lg:mt-12">
-                <!-- Карточка 1 (Достижения) -->
-                <div class="relative bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center gap-3 snap-center lg:-rotate-2">
-                    <div class="absolute -top-3 -right-3 bg-electric-iris text-paper text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle border border-bone z-10 transition-colors" id="card1-tag">
-                        SaaS
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <span class="text-[13px] font-medium text-electric-iris" id="card1-project">SendPulse</span>
-                    </div>
-                    <div class="card-content-fade text-left" id="card1-content">
-                        <div class="text-[28px] font-medium tracking-tight-md text-ink mt-1" id="card1-metric">CAC: -10%</div>
-                        <div class="h-1.5 w-full bg-cream rounded-full overflow-hidden mt-3 mb-2">
-                            <div class="h-full bg-electric-iris rounded-full transition-all duration-500" id="card1-bar" style="width: 85%;"></div>
-                        </div>
-                        <div class="text-[13px] text-fog" id="card1-desc">Снижение стоимости</div>
-                    </div>
+            <!-- Card 1 (Metrics) -->
+            <div class="flex relative lg:absolute lg:top-4 lg:left-[-2rem] xl:left-0 lg:-rotate-3 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[280px] lg:w-64 h-[160px] flex-col justify-center shrink-0 snap-center text-left">
+                <div class="absolute -top-3 right-4 bg-paper text-electric-iris border border-bone text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10" id="card1-tag">
+                    SaaS
                 </div>
-
-                <!-- Карточка 3 (Scale & Team) -->
-                <div class="relative bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center gap-2 snap-center lg:rotate-2">
-                    <div class="absolute -top-3 -right-3 bg-soft-lilac text-electric-iris text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle border border-bone z-10">
-                        Scale & Team
+                <div class="card-content-fade flex flex-col justify-center" id="card1-content">
+                    <div class="text-[13px] font-medium text-fog mb-1 truncate" id="card1-title">SendPulse</div>
+                    <div class="text-[28px] font-medium tracking-tight-md text-ink mt-1 truncate" id="card1-metric">CAC: -10%</div>
+                    <div class="h-1.5 w-full bg-cream rounded-full overflow-hidden mt-3 mb-2">
+                        <div class="h-full bg-electric-iris rounded-full transition-all duration-500" id="card1-bar" style="width: 85%;"></div>
                     </div>
-                    <div class="card-content-fade flex flex-col justify-center text-left" id="card3-content">
-                        <div class="text-[20px] font-medium tracking-tight-md text-ink leading-[1.2]" id="card3-title">Бюджеты до 15 млн ₽</div>
-                        <div class="text-[13px] text-fog mt-3 leading-[1.4]" id="card3-desc">Опыт управления сплитом от 30 тыс. руб/мес</div>
+                    <div class="text-[13px] text-fog truncate" id="card1-desc">Снижение стоимости</div>
+                </div>
+            </div>
+
+            <!-- Card 2 (Tech Stack) -->
+            <div class="flex relative lg:absolute lg:top-24 lg:right-[-2rem] xl:right-0 lg:rotate-[2deg] bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[280px] lg:w-72 h-[160px] flex-col justify-center shrink-0 snap-center text-left">
+                <div class="absolute -top-3 right-4 bg-acid-lemon text-ink border border-bone text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
+                    Tech Stack
+                </div>
+                <div class="card-content-fade text-left" id="card2-content">
+                    <div class="text-[14px] font-medium text-ink mt-1" id="card2-title">Python & Gemini API</div>
+                    <div class="bg-cream rounded-[8px] p-3 font-mono text-[11px] text-fog leading-relaxed mt-2 overflow-hidden h-[60px]" id="card2-code">
+                        def optimize_cpa():<br>
+                        &nbsp;&nbsp;return max_roi()<br>
+                        <span class="text-electric-iris"># Automation init</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Правая колонка (Desktop) / Последние 2 карточки (Mobile) -->
-            <div class="flex flex-row lg:flex-col gap-6 shrink-0 lg:mb-12 lg:order-3">
-                <!-- Карточка 2 (Tech Stack) -->
-                <div class="relative bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center gap-2 snap-center lg:rotate-2">
-                    <div class="absolute -top-3 -right-3 bg-acid-lemon text-ink text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle border border-bone z-10">
-                        Tech Stack
-                    </div>
-                    <div class="card-content-fade text-left" id="card2-content">
-                        <div class="text-[14px] font-medium text-ink" id="card2-title">Python & Gemini API</div>
-                        <div class="bg-cream rounded-[8px] p-3 font-mono text-[11px] text-fog leading-relaxed mt-3" id="card2-code">
-                            def optimize_cpa():<br>
-                            &nbsp;&nbsp;return max_roi()<br>
-                            <span class="text-electric-iris"># Automation init</span>
-                        </div>
-                    </div>
+            <!-- Card 3 (Leadership) -->
+            <div class="flex relative lg:absolute lg:bottom-[-2rem] lg:left-8 xl:left-12 lg:rotate-[3deg] bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[280px] lg:w-64 h-[160px] flex-col justify-center shrink-0 snap-center text-left">
+                <div class="absolute -top-3 right-4 bg-paper text-soft-lilac border border-soft-lilac text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
+                    Scale & Team
                 </div>
+                <div class="card-content-fade flex flex-col justify-center" id="card3-content">
+                    <div class="text-[18px] font-medium tracking-tight-md text-ink leading-[1.2]" id="card3-title">Бюджеты до 15 млн ₽</div>
+                    <div class="text-[13px] text-fog mt-2 leading-[1.4] line-clamp-2" id="card3-desc">Опыт управления сплитом от 30 тыс. руб/мес</div>
+                </div>
+            </div>
 
-                <!-- Карточка 4 (Skills) - Замена бегущей строке -->
-                <div class="relative bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center gap-2 snap-center lg:-rotate-2">
-                    <div class="absolute -top-3 -right-3 bg-cream text-ink text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle border border-bone z-10">
-                        Skills
-                    </div>
-                    <div class="card-content-fade text-left" id="card4-content">
-                        <div class="text-[20px] font-medium tracking-tight-md text-ink leading-[1.2]" id="card4-title">Трафик</div>
-                        <div class="text-[13px] text-fog mt-3 leading-[1.4]" id="card4-desc">Internet Marketing, Контекстная реклама, Таргетинг, SEO, Запуск кампаний</div>
-                    </div>
+            <!-- Card 4 (Skills) -->
+            <div class="flex relative lg:absolute lg:bottom-[-4rem] lg:right-8 xl:right-12 lg:-rotate-2 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[280px] lg:w-72 h-[160px] flex-col justify-center shrink-0 snap-center text-left">
+                <div class="absolute -top-3 right-4 bg-paper text-teal-accent border border-teal-accent/30 text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
+                    Skills
+                </div>
+                <div class="card-content-fade flex flex-col justify-center" id="card4-content">
+                    <div class="text-[18px] font-medium tracking-tight-md text-ink leading-[1.2]" id="card4-title">Стратегия</div>
+                    <div class="text-[13px] text-fog mt-2 leading-[1.4] line-clamp-3" id="card4-desc">Product Marketing, Customer Journey Map, Unit-экономика, Анализ конкурентов</div>
                 </div>
             </div>
 
@@ -472,7 +558,7 @@
 
     <!-- Скрипты -->
     <script>
-        // Интерактивный курсор
+        // Interactive Glow Cursor
         const cursor = document.getElementById('glow-cursor');
         let mouseX = window.innerWidth / 2;
         let mouseY = window.innerHeight / 2;
@@ -495,6 +581,7 @@
 
         // Смена слов в заголовке
         const roles = ["generalist", "оптимист", "альпинист", "эквилибрист", "аметист"];
+        const themes = ['bg-generalist', 'bg-optimist', 'bg-alpinist', 'bg-equilibrist', 'bg-amethyst'];
         let roleIdx = 0;
         const roleEl = document.getElementById('dynamic-role');
         
@@ -503,6 +590,14 @@
             setTimeout(() => {
                 roleIdx = (roleIdx + 1) % roles.length;
                 roleEl.innerText = roles[roleIdx];
+                
+                // Toggle themes
+                document.querySelectorAll('.theme-layer').forEach(layer => {
+                    layer.classList.remove('active');
+                });
+                const themeLayer = document.getElementById(themes[roleIdx]);
+                if (themeLayer) themeLayer.classList.add('active');
+                
                 roleEl.style.opacity = '1';
             }, 400); 
         }, 4000);
