@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Никита Копасов — CMO, MarTech & Generalist</title>
+    <title>Никита Копасов — CMO & MarTech Expert</title>
     
+    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
     
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- Tailwind Configuration & Custom Styles -->
     <script>
         tailwind.config = {
             theme: {
@@ -28,6 +31,8 @@
                         'cream': '#f1f0ee',
                         'paper': '#ffffff',
                         'acid-lemon': '#f0f41a',
+                        'teal-accent': '#0d9488',
+                        'coral-accent': '#ff7448',
                     },
                     fontFamily: {
                         sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
@@ -39,20 +44,6 @@
                     letterSpacing: {
                         'tight-md': '-0.02em',
                         'tight-lg': '-0.03em',
-                    },
-                    animation: {
-                        'marquee': 'marquee 40s linear infinite',
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                    },
-                    keyframes: {
-                        marquee: {
-                            '0%': { transform: 'translateX(0%)' },
-                            '100%': { transform: 'translateX(-100%)' },
-                        },
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
                     }
                 }
             }
@@ -60,28 +51,17 @@
     </script>
 
     <style>
+        /* Typography overrides for Relume "Relative" simulation */
         body {
             font-feature-settings: "ss01" on, "cv11" on;
             background-color: theme('colors.cream');
             color: theme('colors.ink');
             -webkit-font-smoothing: antialiased;
+            scroll-behavior: smooth;
             overflow-x: hidden;
         }
 
-        /* Интерактивный курсор */
-        #glow-cursor {
-            position: fixed;
-            width: 500px;
-            height: 500px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(98, 72, 255, 0.15) 0%, rgba(255, 116, 72, 0.05) 40%, rgba(255, 255, 255, 0) 70%);
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: opacity 0.3s ease;
-            filter: blur(40px);
-        }
-
+        /* Signature Gradient for text */
         .gradient-text {
             background: linear-gradient(100deg, rgb(255, 116, 72), rgb(255, 72, 72) 42%, rgb(98, 72, 255) 85%);
             -webkit-background-clip: text;
@@ -89,15 +69,29 @@
             color: transparent;
         }
 
+        /* Signature Gradient for borders (used in Prompt Input) */
         .gradient-border-wrap {
             background: linear-gradient(100deg, rgb(255, 116, 72), rgb(255, 72, 72) 42%, rgb(98, 72, 255) 85%);
         }
 
+        /* Button Hovers */
+        .btn-outline:hover {
+            box-shadow: theme('boxShadow.relume-subtle');
+        }
+        .btn-ghost {
+            color: theme('colors.ink');
+            transition: color 0.2s ease;
+        }
+        .btn-ghost:hover {
+            color: theme('colors.fog');
+        }
+        
+        /* Fade transition for dynamic cards (only fades content, not the card box itself) */
         .card-content-fade {
-            transition: opacity 0.4s ease-in-out;
+            transition: opacity 0.3s ease-in-out;
         }
 
-        /* Скрытие скроллбара для мобильной карусели */
+        /* Scrollbar hiding for mobile carousel */
         .hide-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -106,6 +100,27 @@
             scrollbar-width: none;
         }
 
+        /* Interactive Glow Cursor */
+        #glow-cursor {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            top: -300px; 
+            left: -300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(98, 72, 255, 0.15) 0%, rgba(255, 116, 72, 0.05) 40%, rgba(255, 255, 255, 0) 70%);
+            pointer-events: none;
+            z-index: 9999;
+            transition: opacity 0.3s ease;
+            filter: blur(40px);
+        }
+
+        .case-tile:hover .case-arrow {
+            transform: translateX(5px);
+            color: theme('colors.electric-iris');
+        }
+
+        /* Accordion Animations */
         .accordion-content {
             max-height: 0;
             overflow: hidden;
@@ -115,104 +130,84 @@
         .accordion-content.active {
             opacity: 1;
         }
-        .accordion-icon {
-            transition: transform 0.3s ease;
-        }
         .accordion-header.active .accordion-icon {
             transform: rotate(180deg);
         }
 
-        .case-tile {
-            position: relative;
-        }
-        .case-tile::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(100deg, rgb(255, 116, 72), rgb(98, 72, 255));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-        .case-tile:hover::before {
-            transform: scaleX(1);
-        }
-        .case-tile:hover .case-arrow {
-            transform: translateX(5px);
-            color: theme('colors.electric-iris');
-        }
-
         .scroll-reveal {
             opacity: 0;
+            animation: none;
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col relative">
+<body class="min-h-screen flex flex-col bg-cream text-ink">
     <div id="glow-cursor"></div>
 
     <!-- Navbar -->
-    <nav class="w-full max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between relative z-50">
+    <nav class="w-full max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between mt-4 relative z-50">
         <div class="flex items-center gap-2">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 2L20.6603 7V17L12 22L3.33975 17V7L12 2Z" stroke="#161616" stroke-width="2" stroke-linejoin="round"/>
             </svg>
             <span class="text-[16px] font-medium tracking-tight">Никита Копасов</span>
         </div>
-        <div class="flex items-center gap-8">
-            <a href="#experience" class="text-[16px] font-medium text-ink hover:text-fog transition-colors hidden sm:block">Опыт</a>
-            <a href="#cases" class="text-[16px] font-medium text-ink hover:text-fog transition-colors hidden sm:block">Кейсы</a>
-            <a href="#contact" class="border border-ink bg-transparent text-ink text-[16px] font-medium rounded-[8px] py-2 px-5 hover:shadow-relume-subtle transition-all">
+        <div class="flex items-center gap-6">
+            <a href="#experience" class="text-[16px] font-medium btn-ghost hidden sm:block">Опыт</a>
+            <a href="#cases" class="text-[16px] font-medium btn-ghost hidden sm:block">Кейсы</a>
+            <a href="#contact" class="btn-outline border border-ink bg-transparent text-ink text-[16px] font-medium rounded-[8px] py-2 px-5 transition-shadow inline-block">
                 Контакты
             </a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <main class="w-full max-w-[1200px] mx-auto px-6 pt-12 lg:pt-24 pb-16 lg:pb-32 flex flex-col items-center text-center relative z-10 overflow-hidden lg:overflow-visible">
+    <main class="w-full max-w-[1200px] mx-auto px-6 pt-12 lg:pt-24 pb-16 flex flex-col items-center text-center relative z-10">
         
-        <!-- Центральный текст (Идет первым для мобильной версии) -->
-        <div class="relative z-20 max-w-[850px] mb-8 lg:mb-0 lg:mt-12">
+        <!-- Central Text -->
+        <div class="relative z-20 max-w-[850px] mb-8 lg:mb-0 lg:mt-8">
             <h1 class="text-[40px] sm:text-[64px] md:text-[84px] font-medium leading-[1.05] tracking-tight-lg text-ink mb-6">
-                Никита Копасов — <br><span class="gradient-text">маркетолог-generalist</span><br>с опытом > 12 лет.
+                Никита Копасов —<br>
+                <span class="gradient-text">маркетолог-generalist</span><br>
+                с опытом &gt; 12 лет.
             </h1>
             <p class="text-[16px] sm:text-[20px] font-normal leading-[1.5] text-fog max-w-[600px] mx-auto">
                 Комплексный маркетинг, performance и автоматизация для HoReCa, e-commerce и SaaS.
             </p>
         </div>
 
-        <!-- Контейнер карточек: горизонтальный скролл на мобильном, абсолютное позиционирование на десктопе -->
-        <div class="flex flex-row lg:block w-full overflow-x-auto lg:overflow-visible snap-x snap-mandatory gap-6 pb-6 lg:pb-0 hide-scrollbar -mx-6 px-6 lg:mx-0 lg:px-0">
+        <!-- Cards Container: Flex row snap on mobile (with vertical padding to prevent tag clipping), absolute on desktop -->
+        <div class="flex flex-row lg:block w-full overflow-x-auto lg:overflow-visible snap-x snap-mandatory pt-6 pb-8 px-6 -mx-6 lg:mx-0 lg:px-0 lg:pt-0 lg:pb-0 gap-6 hide-scrollbar">
             
-            <!-- Карточка 1 (Достижения) -->
-            <div class="flex relative lg:absolute lg:top-4 lg:left-[-2rem] xl:left-0 lg:-rotate-3 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[280px] lg:w-64 flex-col gap-3 z-0 shrink-0 snap-center">
-                <!-- Плашка сверху -->
-                <div class="absolute -top-3 -right-3 bg-electric-iris text-paper text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle border border-bone z-10 transition-colors" id="card1-tag">
+            <!-- Card 1 (Metrics) -->
+            <div class="flex relative lg:absolute lg:top-4 lg:left-[-2rem] xl:left-0 lg:-rotate-3 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[280px] lg:w-64 h-[160px] flex-col justify-center z-0 shrink-0 snap-center text-left">
+                <div class="absolute -top-3 right-4 bg-paper text-electric-iris border border-bone text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10 card-content-fade" id="card1-tag">
                     SaaS
                 </div>
-                <div class="flex items-center justify-between">
-                    <span class="text-[13px] font-medium text-electric-iris" id="card1-project">SendPulse</span>
-                </div>
-                <div class="card-content-fade text-left" id="card1-content">
-                    <div class="text-[28px] font-medium tracking-tight-md text-ink mt-1" id="card1-metric">CAC: -10%</div>
+                <div class="card-content-fade flex flex-col justify-center" id="card1-content">
+                    <div class="text-[13px] font-medium text-fog mb-1 truncate" id="card1-title">SendPulse</div>
+                    <div class="text-[28px] font-medium tracking-tight-md text-ink mt-1 truncate" id="card1-metric">CAC: -10%</div>
                     <div class="h-1.5 w-full bg-cream rounded-full overflow-hidden mt-3 mb-2">
-                        <div class="h-full bg-electric-iris rounded-full transition-all duration-500" id="card1-bar" style="width: 85%;"></div>
+                        <div class="h-full bg-electric-iris rounded-full transition-all duration-500" style="width: 80%;" id="card1-bar"></div>
                     </div>
-                    <div class="text-[13px] text-fog" id="card1-desc">Снижение стоимости</div>
+                    <div class="text-[13px] text-fog truncate" id="card1-desc">за 6 мес</div>
                 </div>
             </div>
 
-            <!-- Карточка 2 (Tech Stack) -->
-            <div class="flex relative lg:absolute lg:top-32 lg:right-[-2rem] xl:right-0 lg:rotate-[2deg] bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[280px] lg:w-72 flex-col gap-3 z-0 shrink-0 snap-center text-left">
-                <!-- Плашка сверху -->
-                <div class="absolute -top-3 -right-3 bg-acid-lemon text-ink text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle border border-bone z-10">
+            <!-- Card 2 (Tech Stack) -->
+            <div class="flex relative lg:absolute lg:top-24 lg:right-[-2rem] xl:right-0 lg:rotate-[2deg] bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[280px] lg:w-72 h-[160px] flex-col justify-center z-0 shrink-0 snap-center text-left">
+                <div class="absolute -top-3 right-4 bg-acid-lemon text-ink border border-bone text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
                     Tech Stack
                 </div>
                 <div class="card-content-fade" id="card2-content">
-                    <div class="text-[14px] font-medium text-ink mt-1" id="card2-title">Python & Gemini API</div>
-                    <div class="bg-cream rounded-[8px] p-3 font-mono text-[11px] text-fog text-left leading-relaxed mt-2" id="card2-code">
+                    <div class="text-[14px] font-medium text-ink mt-1 truncate" id="card2-title">Python & Gemini API</div>
+                    <div class="bg-cream rounded-[8px] p-3 font-mono text-[11px] text-fog text-left leading-relaxed mt-2 overflow-hidden h-[60px]" id="card2-code">
                         def optimize_cpa():<br>
                         &nbsp;&nbsp;return max_roi()<br>
                         <span class="text-electric-iris"># Automation init</span>
@@ -220,90 +215,55 @@
                 </div>
             </div>
 
-            <!-- Карточка 3 (Leadership) -->
-            <div class="flex relative lg:absolute lg:bottom-[-2rem] lg:left-12 lg:rotate-[3deg] bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[280px] lg:w-64 flex-col justify-center gap-3 z-0 shrink-0 snap-center min-h-[140px] text-left">
-                <!-- Плашка сверху -->
-                <div class="absolute -top-3 -right-3 bg-soft-lilac text-electric-iris text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle border border-bone z-10">
+            <!-- Card 3 (Leadership) -->
+            <div class="flex relative lg:absolute lg:bottom-[-2rem] lg:left-8 lg:rotate-[3deg] bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[280px] lg:w-64 h-[160px] flex-col justify-center z-0 shrink-0 snap-center text-left">
+                <div class="absolute -top-3 right-4 bg-paper text-soft-lilac border border-soft-lilac text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
                     Scale & Team
                 </div>
-                <div class="card-content-fade flex-grow flex flex-col justify-center" id="card3-content">
-                    <div class="text-[20px] font-medium tracking-tight-md text-ink leading-[1.2]" id="card3-title">Бюджеты до 15 млн ₽</div>
-                    <div class="text-[13px] text-fog mt-2 leading-[1.4]" id="card3-desc">Опыт управления сплитом от 30 тыс. руб/мес</div>
+                <div class="card-content-fade flex flex-col justify-center" id="card3-content">
+                    <div class="text-[18px] font-medium tracking-tight-md text-ink leading-[1.2]" id="card3-title">Бюджеты до 15 млн ₽</div>
+                    <div class="text-[13px] text-fog mt-2 leading-[1.4] line-clamp-2" id="card3-desc">Управление рекламным сплитом от 30 тыс. руб/мес</div>
+                </div>
+            </div>
+
+            <!-- Card 4 (Skills - replaces the marquee) -->
+            <div class="flex relative lg:absolute lg:bottom-[-4rem] lg:right-12 lg:-rotate-2 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[280px] lg:w-72 h-[160px] flex-col justify-center z-0 shrink-0 snap-center text-left">
+                <div class="absolute -top-3 right-4 bg-paper text-teal-accent border border-teal-accent/30 text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
+                    Skills
+                </div>
+                <div class="card-content-fade flex flex-col justify-center" id="card4-content">
+                    <div class="text-[18px] font-medium tracking-tight-md text-ink leading-[1.2]" id="card4-title">Стратегия</div>
+                    <div class="text-[13px] text-fog mt-2 leading-[1.4] line-clamp-3" id="card4-desc">Product Marketing, Customer Journey Map, Unit-экономика, Анализ конкурентов</div>
                 </div>
             </div>
 
         </div>
     </main>
 
-    <!-- Навыки (Бегущая строка - ИСПРАВЛЕННАЯ) -->
-    <section class="w-full bg-paper border-y border-bone py-4 overflow-hidden relative z-20">
-        <div class="flex flex-nowrap w-max">
-            <!-- Блок 1 -->
-            <div class="flex flex-nowrap gap-8 px-4 items-center shrink-0 animate-marquee">
-                <span class="text-[16px] sm:text-[18px] font-medium text-iron whitespace-nowrap">Product Marketing</span>
-                <span class="w-1.5 h-1.5 shrink-0 rounded-full bg-electric-iris"></span>
-                <span class="text-[16px] sm:text-[18px] font-medium text-iron whitespace-nowrap">CRM-маркетинг</span>
-                <span class="w-1.5 h-1.5 shrink-0 rounded-full bg-electric-iris"></span>
-                <span class="text-[16px] sm:text-[18px] font-medium text-iron whitespace-nowrap">Customer Journey Map (CJM)</span>
-                <span class="w-1.5 h-1.5 shrink-0 rounded-full bg-electric-iris"></span>
-                <span class="text-[16px] sm:text-[18px] font-medium text-iron whitespace-nowrap">Unit-экономика</span>
-                <span class="w-1.5 h-1.5 shrink-0 rounded-full bg-electric-iris"></span>
-                <span class="text-[16px] sm:text-[18px] font-medium text-iron whitespace-nowrap">Маркетинговые исследования</span>
-                <span class="w-1.5 h-1.5 shrink-0 rounded-full bg-electric-iris"></span>
-                <span class="text-[16px] sm:text-[18px] font-medium text-iron whitespace-nowrap">Маркетинговый анализ</span>
-                <span class="w-1.5 h-1.5 shrink-0 rounded-full bg-electric-iris"></span>
-                <span class="text-[16px] sm:text-[18px] font-medium text-iron whitespace-nowrap">Управление командой</span>
-                <span class="w-1.5 h-1.5 shrink-0 rounded-full bg-electric-iris"></span>
-                <span class="text-[16px] sm:text-[18px] font-medium text-iron whitespace-nowrap">Разработка маркетинговой стратегии</span>
-                <span class="w-1.5 h-1.5 shrink-0 rounded-full bg-electric-iris"></span>
-                <span class="text-[16px] sm:text-[18px] font-medium text-iron whitespace-nowrap">Запуск рекламных кампаний</span>
-            </div>
-            <!-- Блок 2 (Дубликат для бесшовности) -->
-            <div class="flex flex-nowrap gap-8 px-4 items-center shrink-0 animate-marquee" aria-hidden="true">
-                <span class="text-[16px] sm:text-[18px] font-medium text-iron whitespace-nowrap">Product Marketing</span>
-                <span class="w-1.5 h-1.5 shrink-0 rounded-full bg-electric-iris"></span>
-                <span class="text-[16px] sm:text-[18px] font-medium text-iron whitespace-nowrap">CRM-маркетинг</span>
-                <span class="w-1.5 h-1.5 shrink-0 rounded-full bg-electric-iris"></span>
-                <span class="text-[16px] sm:text-[18px] font-medium text-iron whitespace-nowrap">Customer Journey Map (CJM)</span>
-                <span class="w-1.5 h-1.5 shrink-0 rounded-full bg-electric-iris"></span>
-                <span class="text-[16px] sm:text-[18px] font-medium text-iron whitespace-nowrap">Unit-экономика</span>
-                <span class="w-1.5 h-1.5 shrink-0 rounded-full bg-electric-iris"></span>
-                <span class="text-[16px] sm:text-[18px] font-medium text-iron whitespace-nowrap">Маркетинговые исследования</span>
-                <span class="w-1.5 h-1.5 shrink-0 rounded-full bg-electric-iris"></span>
-                <span class="text-[16px] sm:text-[18px] font-medium text-iron whitespace-nowrap">Маркетинговый анализ</span>
-                <span class="w-1.5 h-1.5 shrink-0 rounded-full bg-electric-iris"></span>
-                <span class="text-[16px] sm:text-[18px] font-medium text-iron whitespace-nowrap">Управление командой</span>
-                <span class="w-1.5 h-1.5 shrink-0 rounded-full bg-electric-iris"></span>
-                <span class="text-[16px] sm:text-[18px] font-medium text-iron whitespace-nowrap">Разработка маркетинговой стратегии</span>
-                <span class="w-1.5 h-1.5 shrink-0 rounded-full bg-electric-iris"></span>
-                <span class="text-[16px] sm:text-[18px] font-medium text-iron whitespace-nowrap">Запуск рекламных кампаний</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Опыт Работы -->
+    <!-- Experience Timeline (Perfect alignment) -->
     <section id="experience" class="w-full max-w-[1000px] mx-auto px-6 py-24 relative z-20">
-        <h2 class="text-[32px] sm:text-[48px] font-medium leading-[1.2] tracking-tight-md text-ink mb-12 scroll-reveal">
+        <h2 class="text-[32px] sm:text-[40px] font-medium leading-[1.2] tracking-tight-md text-ink mb-12 scroll-reveal">
             Опыт работы
         </h2>
         
         <div class="border-t border-bone scroll-reveal" style="animation-delay: 0.1s;">
+            
             <!-- Опыт 1 -->
             <div class="border-b border-bone">
-                <button class="accordion-header w-full py-6 flex flex-col sm:flex-row sm:items-center justify-between text-left group gap-4">
-                    <div class="flex flex-col sm:flex-row sm:gap-12 lg:gap-24 w-full">
-                        <div class="text-[16px] text-fog font-medium min-w-[140px]">Окт 2025 – н.в.</div>
-                        <div>
+                <button class="accordion-header w-full py-6 flex items-center justify-between text-left group gap-4">
+                    <div class="flex flex-col sm:flex-row gap-2 sm:gap-6 w-full items-start sm:items-center">
+                        <div class="w-[160px] shrink-0 text-[14px] font-medium text-fog">Окт 2025 – Н.в.</div>
+                        <div class="flex flex-col flex-grow">
                             <div class="text-[20px] font-medium text-ink group-hover:text-electric-iris transition-colors">Маркетолог-generalist</div>
                             <div class="text-[16px] text-fog mt-1">Проектная деятельность (Deal.by, Старик Хинкалыч, Медведь Электро и др.)</div>
                         </div>
                     </div>
-                    <div class="accordion-icon min-w-[24px] text-iron group-hover:text-electric-iris">
+                    <div class="accordion-icon w-[24px] shrink-0 text-iron group-hover:text-electric-iris flex justify-end">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </div>
                 </button>
                 <div class="accordion-content">
-                    <div class="pb-6 pl-0 sm:pl-[140px] lg:pl-[236px] text-[16px] text-fog leading-[1.6]">
+                    <div class="pb-6 pl-0 sm:pl-[184px] text-[16px] text-fog leading-[1.6]">
                         <ul class="list-disc pl-5 space-y-2">
                             <li><strong>Deal.by:</strong> Внедрил механики геймификации в B2B email-рассылках. Провел А/В тесты, настроил автоматические триггерные цепочки.</li>
                             <li><strong>Старик Хинкалыч:</strong> Разработал и внедрил комплексную CRM-систему (Senler, BotHelp). Интеграция с iiko, разработка системы аналитики CPO и ROMI.</li>
@@ -315,20 +275,20 @@
 
             <!-- Опыт 2 -->
             <div class="border-b border-bone">
-                <button class="accordion-header w-full py-6 flex flex-col sm:flex-row sm:items-center justify-between text-left group gap-4">
-                    <div class="flex flex-col sm:flex-row sm:gap-12 lg:gap-24 w-full">
-                        <div class="text-[16px] text-fog font-medium min-w-[140px]">Ноя 2024 – Окт 2025</div>
-                        <div>
+                <button class="accordion-header w-full py-6 flex items-center justify-between text-left group gap-4">
+                    <div class="flex flex-col sm:flex-row gap-2 sm:gap-6 w-full items-start sm:items-center">
+                        <div class="w-[160px] shrink-0 text-[14px] font-medium text-fog">Ноя 2024 – Окт 2025</div>
+                        <div class="flex flex-col flex-grow">
                             <div class="text-[20px] font-medium text-ink group-hover:text-electric-iris transition-colors">Руководитель отдела маркетинга доставки</div>
                             <div class="text-[16px] text-fog mt-1">Руки Вверх бар, Небар, Сплетни</div>
                         </div>
                     </div>
-                    <div class="accordion-icon min-w-[24px] text-iron group-hover:text-electric-iris">
+                    <div class="accordion-icon w-[24px] shrink-0 text-iron group-hover:text-electric-iris flex justify-end">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </div>
                 </button>
                 <div class="accordion-content">
-                    <div class="pb-6 pl-0 sm:pl-[140px] lg:pl-[236px] text-[16px] text-fog leading-[1.6]">
+                    <div class="pb-6 pl-0 sm:pl-[184px] text-[16px] text-fog leading-[1.6]">
                         Построение маркетинга для продукта "Доставка" с нуля. Достиг прибыльности направления в 14%. Разработка технико-экономических обоснований, внедрение программы лояльности, управление командой локальных маркетологов.
                     </div>
                 </div>
@@ -336,20 +296,20 @@
 
             <!-- Опыт 3 -->
             <div class="border-b border-bone">
-                <button class="accordion-header w-full py-6 flex flex-col sm:flex-row sm:items-center justify-between text-left group gap-4">
-                    <div class="flex flex-col sm:flex-row sm:gap-12 lg:gap-24 w-full">
-                        <div class="text-[16px] text-fog font-medium min-w-[140px]">Ноя 2023 – Ноя 2024</div>
-                        <div>
+                <button class="accordion-header w-full py-6 flex items-center justify-between text-left group gap-4">
+                    <div class="flex flex-col sm:flex-row gap-2 sm:gap-6 w-full items-start sm:items-center">
+                        <div class="w-[160px] shrink-0 text-[14px] font-medium text-fog">Ноя 2023 – Ноя 2024</div>
+                        <div class="flex flex-col flex-grow">
                             <div class="text-[20px] font-medium text-ink group-hover:text-electric-iris transition-colors">Директор по маркетингу (CMO)</div>
                             <div class="text-[16px] text-fog mt-1">Папа Панда, Дракон Вагон, Фидель Гастро</div>
                         </div>
                     </div>
-                    <div class="accordion-icon min-w-[24px] text-iron group-hover:text-electric-iris">
+                    <div class="accordion-icon w-[24px] shrink-0 text-iron group-hover:text-electric-iris flex justify-end">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </div>
                 </button>
                 <div class="accordion-content">
-                    <div class="pb-6 pl-0 sm:pl-[140px] lg:pl-[236px] text-[16px] text-fog leading-[1.6]">
+                    <div class="pb-6 pl-0 sm:pl-[184px] text-[16px] text-fog leading-[1.6]">
                         Управление отделом в трех компаниях. Перезапуск маркетинга на основе CJM и QFD-анализа. Внедрил сквозную аналитику (Roistat). Итог: +15% клиентов из агрегаторов, +7% на самовывоз, удержание CPO в пределах 350-600 рублей. Запустил проект "Фидель Гастро" с нуля за 3 месяца.
                     </div>
                 </div>
@@ -357,32 +317,75 @@
 
             <!-- Опыт 4 -->
             <div class="border-b border-bone">
-                <button class="accordion-header w-full py-6 flex flex-col sm:flex-row sm:items-center justify-between text-left group gap-4">
-                    <div class="flex flex-col sm:flex-row sm:gap-12 lg:gap-24 w-full">
-                        <div class="text-[16px] text-fog font-medium min-w-[140px]">Янв 2021 – Фев 2022</div>
-                        <div>
+                <button class="accordion-header w-full py-6 flex items-center justify-between text-left group gap-4">
+                    <div class="flex flex-col sm:flex-row gap-2 sm:gap-6 w-full items-start sm:items-center">
+                        <div class="w-[160px] shrink-0 text-[14px] font-medium text-fog">Янв 2021 – Фев 2022</div>
+                        <div class="flex flex-col flex-grow">
                             <div class="text-[20px] font-medium text-ink group-hover:text-electric-iris transition-colors">Руководитель отдела маркетинга и рекламы</div>
                             <div class="text-[16px] text-fog mt-1">SendPulse (B2B SaaS)</div>
                         </div>
                     </div>
-                    <div class="accordion-icon min-w-[24px] text-iron group-hover:text-electric-iris">
+                    <div class="accordion-icon w-[24px] shrink-0 text-iron group-hover:text-electric-iris flex justify-end">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </div>
                 </button>
                 <div class="accordion-content">
-                    <div class="pb-6 pl-0 sm:pl-[140px] lg:pl-[236px] text-[16px] text-fog leading-[1.6]">
+                    <div class="pb-6 pl-0 sm:pl-[184px] text-[16px] text-fog leading-[1.6]">
                         Разработал и внедрил стратегию для рынков РФ и РБ: снижение CAC на 10%, рост платящей аудитории на 15%. Управлял командой из 7 человек. Построил комплексные автоворонки для реактивации клиентов (OKRs-подход).
                     </div>
                 </div>
             </div>
+
+            <!-- Опыт 5 (Новый) -->
+            <div class="border-b border-bone">
+                <button class="accordion-header w-full py-6 flex items-center justify-between text-left group gap-4">
+                    <div class="flex flex-col sm:flex-row gap-2 sm:gap-6 w-full items-start sm:items-center">
+                        <div class="w-[160px] shrink-0 text-[14px] font-medium text-fog">Май 2016 – Июл 2021</div>
+                        <div class="flex flex-col flex-grow">
+                            <div class="text-[20px] font-medium text-ink group-hover:text-electric-iris transition-colors">Руководитель SMM отдела</div>
+                            <div class="text-[16px] text-fog mt-1">Папа Панда</div>
+                        </div>
+                    </div>
+                    <div class="accordion-icon w-[24px] shrink-0 text-iron group-hover:text-electric-iris flex justify-end">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                </button>
+                <div class="accordion-content">
+                    <div class="pb-6 pl-0 sm:pl-[184px] text-[16px] text-fog leading-[1.6]">
+                        Комплексное продвижение компании в социальных сетях (ВК, ИГ, ФБ, ТГ). Разработка SMM-стратегии. Создание уникальных автоворонок, ботов и реферальных систем. Контроль работы контент-мейкеров и дизайнеров. Развитие франшизы бренда через SMM каналы.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Опыт 6 (Новый) -->
+            <div class="border-b border-bone">
+                <button class="accordion-header w-full py-6 flex items-center justify-between text-left group gap-4">
+                    <div class="flex flex-col sm:flex-row gap-2 sm:gap-6 w-full items-start sm:items-center">
+                        <div class="w-[160px] shrink-0 text-[14px] font-medium text-fog">Янв 2014 – Окт 2020</div>
+                        <div class="flex flex-col flex-grow">
+                            <div class="text-[20px] font-medium text-ink group-hover:text-electric-iris transition-colors">Таргетолог / SMM</div>
+                            <div class="text-[16px] text-fog mt-1">Понеслось, So So Coffee, Кофедвиж, Like Хостел</div>
+                        </div>
+                    </div>
+                    <div class="accordion-icon w-[24px] shrink-0 text-iron group-hover:text-electric-iris flex justify-end">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                </button>
+                <div class="accordion-content">
+                    <div class="pb-6 pl-0 sm:pl-[184px] text-[16px] text-fog leading-[1.6]">
+                        Многолетний опыт ведения таргетированной рекламы и SMM-сопровождения для различных ниш (в основном HoReCa). Привлечение заявок, оптимизация СРА, внедрение первых чат-ботов во ВКонтакте, постановка ТЗ креативным командам и ведение медиапланирования.
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Избранные кейсы -->
+    <!-- Избранные кейсы (Горизонтальные плитки) -->
     <section id="cases" class="w-full bg-paper py-24 border-y border-bone relative z-20">
         <div class="max-w-[1200px] mx-auto px-6">
-            <h2 class="text-[32px] sm:text-[48px] font-medium leading-[1.2] tracking-tight-md text-ink mb-12 scroll-reveal">
-                Экспертиза и кейсы
+            <h2 class="text-[32px] sm:text-[40px] font-medium leading-[1.2] tracking-tight-md text-ink mb-12 scroll-reveal">
+                Направления и кейсы
             </h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -450,12 +453,13 @@
     </section>
 
     <!-- Контакты -->
-    <section id="contact" class="w-full max-w-[1200px] mx-auto px-6 pt-24 pb-32 flex flex-col items-center text-center relative z-20">
-        <h2 class="text-[32px] sm:text-[48px] font-medium leading-[1.2] tracking-tight-md text-ink mb-10 scroll-reveal">
-            Обсудим ваш проект?
+    <section id="contact" class="w-full max-w-[1200px] mx-auto px-6 pt-12 pb-32 flex flex-col items-center text-center">
+        <h2 class="text-[32px] sm:text-[48px] font-medium leading-[1.2] tracking-tight-md text-ink mb-10">
+            Готовы ускорить свой маркетинг?
         </h2>
         
-        <div class="gradient-border-wrap p-[2px] rounded-[320px] w-full max-w-[640px] shadow-relume-md scroll-reveal">
+        <!-- Signature Prompt Input Bar -->
+        <div class="gradient-border-wrap p-[2px] rounded-[320px] w-full max-w-[640px] shadow-relume-md">
             <form onsubmit="event.preventDefault();" class="bg-paper rounded-[320px] flex items-center p-1 w-full relative">
                 <input 
                     type="email" 
@@ -468,23 +472,23 @@
                 </button>
             </form>
         </div>
-        <p class="text-fog text-[14px] mt-4 scroll-reveal">или пишите в Telegram: @kopasovskiy</p>
+        <p class="text-fog text-[14px] mt-4">или свяжитесь в Telegram: <a href="https://t.me/kopasovskiy" class="underline hover:text-ink">@kopasovskiy</a></p>
     </section>
 
     <!-- Footer -->
     <footer class="w-full border-t border-bone mt-auto relative z-20">
         <div class="max-w-[1200px] mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div class="text-[14px] text-fog">© 2026 Никита Копасов. CMO & MarTech Expert.</div>
+            <div class="text-[14px] text-fog">© 2026 Никита Копасов. CMO.</div>
             <div class="flex gap-6">
-                <a href="https://vk.com/kopasovnikita" class="text-[14px] text-fog hover:text-ink transition-colors font-medium" target="_blank">ВКонтакте</a>
-                <a href="https://t.me/kopasovskiy" class="text-[14px] text-fog hover:text-ink transition-colors font-medium" target="_blank">Telegram</a>
+                <a href="https://vk.com/kopasovnikita" class="text-[14px] text-fog hover:text-ink transition-colors font-medium">ВКонтакте</a>
+                <a href="https://t.me/kopasovskiy" class="text-[14px] text-fog hover:text-ink transition-colors font-medium">Telegram</a>
             </div>
         </div>
     </footer>
 
-    <!-- Скрипты -->
+    <!-- Dynamic Scripts -->
     <script>
-        // Интерактивный курсор
+        // Interactive Glow Cursor
         const cursor = document.getElementById('glow-cursor');
         let mouseX = window.innerWidth / 2;
         let mouseY = window.innerHeight / 2;
@@ -505,69 +509,87 @@
         }
         animateCursor();
 
-        // Данные для Карточки 1
-        const metrics = [
-            { project: "Sendpulse", metric: "CAC: -10%", tag: "SaaS", desc: "За 6 месяцев", bar: 85, color: "bg-electric-iris" },
-            { project: "Solo", metric: "x2.5 выручки", tag: "HoReCa", desc: "За 4 месяца", bar: 95, color: "bg-acid-lemon" },
-            { project: "Медведь Электро", metric: "+15% клиентов", tag: "E-com", desc: "За 6 месяцев", bar: 75, color: "bg-soft-lilac" },
-            { project: "Папа Панда", metric: "+1 млн ₽", tag: "HoReCa", desc: "С автоворонки ВК", bar: 90, color: "bg-electric-iris" },
-            { project: "Руки Вверх", metric: "14% прибыль", tag: "HoReCa", desc: "Окупаемость доставки", bar: 80, color: "bg-acid-lemon" },
-            { project: "Дракон Вагон", metric: "+5% выручки", tag: "HoReCa", desc: "В категории пицца", bar: 60, color: "bg-soft-lilac" }
+        // Card 1 Data (Metrics)
+        const card1Data = [
+            { title: "Sendpulse", metric: "CAC: -10%", tag: "SaaS", desc: "За 6 месяцев", bar: "85%", color: "bg-electric-iris" },
+            { title: "Solo", metric: "x2.5 выручки", tag: "HoReCa", desc: "За 4 месяца", bar: "100%", color: "bg-acid-lemon" },
+            { title: "Медведь Электро", metric: "+15% клиентов", tag: "E-com", desc: "За 6 месяцев", bar: "75%", color: "bg-soft-lilac" },
+            { title: "Папа Панда", metric: "+1 млн ₽", tag: "HoReCa", desc: "С автоворонки ВК", bar: "90%", color: "bg-electric-iris" },
+            { title: "Руки Вверх", metric: "14% прибыль", tag: "HoReCa", desc: "Окупаемость доставки", bar: "80%", color: "bg-acid-lemon" },
+            { title: "Дракон Вагон", metric: "+5% выручки", tag: "HoReCa", desc: "В категории пицца", bar: "60%", color: "bg-soft-lilac" }
         ];
-
-        // Данные для Карточки 2
-        const techStack = [
+        let card1Idx = 0;
+        
+        // Card 2 Data (Tech Stack)
+        const card2Data = [
             { title: "Python & Gemini API", code: "def optimize_cpa():<br>&nbsp;&nbsp;return max_roi()<br><span class='text-electric-iris'># Automation init</span>" },
             { title: "Cursor & Base44", code: "import cursor<br>AI.vibe_coding(True)<br><span class='text-electric-iris'># Fast dev & deploy</span>" },
             { title: "Senler & amoCRM", code: "webhook.send({<br>&nbsp;&nbsp;status: 'success'<br>})<br><span class='text-electric-iris'># Seamless sync</span>" },
             { title: "Roistat & Metrika", code: "SELECT roi, cpo<br>FROM channels<br><span class='text-electric-iris'># Data driven</span>" }
         ];
+        let card2Idx = 0;
 
-        // Данные для Карточки 3
-        const leadership = [
-            { title: "Бюджеты до 15 млн ₽", desc: "Опыт управления сплитом от 30 тыс. руб/мес" },
+        // Card 3 Data (Leadership & Scale)
+        const card3Data = [
+            { title: "Бюджеты до 15 млн ₽", desc: "Опыт управления рекламным сплитом от 30 тыс. руб/мес" },
             { title: "Обучено 6 маркетологов", desc: "Наставничество и онбординг in-house команды" },
             { title: "Обучено 4 SMM", desc: "Развитие компетенций и создание контент-отделов" },
             { title: "Обучено 2 таргетолога", desc: "Управление трафиком и performance-подход" }
         ];
+        let card3Idx = 0;
 
-        // Функция обновления карточек
-        function updateCard(elementId, dataArray, renderFn, interval) {
-            const el = document.getElementById(elementId);
-            if (!el) return;
-            let idx = 0;
+        // Card 4 Data (Skills)
+        const card4Data = [
+            { title: "Стратегия", desc: "Product Marketing, Customer Journey Map, Unit-экономика, Разработка маркетинговых стратегий" },
+            { title: "Трафик", desc: "Internet Marketing, Контекстная реклама, Таргетинг, SEO, Запуск региональных кампаний" },
+            { title: "Удержание", desc: "CRM-маркетинг, E-Mail Marketing, SMM, Продвижение бренда, Omnichannel" },
+            { title: "Аналитика", desc: "Маркетинговые исследования, Анализ, Google Analytics, Яндекс.Метрика, iiko" }
+        ];
+        let card4Idx = 0;
+
+        // Smooth update logic (Only fades the inner content)
+        function updateCard(containerId, dataArray, indexVar, updateFn, interval) {
             setInterval(() => {
-                idx = (idx + 1) % dataArray.length;
-                el.style.opacity = '0';
+                const container = document.getElementById(containerId);
+                if (!container) return;
+                
+                indexVar = (indexVar + 1) % dataArray.length;
+                container.style.opacity = '0';
+                
                 setTimeout(() => {
-                    renderFn(dataArray[idx]);
-                    el.style.opacity = '1';
-                }, 400);
+                    updateFn(dataArray[indexVar]);
+                    container.style.opacity = '1';
+                }, 300); // 300ms matches the CSS transition
             }, interval);
         }
 
-        updateCard('card1-content', metrics, (data) => {
-            document.getElementById('card1-project').innerText = data.project;
+        updateCard('card1-content', card1Data, card1Idx, (data) => {
+            document.getElementById('card1-title').innerText = data.title;
             document.getElementById('card1-tag').innerText = data.tag;
             document.getElementById('card1-metric').innerText = data.metric;
             document.getElementById('card1-desc').innerText = data.desc;
-            
             const bar = document.getElementById('card1-bar');
-            bar.style.width = `${data.bar}%`;
+            bar.style.width = data.bar;
             bar.className = `h-full rounded-full transition-all duration-500 ${data.color}`;
         }, 4000);
 
-        updateCard('card2-content', techStack, (data) => {
+        updateCard('card2-content', card2Data, card2Idx, (data) => {
             document.getElementById('card2-title').innerText = data.title;
             document.getElementById('card2-code').innerHTML = data.code;
         }, 3500);
 
-        updateCard('card3-content', leadership, (data) => {
+        updateCard('card3-content', card3Data, card3Idx, (data) => {
             document.getElementById('card3-title').innerText = data.title;
             document.getElementById('card3-desc').innerText = data.desc;
         }, 4500);
 
-        // Аккордеон
+        // Custom update logic for Card 4 since tag also needs to be updated or stay static
+        updateCard('card4-content', card4Data, card4Idx, (data) => {
+            document.getElementById('card4-title').innerText = data.title;
+            document.getElementById('card4-desc').innerText = data.desc;
+        }, 4200);
+
+        // Accordion Logic
         const accordions = document.querySelectorAll('.accordion-header');
         accordions.forEach(acc => {
             acc.addEventListener('click', function() {
@@ -583,7 +605,7 @@
             });
         });
 
-        // Анимация при скролле
+        // Scroll Animation Observer
         const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
