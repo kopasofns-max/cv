@@ -3,47 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Никита Копасов — CMO & MarTech Expert</title>
-    
-    <!-- Google Fonts: Inter -->
+    <title>The Kopasov Portfolio — CMO & MarTech</title>
+
+    <!-- Google Fonts: Bodoni Moda (Canopee), Source Serif 4 (Editorial New), Playfair Display (Domaine Display) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Playfair+Display:ital,wght@0,500;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;1,8..60,300&display=swap" rel="stylesheet">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Tailwind Configuration & Custom Styles -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'electric-iris': '#6248ff',
-                        'soft-lilac': '#b8adf5',
-                        'iris-mist': '#e0daff',
-                        'ink': '#161616',
-                        'graphite': '#222222',
-                        'slate': '#333333',
-                        'iron': '#4d4d4c',
-                        'fog': '#686868',
-                        'bone': '#e4e2df',
-                        'cream': '#f1f0ee',
-                        'paper': '#ffffff',
-                        'acid-lemon': '#f0f41a',
-                        'teal-accent': '#0d9488',
-                        'coral-accent': '#ff7448',
+                        'parchment': '#e2dedb',
+                        'bone-cream': '#cdc6be',
+                        'ink-black': '#1d1d1b',
+                        'charcoal': '#69645f',
+                        'pure-black': '#000000',
+                        'ember-orange': '#c03f13',
                     },
                     fontFamily: {
-                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+                        'bodoni': ['"Bodoni Moda"', 'serif'],
+                        'source': ['"Source Serif 4"', 'serif'],
+                        'playfair': ['"Playfair Display"', 'serif'],
                     },
                     boxShadow: {
-                        'relume-subtle': '0px 1px 3px 0px rgba(0, 0, 0, 0.08), 0px 1px 2px 0px rgba(0, 0, 0, 0.04)',
-                        'relume-md': '0px 8px 10px -4px rgba(0, 0, 0, 0.08), 0px 2px 10px 2px rgba(0, 0, 0, 0.05)',
+                        'miranda': '-4px 4px 6px 0px rgba(29, 29, 27, 0.2)',
+                        'miranda-lg': '-5px 3px 6px 0px rgba(29, 29, 27, 0.2)',
                     },
                     letterSpacing: {
-                        'tight-md': '-0.02em',
-                        'tight-lg': '-0.03em',
+                        'tighter-disp': '-0.05em',
+                        'tightest-disp': '-0.08em',
                     }
                 }
             }
@@ -51,212 +45,196 @@
     </script>
 
     <style>
-        /* Typography overrides for Relume "Relative" simulation */
         body {
-            font-feature-settings: "ss01" on, "cv11" on;
-            background-color: theme('colors.cream');
-            color: theme('colors.ink');
+            background-color: theme('colors.parchment');
+            color: theme('colors.ink-black');
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
-        /* Signature Gradient for text */
-        .gradient-text {
-            background: linear-gradient(100deg, rgb(255, 116, 72), rgb(255, 72, 72) 42%, rgb(98, 72, 255) 85%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        /* Drop cap styling */
+        .drop-cap::first-letter {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 104px;
+            float: left;
+            line-height: 0.75;
+            padding-right: 10px;
+            padding-top: 6px;
+            color: theme('colors.ink-black');
         }
 
-        /* Signature Gradient for borders (used in Prompt Input) */
-        .gradient-border-wrap {
-            background: linear-gradient(100deg, rgb(255, 116, 72), rgb(255, 72, 72) 42%, rgb(98, 72, 255) 85%);
+        /* Banner Text */
+        .banner-text {
+            font-family: 'Bodoni Moda', serif;
+            line-height: 0.75;
+            letter-spacing: -0.06em;
+            text-transform: uppercase;
+            white-space: nowrap;
         }
 
-        /* Outline Button Hover */
-        .btn-outline:hover {
-            box-shadow: theme('boxShadow.relume-subtle');
+        /* Links */
+        .editorial-link {
+            text-decoration: none;
+            border-bottom: 1px solid theme('colors.ink-black');
+            padding-bottom: 2px;
+            transition: color 0.2s, border-color 0.2s;
         }
-
-        /* Primary Button Hover */
-        .btn-primary:hover {
-            background-color: theme('colors.iris-mist');
-            color: theme('colors.ink');
-            transition: all 0.2s ease;
-        }
-
-        /* Ghost Button Hover */
-        .btn-ghost {
-            color: theme('colors.ink');
-            transition: color 0.2s ease;
-        }
-        .btn-ghost:hover {
-            color: theme('colors.fog');
+        .editorial-link:hover {
+            color: theme('colors.ember-orange');
+            border-bottom-color: theme('colors.ember-orange');
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col overflow-x-hidden">
+<body class="min-h-screen flex flex-col font-source font-light text-[16px] leading-[1.27]">
 
-    <!-- Navbar -->
-    <nav class="w-full max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between mt-4">
-        <div class="flex items-center gap-2">
-            <!-- Hexagon minimal logo -->
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L20.6603 7V17L12 22L3.33975 17V7L12 2Z" stroke="#161616" stroke-width="2" stroke-linejoin="round"/>
-            </svg>
-            <span class="text-[16px] font-medium tracking-tight">Никита Копасов</span>
+    <!-- Editorial Header Bar -->
+    <header class="w-full border-b border-ink-black px-6 py-3">
+        <div class="max-w-[1440px] mx-auto flex justify-between items-center">
+            <div class="text-[17px] uppercase tracking-wide">Volgograd, RU</div>
+            <div class="text-[20px] font-playfair font-medium uppercase tracking-widest hidden sm:block">The Kopasov Portfolio</div>
+            <div class="flex items-center gap-2 cursor-pointer group">
+                <span class="text-[17px] uppercase tracking-wide group-hover:text-ember-orange transition-colors">Menu</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="group-hover:stroke-ember-orange stroke-ink-black transition-colors">
+                    <path d="M4 6H20M4 12H20M4 18H20" stroke-width="1.5" stroke-linecap="square"/>
+                </svg>
+            </div>
         </div>
-        <div class="flex items-center gap-6">
-            <a href="#" class="text-[16px] font-medium btn-ghost hidden sm:block">Проекты</a>
-            <a href="#" class="text-[16px] font-medium btn-ghost hidden sm:block">Опыт</a>
-            <button class="btn-outline border border-ink bg-transparent text-ink text-[16px] font-medium rounded-[8px] py-2 px-5 transition-shadow">
-                Связаться
-            </button>
-        </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <main class="w-full max-w-[1200px] mx-auto px-6 pt-24 pb-32 flex flex-col items-center text-center relative flex-grow">
+    <main class="w-full flex flex-col flex-grow">
         
-        <!-- Floating Card 1 (Left) -->
-        <div class="hidden lg:flex absolute top-12 left-0 -rotate-3 bg-paper border border-bone rounded-[16px] p-4 shadow-relume-md w-56 flex-col gap-3 z-0 pointer-events-none">
-            <div class="flex items-center justify-between">
-                <span class="text-[14px] font-medium text-electric-iris">Performance</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#686868" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+        <!-- Drop Cap Bio Block -->
+        <section class="max-w-[1440px] mx-auto w-full px-6 py-16 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
+            <div class="drop-cap text-[19px] md:text-[22px] leading-[1.2] text-ink-black text-justify max-w-xl">
+                Эксперт в области MarTech и Performance-маркетинга с 11-летним опытом. Специализируюсь на построении автоматизированных систем привлечения и удержания клиентов, настройке сквозной аналитики и управлении B2B/B2C маркетинговыми стратегиями с акцентом на ROMI.
             </div>
-            <div class="text-[24px] font-medium tracking-tight-md text-ink">ROI: +15%</div>
-            <div class="h-2 w-full bg-cream rounded-full overflow-hidden">
-                <div class="h-full bg-electric-iris w-[85%] rounded-full"></div>
+            <div class="font-bodoni text-[56px] md:text-[86px] leading-[0.85] tracking-[-0.03em] uppercase text-ink-black text-right md:text-left">
+                CMO & SMM Strategist Based in Volgograd.
             </div>
-            <div class="text-[12px] text-fog mt-1">Оптимизация кампаний</div>
-        </div>
+        </section>
 
-        <!-- Floating Card 2 (Right) -->
-        <div class="hidden lg:flex absolute top-32 right-0 rotate-[2deg] bg-paper border border-bone rounded-[16px] p-4 shadow-relume-md w-64 flex-col gap-3 z-0 pointer-events-none">
-            <!-- Testimonial / Tech Chip -->
-            <div class="absolute -top-3 -right-3 bg-acid-lemon text-ink text-[13px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle border border-bone">
-                Tech Stack
-            </div>
-            <div class="text-[14px] font-medium text-ink mt-2">Python & Gemini API</div>
-            <div class="bg-cream rounded-[8px] p-2 font-mono text-[10px] text-fog text-left leading-relaxed">
-                def optimize_cpa():<br>
-                &nbsp;&nbsp;return max_roi()<br>
-                <span class="text-electric-iris"># Automation init</span>
-            </div>
-        </div>
-
-        <!-- Floating Card 3 (Bottom Left) -->
-        <div class="hidden lg:flex absolute bottom-12 left-16 rotate-[4deg] bg-paper border border-bone rounded-[16px] p-4 shadow-relume-md w-48 flex-col gap-2 z-0 pointer-events-none">
-            <div class="text-[14px] font-medium text-ink">Метрики роста</div>
-            <div class="flex items-end gap-2">
-                <div class="text-[32px] font-medium tracking-tight-md text-ink leading-none">LTV</div>
-                <div class="text-[24px] text-electric-iris mb-1">↑</div>
-            </div>
-            <div class="text-[12px] text-fog">Удержание через CRM</div>
-        </div>
-
-        <!-- Main Hero Content -->
-        <div class="relative z-10 max-w-[900px] mt-8">
-            <h1 class="text-[48px] sm:text-[64px] md:text-[96px] font-medium leading-[1.1] tracking-tight-md sm:tracking-tight-lg text-ink mb-6">
-                Маркетинг, который работает <span class="gradient-text">быстрее</span> благодаря MarTech и AI.
+        <!-- Display Banner Block 1 -->
+        <section class="w-full bg-ink-black text-parchment py-10 md:py-16 overflow-hidden flex justify-center items-center">
+            <h1 class="banner-text text-[15vw] md:text-[180px] lg:text-[280px]">
+                NIKITA KOPASOV
             </h1>
-            <p class="text-[16px] sm:text-[18px] font-normal leading-[1.5] text-fog max-w-[600px] mx-auto">
-                Директор по маркетингу (CMO) с 12-летним опытом. Автоматизация, performance и глубокая аналитика для B2B, SaaS и HoReCa.
-            </p>
-        </div>
+        </section>
+
+        <!-- Experience / Project Grid 1 -->
+        <section class="max-w-[1440px] mx-auto w-full px-6 py-20">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                
+                <!-- Card 1 -->
+                <article class="bg-bone-cream rounded-[11.52px] overflow-hidden shadow-miranda flex flex-col group cursor-pointer transition-transform hover:-translate-y-1">
+                    <div class="w-full h-64 overflow-hidden rounded-none">
+                        <img src="https://images.unsplash.com/photo-1520697203362-f673898031d8?auto=format&fit=crop&w=800&q=80" alt="Deal.by Project" class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500 rounded-none">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center mb-3">
+                            <h2 class="text-[24px] font-playfair font-medium tracking-tight text-ink-black">Deal.by</h2>
+                            <span class="bg-ember-orange text-white text-[12px] px-1.5 py-0.5 rounded-[2.88px] ml-3 uppercase font-medium align-middle">New</span>
+                        </div>
+                        <p class="text-[17px] text-charcoal mb-6 flex-grow">Разработка и внедрение механик геймификации в B2B email-рассылках. А/B тесты, триггерные цепочки и сегментация базы.</p>
+                        <div class="text-[14px] text-charcoal uppercase tracking-widest pt-4 border-t border-charcoal/30">
+                            Nov 2025 – Present
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="bg-bone-cream rounded-[11.52px] overflow-hidden shadow-miranda flex flex-col group cursor-pointer transition-transform hover:-translate-y-1">
+                    <div class="w-full h-64 overflow-hidden rounded-none">
+                        <img src="https://images.unsplash.com/photo-1503435980610-151b14114757?auto=format&fit=crop&w=800&q=80" alt="Ruki Vverh Bar" class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500 rounded-none">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h2 class="text-[24px] font-playfair font-medium tracking-tight text-ink-black mb-3">Руки Вверх Бар</h2>
+                        <p class="text-[17px] text-charcoal mb-6 flex-grow">Руководитель маркетинга доставки. Построение системы лояльности, УТП, брендинга и оптимизация федеральных рекламных каналов.</p>
+                        <div class="text-[14px] text-charcoal uppercase tracking-widest pt-4 border-t border-charcoal/30">
+                            Nov 2024 – Oct 2025
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="bg-bone-cream rounded-[11.52px] overflow-hidden shadow-miranda flex flex-col group cursor-pointer transition-transform hover:-translate-y-1">
+                    <div class="w-full h-64 overflow-hidden rounded-none">
+                        <img src="https://images.unsplash.com/photo-1497367807759-4d8721c43555?auto=format&fit=crop&w=800&q=80" alt="SendPulse" class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500 rounded-none">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h2 class="text-[24px] font-playfair font-medium tracking-tight text-ink-black mb-3">SendPulse</h2>
+                        <p class="text-[17px] text-charcoal mb-6 flex-grow">Руководитель отдела маркетинга B2B. Единая стратегия РФ/РБ, снижение CAC на 10%, рост платящей аудитории на 15%.</p>
+                        <div class="text-[14px] text-charcoal uppercase tracking-widest pt-4 border-t border-charcoal/30">
+                            Jan 2021 – Feb 2022
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Display Banner Block 2 -->
+        <section class="w-full bg-ink-black text-parchment py-10 overflow-hidden flex justify-center items-center">
+            <h1 class="banner-text text-[15vw] md:text-[200px] lg:text-[280px]">
+                ALL WORK!
+            </h1>
+        </section>
+
+        <!-- Experience / Project Grid 2 -->
+        <section class="max-w-[1440px] mx-auto w-full px-6 py-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                
+                <!-- Card 4 -->
+                <article class="bg-bone-cream rounded-[11.52px] overflow-hidden shadow-miranda flex flex-col md:flex-row group cursor-pointer transition-transform hover:-translate-y-1">
+                    <div class="w-full md:w-2/5 h-64 md:h-auto overflow-hidden rounded-none">
+                        <img src="https://images.unsplash.com/photo-1555580002-39c23f2f8413?auto=format&fit=crop&w=800&q=80" alt="Papa Panda" class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500 rounded-none">
+                    </div>
+                    <div class="w-full md:w-3/5 p-6 md:p-10 flex flex-col justify-center">
+                        <h2 class="text-[32px] font-playfair font-medium tracking-tight text-ink-black mb-4">Папа Панда & Дракон Вагон</h2>
+                        <p class="text-[19px] text-charcoal mb-6">
+                            Директор по маркетингу. Комплексное управление маркетингом трех брендов. Найм, системный NPS, сквозная аналитика Roistat.
+                        </p>
+                        <div class="text-[14px] text-charcoal uppercase tracking-widest pt-4 border-t border-charcoal/30">
+                            Nov 2023 – Nov 2024
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="bg-bone-cream rounded-[11.52px] overflow-hidden shadow-miranda flex flex-col md:flex-row group cursor-pointer transition-transform hover:-translate-y-1">
+                    <div class="w-full md:w-2/5 h-64 md:h-auto overflow-hidden rounded-none">
+                        <img src="https://images.unsplash.com/photo-1484154218962-a1b559779dfd?auto=format&fit=crop&w=800&q=80" alt="Starik Hinkalych" class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500 rounded-none">
+                    </div>
+                    <div class="w-full md:w-3/5 p-6 md:p-10 flex flex-col justify-center">
+                        <h2 class="text-[32px] font-playfair font-medium tracking-tight text-ink-black mb-4">Старик Хинкалыч</h2>
+                        <p class="text-[19px] text-charcoal mb-6">
+                            Интеграция маркетинговых акций с iiko, разработка CRM-системы, чат-ботов Telegram/VK, настройка таргетированной рекламы.
+                        </p>
+                        <div class="text-[14px] text-charcoal uppercase tracking-widest pt-4 border-t border-charcoal/30">
+                            Oct 2025 – Dec 2025
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
     </main>
 
-    <!-- Logo Strip Section -->
-    <section class="w-full bg-cream py-8 border-y border-transparent">
-        <div class="max-w-[1200px] mx-auto px-6 flex flex-wrap justify-center items-center gap-x-12 gap-y-6 opacity-70">
-            <span class="text-[20px] font-medium text-iron">SendPulse</span>
-            <span class="text-[20px] font-medium text-iron">amoCRM</span>
-            <span class="text-[20px] font-medium text-iron">Yandex Direct</span>
-            <span class="text-[20px] font-medium text-iron">Tilda</span>
-            <span class="text-[20px] font-medium text-iron">Python</span>
-            <span class="text-[20px] font-medium text-iron">Roistat</span>
-        </div>
-    </section>
-
-    <!-- Experience Grid -->
-    <section class="w-full max-w-[1200px] mx-auto px-6 py-24">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Footer / Metadata Row -->
+    <footer class="w-full border-t border-ink-black mt-auto">
+        <div class="max-w-[1440px] mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             
-            <!-- Card 1 -->
-            <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-md flex flex-col group relative overflow-hidden transition-transform hover:-translate-y-1 duration-300">
-                <span class="text-[14px] font-medium text-electric-iris mb-4">B2B & SaaS</span>
-                <h3 class="text-[32px] sm:text-[40px] font-medium leading-[1.2] tracking-tight-md text-ink mb-2">SendPulse</h3>
-                <p class="text-[16px] text-fog leading-[1.5] mb-8 flex-grow">
-                    Снизил CAC на 10%, увеличил платящую аудиторию на 15%. Построил омниканальные воронки и управлял кросс-функциональной командой из 7 человек.
-                </p>
-                <div class="mt-auto">
-                    <button class="btn-ghost text-[16px] font-medium underline decoration-bone underline-offset-4 group-hover:decoration-ink transition-colors">
-                        Подробнее о кейсе
-                    </button>
-                </div>
+            <div class="flex flex-col gap-2">
+                <span class="text-[14px] uppercase tracking-widest text-charcoal font-medium">Contact & Imprint</span>
+                <div class="font-bodoni text-[32px] text-ink-black leading-none uppercase tracking-[-0.03em]">Let's Connect.</div>
             </div>
 
-            <!-- Card 2 -->
-            <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-md flex flex-col group relative overflow-hidden transition-transform hover:-translate-y-1 duration-300">
-                <span class="text-[14px] font-medium text-teal-accent mb-4">HoReCa Group</span>
-                <h3 class="text-[32px] sm:text-[40px] font-medium leading-[1.2] tracking-tight-md text-ink mb-2">Папа Панда & Дракон Вагон</h3>
-                <p class="text-[16px] text-fog leading-[1.5] mb-8 flex-grow">
-                    Перезапуск маркетинга. Увеличение заказов из агрегаторов на 15%. Снижение CPO до 350-600 руб. Внедрение сквозной аналитики и управления лояльностью.
-                </p>
-                <div class="mt-auto">
-                    <button class="btn-ghost text-[16px] font-medium underline decoration-bone underline-offset-4 group-hover:decoration-ink transition-colors">
-                        Подробнее о кейсе
-                    </button>
-                </div>
+            <div class="flex flex-col md:flex-row gap-6 md:justify-end text-[17px]">
+                <a href="mailto:catonecr7@yandex.ru" class="editorial-link">catonecr7@yandex.ru</a>
+                <a href="tel:+79375391049" class="editorial-link">+7 (937) 539-10-49</a>
+                <a href="#" class="editorial-link">Telegram: @kopasovskiy</a>
             </div>
 
-            <!-- Card 3 -->
-            <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-md flex flex-col group relative overflow-hidden transition-transform hover:-translate-y-1 duration-300">
-                <span class="text-[14px] font-medium text-coral-accent mb-4">Tech & B2B</span>
-                <h3 class="text-[32px] sm:text-[40px] font-medium leading-[1.2] tracking-tight-md text-ink mb-2">AI & Автоматизация</h3>
-                <p class="text-[16px] text-fog leading-[1.5] mb-8 flex-grow">
-                    Разработка ботов и дашбордов на Python, интеграция Gemini API. Успешные проекты автоматизации для Deal.by, аутстафф компаний и Старик Хинкалыч.
-                </p>
-                <div class="mt-auto">
-                    <button class="btn-ghost text-[16px] font-medium underline decoration-bone underline-offset-4 group-hover:decoration-ink transition-colors">
-                        Подробнее о кейсе
-                    </button>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Contact / Prompt Input Hero -->
-    <section class="w-full max-w-[1200px] mx-auto px-6 pb-32 flex flex-col items-center text-center">
-        <h2 class="text-[32px] sm:text-[48px] font-medium leading-[1.2] tracking-tight-md text-ink mb-10">
-            Готовы ускорить свой маркетинг?
-        </h2>
-        
-        <!-- Signature Prompt Input Bar -->
-        <div class="gradient-border-wrap p-[2px] rounded-[320px] w-full max-w-[640px] shadow-relume-md">
-            <form onsubmit="event.preventDefault();" class="bg-paper rounded-[320px] flex items-center p-1 w-full relative">
-                <input 
-                    type="email" 
-                    placeholder="Введите ваш email для связи..." 
-                    class="flex-grow bg-transparent text-ink text-[16px] placeholder:text-fog font-normal pl-5 pr-4 py-3 outline-none rounded-l-[320px]"
-                    required
-                >
-                <button type="submit" class="bg-electric-iris text-paper font-medium text-[16px] px-6 py-3 rounded-[8px] shadow-relume-subtle transition-all duration-200 hover:bg-iris-mist hover:text-ink">
-                    Написать
-                </button>
-            </form>
-        </div>
-        <p class="text-fog text-[14px] mt-4">или свяжитесь в Telegram: @kopasovskiy</p>
-    </section>
-
-    <!-- Footer -->
-    <footer class="w-full border-t border-bone mt-auto">
-        <div class="max-w-[1200px] mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div class="text-[14px] text-fog">© 2026 Никита Копасов. CMO.</div>
-            <div class="flex gap-6">
-                <a href="https://vk.com/kopasovnikita" class="text-[14px] text-fog hover:text-ink transition-colors font-medium">ВКонтакте</a>
-                <a href="#" class="text-[14px] text-fog hover:text-ink transition-colors font-medium">Telegram</a>
-            </div>
         </div>
     </footer>
 
