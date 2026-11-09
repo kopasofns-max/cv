@@ -122,9 +122,27 @@
         .fade-transition {
             transition: opacity 0.3s ease-in-out;
         }
+
+        /* Interactive Glow Cursor */
+        #glow-cursor {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            top: -300px;
+            left: -300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(98, 72, 255, 0.12) 0%, rgba(255, 116, 72, 0.08) 40%, rgba(241, 240, 238, 0) 70%);
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(40px);
+            will-change: transform;
+        }
     </style>
 </head>
-<body class="min-h-screen flex flex-col overflow-x-hidden">
+<body class="min-h-screen flex flex-col overflow-x-hidden relative">
+
+    <!-- Interactive Glow Cursor -->
+    <div id="glow-cursor"></div>
 
     <!-- Navbar -->
     <nav class="w-full max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between mt-4 relative z-50">
@@ -179,21 +197,21 @@
         </div>
 
         <!-- Floating Card 3 (Bottom Left) -->
-        <div class="hidden lg:flex absolute bottom-8 left-16 rotate-[4deg] bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-64 flex-col gap-1 z-0 pointer-events-none">
+        <div class="hidden lg:flex absolute bottom-8 left-16 rotate-[4deg] bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-64 flex-col gap-1 z-10 pointer-events-none">
             <div class="text-[13px] font-medium text-fog mb-1">Масштаб и навыки</div>
             <div id="card3-content" class="transition-opacity duration-300 ease-in-out">
-                <div id="card3-metric" class="text-[16px] font-medium tracking-tight-md text-ink leading-tight mb-2">Обучено 12+ специалистов</div>
-                <div id="card3-subtext" class="text-[12px] text-graphite leading-relaxed border-t border-bone pt-2 mt-1">6 маркетологов, 4 SMM, 2 таргетолога</div>
+                <div id="card3-metric" class="text-[16px] font-medium tracking-tight-md text-ink leading-tight mb-2">Обучено 6 маркетологов</div>
+                <div id="card3-subtext" class="text-[12px] text-graphite leading-relaxed border-t border-bone pt-2 mt-1">Наставничество и онбординг in-house команды</div>
             </div>
         </div>
 
         <!-- Main Hero Content -->
         <div class="relative z-10 max-w-[900px] mt-8">
-            <h1 class="text-[48px] sm:text-[64px] md:text-[96px] font-medium leading-[1.1] tracking-tight-md sm:tracking-tight-lg text-ink mb-6">
-                Маркетинг, который работает <span class="gradient-text">быстрее</span> благодаря MarTech и AI.
+            <h1 class="text-[40px] sm:text-[56px] md:text-[76px] font-medium leading-[1.1] tracking-tight-md sm:tracking-tight-lg text-ink mb-6">
+                Никита Копасов — <span class="gradient-text">маркетолог-генералист</span> с опытом более 12 лет.
             </h1>
             <p class="text-[16px] sm:text-[18px] font-normal leading-[1.5] text-fog max-w-[600px] mx-auto">
-                Директор по маркетингу (CMO) с 12-летним опытом. Автоматизация, performance и глубокая аналитика для B2B, SaaS и HoReCa.
+                Комплексный маркетинг, performance и автоматизация для HoReCa, e-commerce и SaaS.
             </p>
         </div>
     </main>
@@ -494,10 +512,10 @@
 
         // Card 3 Data
         const card3Data = [
-            { metric: "Обучено 12+ специалистов", subtext: "6 маркетологов, 4 SMM, 2 таргетолога" },
-            { metric: "Управление бюджетом", subtext: "от 30к до 15 млн руб/мес" },
-            { metric: "Кросс-функциональные", subtext: "Управление in-house и remote командами" },
-            { metric: "Vibe-coding & AI", subtext: "Внедрение нейросетей в ежедневную рутину" }
+            { metric: "Обучено 6 маркетологов", subtext: "Наставничество и онбординг in-house команды" },
+            { metric: "Обучено 4 SMM-специалиста", subtext: "Развитие компетенций и создание контент-отделов" },
+            { metric: "Бюджеты до 15 млн руб/мес", subtext: "Управление рекламным сплитом от 30к до 15 млн ₽" },
+            { metric: "Окупаемость за 3-6 мес", subtext: "Вывод новых проектов на стабильную прибыль" }
         ];
         let card3Idx = 0;
 
@@ -563,6 +581,28 @@
                 icon.classList.remove('rotate-180');
             }
         }
+
+        // Interactive Glow Cursor Logic
+        const cursor = document.getElementById('glow-cursor');
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let cursorX = window.innerWidth / 2;
+        let cursorY = window.innerHeight / 2;
+
+        // Track mouse position
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Smooth follow animation using linear interpolation (lerp)
+        function animateCursor() {
+            cursorX += (mouseX - cursorX) * 0.08;
+            cursorY += (mouseY - cursorY) * 0.08;
+            cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
     </script>
 </body>
 </html>
