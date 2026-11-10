@@ -148,88 +148,26 @@
     </nav>
 
     <!-- Hero Section -->
-    <main class="w-full max-w-[1200px] mx-auto px-6 pt-12 lg:pt-24 pb-16 relative z-10 min-h-[70vh] lg:min-h-[auto]">
+    <main class="w-full max-w-[1200px] mx-auto px-6 pt-12 lg:pt-32 pb-16 lg:pb-32 flex flex-col items-center text-center relative z-10">
         
-        <div class="grid grid-cols-1 lg:grid-cols-[260px_1fr_260px] gap-8 items-center relative">
-            
-            <!-- Левая колонка (Desktop) -->
-            <div class="hidden lg:flex flex-col gap-10 shrink-0 relative z-0">
-                <!-- Карточка 1 (Metrics) -->
-                <div class="relative bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center snap-center -rotate-2">
-                    <div class="absolute -top-3 right-4 bg-electric-iris text-paper text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle border border-bone z-10 transition-colors js-card1-tag">
-                        SaaS
-                    </div>
-                    <div class="card-content-fade flex flex-col justify-center text-left js-card1-content">
-                        <div class="text-[13px] font-medium text-fog mb-1 truncate js-card1-project">SendPulse</div>
-                        <div class="text-[28px] font-medium tracking-tight-md text-ink mt-1 truncate js-card1-metric">CAC: -10%</div>
-                        <div class="h-1.5 w-full bg-cream rounded-full overflow-hidden mt-3 mb-2">
-                            <div class="h-full bg-electric-iris rounded-full transition-all duration-500 js-card1-bar" style="width: 85%;"></div>
-                        </div>
-                        <div class="text-[13px] text-fog truncate js-card1-desc">Снижение стоимости</div>
-                    </div>
-                </div>
-
-                <!-- Карточка 3 (Leadership) -->
-                <div class="relative bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center gap-2 snap-center rotate-3">
-                    <div class="absolute -top-3 right-4 bg-paper text-soft-lilac border border-soft-lilac text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
-                        Scale & Team
-                    </div>
-                    <div class="card-content-fade flex flex-col justify-center text-left js-card3-content">
-                        <div class="text-[18px] font-medium tracking-tight-md text-ink leading-[1.2] js-card3-title">Бюджеты до 15 млн ₽</div>
-                        <div class="text-[13px] text-fog mt-2 leading-[1.4] line-clamp-2 js-card3-desc">Опыт управления сплитом от 30 тыс. руб/мес</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Центральный текст (Desktop & Mobile) -->
-            <div class="relative z-20 text-center pointer-events-auto mt-4 mb-4">
-                <h1 class="text-[40px] sm:text-[64px] md:text-[80px] font-medium leading-[1.05] tracking-tight-lg text-ink mb-6">
-                    Никита Копасов —<br>
-                    маркетолог-<br>
-                    <span id="dynamic-role" class="gradient-text transition-opacity duration-400">generalist</span><br>
-                    с опытом &gt; 12 лет.
-                </h1>
-                <p class="text-[16px] sm:text-[20px] font-normal leading-[1.5] text-fog max-w-[600px] mx-auto">
-                    Комплексный маркетинг, performance и автоматизация для HoReCa, e-commerce и SaaS.
-                </p>
-            </div>
-
-            <!-- Правая колонка (Desktop) -->
-            <div class="hidden lg:flex flex-col gap-10 shrink-0 relative z-0">
-                <!-- Карточка 2 (Tech Stack) -->
-                <div class="relative bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center gap-2 snap-center rotate-2">
-                    <div class="absolute -top-3 right-4 bg-acid-lemon text-ink border border-bone text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
-                        Tech Stack
-                    </div>
-                    <div class="card-content-fade text-left js-card2-content">
-                        <div class="text-[14px] font-medium text-ink mt-1 js-card2-title">Python & Gemini API</div>
-                        <div class="bg-cream rounded-[8px] p-3 font-mono text-[11px] text-fog leading-relaxed mt-2 overflow-hidden h-[60px] js-card2-code">
-                            def optimize_cpa():<br>
-                            &nbsp;&nbsp;return max_roi()<br>
-                            <span class="text-electric-iris"># Automation init</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Карточка 4 (Skills) -->
-                <div class="relative bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center gap-2 snap-center -rotate-2">
-                    <div class="absolute -top-3 right-4 bg-paper text-teal-accent border border-teal-accent/30 text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
-                        Skills
-                    </div>
-                    <div class="card-content-fade flex flex-col justify-center text-left js-card4-content">
-                        <div class="text-[18px] font-medium tracking-tight-md text-ink leading-[1.2] js-card4-title">Стратегия</div>
-                        <div class="text-[13px] text-fog mt-2 leading-[1.4] line-clamp-3 js-card4-desc">Product Marketing, Customer Journey Map, Unit-экономика, Анализ конкурентов</div>
-                    </div>
-                </div>
-            </div>
-
+        <!-- Центральный текст -->
+        <div class="relative z-20 pointer-events-auto w-full max-w-[750px] mx-auto">
+            <h1 class="text-[40px] sm:text-[64px] md:text-[80px] font-medium leading-[1.05] tracking-tight-lg text-ink mb-6">
+                Никита Копасов —<br>
+                маркетолог-<br>
+                <span id="dynamic-role" class="gradient-text transition-opacity duration-400">generalist</span><br>
+                с опытом &gt; 12 лет.
+            </h1>
+            <p class="text-[16px] sm:text-[20px] font-normal leading-[1.5] text-fog max-w-[600px] mx-auto">
+                Комплексный маркетинг, performance и автоматизация для HoReCa, e-commerce и SaaS.
+            </p>
         </div>
 
-        <!-- Горизонтальный контейнер карточек (Mobile only) -->
-        <div class="flex lg:hidden w-full overflow-x-auto snap-x snap-mandatory gap-6 pt-8 pb-8 hide-scrollbar -mx-6 px-6 relative z-0 pointer-events-auto">
+        <!-- Горизонтальный контейнер карточек (Mobile) / Абсолютные карточки (Desktop) -->
+        <div class="flex lg:block w-full overflow-x-auto snap-x snap-mandatory gap-6 pt-8 pb-8 mt-4 lg:mt-0 hide-scrollbar -mx-6 px-6 lg:mx-0 lg:px-0 relative z-0 pointer-events-none lg:pointer-events-auto">
             
-            <!-- Карточка 1 (Mobile) -->
-            <div class="relative bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center shrink-0 snap-center">
+            <!-- Карточка 1 (Mobile) / Левая верхняя (Desktop) -->
+            <div class="relative lg:absolute lg:top-0 lg:left-0 xl:-left-6 lg:-rotate-2 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center shrink-0 snap-center pointer-events-auto">
                 <div class="absolute -top-3 right-4 bg-electric-iris text-paper text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle border border-bone z-10 transition-colors js-card1-tag">
                     SaaS
                 </div>
@@ -243,8 +181,8 @@
                 </div>
             </div>
 
-            <!-- Карточка 3 (Mobile) -->
-            <div class="relative bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center gap-2 shrink-0 snap-center">
+            <!-- Карточка 3 (Mobile) / Левая нижняя (Desktop) -->
+            <div class="relative lg:absolute lg:bottom-0 lg:left-12 xl:-left-2 lg:rotate-3 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center gap-2 shrink-0 snap-center pointer-events-auto">
                 <div class="absolute -top-3 right-4 bg-paper text-soft-lilac border border-soft-lilac text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
                     Scale & Team
                 </div>
@@ -254,8 +192,8 @@
                 </div>
             </div>
 
-            <!-- Карточка 2 (Mobile) -->
-            <div class="relative bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center gap-2 shrink-0 snap-center">
+            <!-- Карточка 2 (Mobile) / Правая верхняя (Desktop) -->
+            <div class="relative lg:absolute lg:top-16 lg:right-0 xl:-right-6 lg:rotate-2 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center gap-2 shrink-0 snap-center pointer-events-auto">
                 <div class="absolute -top-3 right-4 bg-acid-lemon text-ink border border-bone text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
                     Tech Stack
                 </div>
@@ -269,8 +207,8 @@
                 </div>
             </div>
 
-            <!-- Карточка 4 (Mobile) -->
-            <div class="relative bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center gap-2 shrink-0 snap-center">
+            <!-- Карточка 4 (Mobile) / Правая нижняя (Desktop) -->
+            <div class="relative lg:absolute lg:-bottom-12 lg:right-12 xl:-right-2 lg:-rotate-2 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center gap-2 shrink-0 snap-center pointer-events-auto">
                 <div class="absolute -top-3 right-4 bg-paper text-teal-accent border border-teal-accent/30 text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
                     Skills
                 </div>
@@ -297,7 +235,7 @@
                         <div class="text-[16px] text-fog font-medium w-[160px] shrink-0 mt-1">Окт 2025 – н.в.</div>
                         <div>
                             <div class="text-[20px] font-medium text-ink group-hover:text-electric-iris transition-colors">Маркетолог-generalist</div>
-                            <div class="text-[16px] text-fog mt-1">Проектная деятельность: Deal.by, Старик Хинкалыч, Solo, Медведь Электро, 5КИЛОВАТТ, Понеслось, Ева Ела и др.</div>
+                            <div class="text-[16px] text-fog mt-1">Deal.by, Старик Хинкалыч, Solo, Медведь Электро, 5КИЛОВАТТ, Понеслось, Ева Ела и др.</div>
                         </div>
                     </div>
                     <div class="accordion-icon min-w-[24px] text-iron group-hover:text-electric-iris mt-1">
