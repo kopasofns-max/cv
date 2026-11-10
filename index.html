@@ -242,7 +242,7 @@
         </div>
 
         <!-- Central Text -->
-        <div class="relative z-20 max-w-[850px] mb-8 lg:mb-0 lg:mt-8">
+        <div class="relative z-20 max-w-[850px] mb-8 lg:mb-0 lg:mt-16 pointer-events-auto">
             <h1 class="text-[40px] sm:text-[64px] md:text-[84px] font-medium leading-[1.05] tracking-tight-lg text-ink mb-6">
                 Никита Копасов —<br>
                 маркетолог-<br>
@@ -255,10 +255,10 @@
         </div>
 
         <!-- Cards Container (Горизонтальный скролл на мобилках, абсолютное позиционирование на ПК) -->
-        <div class="flex flex-row lg:block w-full overflow-x-auto lg:overflow-visible snap-x snap-mandatory gap-6 pt-6 pb-8 hide-scrollbar -mx-6 px-6 lg:mx-0 lg:px-0 lg:pt-0 lg:pb-0 relative z-30">
+        <div class="flex flex-row lg:contents w-full overflow-x-auto lg:overflow-visible snap-x snap-mandatory gap-6 pt-6 pb-8 hide-scrollbar -mx-6 px-6 lg:mx-0 lg:px-0 lg:pt-0 lg:pb-0 relative z-0 pointer-events-none">
             
-            <!-- Card 1 (Metrics) -->
-            <div class="flex relative lg:absolute lg:top-4 lg:left-[-2rem] xl:left-0 lg:-rotate-3 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[280px] lg:w-64 h-[160px] flex-col justify-center shrink-0 snap-center text-left">
+            <!-- Card 1 (Metrics) - Top Left -->
+            <div class="flex relative lg:absolute lg:top-4 lg:-left-12 xl:-left-20 lg:-rotate-3 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[280px] lg:w-64 h-[160px] flex-col justify-center shrink-0 snap-center text-left pointer-events-auto z-0">
                 <div class="absolute -top-3 right-4 bg-paper text-electric-iris border border-bone text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10" id="card1-tag">
                     SaaS
                 </div>
@@ -272,8 +272,19 @@
                 </div>
             </div>
 
-            <!-- Card 2 (Tech Stack) -->
-            <div class="flex relative lg:absolute lg:top-24 lg:right-[-2rem] xl:right-0 lg:rotate-[2deg] bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[280px] lg:w-72 h-[160px] flex-col justify-center shrink-0 snap-center text-left">
+            <!-- Card 3 (Leadership) - Bottom Left -->
+            <div class="flex relative lg:absolute lg:bottom-[-2rem] lg:-left-8 xl:-left-16 lg:rotate-[3deg] bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[280px] lg:w-64 h-[160px] flex-col justify-center shrink-0 snap-center text-left pointer-events-auto z-0">
+                <div class="absolute -top-3 right-4 bg-paper text-soft-lilac border border-soft-lilac text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
+                    Scale & Team
+                </div>
+                <div class="card-content-fade flex flex-col justify-center" id="card3-content">
+                    <div class="text-[18px] font-medium tracking-tight-md text-ink leading-[1.2]" id="card3-title">Бюджеты до 15 млн ₽</div>
+                    <div class="text-[13px] text-fog mt-2 leading-[1.4] line-clamp-2" id="card3-desc">Опыт управления сплитом от 30 тыс. руб/мес</div>
+                </div>
+            </div>
+
+            <!-- Card 2 (Tech Stack) - Top Right -->
+            <div class="flex relative lg:absolute lg:top-24 lg:-right-12 xl:-right-20 lg:rotate-[2deg] bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[280px] lg:w-72 h-[160px] flex-col justify-center shrink-0 snap-center text-left pointer-events-auto z-0">
                 <div class="absolute -top-3 right-4 bg-acid-lemon text-ink border border-bone text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
                     Tech Stack
                 </div>
@@ -287,19 +298,8 @@
                 </div>
             </div>
 
-            <!-- Card 3 (Leadership) -->
-            <div class="flex relative lg:absolute lg:bottom-[-2rem] lg:left-8 xl:left-12 lg:rotate-[3deg] bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[280px] lg:w-64 h-[160px] flex-col justify-center shrink-0 snap-center text-left">
-                <div class="absolute -top-3 right-4 bg-paper text-soft-lilac border border-soft-lilac text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
-                    Scale & Team
-                </div>
-                <div class="card-content-fade flex flex-col justify-center" id="card3-content">
-                    <div class="text-[18px] font-medium tracking-tight-md text-ink leading-[1.2]" id="card3-title">Бюджеты до 15 млн ₽</div>
-                    <div class="text-[13px] text-fog mt-2 leading-[1.4] line-clamp-2" id="card3-desc">Опыт управления сплитом от 30 тыс. руб/мес</div>
-                </div>
-            </div>
-
-            <!-- Card 4 (Skills) -->
-            <div class="flex relative lg:absolute lg:bottom-[-4rem] lg:right-8 xl:right-12 lg:-rotate-2 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[280px] lg:w-72 h-[160px] flex-col justify-center shrink-0 snap-center text-left">
+            <!-- Card 4 (Skills) - Bottom Right -->
+            <div class="flex relative lg:absolute lg:bottom-[-4rem] lg:-right-8 xl:-right-16 lg:-rotate-2 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[280px] lg:w-72 h-[160px] flex-col justify-center shrink-0 snap-center text-left pointer-events-auto z-0">
                 <div class="absolute -top-3 right-4 bg-paper text-teal-accent border border-teal-accent/30 text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
                     Skills
                 </div>
@@ -585,22 +585,24 @@
         let roleIdx = 0;
         const roleEl = document.getElementById('dynamic-role');
         
-        setInterval(() => {
-            roleEl.style.opacity = '0';
-            setTimeout(() => {
-                roleIdx = (roleIdx + 1) % roles.length;
-                roleEl.innerText = roles[roleIdx];
-                
-                // Toggle themes
-                document.querySelectorAll('.theme-layer').forEach(layer => {
-                    layer.classList.remove('active');
-                });
-                const themeLayer = document.getElementById(themes[roleIdx]);
-                if (themeLayer) themeLayer.classList.add('active');
-                
-                roleEl.style.opacity = '1';
-            }, 400); 
-        }, 4000);
+        if (roleEl) {
+            setInterval(() => {
+                roleEl.style.opacity = '0';
+                setTimeout(() => {
+                    roleIdx = (roleIdx + 1) % roles.length;
+                    roleEl.innerText = roles[roleIdx];
+                    
+                    // Toggle themes
+                    document.querySelectorAll('.theme-layer').forEach(layer => {
+                        layer.classList.remove('active');
+                    });
+                    const themeLayer = document.getElementById(themes[roleIdx]);
+                    if (themeLayer) themeLayer.classList.add('active');
+                    
+                    roleEl.style.opacity = '1';
+                }, 400); 
+            }, 4000);
+        }
 
         // Данные для Карточки 1
         const metrics = [
@@ -651,11 +653,22 @@
             }, interval);
         }
 
+        // Безопасное обновление текста
+        const safeSetText = (id, text) => {
+            const el = document.getElementById(id);
+            if (el) el.innerText = text;
+        };
+
+        const safeSetHTML = (id, html) => {
+            const el = document.getElementById(id);
+            if (el) el.innerHTML = html;
+        };
+
         updateCard('card1-content', metrics, (data) => {
-            document.getElementById('card1-project').innerText = data.project;
-            document.getElementById('card1-tag').innerText = data.tag;
-            document.getElementById('card1-metric').innerText = data.metric;
-            document.getElementById('card1-desc').innerText = data.desc;
+            safeSetText('card1-project', data.project);
+            safeSetText('card1-tag', data.tag);
+            safeSetText('card1-metric', data.metric);
+            safeSetText('card1-desc', data.desc);
             
             const bar = document.getElementById('card1-bar');
             if(bar) {
@@ -665,18 +678,18 @@
         }, 4000);
 
         updateCard('card2-content', techStack, (data) => {
-            document.getElementById('card2-title').innerText = data.title;
-            document.getElementById('card2-code').innerHTML = data.code;
+            safeSetText('card2-title', data.title);
+            safeSetHTML('card2-code', data.code);
         }, 3500);
 
         updateCard('card3-content', leadership, (data) => {
-            document.getElementById('card3-title').innerText = data.title;
-            document.getElementById('card3-desc').innerText = data.desc;
+            safeSetText('card3-title', data.title);
+            safeSetText('card3-desc', data.desc);
         }, 4500);
 
         updateCard('card4-content', skillsData, (data) => {
-            document.getElementById('card4-title').innerText = data.title;
-            document.getElementById('card4-desc').innerText = data.desc;
+            safeSetText('card4-title', data.title);
+            safeSetText('card4-desc', data.desc);
         }, 3800);
 
         // Аккордеон
