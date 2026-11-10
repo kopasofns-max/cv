@@ -125,64 +125,6 @@
 
         .scroll-reveal { opacity: 0; }
         .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
-
-        /* Thematic Background Layers */
-        .theme-layer {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.8s ease-in-out;
-            z-index: 5;
-            overflow: hidden;
-        }
-        .theme-layer.active {
-            opacity: 1;
-        }
-
-        /* Optimist Animations */
-        @keyframes floatUp {
-            0% { transform: translateY(100px) rotate(0deg); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateY(-200px) rotate(20deg); opacity: 0; }
-        }
-        .floating-emoji {
-            position: absolute;
-            font-size: 2rem;
-            animation: floatUp 4s ease-in-out infinite;
-            opacity: 0;
-        }
-        .emoji-1 { left: 15%; animation-delay: 0s; }
-        .emoji-2 { left: 80%; animation-delay: 1.5s; font-size: 2.5rem; }
-        .emoji-3 { left: 50%; animation-delay: 2.5s; font-size: 1.5rem; }
-
-        /* Equilibrist Animations */
-        @keyframes balance {
-            0%, 100% { transform: rotate(-5deg); }
-            50% { transform: rotate(5deg); }
-        }
-        .balance-board {
-            position: absolute;
-            top: 60%;
-            left: 50%;
-            width: 300px;
-            height: 4px;
-            background: theme('colors.iron');
-            margin-left: -150px;
-            animation: balance 4s ease-in-out infinite;
-        }
-
-        /* Amethyst Animations */
-        @keyframes pulseGlow {
-            0%, 100% { transform: scale(1); opacity: 0.4; }
-            50% { transform: scale(1.2); opacity: 0.7; }
-        }
-        .amethyst-glow {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            animation: pulseGlow 6s ease-in-out infinite;
-        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col relative">
@@ -206,91 +148,120 @@
     </nav>
 
     <!-- Hero Section -->
-    <main class="w-full max-w-[1200px] mx-auto px-6 pt-12 lg:pt-24 pb-16 flex flex-col items-center text-center relative z-10 min-h-[70vh] lg:min-h-[auto]">
+    <main class="w-full max-w-[1200px] mx-auto px-6 pt-12 lg:pt-24 pb-16 relative z-10 min-h-[70vh] lg:min-h-[auto]">
         
-        <!-- Thematic Background Layers -->
-        <div id="bg-generalist" class="theme-layer active">
-            <!-- Neutral state, handled by global cursor -->
-        </div>
-
-        <div id="bg-optimist" class="theme-layer">
-            <div class="floating-emoji emoji-1">😊</div>
-            <div class="floating-emoji emoji-2">🚀</div>
-            <div class="floating-emoji emoji-3">💡</div>
-        </div>
-
-        <div id="bg-alpinist" class="theme-layer">
-            <svg class="absolute bottom-10 left-1/2 -translate-x-1/2 w-[800px] max-w-full opacity-20" viewBox="0 0 800 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 200L250 50L400 120L600 20L800 200H0Z" fill="#b8adf5"/>
-            </svg>
-            <div class="absolute bottom-[130px] left-[55%] text-4xl transform -scale-x-100">🧗‍♂️</div>
-        </div>
-
-        <div id="bg-equilibrist" class="theme-layer">
-            <div class="balance-board">
-                <div class="absolute -top-[30px] left-[20%] w-[30px] h-[30px] rounded-full bg-coral-accent opacity-50"></div>
-                <div class="absolute -top-[40px] right-[20%] w-[40px] h-[40px] bg-electric-iris opacity-50 rotate-12"></div>
-            </div>
-            <div class="absolute top-[35%] left-[60%] text-5xl">🤹</div>
-        </div>
-
-        <div id="bg-amethyst" class="theme-layer">
-            <div class="amethyst-glow w-[300px] h-[300px] bg-electric-iris top-10 left-[10%]"></div>
-            <div class="amethyst-glow w-[400px] h-[400px] bg-soft-lilac bottom-10 right-[10%]" style="animation-delay: 2s;"></div>
-            <div class="absolute top-[30%] left-[20%] text-4xl animate-bounce">🔮</div>
-            <div class="absolute bottom-[30%] right-[25%] text-4xl animate-pulse">💎</div>
-        </div>
-
-        <!-- Central Text -->
-        <div class="relative z-20 max-w-[850px] mb-8 lg:mb-0 lg:mt-16 pointer-events-auto">
-            <h1 class="text-[40px] sm:text-[64px] md:text-[84px] font-medium leading-[1.05] tracking-tight-lg text-ink mb-6">
-                Никита Копасов —<br>
-                маркетолог-<br>
-                <span id="dynamic-role" class="gradient-text transition-opacity duration-400">generalist</span><br>
-                с опытом &gt; 12 лет.
-            </h1>
-            <p class="text-[16px] sm:text-[20px] font-normal leading-[1.5] text-fog max-w-[600px] mx-auto">
-                Комплексный маркетинг, performance и автоматизация для HoReCa, e-commerce и SaaS.
-            </p>
-        </div>
-
-        <!-- Cards Container (Горизонтальный скролл на мобилках, абсолютное позиционирование на ПК) -->
-        <div class="flex flex-row lg:contents w-full overflow-x-auto lg:overflow-visible snap-x snap-mandatory gap-6 pt-6 pb-8 hide-scrollbar -mx-6 px-6 lg:mx-0 lg:px-0 lg:pt-0 lg:pb-0 relative z-0 pointer-events-none">
+        <div class="grid grid-cols-1 lg:grid-cols-[260px_1fr_260px] gap-8 items-center relative">
             
-            <!-- Card 1 (Metrics) - Top Left -->
-            <div class="flex relative lg:absolute lg:top-4 lg:-left-12 xl:-left-20 lg:-rotate-3 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[280px] lg:w-64 h-[160px] flex-col justify-center shrink-0 snap-center text-left pointer-events-auto z-0">
-                <div class="absolute -top-3 right-4 bg-paper text-electric-iris border border-bone text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10" id="card1-tag">
+            <!-- Левая колонка (Desktop) -->
+            <div class="hidden lg:flex flex-col gap-10 shrink-0 relative z-0">
+                <!-- Карточка 1 (Metrics) -->
+                <div class="relative bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center snap-center -rotate-2">
+                    <div class="absolute -top-3 right-4 bg-electric-iris text-paper text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle border border-bone z-10 transition-colors js-card1-tag">
+                        SaaS
+                    </div>
+                    <div class="card-content-fade flex flex-col justify-center text-left js-card1-content">
+                        <div class="text-[13px] font-medium text-fog mb-1 truncate js-card1-project">SendPulse</div>
+                        <div class="text-[28px] font-medium tracking-tight-md text-ink mt-1 truncate js-card1-metric">CAC: -10%</div>
+                        <div class="h-1.5 w-full bg-cream rounded-full overflow-hidden mt-3 mb-2">
+                            <div class="h-full bg-electric-iris rounded-full transition-all duration-500 js-card1-bar" style="width: 85%;"></div>
+                        </div>
+                        <div class="text-[13px] text-fog truncate js-card1-desc">Снижение стоимости</div>
+                    </div>
+                </div>
+
+                <!-- Карточка 3 (Leadership) -->
+                <div class="relative bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center gap-2 snap-center rotate-3">
+                    <div class="absolute -top-3 right-4 bg-paper text-soft-lilac border border-soft-lilac text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
+                        Scale & Team
+                    </div>
+                    <div class="card-content-fade flex flex-col justify-center text-left js-card3-content">
+                        <div class="text-[18px] font-medium tracking-tight-md text-ink leading-[1.2] js-card3-title">Бюджеты до 15 млн ₽</div>
+                        <div class="text-[13px] text-fog mt-2 leading-[1.4] line-clamp-2 js-card3-desc">Опыт управления сплитом от 30 тыс. руб/мес</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Центральный текст (Desktop & Mobile) -->
+            <div class="relative z-20 text-center pointer-events-auto mt-4 mb-4">
+                <h1 class="text-[40px] sm:text-[64px] md:text-[80px] font-medium leading-[1.05] tracking-tight-lg text-ink mb-6">
+                    Никита Копасов —<br>
+                    маркетолог-<br>
+                    <span id="dynamic-role" class="gradient-text transition-opacity duration-400">generalist</span><br>
+                    с опытом &gt; 12 лет.
+                </h1>
+                <p class="text-[16px] sm:text-[20px] font-normal leading-[1.5] text-fog max-w-[600px] mx-auto">
+                    Комплексный маркетинг, performance и автоматизация для HoReCa, e-commerce и SaaS.
+                </p>
+            </div>
+
+            <!-- Правая колонка (Desktop) -->
+            <div class="hidden lg:flex flex-col gap-10 shrink-0 relative z-0">
+                <!-- Карточка 2 (Tech Stack) -->
+                <div class="relative bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center gap-2 snap-center rotate-2">
+                    <div class="absolute -top-3 right-4 bg-acid-lemon text-ink border border-bone text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
+                        Tech Stack
+                    </div>
+                    <div class="card-content-fade text-left js-card2-content">
+                        <div class="text-[14px] font-medium text-ink mt-1 js-card2-title">Python & Gemini API</div>
+                        <div class="bg-cream rounded-[8px] p-3 font-mono text-[11px] text-fog leading-relaxed mt-2 overflow-hidden h-[60px] js-card2-code">
+                            def optimize_cpa():<br>
+                            &nbsp;&nbsp;return max_roi()<br>
+                            <span class="text-electric-iris"># Automation init</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 4 (Skills) -->
+                <div class="relative bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center gap-2 snap-center -rotate-2">
+                    <div class="absolute -top-3 right-4 bg-paper text-teal-accent border border-teal-accent/30 text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
+                        Skills
+                    </div>
+                    <div class="card-content-fade flex flex-col justify-center text-left js-card4-content">
+                        <div class="text-[18px] font-medium tracking-tight-md text-ink leading-[1.2] js-card4-title">Стратегия</div>
+                        <div class="text-[13px] text-fog mt-2 leading-[1.4] line-clamp-3 js-card4-desc">Product Marketing, Customer Journey Map, Unit-экономика, Анализ конкурентов</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Горизонтальный контейнер карточек (Mobile only) -->
+        <div class="flex lg:hidden w-full overflow-x-auto snap-x snap-mandatory gap-6 pt-8 pb-8 hide-scrollbar -mx-6 px-6 relative z-0 pointer-events-auto">
+            
+            <!-- Карточка 1 (Mobile) -->
+            <div class="relative bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center shrink-0 snap-center">
+                <div class="absolute -top-3 right-4 bg-electric-iris text-paper text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle border border-bone z-10 transition-colors js-card1-tag">
                     SaaS
                 </div>
-                <div class="card-content-fade flex flex-col justify-center" id="card1-content">
-                    <div class="text-[13px] font-medium text-fog mb-1 truncate" id="card1-title">SendPulse</div>
-                    <div class="text-[28px] font-medium tracking-tight-md text-ink mt-1 truncate" id="card1-metric">CAC: -10%</div>
+                <div class="card-content-fade flex flex-col justify-center text-left js-card1-content">
+                    <div class="text-[13px] font-medium text-fog mb-1 truncate js-card1-project">SendPulse</div>
+                    <div class="text-[28px] font-medium tracking-tight-md text-ink mt-1 truncate js-card1-metric">CAC: -10%</div>
                     <div class="h-1.5 w-full bg-cream rounded-full overflow-hidden mt-3 mb-2">
-                        <div class="h-full bg-electric-iris rounded-full transition-all duration-500" id="card1-bar" style="width: 85%;"></div>
+                        <div class="h-full bg-electric-iris rounded-full transition-all duration-500 js-card1-bar" style="width: 85%;"></div>
                     </div>
-                    <div class="text-[13px] text-fog truncate" id="card1-desc">Снижение стоимости</div>
+                    <div class="text-[13px] text-fog truncate js-card1-desc">Снижение стоимости</div>
                 </div>
             </div>
 
-            <!-- Card 3 (Leadership) - Bottom Left -->
-            <div class="flex relative lg:absolute lg:bottom-[-2rem] lg:-left-8 xl:-left-16 lg:rotate-[3deg] bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[280px] lg:w-64 h-[160px] flex-col justify-center shrink-0 snap-center text-left pointer-events-auto z-0">
+            <!-- Карточка 3 (Mobile) -->
+            <div class="relative bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center gap-2 shrink-0 snap-center">
                 <div class="absolute -top-3 right-4 bg-paper text-soft-lilac border border-soft-lilac text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
                     Scale & Team
                 </div>
-                <div class="card-content-fade flex flex-col justify-center" id="card3-content">
-                    <div class="text-[18px] font-medium tracking-tight-md text-ink leading-[1.2]" id="card3-title">Бюджеты до 15 млн ₽</div>
-                    <div class="text-[13px] text-fog mt-2 leading-[1.4] line-clamp-2" id="card3-desc">Опыт управления сплитом от 30 тыс. руб/мес</div>
+                <div class="card-content-fade flex flex-col justify-center text-left js-card3-content">
+                    <div class="text-[18px] font-medium tracking-tight-md text-ink leading-[1.2] js-card3-title">Бюджеты до 15 млн ₽</div>
+                    <div class="text-[13px] text-fog mt-2 leading-[1.4] line-clamp-2 js-card3-desc">Опыт управления сплитом от 30 тыс. руб/мес</div>
                 </div>
             </div>
 
-            <!-- Card 2 (Tech Stack) - Top Right -->
-            <div class="flex relative lg:absolute lg:top-24 lg:-right-12 xl:-right-20 lg:rotate-[2deg] bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[280px] lg:w-72 h-[160px] flex-col justify-center shrink-0 snap-center text-left pointer-events-auto z-0">
+            <!-- Карточка 2 (Mobile) -->
+            <div class="relative bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center gap-2 shrink-0 snap-center">
                 <div class="absolute -top-3 right-4 bg-acid-lemon text-ink border border-bone text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
                     Tech Stack
                 </div>
-                <div class="card-content-fade text-left" id="card2-content">
-                    <div class="text-[14px] font-medium text-ink mt-1" id="card2-title">Python & Gemini API</div>
-                    <div class="bg-cream rounded-[8px] p-3 font-mono text-[11px] text-fog leading-relaxed mt-2 overflow-hidden h-[60px]" id="card2-code">
+                <div class="card-content-fade text-left js-card2-content">
+                    <div class="text-[14px] font-medium text-ink mt-1 js-card2-title">Python & Gemini API</div>
+                    <div class="bg-cream rounded-[8px] p-3 font-mono text-[11px] text-fog leading-relaxed mt-2 overflow-hidden h-[60px] js-card2-code">
                         def optimize_cpa():<br>
                         &nbsp;&nbsp;return max_roi()<br>
                         <span class="text-electric-iris"># Automation init</span>
@@ -298,14 +269,14 @@
                 </div>
             </div>
 
-            <!-- Card 4 (Skills) - Bottom Right -->
-            <div class="flex relative lg:absolute lg:bottom-[-4rem] lg:-right-8 xl:-right-16 lg:-rotate-2 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[280px] lg:w-72 h-[160px] flex-col justify-center shrink-0 snap-center text-left pointer-events-auto z-0">
+            <!-- Карточка 4 (Mobile) -->
+            <div class="relative bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center gap-2 shrink-0 snap-center">
                 <div class="absolute -top-3 right-4 bg-paper text-teal-accent border border-teal-accent/30 text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
                     Skills
                 </div>
-                <div class="card-content-fade flex flex-col justify-center" id="card4-content">
-                    <div class="text-[18px] font-medium tracking-tight-md text-ink leading-[1.2]" id="card4-title">Стратегия</div>
-                    <div class="text-[13px] text-fog mt-2 leading-[1.4] line-clamp-3" id="card4-desc">Product Marketing, Customer Journey Map, Unit-экономика, Анализ конкурентов</div>
+                <div class="card-content-fade flex flex-col justify-center text-left js-card4-content">
+                    <div class="text-[18px] font-medium tracking-tight-md text-ink leading-[1.2] js-card4-title">Стратегия</div>
+                    <div class="text-[13px] text-fog mt-2 leading-[1.4] line-clamp-3 js-card4-desc">Product Marketing, Customer Journey Map, Unit-экономика, Анализ конкурентов</div>
                 </div>
             </div>
 
@@ -581,7 +552,6 @@
 
         // Смена слов в заголовке
         const roles = ["generalist", "оптимист", "альпинист", "эквилибрист", "аметист"];
-        const themes = ['bg-generalist', 'bg-optimist', 'bg-alpinist', 'bg-equilibrist', 'bg-amethyst'];
         let roleIdx = 0;
         const roleEl = document.getElementById('dynamic-role');
         
@@ -591,14 +561,6 @@
                 setTimeout(() => {
                     roleIdx = (roleIdx + 1) % roles.length;
                     roleEl.innerText = roles[roleIdx];
-                    
-                    // Toggle themes
-                    document.querySelectorAll('.theme-layer').forEach(layer => {
-                        layer.classList.remove('active');
-                    });
-                    const themeLayer = document.getElementById(themes[roleIdx]);
-                    if (themeLayer) themeLayer.classList.add('active');
-                    
                     roleEl.style.opacity = '1';
                 }, 400); 
             }, 4000);
@@ -639,57 +601,54 @@
         ];
 
         // Функция обновления карточек
-        function updateCard(elementId, dataArray, renderFn, interval) {
-            const el = document.getElementById(elementId);
-            if (!el) return;
+        function updateCard(selectorPrefix, dataArray, renderFn, interval) {
+            const elements = document.querySelectorAll(`.${selectorPrefix}`);
+            if (!elements.length) return;
             let idx = 0;
             setInterval(() => {
                 idx = (idx + 1) % dataArray.length;
-                el.style.opacity = '0';
+                elements.forEach(el => el.style.opacity = '0');
                 setTimeout(() => {
                     renderFn(dataArray[idx]);
-                    el.style.opacity = '1';
+                    elements.forEach(el => el.style.opacity = '1');
                 }, 400);
             }, interval);
         }
 
         // Безопасное обновление текста
-        const safeSetText = (id, text) => {
-            const el = document.getElementById(id);
-            if (el) el.innerText = text;
+        const safeSetText = (selector, text) => {
+            document.querySelectorAll(selector).forEach(el => el.innerText = text);
         };
 
-        const safeSetHTML = (id, html) => {
-            const el = document.getElementById(id);
-            if (el) el.innerHTML = html;
+        const safeSetHTML = (selector, html) => {
+            document.querySelectorAll(selector).forEach(el => el.innerHTML = html);
         };
 
-        updateCard('card1-content', metrics, (data) => {
-            safeSetText('card1-project', data.project);
-            safeSetText('card1-tag', data.tag);
-            safeSetText('card1-metric', data.metric);
-            safeSetText('card1-desc', data.desc);
+        updateCard('js-card1-content', metrics, (data) => {
+            safeSetText('.js-card1-project', data.project);
+            safeSetText('.js-card1-tag', data.tag);
+            safeSetText('.js-card1-metric', data.metric);
+            safeSetText('.js-card1-desc', data.desc);
             
-            const bar = document.getElementById('card1-bar');
-            if(bar) {
+            document.querySelectorAll('.js-card1-bar').forEach(bar => {
                 bar.style.width = `${data.bar}%`;
-                bar.className = `h-full rounded-full transition-all duration-500 ${data.color}`;
-            }
+                bar.className = `h-full rounded-full transition-all duration-500 js-card1-bar ${data.color}`;
+            });
         }, 4000);
 
-        updateCard('card2-content', techStack, (data) => {
-            safeSetText('card2-title', data.title);
-            safeSetHTML('card2-code', data.code);
+        updateCard('js-card2-content', techStack, (data) => {
+            safeSetText('.js-card2-title', data.title);
+            safeSetHTML('.js-card2-code', data.code);
         }, 3500);
 
-        updateCard('card3-content', leadership, (data) => {
-            safeSetText('card3-title', data.title);
-            safeSetText('card3-desc', data.desc);
+        updateCard('js-card3-content', leadership, (data) => {
+            safeSetText('.js-card3-title', data.title);
+            safeSetText('.js-card3-desc', data.desc);
         }, 4500);
 
-        updateCard('card4-content', skillsData, (data) => {
-            safeSetText('card4-title', data.title);
-            safeSetText('card4-desc', data.desc);
+        updateCard('js-card4-content', skillsData, (data) => {
+            safeSetText('.js-card4-title', data.title);
+            safeSetText('.js-card4-desc', data.desc);
         }, 3800);
 
         // Аккордеон
