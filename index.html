@@ -28,8 +28,6 @@
                         'cream': '#f1f0ee',
                         'paper': '#ffffff',
                         'acid-lemon': '#f0f41a',
-                        'coral-accent': '#ff7448',
-                        'teal-accent': '#0d9488',
                     },
                     fontFamily: {
                         sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
@@ -63,7 +61,6 @@
             color: theme('colors.ink');
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
 
         /* Интерактивный курсор */
@@ -147,59 +144,50 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <main class="w-full max-w-[1200px] mx-auto px-6 pt-12 lg:pt-32 pb-16 lg:pb-32 flex flex-col items-center text-center relative z-10">
+    <!-- Hero Section (Абсолютное позиционирование для десктопа, скролл для мобилок) -->
+    <main class="w-full max-w-[1200px] mx-auto px-6 pt-12 lg:pt-20 pb-16 lg:pb-32 flex flex-col items-center text-center relative z-10 overflow-hidden lg:overflow-visible">
         
         <!-- Центральный текст -->
-        <div class="relative z-20 pointer-events-auto w-full max-w-[750px] mx-auto">
-            <h1 class="text-[40px] sm:text-[64px] md:text-[80px] font-medium leading-[1.05] tracking-tight-lg text-ink mb-6">
-                Никита Копасов —<br>
+        <div class="relative z-20 max-w-[850px] mb-8 lg:mb-0 lg:mt-12">
+            <h1 class="text-[40px] sm:text-[64px] md:text-[76px] font-medium leading-[1.05] tracking-tight-lg text-ink mb-6">
+                Никита Копасов — <br>
                 маркетолог-<br>
                 <span id="dynamic-role" class="gradient-text transition-opacity duration-400">generalist</span><br>
-                с опытом &gt; 12 лет.
+                с опытом > 12 лет.
             </h1>
-            <p class="text-[16px] sm:text-[20px] font-normal leading-[1.5] text-fog max-w-[600px] mx-auto">
+            <p class="text-[16px] sm:text-[20px] font-normal leading-[1.5] text-fog max-w-[500px] mx-auto">
                 Комплексный маркетинг, performance и автоматизация для HoReCa, e-commerce и SaaS.
             </p>
         </div>
 
-        <!-- Горизонтальный контейнер карточек (Mobile) / Абсолютные карточки (Desktop) -->
-        <div class="flex lg:block w-full overflow-x-auto snap-x snap-mandatory gap-6 pt-8 pb-8 mt-4 lg:mt-0 hide-scrollbar -mx-6 px-6 lg:mx-0 lg:px-0 relative z-0 pointer-events-none lg:pointer-events-auto">
+        <!-- Контейнер карточек: горизонтальный скролл на мобильном, абсолютное позиционирование на десктопе -->
+        <div class="flex flex-row lg:block w-full overflow-x-auto lg:overflow-visible snap-x snap-mandatory gap-6 pt-6 pb-8 hide-scrollbar -mx-6 px-6 lg:mx-0 lg:px-0">
             
-            <!-- Карточка 1 (Mobile) / Левая верхняя (Desktop) -->
-            <div class="relative lg:absolute lg:top-0 lg:left-0 xl:-left-6 lg:-rotate-2 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center shrink-0 snap-center pointer-events-auto">
-                <div class="absolute -top-3 right-4 bg-electric-iris text-paper text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle border border-bone z-10 transition-colors js-card1-tag">
+            <!-- Карточка 1 (Достижения) -->
+            <div class="flex relative lg:absolute lg:top-4 lg:left-[-2rem] xl:left-0 lg:-rotate-2 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex-col justify-center gap-3 z-0 shrink-0 snap-center">
+                <div class="absolute -top-3 -right-3 bg-electric-iris text-paper text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle border border-bone z-10 transition-colors" id="card1-tag">
                     SaaS
                 </div>
-                <div class="card-content-fade flex flex-col justify-center text-left js-card1-content">
-                    <div class="text-[13px] font-medium text-fog mb-1 truncate js-card1-project">SendPulse</div>
-                    <div class="text-[28px] font-medium tracking-tight-md text-ink mt-1 truncate js-card1-metric">CAC: -10%</div>
+                <div class="flex items-center justify-between">
+                    <span class="text-[13px] font-medium text-electric-iris" id="card1-project">SendPulse</span>
+                </div>
+                <div class="card-content-fade text-left" id="card1-content">
+                    <div class="text-[28px] font-medium tracking-tight-md text-ink mt-1" id="card1-metric">CAC: -10%</div>
                     <div class="h-1.5 w-full bg-cream rounded-full overflow-hidden mt-3 mb-2">
-                        <div class="h-full bg-electric-iris rounded-full transition-all duration-500 js-card1-bar" style="width: 85%;"></div>
+                        <div class="h-full bg-electric-iris rounded-full transition-all duration-500" id="card1-bar" style="width: 85%;"></div>
                     </div>
-                    <div class="text-[13px] text-fog truncate js-card1-desc">Снижение стоимости</div>
+                    <div class="text-[13px] text-fog" id="card1-desc">Снижение стоимости</div>
                 </div>
             </div>
 
-            <!-- Карточка 3 (Mobile) / Левая нижняя (Desktop) -->
-            <div class="relative lg:absolute lg:bottom-0 lg:left-12 xl:-left-2 lg:rotate-3 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center gap-2 shrink-0 snap-center pointer-events-auto">
-                <div class="absolute -top-3 right-4 bg-paper text-soft-lilac border border-soft-lilac text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
-                    Scale & Team
-                </div>
-                <div class="card-content-fade flex flex-col justify-center text-left js-card3-content">
-                    <div class="text-[18px] font-medium tracking-tight-md text-ink leading-[1.2] js-card3-title">Бюджеты до 15 млн ₽</div>
-                    <div class="text-[13px] text-fog mt-2 leading-[1.4] line-clamp-2 js-card3-desc">Опыт управления сплитом от 30 тыс. руб/мес</div>
-                </div>
-            </div>
-
-            <!-- Карточка 2 (Mobile) / Правая верхняя (Desktop) -->
-            <div class="relative lg:absolute lg:top-16 lg:right-0 xl:-right-6 lg:rotate-2 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center gap-2 shrink-0 snap-center pointer-events-auto">
-                <div class="absolute -top-3 right-4 bg-acid-lemon text-ink border border-bone text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
+            <!-- Карточка 2 (Tech Stack) -->
+            <div class="flex relative lg:absolute lg:top-16 lg:right-[-2rem] xl:right-0 lg:rotate-2 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex-col justify-center gap-2 z-0 shrink-0 snap-center text-left">
+                <div class="absolute -top-3 -right-3 bg-acid-lemon text-ink text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle border border-bone z-10">
                     Tech Stack
                 </div>
-                <div class="card-content-fade text-left js-card2-content">
-                    <div class="text-[14px] font-medium text-ink mt-1 js-card2-title">Python & Gemini API</div>
-                    <div class="bg-cream rounded-[8px] p-3 font-mono text-[11px] text-fog leading-relaxed mt-2 overflow-hidden h-[60px] js-card2-code">
+                <div class="card-content-fade" id="card2-content">
+                    <div class="text-[14px] font-medium text-ink" id="card2-title">Python & Gemini API</div>
+                    <div class="bg-cream rounded-[8px] p-3 font-mono text-[11px] text-fog leading-relaxed mt-3" id="card2-code">
                         def optimize_cpa():<br>
                         &nbsp;&nbsp;return max_roi()<br>
                         <span class="text-electric-iris"># Automation init</span>
@@ -207,14 +195,25 @@
                 </div>
             </div>
 
-            <!-- Карточка 4 (Mobile) / Правая нижняя (Desktop) -->
-            <div class="relative lg:absolute lg:-bottom-12 lg:right-12 xl:-right-2 lg:-rotate-2 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex flex-col justify-center gap-2 shrink-0 snap-center pointer-events-auto">
-                <div class="absolute -top-3 right-4 bg-paper text-teal-accent border border-teal-accent/30 text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle z-10">
+            <!-- Карточка 3 (Leadership) -->
+            <div class="flex relative lg:absolute lg:bottom-4 lg:left-8 xl:left-24 lg:rotate-[3deg] bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex-col justify-center gap-3 z-0 shrink-0 snap-center text-left">
+                <div class="absolute -top-3 -right-3 bg-soft-lilac text-electric-iris text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle border border-bone z-10">
+                    Scale & Team
+                </div>
+                <div class="card-content-fade flex flex-col justify-center text-left" id="card3-content">
+                    <div class="text-[20px] font-medium tracking-tight-md text-ink leading-[1.2]" id="card3-title">Бюджеты до 15 млн ₽</div>
+                    <div class="text-[13px] text-fog mt-3 leading-[1.4]" id="card3-desc">Опыт управления сплитом от 30 тыс. руб/мес</div>
+                </div>
+            </div>
+
+            <!-- Карточка 4 (Skills) -->
+            <div class="flex relative lg:absolute lg:bottom-12 lg:right-12 xl:right-32 lg:-rotate-[2deg] bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex-col justify-center gap-2 z-0 shrink-0 snap-center text-left">
+                <div class="absolute -top-3 -right-3 bg-cream text-ink text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle border border-bone z-10">
                     Skills
                 </div>
-                <div class="card-content-fade flex flex-col justify-center text-left js-card4-content">
-                    <div class="text-[18px] font-medium tracking-tight-md text-ink leading-[1.2] js-card4-title">Стратегия</div>
-                    <div class="text-[13px] text-fog mt-2 leading-[1.4] line-clamp-3 js-card4-desc">Product Marketing, Customer Journey Map, Unit-экономика, Анализ конкурентов</div>
+                <div class="card-content-fade text-left" id="card4-content">
+                    <div class="text-[20px] font-medium tracking-tight-md text-ink leading-[1.2]" id="card4-title">Трафик</div>
+                    <div class="text-[13px] text-fog mt-3 leading-[1.4]" id="card4-desc">Internet Marketing, Контекстная реклама, Таргетинг, SEO, Запуск кампаний</div>
                 </div>
             </div>
 
@@ -235,7 +234,7 @@
                         <div class="text-[16px] text-fog font-medium w-[160px] shrink-0 mt-1">Окт 2025 – н.в.</div>
                         <div>
                             <div class="text-[20px] font-medium text-ink group-hover:text-electric-iris transition-colors">Маркетолог-generalist</div>
-                            <div class="text-[16px] text-fog mt-1">Deal.by, Старик Хинкалыч, Solo, Медведь Электро, 5КИЛОВАТТ, Понеслось, Ева Ела и др.</div>
+                            <div class="text-[16px] text-fog mt-1">Deal.by, Старик Хинкалыч, Медведь Электро, 5КИЛОВАТТ, Понеслось, Ева Ела и др.</div>
                         </div>
                     </div>
                     <div class="accordion-icon min-w-[24px] text-iron group-hover:text-electric-iris mt-1">
@@ -246,7 +245,7 @@
                     <div class="pb-6 pl-0 sm:pl-[208px] lg:pl-[256px] text-[16px] text-fog leading-[1.6]">
                         <ul class="list-disc pl-5 space-y-2">
                             <li><strong>Deal.by:</strong> Внедрил механики геймификации в B2B email-рассылках. Провел А/В тесты, настроил автоматические триггерные цепочки.</li>
-                            <li><strong>Старик Хинкалыч & Solo:</strong> Разработал и внедрил комплексную CRM-систему (Senler, BotHelp). Интеграция с iiko, разработка системы аналитики CPO и ROMI.</li>
+                            <li><strong>Старик Хинкалыч:</strong> Разработал и внедрил комплексную CRM-систему (Senler, BotHelp). Интеграция с iiko, разработка системы аналитики CPO и ROMI.</li>
                             <li><strong>Медведь Электро & 5 КИЛОВАТТ:</strong> +15% клиентов за 6 месяцев. Создание лендингов, автоматизация через Python, разработка AI-бота.</li>
                         </ul>
                     </div>
@@ -365,7 +364,7 @@
     <section id="cases" class="w-full bg-paper py-24 border-y border-bone relative z-20">
         <div class="max-w-[1200px] mx-auto px-6">
             <h2 class="text-[32px] sm:text-[48px] font-medium leading-[1.2] tracking-tight-md text-ink mb-12 scroll-reveal">
-                Экспертиза и кейсы
+                Направления и кейсы
             </h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -467,7 +466,7 @@
 
     <!-- Скрипты -->
     <script>
-        // Interactive Glow Cursor
+        // Интерактивный курсор
         const cursor = document.getElementById('glow-cursor');
         let mouseX = window.innerWidth / 2;
         let mouseY = window.innerHeight / 2;
@@ -493,16 +492,14 @@
         let roleIdx = 0;
         const roleEl = document.getElementById('dynamic-role');
         
-        if (roleEl) {
-            setInterval(() => {
-                roleEl.style.opacity = '0';
-                setTimeout(() => {
-                    roleIdx = (roleIdx + 1) % roles.length;
-                    roleEl.innerText = roles[roleIdx];
-                    roleEl.style.opacity = '1';
-                }, 400); 
-            }, 4000);
-        }
+        setInterval(() => {
+            roleEl.style.opacity = '0';
+            setTimeout(() => {
+                roleIdx = (roleIdx + 1) % roles.length;
+                roleEl.innerText = roles[roleIdx];
+                roleEl.style.opacity = '1';
+            }, 400); 
+        }, 4000);
 
         // Данные для Карточки 1
         const metrics = [
@@ -538,55 +535,58 @@
             { title: "Стратегия", desc: "Product Marketing, Customer Journey Map, Unit-экономика, Разработка маркетинговых стратегий" }
         ];
 
-        // Функция обновления карточек
-        function updateCard(selectorPrefix, dataArray, renderFn, interval) {
-            const elements = document.querySelectorAll(`.${selectorPrefix}`);
-            if (!elements.length) return;
+        // Функция обновления карточек с проверками на существование
+        function updateCard(elementId, dataArray, renderFn, interval) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
             let idx = 0;
             setInterval(() => {
                 idx = (idx + 1) % dataArray.length;
-                elements.forEach(el => el.style.opacity = '0');
+                el.style.opacity = '0';
                 setTimeout(() => {
                     renderFn(dataArray[idx]);
-                    elements.forEach(el => el.style.opacity = '1');
+                    el.style.opacity = '1';
                 }, 400);
             }, interval);
         }
 
-        // Безопасное обновление текста
-        const safeSetText = (selector, text) => {
-            document.querySelectorAll(selector).forEach(el => el.innerText = text);
-        };
-
-        const safeSetHTML = (selector, html) => {
-            document.querySelectorAll(selector).forEach(el => el.innerHTML = html);
-        };
-
-        updateCard('js-card1-content', metrics, (data) => {
-            safeSetText('.js-card1-project', data.project);
-            safeSetText('.js-card1-tag', data.tag);
-            safeSetText('.js-card1-metric', data.metric);
-            safeSetText('.js-card1-desc', data.desc);
+        updateCard('card1-content', metrics, (data) => {
+            const projectEl = document.getElementById('card1-project');
+            const tagEl = document.getElementById('card1-tag');
+            const metricEl = document.getElementById('card1-metric');
+            const descEl = document.getElementById('card1-desc');
+            const barEl = document.getElementById('card1-bar');
             
-            document.querySelectorAll('.js-card1-bar').forEach(bar => {
-                bar.style.width = `${data.bar}%`;
-                bar.className = `h-full rounded-full transition-all duration-500 js-card1-bar ${data.color}`;
-            });
+            if (projectEl) projectEl.innerText = data.project;
+            if (tagEl) tagEl.innerText = data.tag;
+            if (metricEl) metricEl.innerText = data.metric;
+            if (descEl) descEl.innerText = data.desc;
+            
+            if (barEl) {
+                barEl.style.width = `${data.bar}%`;
+                barEl.className = `h-full rounded-full transition-all duration-500 ${data.color}`;
+            }
         }, 4000);
 
-        updateCard('js-card2-content', techStack, (data) => {
-            safeSetText('.js-card2-title', data.title);
-            safeSetHTML('.js-card2-code', data.code);
+        updateCard('card2-content', techStack, (data) => {
+            const titleEl = document.getElementById('card2-title');
+            const codeEl = document.getElementById('card2-code');
+            if (titleEl) titleEl.innerText = data.title;
+            if (codeEl) codeEl.innerHTML = data.code;
         }, 3500);
 
-        updateCard('js-card3-content', leadership, (data) => {
-            safeSetText('.js-card3-title', data.title);
-            safeSetText('.js-card3-desc', data.desc);
+        updateCard('card3-content', leadership, (data) => {
+            const titleEl = document.getElementById('card3-title');
+            const descEl = document.getElementById('card3-desc');
+            if (titleEl) titleEl.innerText = data.title;
+            if (descEl) descEl.innerText = data.desc;
         }, 4500);
 
-        updateCard('js-card4-content', skillsData, (data) => {
-            safeSetText('.js-card4-title', data.title);
-            safeSetText('.js-card4-desc', data.desc);
+        updateCard('card4-content', skillsData, (data) => {
+            const titleEl = document.getElementById('card4-title');
+            const descEl = document.getElementById('card4-desc');
+            if (titleEl) titleEl.innerText = data.title;
+            if (descEl) descEl.innerText = data.desc;
         }, 3800);
 
         // Аккордеон
