@@ -3,299 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Кейс: Бар «Понеслось» — Никита Копасов</title>
-    
+    <title>69 заявок на корпоративы для бара «Понеслось» — Никита Копасов</title>
+    <meta name="description" content="VK Ads для бара «Понеслось»: 69 заявок на новогодние корпоративы, CPL 417 ₽ при KPI до 2 000 ₽ и конверсия сайта 9,94%.">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'electric-iris': '#6248ff',
-                        'soft-lilac': '#b8adf5',
-                        'iris-mist': '#e0daff',
-                        'ink': '#161616',
-                        'graphite': '#222222',
-                        'slate': '#333333',
-                        'iron': '#4d4d4c',
-                        'fog': '#686868',
-                        'bone': '#e4e2df',
-                        'cream': '#f1f0ee',
-                        'paper': '#ffffff',
-                        'acid-lemon': '#f0f41a',
+                        'electric-iris': '#5D5FEF',
+                        'iris-dark': '#4A4CD9',
+                        'paper': '#FFFFFF',
+                        'ink': '#0C0E12',
+                        'fog': '#697586',
+                        'bone': '#E4E7EC',
+                        'cream': '#F2F4F7',
+                        'gray-ink': '#364152',
+                        'gray-light': '#CDD5DF'
                     },
-                    fontFamily: {
-                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
-                    }
+                    fontFamily: { 'sans': ['Inter', 'sans-serif'] },
+                    borderRadius: { 'relume': '16px', 'relume-sm': '8px' },
+                    boxShadow: { 'relume-subtle': '0px 1px 2px 0px rgba(12,14,18,0.05)' }
                 }
             }
         }
     </script>
     <style>
-        body {
-            font-feature-settings: "ss01" on, "cv11" on;
-            background-color: theme('colors.cream');
-            color: theme('colors.ink');
-            -webkit-font-smoothing: antialiased;
-        }
-        .gradient-text {
-            background: linear-gradient(100deg, rgb(255, 116, 72), rgb(255, 72, 72) 42%, rgb(98, 72, 255) 85%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
+        body { background-color: #F2F4F7; color: #0C0E12; -webkit-font-smoothing: antialiased; }
+        .header-blur { backdrop-filter: blur(12px); background-color: rgba(255,255,255,0.9); }
+        a, button { -webkit-tap-highlight-color: transparent; }
+        a:focus-visible, button:focus-visible { outline: 2px solid #5D5FEF; outline-offset: 4px; }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
     </style>
 </head>
-<body class="min-h-screen flex flex-col relative">
-
-    <!-- Navbar -->
-    <nav class="w-full max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between relative z-50">
-        <a href="index.html" class="flex items-center gap-2 hover:opacity-70 transition-opacity">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L20.6603 7V17L12 22L3.33975 17V7L12 2Z" stroke="#161616" stroke-width="2" stroke-linejoin="round"/>
-            </svg>
-            <span class="text-[16px] font-medium tracking-tight">Никита Копасов</span>
-        </a>
-        <div class="flex items-center gap-8">
-            <a href="category-digital.html" class="text-[16px] font-medium text-ink hover:text-electric-iris transition-colors min-h-[44px] flex items-center" aria-label="Назад к кейсам Digital-marketing"><span class="hidden sm:inline">← Кейсы направления</span><span class="sm:hidden" aria-hidden="true">←</span></a>
+<body>
+    <header class="sticky top-0 z-50 header-blur border-b border-bone">
+        <div class="container mx-auto px-4 md:px-8 h-[72px] max-w-[1280px] flex justify-between items-center">
+            <a href="index.html" class="text-[22px] font-medium tracking-[-0.02em] text-ink hover:text-electric-iris transition-colors" aria-label="Никита Копасов — на главную">Никита Копасов<span class="text-electric-iris">.</span></a>
+            <nav class="flex items-center gap-3 md:gap-6" aria-label="Навигация по кейсу">
+                <a href="index.html#cases" class="text-[14px] md:text-[16px] text-fog hover:text-ink transition-colors">← Все направления</a>
+                <a href="index.html#contact" class="text-[14px] md:text-[16px] bg-ink text-paper px-4 md:px-5 py-2.5 rounded-relume-sm hover:bg-electric-iris transition-colors font-medium">Связаться</a>
+            </nav>
         </div>
-    </nav>
-
-    <main class="w-full max-w-[900px] mx-auto px-6 pt-12 pb-24 relative z-10">
-        
-        <!-- Заголовок кейса -->
-        <div class="mb-12">
-            <h1 class="text-[32px] sm:text-[48px] font-medium leading-[1.1] tracking-tight-md text-ink mb-6">
-                Запуск таргетированной рекламы на бронирование новогодних корпоративов для <span class="gradient-text">бара «Понеслось»</span>
-            </h1>
-            
-            <div class="flex flex-wrap gap-3 mt-6">
-                <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">Ниша: HoReCa / B2B-события</span>
-                <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">Локация: Воронеж</span>
-                <span class="bg-electric-iris text-white px-3 py-1.5 rounded-[8px] text-[13px] font-medium">Канал: ВКонтакте (VK Ads)</span>
+    </header>
+    <main>
+        <section class="pt-12 md:pt-20 pb-10 md:pb-12 px-4 md:px-8">
+            <div class="container mx-auto max-w-[1280px]">
+                <div class="max-w-[960px] mx-auto">
+                    <div class="flex flex-wrap items-center gap-2 mb-6">
+                        <span class="text-[12px] font-medium px-3 py-1.5 bg-paper border border-bone rounded-md text-ink">HoReCa / B2B-события</span>
+                        <span class="text-[12px] font-medium px-3 py-1.5 bg-paper border border-bone rounded-md text-fog">Воронеж</span>
+                        <span class="text-[12px] font-medium px-3 py-1.5 bg-paper border border-bone rounded-md text-fog">сезон 2021 года</span>
+                        <span class="text-[12px] font-medium px-3 py-1.5 bg-paper border border-bone rounded-md text-fog">канал VK Ads</span>
+                    </div>
+                    <h1 class="text-[36px] md:text-[56px] font-medium leading-[1.1] tracking-[-0.02em] text-ink mb-6">69 заявок на новогодние корпоративы для бара «Понеслось»</h1>
+                    <p class="text-[18px] md:text-[20px] text-fog leading-[1.6] max-w-[820px]">Собрал очереди аудиторий по ключевым запросам, офисам и CRM-базе, протестировал 45 объявлений и получил заявки по 417 ₽ — при допустимых 2 000 ₽.</p>
+                </div>
             </div>
-        </div>
-
-        <!-- Инструменты -->
-        <div class="bg-paper border border-bone rounded-[16px] p-6 mb-12 shadow-relume-subtle">
-            <p class="text-[14px] text-fog font-medium uppercase tracking-wider mb-3">Инструменты</p>
-            <p class="text-[16px] text-ink font-medium">VK Ads, TargetHunter, Яндекс Вордстат, 2GIS, Google Analytics</p>
-        </div>
-
-        <!-- Результаты кампании (Таблица) -->
-        <h2 class="text-[24px] font-medium text-ink mb-6">Результаты кампании (План vs Факт)</h2>
-        <div class="overflow-x-auto mb-12 bg-paper border border-bone rounded-[16px] shadow-relume-subtle">
-            <table class="w-full text-left border-collapse">
-                <thead>
-                    <tr class="border-b border-bone bg-cream/50">
-                        <th class="p-4 text-[14px] font-medium text-iron">Метрика</th>
-                        <th class="p-4 text-[14px] font-medium text-iron">План / KPI</th>
-                        <th class="p-4 text-[14px] font-medium text-ink">Факт</th>
-                        <th class="p-4 text-[14px] font-medium text-electric-iris">Отклонение</th>
-                    </tr>
-                </thead>
-                <tbody class="text-[15px]">
-                    <tr class="border-b border-bone">
-                        <td class="p-4 text-fog">Количество лидов (заявок)</td>
-                        <td class="p-4 text-fog">50 заявок</td>
-                        <td class="p-4 font-medium text-ink">69 заявок</td>
-                        <td class="p-4 text-electric-iris font-medium">+38% к плану</td>
-                    </tr>
-                    <tr class="border-b border-bone">
-                        <td class="p-4 text-fog">Стоимость лида (CPL)</td>
-                        <td class="p-4 text-fog">До 2 000 ₽</td>
-                        <td class="p-4 font-medium text-ink">417 ₽</td>
-                        <td class="p-4 text-electric-iris font-medium">В 4,8 раза дешевле</td>
-                    </tr>
-                    <tr class="border-b border-bone">
-                        <td class="p-4 text-fog">Рекламный бюджет</td>
-                        <td class="p-4 text-fog">100 000 ₽ (лимит)</td>
-                        <td class="p-4 font-medium text-ink">28 825 ₽</td>
-                        <td class="p-4 text-electric-iris font-medium">Экономия 71%</td>
-                    </tr>
-                    <tr class="border-b border-bone">
-                        <td class="p-4 text-fog">Конверсия сайта (CR)</td>
-                        <td class="p-4 text-fog">—</td>
-                        <td class="p-4 font-medium text-ink">9,94%</td>
-                        <td class="p-4 text-ink">69 лидов с 694 сеансов</td>
-                    </tr>
-                    <tr>
-                        <td class="p-4 text-fog">Средний чек сделки</td>
-                        <td class="p-4 text-fog">—</td>
-                        <td class="p-4 font-medium text-ink">от 23 000 ₽</td>
-                        <td class="p-4 text-ink">1 500 ₽ / персона</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Контентные блоки -->
-        <div class="space-y-12">
-            
-            <section>
-                <h2 class="text-[24px] font-medium text-ink mb-4">Вводные данные и задача</h2>
-                <div class="text-[16px] text-fog leading-[1.6] space-y-4">
-                    <p>Бар «Понеслось» — популярное заведение в Воронеже с 3 изолированными залами вместимостью от 20 до 120 человек, подходящее как для небольших отделов, так и для крупных компаний.</p>
-                    <ul class="list-disc pl-5 space-y-2">
-                        <li><strong>Сезон проведения:</strong> 15–30 декабря.</li>
-                        <li><strong>Ценовой сегмент:</strong> от 1 500 ₽ на человека (средний чек бронирования — от 23 000 ₽).</li>
-                        <li><strong>Ключевое УТП:</strong> возможность прийти «со своими напитками» (крепкий алкоголь), а также программа «под ключ» (ведущий, диджей, Дед Мороз, спецменю и фотозона).</li>
-                        <li><strong>Цель:</strong> привлечь минимум 50 целевых заявок на бронь корпоративов до середины ноября с предельной стоимостью лида не выше 2 000 ₽.</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section>
-                <h2 class="text-[24px] font-medium text-ink mb-4">Челленджи и специфика ниши</h2>
-                <div class="text-[16px] text-fog leading-[1.6] space-y-4">
-                    <p><strong>1. Разделение B2C и B2B:</strong> задача таргета — найти не просто гостей для пятничного отдыха, а ЛПР (руководителей, HR-менеджеров, активистов компаний), ответственных за выбор площадки.</p>
-                    <p><strong>2. Ограничения модерации VK:</strong> жесткие правила социальной сети в отношении алкогольной и барной тематики требовали аккуратного подбора визуалов и формулировок без прямых нарушений правил площадки.</p>
-                    <p><strong>3. Ограниченное окно принятия решений:</strong> необходимость законтрактовать даты за 1,5–2 месяца до праздников (в ноябре), пока компании не распределили бюджеты между конкурентами.</p>
-                </div>
-            </section>
-
-            <section>
-                <h2 class="text-[24px] font-medium text-ink mb-4">Подготовка и аналитика конкурентов</h2>
-                <div class="text-[16px] text-fog leading-[1.6] space-y-4">
-                    <p>Перед запуском креативов был проведен парсинг рекламных активностей конкурентов в Воронеже через TargetHunter.</p>
-                    <ul class="list-disc pl-5 space-y-2">
-                        <li><strong>Плотность конкуренции:</strong> единицы заведений системно крутили рекламу на корпоративы в VK.</li>
-                        <li><strong>Посылы конкурентов:</strong> базовые офферы сводились к шаблонам («быстрое обслуживание», «гарантия возврата предоплаты», «программа под ключ»).</li>
-                        <li><strong>Стратегия отстройки:</strong> упор на главное триггерное преимущество — «можно со своим алкоголем», что радикально снижало общий бюджет праздника для заказчика.</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section>
-                <h2 class="text-[24px] font-medium text-ink mb-4">Архитектура аудиторий и связок</h2>
-                <div class="text-[16px] text-fog leading-[1.6] space-y-4">
-                    <p>Для тестирования аудитории разделили на две очереди, чтобы рационально распределить бюджет и подстраховаться на случай выгорания.</p>
-                    <p class="font-medium text-ink mt-6">1-я очередь (горячие и прямые сегменты):</p>
-                    <ol class="list-decimal pl-5 space-y-2">
-                        <li><strong>База постоянных гостей (CRM):</strong> телефоны гостей, бронировавших столы за последний год (~1 000 номеров).</li>
-                        <li><strong>Контекстный таргет (поисковые запросы):</strong> пользователи, искавшие запросы по теме корпоративов и аренды залов в Воронеже за последние 30 дней (~4 100 чел.).</li>
-                        <li><strong>Супергео на бизнес-центры и офисы:</strong> геометки с категорией «Работа» вокруг крупнейших офисных кластеров Воронежа, отобранных через 2GIS (~1 500 чел.).</li>
-                        <li><strong>Автоматическая аудитория алгоритмов VK:</strong> (~17 000 чел.).</li>
-                        <li><strong>Подписчики сообщества бара:</strong> (~6 000 чел.).</li>
-                        <li><strong>HR-менеджеры:</strong> сбор должностей через TargetHunter (~300 чел.).</li>
-                    </ol>
-                    <p class="font-medium text-ink mt-6">2-я очередь (резервные сегменты):</p>
-                    <p>Базы сообществ прямых конкурентов, посетители сайта за 180 дней (пиксель), Look-alike на базу гостей и широкая аудитория по ресторанным интересам.</p>
-                    
-                    <div class="bg-acid-lemon/20 border border-acid-lemon rounded-[12px] p-5 mt-6">
-                        <p class="font-medium text-ink mb-2">⚠️ Факап и быстрая адаптация гипотезы:</p>
-                        <p class="text-[14px]">Сбор выборки по HR-менеджерам через парсер дал всего около 300 профилей. После загрузки в рекламный кабинет сегмент оказался критически узким для открутки, и даже снятие ограничений не позволило запустить показы. Гипотезу оперативно свернули, а бюджет перераспределили на оставшиеся 5 связок.</p>
+        </section>
+        <section class="pb-12 md:pb-16 px-4 md:px-8" aria-label="Ключевые показатели">
+            <div class="container mx-auto max-w-[1280px]">
+                <div class="max-w-[960px] mx-auto grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+                    <div class="bg-paper border border-bone rounded-[16px] p-5 md:p-6 shadow-relume-subtle">
+                        <div class="text-[32px] md:text-[40px] font-medium leading-none text-electric-iris mb-3">69</div>
+                        <div class="text-[14px] md:text-[15px] text-ink font-medium mb-1">заявок при плане 50</div>
+                        <div class="text-[12px] md:text-[13px] text-fog leading-[1.5]">план перевыполнен на 38%</div>
+                    </div>
+                    <div class="bg-paper border border-bone rounded-[16px] p-5 md:p-6 shadow-relume-subtle">
+                        <div class="text-[32px] md:text-[40px] font-medium leading-none text-electric-iris mb-3">417 ₽</div>
+                        <div class="text-[14px] md:text-[15px] text-ink font-medium mb-1">стоимость заявки</div>
+                        <div class="text-[12px] md:text-[13px] text-fog leading-[1.5]">при KPI до 2 000 ₽</div>
+                    </div>
+                    <div class="bg-paper border border-bone rounded-[16px] p-5 md:p-6 shadow-relume-subtle">
+                        <div class="text-[32px] md:text-[40px] font-medium leading-none text-electric-iris mb-3">28 825 ₽</div>
+                        <div class="text-[14px] md:text-[15px] text-ink font-medium mb-1">расход за кампанию</div>
+                        <div class="text-[12px] md:text-[13px] text-fog leading-[1.5]">из лимита 100 000 ₽</div>
+                    </div>
+                    <div class="bg-paper border border-bone rounded-[16px] p-5 md:p-6 shadow-relume-subtle">
+                        <div class="text-[32px] md:text-[40px] font-medium leading-none text-electric-iris mb-3">9,94%</div>
+                        <div class="text-[14px] md:text-[15px] text-ink font-medium mb-1">конверсия сайта</div>
+                        <div class="text-[12px] md:text-[13px] text-fog leading-[1.5]">69 заявок из 694 сеансов</div>
                     </div>
                 </div>
-            </section>
-
-            <section>
-                <h2 class="text-[24px] font-medium text-ink mb-4">Тестирование креативов и форматы</h2>
-                <div class="text-[16px] text-fog leading-[1.6] space-y-6">
-                    <p>В работу взяли 3 основных формата: «Запись с кнопкой», «Карусель» и «Универсальная запись». Суммарно подготовили и запустили 45 объявлений. Параллельно настроили 3 сегмента ретаргетинга по реакциям пользователей для последующего дожима.</p>
-                    
-                    <!-- Таблица тестов -->
-                    <div class="overflow-x-auto bg-paper border border-bone rounded-[16px] shadow-relume-subtle">
-                        <table class="w-full text-left border-collapse">
-                            <thead>
-                                <tr class="border-b border-bone bg-cream/50">
-                                    <th class="p-3 text-[13px] font-medium text-iron">Аудитория</th>
-                                    <th class="p-3 text-[13px] font-medium text-iron">Формат</th>
-                                    <th class="p-3 text-[13px] font-medium text-iron">Клики</th>
-                                    <th class="p-3 text-[13px] font-medium text-iron">CTR</th>
-                                    <th class="p-3 text-[13px] font-medium text-iron">eCPC</th>
-                                    <th class="p-3 text-[13px] font-medium text-iron">Потрачено</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-[14px]">
-                                <tr class="border-b border-bone">
-                                    <td class="p-3 text-ink font-medium">CRM-база номеров</td>
-                                    <td class="p-3 text-fog">Запись с кнопкой</td>
-                                    <td class="p-3 text-fog">252</td>
-                                    <td class="p-3 text-electric-iris">0,573%</td>
-                                    <td class="p-3 text-fog">39,91 ₽</td>
-                                    <td class="p-3 text-fog">10 059 ₽</td>
-                                </tr>
-                                <tr class="border-b border-bone">
-                                    <td class="p-3 text-ink font-medium">Поисковые запросы</td>
-                                    <td class="p-3 text-fog">Запись с кнопкой</td>
-                                    <td class="p-3 text-fog">192</td>
-                                    <td class="p-3 text-electric-iris">0,455%</td>
-                                    <td class="p-3 text-fog">52,41 ₽</td>
-                                    <td class="p-3 text-fog">10 063 ₽</td>
-                                </tr>
-                                <tr class="border-b border-bone">
-                                    <td class="p-3 text-ink font-medium">Автоматическая</td>
-                                    <td class="p-3 text-fog">Запись с кнопкой</td>
-                                    <td class="p-3 text-fog">99</td>
-                                    <td class="p-3 text-electric-iris">0,378%</td>
-                                    <td class="p-3 text-fog">41,53 ₽</td>
-                                    <td class="p-3 text-fog">4 111 ₽</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-3 text-ink font-medium">Офисы / БЦ</td>
-                                    <td class="p-3 text-fog">Карусель</td>
-                                    <td class="p-3 text-fog">93</td>
-                                    <td class="p-3 text-electric-iris">0,387%</td>
-                                    <td class="p-3 text-fog">42,55 ₽</td>
-                                    <td class="p-3 text-fog">3 957 ₽</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="bg-soft-lilac/20 border border-soft-lilac rounded-[12px] p-5">
-                        <p class="font-medium text-ink mb-2">Парадокс креатива:</p>
-                        <p class="text-[14px]">Визуал на красном фоне с эмоциональными гостями и подарками, который внутри команды субъективно считался самым прямолинейным и слабым, показал наивысшую конверсию во всех сегментах. Текст-тизер <strong>«У нас можно со своим, только тссс 🤫»</strong> стабильно давал максимальный отклик.</p>
-                    </div>
+            </div>
+        </section>
+        <section class="pb-16 md:pb-24 px-4 md:px-8">
+            <div class="container mx-auto max-w-[1280px]">
+                <div class="max-w-[960px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-6 md:gap-8 items-start">
+                    <article class="bg-paper border border-bone rounded-[16px] p-6 md:p-10 shadow-relume-subtle">
+                        <div class="space-y-10 md:space-y-12">
+                            <section>
+                                <h2 class="text-[24px] md:text-[30px] font-medium leading-[1.25] tracking-[-0.01em] text-ink mb-4">Вводные и задача</h2>
+                                <div class="space-y-4 text-[16px] md:text-[17px] text-gray-ink leading-[1.75]">
+                                    <p>«Понеслось» — бар в Воронеже. Перед новогодним сезоном нужно было привести компании, которые выбирают площадку для корпоратива: не разовых гостей, а организаторов бронирования.</p>
+                                    <p>В рекламном кабинете уже был опыт продвижения развлечений бара. Для корпоративов собрали отдельную связку: посадочная страница, сегменты аудиторий, несколько форматов объявлений и контроль заявок через Google Analytics.</p>
+                                </div>
+                                <div class="mt-6 bg-cream border border-bone rounded-[12px] p-5">
+                                    <ul class="space-y-2.5 text-[15px] md:text-[16px] text-gray-ink leading-[1.65]">
+                                        <li class="flex gap-3"><span class="text-electric-iris">→</span><span>Привести минимум 50 заявок на проведение корпоративов.</span></li>
+                                        <li class="flex gap-3"><span class="text-electric-iris">→</span><span>Удержать стоимость заявки в пределах 2 000 ₽.</span></li>
+                                        <li class="flex gap-3"><span class="text-electric-iris">→</span><span>Работать в пределах рекламного лимита 100 000 ₽.</span></li>
+                                    </ul>
+                                </div>
+                            </section>
+                            <section>
+                                <h2 class="text-[24px] md:text-[30px] font-medium leading-[1.25] tracking-[-0.01em] text-ink mb-4">Сначала конкуренты, затем очереди аудиторий</h2>
+                                <div class="space-y-4 text-[16px] md:text-[17px] text-gray-ink leading-[1.75]">
+                                    <p>Перед запуском посмотрел страницы и рекламу конкурентов: чем они отличаются, какие выгоды показывают и как подают предложение. Это помогло собрать гипотезы для креативов, а не запускать один общий баннер на всех.</p>
+                                    <p>Первоочередными планировались шесть сегментов. Но аудитория HR-специалистов оказалась слишком маленькой — около 300 профилей — и нормально не откручивалась. Поэтому в работе осталось пять аудиторий, а дополнительные сегменты были отложены в резерв.</p>
+                                </div>
+                                <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    <div class="border border-bone rounded-[12px] p-4"><div class="text-[14px] font-medium text-ink mb-1">01. Поисковый спрос</div><div class="text-[14px] text-fog leading-[1.6]">Ключевые запросы и похожая аудитория</div></div>
+                                    <div class="border border-bone rounded-[12px] p-4"><div class="text-[14px] font-medium text-ink mb-1">02. Своя база</div><div class="text-[14px] text-fog leading-[1.6]">CRM-контакты и look-alike</div></div>
+                                    <div class="border border-bone rounded-[12px] p-4"><div class="text-[14px] font-medium text-ink mb-1">03. Подписчики бара</div><div class="text-[14px] text-fog leading-[1.6]">Тёплая аудитория сообщества</div></div>
+                                    <div class="border border-bone rounded-[12px] p-4"><div class="text-[14px] font-medium text-ink mb-1">04. Сотрудники офисов</div><div class="text-[14px] text-fog leading-[1.6]">Сегменты по бизнес-центрам Воронежа</div></div>
+                                    <div class="border border-bone rounded-[12px] p-4 sm:col-span-2"><div class="text-[14px] font-medium text-ink mb-1">05. Автоматическая аудитория VK</div><div class="text-[14px] text-fog leading-[1.6]">Отдельный тест алгоритмического подбора</div></div>
+                                </div>
+                                <figure class="mt-6">
+                                    <a href="https://sun9-54.userapi.com/s/v1/ig2/57lzf96tJqoDBSG4qVsOoFCVMFvYXcNPRBiy8P94Ih8lwrpXXrKpd13qk2R1deR4c21xbbvzbK7cH0iCGBygFAPUrnuAWnTHGIX7tZJKFwaYcQb0RwA9hZ_S2YtHLnhyO0Ulx9e4QdtGsZAt7nPgyS1dr67bjstL32ZQHw.jpg?quality=96&as=32x23,48x35,80x58,120x88,160x117,240x176,360x264,480x352,540x396,640x469,683x500&from=bu&u=8EiTXtbgTK5zeREH4zzIcvAsO1ONNxtrqjB4UqtfNWQ&cs=683x500" target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-[16px] border border-bone bg-paper focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris" aria-label="Открыть настройки аудитории в полном размере">
+                                        <img src="https://sun9-54.userapi.com/s/v1/ig2/57lzf96tJqoDBSG4qVsOoFCVMFvYXcNPRBiy8P94Ih8lwrpXXrKpd13qk2R1deR4c21xbbvzbK7cH0iCGBygFAPUrnuAWnTHGIX7tZJKFwaYcQb0RwA9hZ_S2YtHLnhyO0Ulx9e4QdtGsZAt7nPgyS1dr67bjstL32ZQHw.jpg?quality=96&as=32x23,48x35,80x58,120x88,160x117,240x176,360x264,480x352,540x396,640x469,683x500&from=bu&u=8EiTXtbgTK5zeREH4zzIcvAsO1ONNxtrqjB4UqtfNWQ&cs=683x500" alt="Настройки аудитории по ключевым запросам во VK Ads" width="683" height="500" loading="lazy" decoding="async" class="w-full h-auto">
+                                    </a>
+                                    <figcaption class="mt-3 text-[13px] leading-[1.55] text-fog">Пример сегмента по ключевым запросам: отдельная аудитория, а не один широкий таргетинг на весь город.</figcaption>
+                                </figure>
+                            </section>
+                            <section>
+                                <h2 class="text-[24px] md:text-[30px] font-medium leading-[1.25] tracking-[-0.01em] text-ink mb-4">45 объявлений и четыре лучшие связки</h2>
+                                <div class="space-y-4 text-[16px] md:text-[17px] text-gray-ink leading-[1.75]">
+                                    <p>Всего запустили 45 объявлений на пяти аудиториях. По ходу кампании отключал слабые связки и оставлял бюджет тем, которые давали клики и заявки дешевле.</p>
+                                    <p>Лучший eCPC оказался у CRM-базы — 39,91 ₽. Но это не единственный критерий: у поисковых запросов, автоматической аудитории и офисного сегмента тоже были рабочие объявления. Ниже — оригинальные креативы и статистика из кабинета.</p>
+                                </div>
+                                <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+                                    <figure>
+                                        <a href="https://sun9-36.userapi.com/s/v1/ig2/V3tGBbocgFmIaTojiKxI6JMHd-TAFM9giz7ZotPMyA1Mwju01U7JsEIoZeBBMaHgsfqfE-0T00Fet65cQanY8zHfU75y2yFEOW9Q4vVhy5TqADHB6wsKjF46tHCiUVXjLovpkw_FwWKNusRn_72LoArKWV6gdyDqF5fWXug.jpg?quality=96&as=32x24,48x36,80x61,120x91,160x122,240x182,360x273,480x365,540x410,551x418&from=bu&u=ooc6kB5oAL3LRTZdEWz7UpX4ll0_mLnwNjpFc8Cyis4&cs=551x418" target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-[16px] border border-bone bg-paper focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris" aria-label="Открыть объявление для CRM-базы в полном размере">
+                                            <img src="https://sun9-36.userapi.com/s/v1/ig2/V3tGBbocgFmIaTojiKxI6JMHd-TAFM9giz7ZotPMyA1Mwju01U7JsEIoZeBBMaHgsfqfE-0T00Fet65cQanY8zHfU75y2yFEOW9Q4vVhy5TqADHB6wsKjF46tHCiUVXjLovpkw_FwWKNusRn_72LoArKWV6gdyDqF5fWXug.jpg?quality=96&as=32x24,48x36,80x61,120x91,160x122,240x182,360x273,480x365,540x410,551x418&from=bu&u=ooc6kB5oAL3LRTZdEWz7UpX4ll0_mLnwNjpFc8Cyis4&cs=551x418" alt="Объявление для CRM-базы с подарком к корпоративу" width="551" height="418" loading="lazy" decoding="async" class="w-full h-auto">
+                                        </a>
+                                        <figcaption class="mt-3 text-[13px] leading-[1.55] text-fog"><strong class="font-medium text-ink">CRM-база + запись с кнопкой.</strong><br>252 клика · CTR 0,573% · eCPC 39,91 ₽ · 10 059 ₽</figcaption>
+                                    </figure>
+                                    <figure>
+                                        <a href="https://sun9-62.userapi.com/s/v1/ig2/YRMES10O3ZrrVSKuaJOXK8BSWz5UEWcTjfwODkBQLKiJPDKj2DAc0o5f6iVWrUzeDhrRknM94TQKVEmScpgPmK8mcmRCAK39DeyrXsuP3DRTRx9Nubp7WQdWCYxF50LzKqOx7Q0ki3x2sTuTc2cLoXG4tSy0XaYx6GDJw.jpg?quality=96&as=32x26,48x39,80x65,120x98,160x130,240x196,360x293,480x391,540x440,547x446&from=bu&u=9xQY-WXwLoExgnswLr5WbFXgn9gA01GqdpM0KkvryTU&cs=547x446" target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-[16px] border border-bone bg-paper focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris" aria-label="Открыть объявление для поисковых запросов в полном размере">
+                                            <img src="https://sun9-62.userapi.com/s/v1/ig2/YRMES10O3ZrrVSKuaJOXK8BSWz5UEWcTjfwODkBQLKiJPDKj2DAc0o5f6iVWrUzeDhrRknM94TQKVEmScpgPmK8mcmRCAK39DeyrXsuP3DRTRx9Nubp7WQdWCYxF50LzKqOx7Q0ki3x2sTuTc2cLoXG4tSy0XaYx6GDJw.jpg?quality=96&as=32x26,48x39,80x65,120x98,160x130,240x196,360x293,480x391,540x440,547x446&from=bu&u=9xQY-WXwLoExgnswLr5WbFXgn9gA01GqdpM0KkvryTU&cs=547x446" alt="Объявление для аудитории поисковых запросов" width="547" height="446" loading="lazy" decoding="async" class="w-full h-auto">
+                                        </a>
+                                        <figcaption class="mt-3 text-[13px] leading-[1.55] text-fog"><strong class="font-medium text-ink">Поисковые запросы + запись с кнопкой.</strong><br>192 клика · CTR 0,455% · eCPC 52,41 ₽ · 10 063 ₽</figcaption>
+                                    </figure>
+                                    <figure>
+                                        <a href="https://sun9-41.userapi.com/s/v1/ig2/Bl1eP5gDYjYCf2a_XTHDoDUuBaEBPpzcDO3dM5ZAXcxQaZ9a8Dsc6hhpUNIAt6MX6FIcS7SKad0Vn8E70Pn7IlGl1-OSVcGtfgbiZx0eOb_qysUeZPmoNtFXCDlMCTtv3jD10enrIw9YbTH_lxkBuJN8RcmS-QJTcYTy1Q.jpg?quality=96&as=32x28,48x42,80x69,120x104,160x139,240x208,360x312,480x415,535x463&from=bu&u=iL6NCb-6FJKV-sxNceQjDqEuc_R8FglEiK2PzuqHxmE&cs=535x463" target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-[16px] border border-bone bg-paper focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris" aria-label="Открыть объявление для автоматической аудитории в полном размере">
+                                            <img src="https://sun9-41.userapi.com/s/v1/ig2/Bl1eP5gDYjYCf2a_XTHDoDUuBaEBPpzcDO3dM5ZAXcxQaZ9a8Dsc6hhpUNIAt6MX6FIcS7SKad0Vn8E70Pn7IlGl1-OSVcGtfgbiZx0eOb_qysUeZPmoNtFXCDlMCTtv3jD10enrIw9YbTH_lxkBuJN8RcmS-QJTcYTy1Q.jpg?quality=96&as=32x28,48x42,80x69,120x104,160x139,240x208,360x312,480x415,535x463&from=bu&u=iL6NCb-6FJKV-sxNceQjDqEuc_R8FglEiK2PzuqHxmE&cs=535x463" alt="Объявление для автоматической аудитории VK" width="535" height="463" loading="lazy" decoding="async" class="w-full h-auto">
+                                        </a>
+                                        <figcaption class="mt-3 text-[13px] leading-[1.55] text-fog"><strong class="font-medium text-ink">Автоматическая аудитория VK + запись с кнопкой.</strong><br>99 кликов · CTR 0,378% · eCPC 41,53 ₽ · 4 111 ₽</figcaption>
+                                    </figure>
+                                    <figure>
+                                        <a href="https://sun9-36.userapi.com/s/v1/ig2/8-T18r0ZhwwyIcwrpX4FKa8LCPXlN-LSJLm_BQXsaGFDJoYYRA6FAzm4VVUstBPXh_dVE8Y3J4nDGpY96D7MaCsE_OlDMc1Ju0PLvShXjZNJdb7kk75-XgQ-WPR_h34pGnQDFmjV5nBmYP4UP_oZqM-Z0l-ZkXuOOy3CB46g.jpg?quality=96&as=32x27,48x40,80x67,120x101,160x135,240x202,360x303,480x404,540x454,543x457&from=bu&u=1snUGLwYV5yuxh6S8DDTuKhFK1YjDE3ZaMmhJcSXNaw&cs=543x457" target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-[16px] border border-bone bg-paper focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris" aria-label="Открыть карусель для сотрудников офисов в полном размере">
+                                            <img src="https://sun9-36.userapi.com/s/v1/ig2/8-T18r0ZhwwyIcwrpX4FKa8LCPXlN-LSJLm_BQXsaGFDJoYYRA6FAzm4VVUstBPXh_dVE8Y3J4nDGpY96D7MaCsE_OlDMc1Ju0PLvShXjZNJdb7kk75-XgQ-WPR_h34pGnQDFmjV5nBmYP4UP_oZqM-Z0l-ZkXuOOy3CB46g.jpg?quality=96&as=32x27,48x40,80x67,120x101,160x135,240x202,360x303,480x404,540x454,543x457&from=bu&u=1snUGLwYV5yuxh6S8DDTuKhFK1YjDE3ZaMmhJcSXNaw&cs=543x457" alt="Карусель для сотрудников офисов и бизнес-центров" width="543" height="457" loading="lazy" decoding="async" class="w-full h-auto">
+                                        </a>
+                                        <figcaption class="mt-3 text-[13px] leading-[1.55] text-fog"><strong class="font-medium text-ink">Сотрудники офисов + карусель.</strong><br>93 клика · CTR 0,387% · eCPC 42,55 ₽ · 3 957 ₽</figcaption>
+                                    </figure>
+                                </div>
+                                <div class="mt-7 overflow-x-auto border border-bone rounded-[12px]">
+                                    <table class="w-full min-w-[620px] text-left text-[14px]">
+                                        <thead class="bg-cream text-fog"><tr><th class="px-4 py-3 font-medium">Связка</th><th class="px-4 py-3 font-medium">Клики</th><th class="px-4 py-3 font-medium">CTR</th><th class="px-4 py-3 font-medium">eCPC</th><th class="px-4 py-3 font-medium">Расход</th></tr></thead>
+                                        <tbody class="divide-y divide-bone text-gray-ink">
+                                            <tr><td class="px-4 py-3 text-ink">CRM-база</td><td class="px-4 py-3">252</td><td class="px-4 py-3">0,573%</td><td class="px-4 py-3">39,91 ₽</td><td class="px-4 py-3">10 059 ₽</td></tr>
+                                            <tr><td class="px-4 py-3 text-ink">Поисковые запросы</td><td class="px-4 py-3">192</td><td class="px-4 py-3">0,455%</td><td class="px-4 py-3">52,41 ₽</td><td class="px-4 py-3">10 063 ₽</td></tr>
+                                            <tr><td class="px-4 py-3 text-ink">Автоматическая</td><td class="px-4 py-3">99</td><td class="px-4 py-3">0,378%</td><td class="px-4 py-3">41,53 ₽</td><td class="px-4 py-3">4 111 ₽</td></tr>
+                                            <tr><td class="px-4 py-3 text-ink">Офисы / БЦ</td><td class="px-4 py-3">93</td><td class="px-4 py-3">0,387%</td><td class="px-4 py-3">42,55 ₽</td><td class="px-4 py-3">3 957 ₽</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <figure class="mt-6">
+                                    <a href="https://sun9-33.userapi.com/s/v1/ig2/l4aQqNEkX2ZuPxrEpxhtxLL7ZWNyWMg5m8me3wQlvYMOzghCq4A3i1v0dVeO9RzlbV4w-_vtPtk_56lMtNYUXDioejvpRuHJdEGaDd3EnOc-n97e9YfjyxWqGle1dpeOfBu7Z6Cta-PyfCPo13sOJ8mGBtUzxRktRrTA.jpg?quality=96&as=32x5,48x8,80x13,120x19,160x25,240x38,360x57,480x76,540x86,640x102,720x114,960x152,1080x171,1280x203,1324x210&from=bu&u=H1rgQ0CuZCMm1-AkML1dzmOg73XcjW3pzcLZU31QGUc&cs=807x128" target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-[16px] border border-bone bg-paper focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris" aria-label="Открыть статистику рекламного кабинета в полном размере">
+                                        <img src="https://sun9-33.userapi.com/s/v1/ig2/l4aQqNEkX2ZuPxrEpxhtxLL7ZWNyWMg5m8me3wQlvYMOzghCq4A3i1v0dVeO9RzlbV4w-_vtPtk_56lMtNYUXDioejvpRuHJdEGaDd3EnOc-n97e9YfjyxWqGle1dpeOfBu7Z6Cta-PyfCPo13sOJ8mGBtUzxRktRrTA.jpg?quality=96&as=32x5,48x8,80x13,120x19,160x25,240x38,360x57,480x76,540x86,640x102,720x114,960x152,1080x171,1280x203,1324x210&from=bu&u=H1rgQ0CuZCMm1-AkML1dzmOg73XcjW3pzcLZU31QGUc&cs=807x128" alt="Статистика четырёх лучших объявлений во VK Ads" width="1324" height="210" loading="lazy" decoding="async" class="w-full h-auto">
+                                    </a>
+                                    <figcaption class="mt-3 text-[13px] leading-[1.55] text-fog">Статистика четырёх лучших объявлений из исходного рекламного кабинета.</figcaption>
+                                </figure>
+                            </section>
+                            <section>
+                                <h2 class="text-[24px] md:text-[30px] font-medium leading-[1.25] tracking-[-0.01em] text-ink mb-4">Заявки проверил не по ощущениям, а в Google Analytics</h2>
+                                <p class="text-[16px] md:text-[17px] text-gray-ink leading-[1.75]">В аналитике по источнику VK Ads зафиксировано 694 сеанса, 728 пользователей и 69 достигнутых целей. Конверсия в заявку — 9,94%.</p>
+                                <figure class="mt-6">
+                                    <a href="https://sun9-30.userapi.com/s/v1/ig2/c_kr3qivSypovm2sgIx6-7A4RTVFaWJmlwE8XHbwy95OPW7piF3jFyKsaA9Tpx-NlptiPsOB4rwRM7Td6onQaA99OjtM7fuxbNjW4rkZjJaTr6Vi5jtfF-nA2dgC51agMPfpoFkSbpAmDKPbP5f5yjl2m28tMwxFXNyg.jpg?quality=96&as=32x5,48x7,80x12,120x18,160x24,240x37,360x55,480x73,540x83,640x98,720x110,960x147,1080x165,1280x196,1393x213&from=bu&u=UQW7eSuvcbw-BV-lr3lvQggfKM2Gf-Iw_GBky3tCTHg&cs=807x123" target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-[16px] border border-bone bg-paper focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris" aria-label="Открыть отчёт Google Analytics в полном размере">
+                                        <img src="https://sun9-30.userapi.com/s/v1/ig2/c_kr3qivSypovm2sgIx6-7A4RTVFaWJmlwE8XHbwy95OPW7piF3jFyKsaA9Tpx-NlptiPsOB4rwRM7Td6onQaA99OjtM7fuxbNjW4rkZjJaTr6Vi5jtfF-nA2dgC51agMPfpoFkSbpAmDKPbP5f5yjl2m28tMwxFXNyg.jpg?quality=96&as=32x5,48x7,80x12,120x18,160x24,240x37,360x55,480x73,540x83,640x98,720x110,960x147,1080x165,1280x196,1393x213&from=bu&u=UQW7eSuvcbw-BV-lr3lvQggfKM2Gf-Iw_GBky3tCTHg&cs=807x123" alt="Отчёт Google Analytics: 69 достигнутых целей и конверсия 9,94 процента" width="1393" height="213" loading="lazy" decoding="async" class="w-full h-auto">
+                                    </a>
+                                    <figcaption class="mt-3 text-[13px] leading-[1.55] text-fog">Источник VK Ads в Google Analytics: 694 сеанса и 69 достигнутых целей.</figcaption>
+                                </figure>
+                            </section>
+                            <section>
+                                <h2 class="text-[24px] md:text-[30px] font-medium leading-[1.25] tracking-[-0.01em] text-ink mb-4">Что в итоге</h2>
+                                <div class="space-y-4 text-[16px] md:text-[17px] text-gray-ink leading-[1.75]">
+                                    <p>Получили 69 заявок вместо запланированных 50. При расходе 28 825 ₽ стоимость заявки составила 417 ₽ — в 4,8 раза ниже допустимых 2 000 ₽.</p>
+                                    <p>Полученных броней хватило, поэтому резервную вторую очередь аудиторий не подключали. В исходной публикации выручка бара не раскрывается — поэтому здесь фиксирую только подтверждённые рекламные показатели и заявки.</p>
+                                </div>
+                                <div class="mt-6 border-l-2 border-electric-iris pl-5 py-1">
+                                    <p class="text-[16px] md:text-[18px] text-ink leading-[1.7]">Сработала не одна «волшебная» аудитория, а связка: сегментация спроса, разные креативы, отключение слабых объявлений и контроль целей в аналитике.</p>
+                                </div>
+                            </section>
+                        </div>
+                    </article>
+                    <aside class="lg:sticky lg:top-[96px] space-y-4">
+                        <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle">
+                            <h2 class="text-[13px] uppercase tracking-[0.08em] text-fog font-medium mb-4">Инструменты</h2>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-[12px] px-2.5 py-1.5 bg-cream border border-bone rounded-md text-gray-ink">VK Ads</span>
+                                <span class="text-[12px] px-2.5 py-1.5 bg-cream border border-bone rounded-md text-gray-ink">TargetHunter</span>
+                                <span class="text-[12px] px-2.5 py-1.5 bg-cream border border-bone rounded-md text-gray-ink">Яндекс Вордстат</span>
+                                <span class="text-[12px] px-2.5 py-1.5 bg-cream border border-bone rounded-md text-gray-ink">2GIS</span>
+                                <span class="text-[12px] px-2.5 py-1.5 bg-cream border border-bone rounded-md text-gray-ink">Google Analytics</span>
+                            </div>
+                        </div>
+                        <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle">
+                            <h2 class="text-[13px] uppercase tracking-[0.08em] text-fog font-medium mb-4">Исходный кейс</h2>
+                            <p class="text-[14px] text-gray-ink leading-[1.65] mb-4">Полная публикация с исходными комментариями и скриншотами.</p>
+                            <a href="https://vk.ru/@-20583542-kucha-zayavok-na-provedenie-novogodnih-korporatov-s-chekom-o?subtype=primary" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-[14px] font-medium text-electric-iris hover:text-iris-dark transition-colors">Читать в ВКонтакте <span aria-hidden="true">↗</span></a>
+                        </div>
+                        <div class="bg-ink rounded-[16px] p-6 text-paper">
+                            <h2 class="text-[20px] font-medium leading-[1.3] mb-3">Нужно привести заявки на события?</h2>
+                            <p class="text-[14px] text-gray-light leading-[1.65] mb-5">Разберу текущую связку и предложу план тестов.</p>
+                            <a href="https://t.me/smmxep" target="_blank" rel="noopener noreferrer" class="block text-center bg-electric-iris text-paper px-5 py-3 rounded-relume-sm hover:bg-iris-dark transition-colors text-[14px] font-medium">Написать в Telegram</a>
+                        </div>
+                    </aside>
                 </div>
-            </section>
-
-            <section>
-                <h2 class="text-[24px] font-medium text-ink mb-4">Аналитика сайта (Google Analytics)</h2>
-                <div class="text-[16px] text-fog leading-[1.6] space-y-2">
-                    <p class="mb-4">Трафик велся на посадочную страницу с описанием условий корпоративов и формой заявки.</p>
-                    <ul class="list-disc pl-5 space-y-2">
-                        <li><strong>Сеансы:</strong> 694</li>
-                        <li><strong>Пользователи:</strong> 524 (новых — 439)</li>
-                        <li><strong>Отказы:</strong> 0,72% <span class="text-[14px] text-iron">(свидетельствует о предельно целевом попадании трафика)</span></li>
-                        <li><strong>Глубина просмотра:</strong> 7,19 страниц за сеанс</li>
-                        <li><strong>Среднее время на сайте:</strong> 2 мин 13 сек</li>
-                        <li><strong>Конверсия в отправку заявки:</strong> 9,94% (69 оформленных лидов)</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section>
-                <h2 class="text-[24px] font-medium text-ink mb-4">Ключевые выводы</h2>
-                <div class="text-[16px] text-fog leading-[1.6] space-y-4">
-                    <p>🔹 <strong>Подписчики паблика ≠ покупатели B2B-услуг.</strong> Аудитория подписчиков группы показала худший результат. Подписчики привыкли воспринимать заведение как место для личного вечернего досуга, но не ассоциировали его с местом проведения корпоратива для всей компании.</p>
-                    <p>🔹 <strong>Гостевая база окупается быстрее всего.</strong> Контактная книга гостей бара за прошедший год дала наибольший объем переходов по минимальной стоимости.</p>
-                    <p>🔹 <strong>Контекстный таргет внутри соцсети закрывает горячий спрос.</strong> Пользователи, вбивавшие локальные запросы по аренде залов, дали самый предсказуемый и качественный поток лидов.</p>
-                    <p>🔹 <strong>Цифры важнее вкусовщины.</strong> Субъективная оценка креативов командой не должна определять запуск: победил макет, на который делали наименьшую ставку.</p>
-                    <div class="mt-8 p-6 bg-ink text-paper rounded-[16px]">
-                        <p class="font-medium text-[18px] mb-2">🏆 Результат для бизнеса:</p>
-                        <p class="text-[15px] opacity-90">Благодаря раннему старту в ноябре все ключевые даты декабря были забронированы без необходимости подключать резервные аудитории второй очереди.</p>
-                    </div>
-                </div>
-            </section>
-
-        </div>
+            </div>
+        </section>
     </main>
-
-    <!-- Footer -->
-    <footer class="w-full border-t border-bone mt-auto relative z-20">
-        <div class="max-w-[1200px] mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div class="text-[14px] text-fog">© 2026 Никита Копасов. CMO & MarTech Expert.</div>
-            <div class="flex gap-6">
-                <a href="https://vk.com/kopasovnikita" class="text-[14px] text-fog hover:text-ink transition-colors font-medium" target="_blank">ВКонтакте</a>
-                <a href="https://t.me/kopasovskiy" class="text-[14px] text-fog hover:text-ink transition-colors font-medium" target="_blank">Telegram</a>
-            </div>
+    <footer class="bg-ink text-paper py-8 px-4 md:px-8 border-t border-[#1D2939]">
+        <div class="container mx-auto max-w-[1280px] flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="text-[14px] text-fog">Никита Копасов © <span id="year"></span></div>
+            <div class="flex gap-6 text-[14px]"><a href="https://t.me/smmxep" target="_blank" rel="noopener noreferrer" class="text-gray-light hover:text-electric-iris transition-colors">Telegram</a><a href="https://vk.ru/smmxep" target="_blank" rel="noopener noreferrer" class="text-gray-light hover:text-electric-iris transition-colors">ВКонтакте</a></div>
         </div>
     </footer>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
