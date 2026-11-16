@@ -3,196 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Снижение CPO в доставке еды на 18% — Никита Копасов</title>
     <meta name="description" content="Оптимизация Яндекс Директа в доставке еды: CPO снизился примерно с 980 до 803 ₽ за три месяца, нецелевые клики — на 40%, ROMI стал положительным.">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <title>Кейс: снижение CPO в доставке еды на 18% — Никита Копасов</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'electric-iris': '#5D5FEF', 'iris-dark': '#4A4CD9', 'paper': '#FFFFFF',
-                        'ink': '#0C0E12', 'fog': '#697586', 'bone': '#E4E7EC', 'cream': '#F2F4F7',
-                        'gray-ink': '#364152', 'gray-light': '#CDD5DF'
-                    },
-                    fontFamily: { 'sans': ['Inter', 'sans-serif'] },
-                    borderRadius: { 'relume': '16px', 'relume-sm': '8px' },
-                    boxShadow: { 'relume-subtle': '0px 1px 2px 0px rgba(12,14,18,0.05)' }
-                }
-            }
-        }
-    </script>
+    <script src="https://cdn.tailwindcss.com">
+</script>
+    <script>tailwind.config = { theme: { extend: { colors: { 'electric-iris': '#6248ff', 'soft-lilac': '#b8adf5', 'iris-mist': '#e0daff', 'ink': '#161616', 'iron': '#4d4d4c', 'fog': '#686868', 'bone': '#e4e2df', 'cream': '#f1f0ee', 'paper': '#ffffff' }, fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'] }, boxShadow: { 'relume-subtle': '0px 1px 3px 0px rgba(0,0,0,.08), 0px 1px 2px 0px rgba(0,0,0,.04)' } } } }</script>
     <style>
-        body { background-color: #F2F4F7; color: #0C0E12; -webkit-font-smoothing: antialiased; }
-        .header-blur { backdrop-filter: blur(12px); background-color: rgba(255,255,255,0.9); }
-        a, button { -webkit-tap-highlight-color: transparent; }
-        a:focus-visible, button:focus-visible { outline: 2px solid #5D5FEF; outline-offset: 4px; }
-        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+        body { font-feature-settings: "ss01" on, "cv11" on; background-color: theme('colors.cream'); color: theme('colors.ink'); -webkit-font-smoothing: antialiased; }
+        .gradient-text { background: linear-gradient(100deg, rgb(255,116,72), rgb(255,72,72) 42%, rgb(98,72,255) 85%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .case-content p + p, .case-content ul, .case-content ol { margin-top: 1rem; }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; } }
     </style>
 </head>
-<body>
-    <header class="sticky top-0 z-50 header-blur border-b border-bone">
-        <div class="container mx-auto px-4 md:px-8 h-[72px] max-w-[1280px] flex justify-between items-center">
-            <a href="index.html" class="text-[22px] font-medium tracking-[-0.02em] text-ink hover:text-electric-iris transition-colors" aria-label="Никита Копасов — на главную">Никита Копасов<span class="text-electric-iris">.</span></a>
-            <nav class="flex items-center gap-3 md:gap-6" aria-label="Навигация по кейсу">
-                <a href="category-digital.html" class="text-[14px] md:text-[16px] text-fog hover:text-ink transition-colors">← Digital-маркетинг</a>
-                <a href="index.html#contact" class="text-[14px] md:text-[16px] bg-ink text-paper px-4 md:px-5 py-2.5 rounded-relume-sm hover:bg-electric-iris transition-colors font-medium">Связаться</a>
-            </nav>
-        </div>
-    </header>
-    <main>
-        <section class="pt-12 md:pt-20 pb-10 md:pb-12 px-4 md:px-8">
-            <div class="container mx-auto max-w-[1280px]"><div class="max-w-[960px] mx-auto">
-                <div class="flex flex-wrap items-center gap-2 mb-6">
-                    <span class="text-[12px] font-medium px-3 py-1.5 bg-paper border border-bone rounded-md text-ink">HoReCa / Доставка еды</span>
-                    <span class="text-[12px] font-medium px-3 py-1.5 bg-paper border border-bone rounded-md text-fog">Ставрополь и Пятигорск</span>
-                    <span class="text-[12px] font-medium px-3 py-1.5 bg-paper border border-bone rounded-md text-fog">2024 год</span>
-                    <span class="text-[12px] font-medium px-3 py-1.5 bg-paper border border-bone rounded-md text-fog">канал Яндекс Директ</span>
-                </div>
-                <h1 class="text-[36px] md:text-[56px] font-medium leading-[1.1] tracking-[-0.02em] text-ink mb-6">Снижение CPO в доставке еды на 18% за три месяца</h1>
-                <p class="text-[18px] md:text-[20px] text-fog leading-[1.6] max-w-[820px]">Перестроил Яндекс Директ вокруг подтверждённых заказов: почистил семантику, связал рекламу с Метрикой и iiko, обучил автостратегии на реальных продажах и усилил офферы.</p>
-            </div></div>
-        </section>
-        <section class="pb-12 md:pb-16 px-4 md:px-8" aria-label="Ключевые показатели">
-            <div class="container mx-auto max-w-[1280px]"><div class="max-w-[960px] mx-auto grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-                <div class="bg-paper border border-bone rounded-[16px] p-5 md:p-6 shadow-relume-subtle"><div class="text-[32px] md:text-[40px] font-medium leading-none text-electric-iris mb-3">803 ₽</div><div class="text-[14px] md:text-[15px] text-ink font-medium mb-1">CPO после изменений</div><div class="text-[12px] md:text-[13px] text-fog leading-[1.5]">до изменений — примерно 980 ₽</div></div>
-                <div class="bg-paper border border-bone rounded-[16px] p-5 md:p-6 shadow-relume-subtle"><div class="text-[32px] md:text-[40px] font-medium leading-none text-electric-iris mb-3">−18%</div><div class="text-[14px] md:text-[15px] text-ink font-medium mb-1">стоимость заказа</div><div class="text-[12px] md:text-[13px] text-fog leading-[1.5]">снижение за три месяца</div></div>
-                <div class="bg-paper border border-bone rounded-[16px] p-5 md:p-6 shadow-relume-subtle"><div class="text-[32px] md:text-[40px] font-medium leading-none text-electric-iris mb-3">−40%</div><div class="text-[14px] md:text-[15px] text-ink font-medium mb-1">нецелевых кликов</div><div class="text-[12px] md:text-[13px] text-fog leading-[1.5]">после чистки семантики</div></div>
-                <div class="bg-paper border border-bone rounded-[16px] p-5 md:p-6 shadow-relume-subtle"><div class="text-[32px] md:text-[40px] font-medium leading-none text-electric-iris mb-3">ROMI &gt; 0</div><div class="text-[14px] md:text-[15px] text-ink font-medium mb-1">реклама вышла в плюс</div><div class="text-[12px] md:text-[13px] text-fog leading-[1.5]">впервые за 14 месяцев</div></div>
-            </div></div>
-        </section>
-        <section class="pb-16 md:pb-24 px-4 md:px-8">
-            <div class="container mx-auto max-w-[1280px]"><div class="max-w-[960px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-6 md:gap-8 items-start">
-                <article class="bg-paper border border-bone rounded-[16px] p-6 md:p-10 shadow-relume-subtle"><div class="space-y-10 md:space-y-12">
-                    <section>
-                        <h2 class="text-[24px] md:text-[30px] font-medium leading-[1.25] tracking-[-0.01em] text-ink mb-4">Контекст проекта</h2>
-                        <div class="space-y-4 text-[16px] md:text-[17px] text-gray-ink leading-[1.75]">
-                            <p>Служба доставки еды в Ставрополе и Пятигорске. Пицца, суши и wok, средний чек — 1 400 ₽. Основной рекламный канал — Яндекс Директ: поиск и РСЯ.</p>
-                            <p>На старте работы реклама шла с убыточным ROMI 14 месяцев подряд. Задача заключалась не просто в снижении цены клика, а в том, чтобы уменьшить стоимость подтверждённого заказа и вернуть канал в плюс.</p>
-                        </div>
-                        <figure class="mt-6">
-                            <a href="https://sun9-55.userapi.com/s/v1/if2/pQbv0_y3BpVFGjZQhT3lWFQgcHWleACwAhsy_ttcYCBTVXwkTSZcOOY36l1Evkk5Qd-rOcr5m1b0vovV_Dy-U6LDDg5YtG5S8rCusCLndw.jpg?size=2289x1288&quality=96&type=album" target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-[16px] border border-bone bg-paper focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris" aria-label="Открыть слайд в полном размере: вводные проекта">
-                                <img src="https://sun9-55.userapi.com/s/v1/if2/pQbv0_y3BpVFGjZQhT3lWFQgcHWleACwAhsy_ttcYCBTVXwkTSZcOOY36l1Evkk5Qd-rOcr5m1b0vovV_Dy-U6LDDg5YtG5S8rCusCLndw.jpg?size=1280x720&quality=96&type=album" alt="Слайд с вводными проекта доставки еды" width="1280" height="720" loading="lazy" decoding="async" class="w-full h-auto">
-                            </a>
-                            <figcaption class="mt-3 text-[13px] leading-[1.55] text-fog">Вводные проекта из исходной презентации. Нажмите на слайд, чтобы открыть исходник в полном размере.</figcaption>
-                        </figure>
-                    </section>
-                    <section>
-                        <h2 class="text-[24px] md:text-[30px] font-medium leading-[1.25] tracking-[-0.01em] text-ink mb-4">Почему реклама не вписывалась в юнит-экономику</h2>
-                        <div class="space-y-4 text-[16px] md:text-[17px] text-gray-ink leading-[1.75]">
-                            <p>Себестоимость блюд составляла 25–30%, доставка съедала ещё 200–250 ₽ с заказа. При CPO около 980 ₽ реклама забирала слишком большую часть маржи.</p>
-                            <p>Поэтому работу начал не с масштабирования бюджета, а с поиска потерь: нецелевые запросы, неправильные цели, слабая связь рекламных кампаний с фактически оплаченными заказами.</p>
-                        </div>
-                        <figure class="mt-6">
-                            <a href="https://sun9-24.userapi.com/s/v1/if2/dIQMAfyx2LB2X-5ESfEOgnV_iugABbz-6ajfFksX7-9qV6-FeJcuxnUq5yzE8WxD9jjSMybsnKTZj3xixWhnKZcDng2qWq6oEnxB7XzY.jpg?size=2400x1290&quality=96&type=album" target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-[16px] border border-bone bg-paper focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris" aria-label="Открыть слайд в полном размере: исходная юнит-экономика">
-                                <img src="https://sun9-24.userapi.com/s/v1/if2/dIQMAfyx2LB2X-5ESfEOgnV_iugABbz-6ajfFksX7-9qV6-FeJcuxnUq5yzE8WxD9jjSMybsnKTZj3xixWhnKZcDng2qWq6oEnxB7XzY.jpg?size=1280x688&quality=96&type=album" alt="Слайд об исходной юнит-экономике доставки" width="1280" height="688" loading="lazy" decoding="async" class="w-full h-auto">
-                            </a>
-                            <figcaption class="mt-3 text-[13px] leading-[1.55] text-fog">Исходная юнит-экономика: CPO около 980 ₽ и 14 месяцев отрицательного ROMI.</figcaption>
-                        </figure>
-                    </section>
-                    <section>
-                        <h2 class="text-[24px] md:text-[30px] font-medium leading-[1.25] tracking-[-0.01em] text-ink mb-4">Этап 1 — аудит и гигиена семантики</h2>
-                        <div class="space-y-4 text-[16px] md:text-[17px] text-gray-ink leading-[1.75]">
-                            <p>Разобрал поисковые запросы и площадки, убрал мусорный трафик и отделил брендовый спрос от общего. Это позволило не смешивать людей, которые уже искали компанию, с холодной аудиторией.</p>
-                            <p>Более 250 нерелевантных или слишком широких запросов исключил из кампаний. В минус-слова попали, среди прочего, «рецепты», «фото», «бесплатно» и «состав». Фокус сместил на запросы с явным намерением заказать еду.</p>
-                        </div>
-                        <figure class="mt-6">
-                            <a href="https://sun9-39.userapi.com/s/v1/if2/EDPMyKcTR9mzYg5nBsu9nz3gl8bvc8Xl0P6X0-fP5gAQGAlPeZxQmtC-KlG4owZ8Cnh7mT1MUGvyYvY7jEvfOqQ5ZcHtFYZyR2FY6R.jpg?size=2400x1296&quality=96&type=album" target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-[16px] border border-bone bg-paper focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris" aria-label="Открыть слайд в полном размере: аудит и семантика">
-                                <img src="https://sun9-39.userapi.com/s/v1/if2/EDPMyKcTR9mzYg5nBsu9nz3gl8bvc8Xl0P6X0-fP5gAQGAlPeZxQmtC-KlG4owZ8Cnh7mT1MUGvyYvY7jEvfOqQ5ZcHtFYZyR2FY6R.jpg?size=1280x691&quality=96&type=album" alt="Слайд об аудите и чистке семантики" width="1280" height="691" loading="lazy" decoding="async" class="w-full h-auto">
-                            </a>
-                            <figcaption class="mt-3 text-[13px] leading-[1.55] text-fog">Что именно чистили в кампаниях и как разделяли поисковый спрос.</figcaption>
-                        </figure>
-                    </section>
-                    <section>
-                        <h2 class="text-[24px] md:text-[30px] font-medium leading-[1.25] tracking-[-0.01em] text-ink mb-4">Этап 2 — аналитика от клика до оплаченного заказа</h2>
-                        <div class="space-y-4 text-[16px] md:text-[17px] text-gray-ink leading-[1.75]">
-                            <p>В Метрике настроил цели «Положил в корзину» и «Совершил заказ», подключил электронную коммерцию. Для оценки фактических продаж учитывал данные iiko и применение промокодов.</p>
-                            <p>В Директе перешёл к оплате за подтверждённый заказ по CPA. Автостратегии стали обучаться не на промежуточных действиях, а на реальных заказах — так алгоритм получал более чистый сигнал.</p>
-                        </div>
-                        <figure class="mt-6">
-                            <a href="https://sun9-23.userapi.com/s/v1/if2/q-S-KxbzFYxL8P2cfYBst0W4HzNp4XXgtXnDGfx8n5nOgOT0z7Hr3QhcfYAdPTLnLDn0XcB5TyNry5rD-7bkvO5cPfrByXrQ1tVxjL8.jpg?size=2400x1291&quality=96&type=album" target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-[16px] border border-bone bg-paper focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris" aria-label="Открыть слайд в полном размере: аналитика и CPA">
-                                <img src="https://sun9-23.userapi.com/s/v1/if2/q-S-KxbzFYxL8P2cfYBst0W4HzNp4XXgtXnDGfx8n5nOgOT0z7Hr3QhcfYAdPTLnLDn0XcB5TyNry5rD-7bkvO5cPfrByXrQ1tVxjL8.jpg?size=1280x688&quality=96&type=album" alt="Слайд о настройке аналитики и CPA" width="1280" height="688" loading="lazy" decoding="async" class="w-full h-auto">
-                            </a>
-                            <figcaption class="mt-3 text-[13px] leading-[1.55] text-fog">Связка Директа, Метрики, электронной коммерции и iiko.</figcaption>
-                        </figure>
-                    </section>
-                    <section>
-                        <h2 class="text-[24px] md:text-[30px] font-medium leading-[1.25] tracking-[-0.01em] text-ink mb-4">Этап 3 — рекламные механики и офферы</h2>
-                        <div class="space-y-4 text-[16px] md:text-[17px] text-gray-ink leading-[1.75]">
-                            <p>Подключил товарные фиды и смарт-баннеры, чтобы реклама показывала конкретные блюда. Для пользователей, которые не завершили оформление, настроил дожим незавершённых корзин через РСЯ.</p>
-                            <p>Параллельно тестировал офферы: скидку 20% на первый заказ, комбо и бесплатное блюдо к чеку от заданной суммы. Медийные форматы использовал не только для ретаргетинга, но и для роста знания бренда.</p>
-                        </div>
-                        <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                            <div class="border border-bone rounded-[12px] p-4"><div class="text-[14px] font-medium text-ink mb-1">Товарные фиды</div><div class="text-[14px] text-fog leading-[1.6]">Смарт-баннеры с актуальными блюдами</div></div>
-                            <div class="border border-bone rounded-[12px] p-4"><div class="text-[14px] font-medium text-ink mb-1">Дожим корзин</div><div class="text-[14px] text-fog leading-[1.6]">Возврат незавершённых заказов через РСЯ</div></div>
-                            <div class="border border-bone rounded-[12px] p-4"><div class="text-[14px] font-medium text-ink mb-1">A/B-тесты офферов</div><div class="text-[14px] text-fog leading-[1.6]">Скидка, комбо или блюдо в подарок</div></div>
-                        </div>
-                        <figure class="mt-6">
-                            <a href="https://sun9-53.userapi.com/s/v1/if2/1pStEqTjZwCXFdZR9KYZcMwt8qOZoOThQYAtz2bN0s6TyvEecgDBNhLrT9uD6xwQ_yzBLfO5LFXX0yRbS-Usw5OgGkJw0T3D8hY6.jpg?size=2400x1289&quality=96&type=album" target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-[16px] border border-bone bg-paper focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris" aria-label="Открыть слайд в полном размере: рекламные механики">
-                                <img src="https://sun9-53.userapi.com/s/v1/if2/1pStEqTjZwCXFdZR9KYZcMwt8qOZoOThQYAtz2bN0s6TyvEecgDBNhLrT9uD6xwQ_yzBLfO5LFXX0yRbS-Usw5OgGkJw0T3D8hY6.jpg?size=1280x687&quality=96&type=album" alt="Слайд о рекламных механиках и офферах" width="1280" height="687" loading="lazy" decoding="async" class="w-full h-auto">
-                            </a>
-                            <figcaption class="mt-3 text-[13px] leading-[1.55] text-fog">Фиды, смарт-баннеры, ретаргетинг и тестируемые офферы.</figcaption>
-                        </figure>
-                    </section>
-                    <section>
-                        <h2 class="text-[24px] md:text-[30px] font-medium leading-[1.25] tracking-[-0.01em] text-ink mb-4">Результат за три месяца</h2>
-                        <div class="space-y-4 text-[16px] md:text-[17px] text-gray-ink leading-[1.75]">
-                            <p>CPO снизился примерно с 980 до 803 ₽ — на 18%. Нецелевых кликов стало на 40% меньше. При тех же рекламных затратах заказов стало больше.</p>
-                            <p>ROMI впервые за 14 месяцев стал положительным. Дополнительно начал расти объём брендовых заказов: РСЯ и медийная реклама поддерживали спрос за пределами поисковых кампаний.</p>
-                        </div>
-                        <figure class="mt-6">
-                            <a href="https://sun9-75.userapi.com/s/v1/if2/9WkPKNdlLJZ8pSQQdRZQbhBvmhLJd-Ek-Fv2yN-c5CFlDhZcBMgyJPrXq4vA3mJrRYnA2qdvVZgNwNQkFRqVnD-4XrJ3XXG9m5WwA.jpg?size=2400x1284&quality=96&type=album" target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-[16px] border border-bone bg-paper focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris" aria-label="Открыть слайд в полном размере: результаты за три месяца">
-                                <img src="https://sun9-75.userapi.com/s/v1/if2/9WkPKNdlLJZ8pSQQdRZQbhBvmhLJd-Ek-Fv2yN-c5CFlDhZcBMgyJPrXq4vA3mJrRYnA2qdvVZgNwNQkFRqVnD-4XrJ3XXG9m5WwA.jpg?size=1280x685&quality=96&type=album" alt="Слайд с результатами оптимизации за три месяца" width="1280" height="685" loading="lazy" decoding="async" class="w-full h-auto">
-                            </a>
-                            <figcaption class="mt-3 text-[13px] leading-[1.55] text-fog">Итоги трёх месяцев работы из исходной презентации.</figcaption>
-                        </figure>
-                    </section>
-                    <section>
-                        <h2 class="text-[24px] md:text-[30px] font-medium leading-[1.25] tracking-[-0.01em] text-ink mb-4">Почему это сработало</h2>
-                        <div class="space-y-4 text-[16px] md:text-[17px] text-gray-ink leading-[1.75]">
-                            <p>Ключевой сдвиг — переход от оптимизации рекламных показателей к оптимизации подтверждённого заказа. Семантика убрала лишний трафик, аналитика дала стратегиям правильную цель, а офферы и ретаргетинг помогли чаще доводить пользователя до покупки.</p>
-                            <p>Абсолютное число заказов, выручка и числовое значение ROMI в исходной публикации не раскрываются. Поэтому здесь приведены только показатели, которые подтверждены материалами кейса.</p>
-                        </div>
-                        <figure class="mt-6">
-                            <a href="https://sun9-66.userapi.com/s/v1/if2/4Fds-Mn-qQdNUSg1MfABv9H8kz0bPIYfnm6cF-E6X3NfVbVd3p1lQ3eR-wcQOQ0Q6r4kC-2cK-K1nQhXfXbGdFv-0R6ZqS6F6l.jpg?size=2400x1288&quality=96&type=album" target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-[16px] border border-bone bg-paper focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris" aria-label="Открыть слайд в полном размере: выводы по кейсу">
-                                <img src="https://sun9-66.userapi.com/s/v1/if2/4Fds-Mn-qQdNUSg1MfABv9H8kz0bPIYfnm6cF-E6X3NfVbVd3p1lQ3eR-wcQOQ0Q6r4kC-2cK-K1nQhXfXbGdFv-0R6ZqS6F6l.jpg?size=1280x687&quality=96&type=album" alt="Слайд с выводами по снижению CPO" width="1280" height="687" loading="lazy" decoding="async" class="w-full h-auto">
-                            </a>
-                            <figcaption class="mt-3 text-[13px] leading-[1.55] text-fog">Финальный вывод исходного кейса.</figcaption>
-                        </figure>
-                        <div class="mt-6 border-l-2 border-electric-iris pl-5 py-1"><p class="text-[16px] md:text-[18px] text-ink leading-[1.7]">Стоимость заказа снизилась не за счёт одного «волшебного» инструмента, а за счёт последовательной связки: чистый спрос → верная цель → обучение на заказах → сильный оффер → дожим.</p></div>
-                    </section>
-                </div></article>
-                <aside class="lg:sticky lg:top-[96px] space-y-4">
-                    <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle">
-                        <h2 class="text-[13px] uppercase tracking-[0.08em] text-fog font-medium mb-4">Инструменты</h2>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-[12px] px-2.5 py-1.5 bg-cream border border-bone rounded-md text-gray-ink">Яндекс Директ</span><span class="text-[12px] px-2.5 py-1.5 bg-cream border border-bone rounded-md text-gray-ink">Яндекс Метрика</span><span class="text-[12px] px-2.5 py-1.5 bg-cream border border-bone rounded-md text-gray-ink">Электронная коммерция</span><span class="text-[12px] px-2.5 py-1.5 bg-cream border border-bone rounded-md text-gray-ink">iiko</span><span class="text-[12px] px-2.5 py-1.5 bg-cream border border-bone rounded-md text-gray-ink">CPA</span><span class="text-[12px] px-2.5 py-1.5 bg-cream border border-bone rounded-md text-gray-ink">РСЯ</span><span class="text-[12px] px-2.5 py-1.5 bg-cream border border-bone rounded-md text-gray-ink">Смарт-баннеры</span>
-                        </div>
-                    </div>
-                    <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle">
-                        <h2 class="text-[13px] uppercase tracking-[0.08em] text-fog font-medium mb-4">Исходный кейс</h2>
-                        <p class="text-[14px] text-gray-ink leading-[1.65] mb-4">Публикация и все семь исходных слайдов.</p>
-                        <a href="https://vk.ru/wall-20583542_3604" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-[14px] font-medium text-electric-iris hover:text-iris-dark transition-colors">Смотреть в ВКонтакте <span aria-hidden="true">↗</span></a>
-                    </div>
-                    <div class="bg-ink rounded-[16px] p-6 text-paper">
-                        <h2 class="text-[20px] font-medium leading-[1.3] mb-3">Нужно снизить стоимость заказа?</h2>
-                        <p class="text-[14px] text-gray-light leading-[1.65] mb-5">Разберу воронку от запроса до оплаченного заказа и найду основные потери.</p>
-                        <a href="https://t.me/smmxep" target="_blank" rel="noopener noreferrer" class="block text-center bg-electric-iris text-paper px-5 py-3 rounded-relume-sm hover:bg-iris-dark transition-colors text-[14px] font-medium">Написать в Telegram</a>
-                    </div>
-                </aside>
-            </div></div>
-        </section>
+<body class="min-h-screen flex flex-col relative">
+    <nav class="w-full max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between relative z-50">
+        <a href="index.html" class="flex items-center gap-2 min-h-[44px] hover:opacity-70 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" aria-label="Никита Копасов — на главную">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<path d="M12 2L20.6603 7V17L12 22L3.33975 17V7L12 2Z" stroke="#161616" stroke-width="2" stroke-linejoin="round"/>
+</svg>
+<span class="text-[16px] font-medium tracking-tight">Никита Копасов</span>
+</a>
+        <a href="category-digital.html" class="text-[16px] font-medium text-ink hover:text-electric-iris transition-colors min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" aria-label="Назад к кейсам направления">
+<span class="hidden sm:inline">← Кейсы направления</span>
+<span class="sm:hidden" aria-hidden="true">←</span>
+</a>
+    </nav>
+    <main class="w-full max-w-[900px] mx-auto px-6 pt-12 pb-24 relative z-10">
+        <header class="mb-10">
+<h1 class="text-[32px] sm:text-[48px] font-medium leading-[1.12] tracking-[-0.03em] text-ink mb-6">Снижение CPO в доставке еды <span class="gradient-text">на 18% за три месяца</span>
+</h1>
+<div class="flex flex-wrap gap-2.5 mt-6">
+<span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">HoReCa / Доставка еды</span>
+<span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">Ставрополь и Пятигорск</span>
+<span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">2024 год</span>
+<span class="bg-electric-iris text-paper px-3 py-1.5 rounded-[8px] text-[13px] font-medium">Канал: Яндекс Директ</span>
+</div>
+</header>
+        <div class="border-y border-bone py-5 mb-10">
+<p class="text-[13px] text-fog font-medium uppercase tracking-[0.12em] mb-2">Инструменты</p>
+<p class="text-[16px] text-ink font-medium leading-[1.6]">Яндекс Директ, Яндекс Метрика, электронная коммерция, iiko, CPA, РСЯ, смарт-баннеры</p>
+</div>
+        <h2 class="text-[26px] font-medium text-ink mb-5">Результат в цифрах</h2>
+        <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+<div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle">
+<dt class="text-[14px] text-fog">CPO после оптимизации</dt>
+<dd class="text-[26px] font-medium text-ink mt-2">803 ₽</dd>
+<dd class="text-[14px] text-electric-iris mt-2">До изменений — примерно 980 ₽</dd>
+</div>
+<div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle">
+<dt class="text-[14px] text-fog">Снижение стоимости заказа</dt>
+<dd class="text-[26px] font-medium text-ink mt-2">18%</dd>
+<dd class="text-[14px] text-electric-iris mt-2">Результат за три месяца</dd>
+</div>
+<div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle">
+<dt class="text-[14px] text-fog">Нецелевые клики</dt>
+<dd class="text-[26px] font-medium text-ink mt-2">−40%</dd>
+<dd class="text-[14px] text-electric-iris mt-2">После чистки семантики</dd>
+</div>
+<div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle">
+<dt class="text-[14px] text-fog">ROMI</dt>
+<dd class="text-[26px] font-medium text-ink mt-2">Положительный</dd>
+<dd class="text-[14px] text-electric-iris mt-2">Впервые за 14 месяцев</dd>
+</div>
+</dl>
+        <div class="space-y-12">
+<section>
+<h2 class="text-[26px] font-medium text-ink mb-4">Контекст проекта</h2>
+<div class="case-content text-[16px] text-fog leading-[1.7]">
+<p>Кейс основан на работе проектным руководителем отдела маркетинга в компании по доставке пиццы, роллов и воков в Ставрополе и Пятигорске. Задача была не просто получить отчёт от специалиста, а лично разобрать рекламный кабинет, аналитику и экономику заказа.</p>
+<figure class="mt-6">
+    <a href="https://sun9-45.userapi.com/s/v1/ig2/ICjdiZ-Uuno3fngP12FXkb99-1rH6pntMb2Cn7ZHIsHNNhKwI42n-WLU8z3XSlspEAZWuiU5aUlMrlQKIOgYCIO3.jpg?quality=95&amp;crop=55,0,2289,1288&amp;as=32x18,48x27,72x41,108x61,160x90,240x135,360x203,480x270,540x304,640x360,720x405,1080x608,1280x720,1440x810,2289x1288&amp;from=bu&amp;u=4US2XLMrsFOD7gMxeBEt0kENiKr51p-OT1yHCq23ZJc&amp;cs=2289x0" target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-[16px] border border-bone bg-paper focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris" aria-label="Открыть слайд в полном размере: Обложка кейса о снижении стоимости заказа в доставке еды на 18 процентов">
+        <img src="https://sun9-45.userapi.com/s/v1/ig2/ICjdiZ-Uuno3fngP12FXkb99-1rH6pntMb2Cn7ZHIsHNNhKwI42n-WLU8z3XSlspEAZWuiU5aUlMrlQKIOgYCIO3.jpg?quality=95&amp;crop=55,0,2289,1288&amp;as=32x18,48x27,72x41,108x61,160x90,240x135,360x203,480x270,540x304,640x360,720x405,1080x608,1280x720,1440x810,2289x1288&amp;from=bu&amp;u=4US2XLMrsFOD7gMxeBEt0kENiKr51p-OT1yHCq23ZJc&amp;cs=1280x0" alt="Обложка кейса о снижении стоимости заказа в доставке еды на 18 процентов" width="1280" height="720" loading="lazy" decoding="async" class="w-full h-auto">
+    </a>
+    <figcaption class="mt-3 text-[13px] leading-[1.55] text-fog">Исходный слайд кейса: контекст проекта и роль руководителя маркетинга. Нажмите на слайд, чтобы открыть исходник в полном размере.</figcaption>
+</figure>
+</div>
+</section>
+<section>
+<h2 class="text-[26px] font-medium text-ink mb-4">Почему реклама не вписывалась в юнит-экономику</h2>
+<div class="case-content text-[16px] text-fog leading-[1.7]">
+<p>На старте CPO составлял примерно 980 ₽. Привлечение заказа оставалось убыточным даже с учётом повторной покупки. Но высокая цена была только симптомом — внутри кампаний нашлось несколько системных проблем.</p>
+<ul class="list-disc pl-5 space-y-2">
+<li>Мусорные и слишком широкие запросы расходовали бюджет без заказов.</li>
+<li>Электронная коммерция и промокоды в iiko не были настроены, поэтому заказы из контекста невозможно было нормально увидеть.</li>
+<li>Скидка 10% на нетоповую пиццу и слабые изображения не давали сильного предложения холодной аудитории.</li>
+<li>Кампании долго работали без новых гипотез и содержательной оптимизации.</li>
+</ul>
+<figure class="mt-6">
+    <a href="https://sun9-45.userapi.com/s/v1/ig2/PfFQmcnnu5ZptjuCMbwYQUm4qa5zD8le-7smtACoU6Hkx2BypgsZJHz9FfelUCW_9cNZ-SJhw-jlRFnitZnyMc4b.jpg?quality=95&amp;as=32x17,48x26,72x39,108x58,160x86,240x129,360x193,480x258,540x290,640x344,720x387,1080x580,1280x688,1440x774,2400x1290&amp;from=bu&amp;u=DmkRU5Z-daq9Ds8B9_6pgR9HhXI2FTjDmzEowyIcUUg&amp;cs=2400x0" target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-[16px] border border-bone bg-paper focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris" aria-label="Открыть слайд в полном размере: Слайд с причинами неэффективности рекламы: высокий CPO, мусорный трафик, разрыв данных и слабые офферы">
+        <img src="https://sun9-45.userapi.com/s/v1/ig2/PfFQmcnnu5ZptjuCMbwYQUm4qa5zD8le-7smtACoU6Hkx2BypgsZJHz9FfelUCW_9cNZ-SJhw-jlRFnitZnyMc4b.jpg?quality=95&amp;as=32x17,48x26,72x39,108x58,160x86,240x129,360x193,480x258,540x290,640x344,720x387,1080x580,1280x688,1440x774,2400x1290&amp;from=bu&amp;u=DmkRU5Z-daq9Ds8B9_6pgR9HhXI2FTjDmzEowyIcUUg&amp;cs=1280x0" alt="Слайд с причинами неэффективности рекламы: высокий CPO, мусорный трафик, разрыв данных и слабые офферы" width="1280" height="688" loading="lazy" decoding="async" class="w-full h-auto">
+    </a>
+    <figcaption class="mt-3 text-[13px] leading-[1.55] text-fog">Пять причин, которые нашли при погружении в кабинет и аналитику. Нажмите на слайд, чтобы открыть исходник в полном размере.</figcaption>
+</figure>
+</div>
+</section>
+<section>
+<h2 class="text-[26px] font-medium text-ink mb-4">Этап 1. Аудит и гигиена семантики</h2>
+<div class="case-content text-[16px] text-fog leading-[1.7]">
+<ol class="list-decimal pl-5 space-y-2">
+<li>
+<strong class="text-ink font-medium">Почистили минус-слова:</strong> исключили «рецепты», «фото», «бесплатно», «состав» и ещё более 250 нерелевантных или слишком широких запросов.</li>
+<li>
+<strong class="text-ink font-medium">Разделили кампании:</strong> брендовый и общий трафик развели в разные кампании с отдельной аналитикой.</li>
+<li>
+<strong class="text-ink font-medium">Сфокусировались на горячем спросе:</strong> приоритет получили люди, которые хотят заказать роллы, пиццу или воки сейчас.</li>
+</ol>
+<div class="bg-iris-mist/40 border border-soft-lilac rounded-[12px] p-5 mt-6">
+<p class="text-ink">
+<strong>Эффект:</strong> количество нецелевых кликов снизилось на 40%. Бюджет перестал уходить на заведомо слабые намерения.</p>
+</div>
+<figure class="mt-6">
+    <a href="https://sun9-82.userapi.com/s/v1/ig2/ODrPoHDgIgDsvJPJEwWV92UQUqwTe0D1pP4MMimD6qNzD5CFl28Bo0a8aSTfj6Lo9fWDvkOs2YjFQAwTzOOUaDDV.jpg?quality=95&amp;as=32x17,48x26,72x39,108x58,160x86,240x130,360x194,480x259,540x292,640x346,720x389,1080x583,1280x691,1440x778,2400x1296&amp;from=bu&amp;u=uh2lhYYSY-A1PARVMEZ-NBfyBviB3sQTS4QDuvihPi8&amp;cs=2400x0" target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-[16px] border border-bone bg-paper focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris" aria-label="Открыть слайд в полном размере: Слайд об аудите семантики, минус-словах, разделении кампаний и снижении нецелевых кликов на 40 процентов">
+        <img src="https://sun9-82.userapi.com/s/v1/ig2/ODrPoHDgIgDsvJPJEwWV92UQUqwTe0D1pP4MMimD6qNzD5CFl28Bo0a8aSTfj6Lo9fWDvkOs2YjFQAwTzOOUaDDV.jpg?quality=95&amp;as=32x17,48x26,72x39,108x58,160x86,240x130,360x194,480x259,540x292,640x346,720x389,1080x583,1280x691,1440x778,2400x1296&amp;from=bu&amp;u=uh2lhYYSY-A1PARVMEZ-NBfyBviB3sQTS4QDuvihPi8&amp;cs=1280x0" alt="Слайд об аудите семантики, минус-словах, разделении кампаний и снижении нецелевых кликов на 40 процентов" width="1280" height="691" loading="lazy" decoding="async" class="w-full h-auto">
+    </a>
+    <figcaption class="mt-3 text-[13px] leading-[1.55] text-fog">Этап 1: чистка спроса и перестройка структуры кампаний. Нажмите на слайд, чтобы открыть исходник в полном размере.</figcaption>
+</figure>
+</div>
+</section>
+<section>
+<h2 class="text-[26px] font-medium text-ink mb-4">Этап 2. Аналитика от клика до оплаченного заказа</h2>
+<div class="case-content text-[16px] text-fog leading-[1.7]">
+<p>Настроили конверсионные цели «Положил в корзину» и «Совершил заказ», электронную коммерцию и учёт промокодов в iiko. Это позволило связать рекламный клик с подтверждённым заказом, а не оценивать кампанию только по переходам.</p>
+<p>После появления данных перешли к модели CPA — оплате за подтверждённый заказ. Автостратегии получили возможность обучаться на реальных деньгах и заказах, а не только на кликах.</p>
+<figure class="mt-6">
+    <a href="https://sun9-80.userapi.com/s/v1/ig2/DJYxpMn4bSogWjzQAXXn2GqZ73emNQbUatvIS_MtvfMNWet7elPjC1Cf8LDri-9pomFevcW9U_GIt3DcAMMosZzp.jpg?quality=95&amp;as=32x17,48x26,72x39,108x58,160x86,240x129,360x194,480x258,540x290,640x344,720x387,1080x581,1280x689,1440x775,2400x1291&amp;from=bu&amp;u=SIeqxBVJ4YI8b5ryPqgtxnK04E3G8P9ABAweDF0x3eM&amp;cs=2400x0" target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-[16px] border border-bone bg-paper focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris" aria-label="Открыть слайд в полном размере: Слайд о настройке целей в Метрике, сквозной аналитики и оплаты за заказ по модели CPA">
+        <img src="https://sun9-80.userapi.com/s/v1/ig2/DJYxpMn4bSogWjzQAXXn2GqZ73emNQbUatvIS_MtvfMNWet7elPjC1Cf8LDri-9pomFevcW9U_GIt3DcAMMosZzp.jpg?quality=95&amp;as=32x17,48x26,72x39,108x58,160x86,240x129,360x194,480x258,540x290,640x344,720x387,1080x581,1280x689,1440x775,2400x1291&amp;from=bu&amp;u=SIeqxBVJ4YI8b5ryPqgtxnK04E3G8P9ABAweDF0x3eM&amp;cs=1280x0" alt="Слайд о настройке целей в Метрике, сквозной аналитики и оплаты за заказ по модели CPA" width="1280" height="689" loading="lazy" decoding="async" class="w-full h-auto">
+    </a>
+    <figcaption class="mt-3 text-[13px] leading-[1.55] text-fog">Этап 2: цели в Метрике, сквозная аналитика и оплата за подтверждённый заказ. Нажмите на слайд, чтобы открыть исходник в полном размере.</figcaption>
+</figure>
+</div>
+</section>
+<section>
+<h2 class="text-[26px] font-medium text-ink mb-4">Этап 3. Рекламные механики и офферы</h2>
+<div class="case-content text-[16px] text-fog leading-[1.7]">
+<ul class="list-disc pl-5 space-y-2">
+<li>
+<strong class="text-ink font-medium">Товарные фиды и смарт-баннеры:</strong> динамические форматы подбирали релевантные позиции из каталога под запрос пользователя.</li>
+<li>
+<strong class="text-ink font-medium">A/B-тесты предложений:</strong> скидка 20% на первый заказ, комбо-наборы и бесплатное блюдо к чеку от заданной суммы.</li>
+<li>
+<strong class="text-ink font-medium">РСЯ для дожима:</strong> возвращали посетителей, которые ушли без оформления корзины, и вели их на лендинг с оффером.</li>
+</ul>
+<figure class="mt-6">
+    <a href="https://sun9-45.userapi.com/s/v1/ig2/5lVW8X5JSyWXXtnqQU89uKqgrEnitEmWpdMRj_f4eTbj5rFWo-W2k0wxUDmK6i9KhsY_TJJKZbKvcm01Byf7Hn5M.jpg?quality=95&amp;as=32x17,48x26,72x39,108x58,160x86,240x129,360x193,480x258,540x290,640x344,720x387,1080x580,1280x687,1440x773,2400x1289&amp;from=bu&amp;u=waQQ3xSGiZsE1rdn4AS9B9tv81QESxz8hSUdnzdlUtU&amp;cs=2400x0" target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-[16px] border border-bone bg-paper focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris" aria-label="Открыть слайд в полном размере: Слайд о товарных фидах, смарт-баннерах, новых офферах и дожиме в РСЯ">
+        <img src="https://sun9-45.userapi.com/s/v1/ig2/5lVW8X5JSyWXXtnqQU89uKqgrEnitEmWpdMRj_f4eTbj5rFWo-W2k0wxUDmK6i9KhsY_TJJKZbKvcm01Byf7Hn5M.jpg?quality=95&amp;as=32x17,48x26,72x39,108x58,160x86,240x129,360x193,480x258,540x290,640x344,720x387,1080x580,1280x687,1440x773,2400x1289&amp;from=bu&amp;u=waQQ3xSGiZsE1rdn4AS9B9tv81QESxz8hSUdnzdlUtU&amp;cs=1280x0" alt="Слайд о товарных фидах, смарт-баннерах, новых офферах и дожиме в РСЯ" width="1280" height="687" loading="lazy" decoding="async" class="w-full h-auto">
+    </a>
+    <figcaption class="mt-3 text-[13px] leading-[1.55] text-fog">Этап 3: динамические форматы, новые предложения и работа с незавершёнными заказами. Нажмите на слайд, чтобы открыть исходник в полном размере.</figcaption>
+</figure>
+</div>
+</section>
+<section>
+<h2 class="text-[26px] font-medium text-ink mb-4">Результат за три месяца</h2>
+<div class="case-content text-[16px] text-fog leading-[1.7]">
+<p>CPO снизился примерно с 980 до 803 ₽ — на 18%. Стоимость заказа начала вписываться в целевую юнит-экономику проекта.</p>
+<ul class="list-disc pl-5 space-y-2">
+<li>Больше заказов при тех же затратах.</li>
+<li>ROMI стал положительным впервые за 14 месяцев.</li>
+<li>Благодаря РСЯ и медийной рекламе начался рост заказов по брендовым запросам.</li>
+</ul>
+<figure class="mt-6">
+    <a href="https://sun9-6.userapi.com/s/v1/ig2/phahHA5qWnIo7VNXwM0RopGNzCPeEq6SZFCLUgV3Zb3e_q9A5kez8YyWmzX1I9EL2EBh7UVjhRxXYn1KhAGrE8of.jpg?quality=95&amp;as=32x17,48x26,72x39,108x58,160x86,240x128,360x193,480x257,540x289,640x342,720x385,1080x578,1280x685,1440x770,2400x1284&amp;from=bu&amp;u=J8Cw3qQWeVLQww9EBII-DBmGWpybGzVK0wDBHux3SUo&amp;cs=2400x0" target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-[16px] border border-bone bg-paper focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris" aria-label="Открыть слайд в полном размере: Слайд с результатами за три месяца: CPO снизился с 980 до 803 рублей, ROMI стал положительным">
+        <img src="https://sun9-6.userapi.com/s/v1/ig2/phahHA5qWnIo7VNXwM0RopGNzCPeEq6SZFCLUgV3Zb3e_q9A5kez8YyWmzX1I9EL2EBh7UVjhRxXYn1KhAGrE8of.jpg?quality=95&amp;as=32x17,48x26,72x39,108x58,160x86,240x128,360x193,480x257,540x289,640x342,720x385,1080x578,1280x685,1440x770,2400x1284&amp;from=bu&amp;u=J8Cw3qQWeVLQww9EBII-DBmGWpybGzVK0wDBHux3SUo&amp;cs=1280x0" alt="Слайд с результатами за три месяца: CPO снизился с 980 до 803 рублей, ROMI стал положительным" width="1280" height="685" loading="lazy" decoding="async" class="w-full h-auto">
+    </a>
+    <figcaption class="mt-3 text-[13px] leading-[1.55] text-fog">Итоговый слайд с подтверждёнными результатами оптимизации. Нажмите на слайд, чтобы открыть исходник в полном размере.</figcaption>
+</figure>
+</div>
+</section>
+<section>
+<h2 class="text-[26px] font-medium text-ink mb-4">Почему это сработало</h2>
+<div class="case-content text-[16px] text-fog leading-[1.7]">
+<p>Сначала навели порядок в данных и семантике, затем масштабировали рабочие механики. Автостратегии не заменили управление: они начали давать эффект после того, как получили достаточный объём корректных данных, время и конверсии для обучения.</p>
+<div class="mt-8 p-6 bg-ink text-paper rounded-[16px]">
+<p class="font-medium text-[19px] mb-2">Главный вывод</p>
+<p class="text-[16px] leading-[1.65]">Контекстная реклама — не разовая настройка, а цикл: аудит → гипотеза → тест → масштаб. Руководителю маркетинга нужно понимать инструмент изнутри, чтобы видеть не только отчёт, но и реальную экономику заказа.</p>
+</div>
+<figure class="mt-6">
+    <a href="https://sun9-77.userapi.com/s/v1/ig2/E7gM-E3BhUsvDa2FeUTDcM1KpIo3SMImzELQPnfo53lXgpBQW_wGV-4UoblzHcdM93l4eD9xG8C7dYcRAbCVBygI.jpg?quality=95&amp;as=32x17,48x26,72x39,108x58,160x86,240x129,360x193,480x258,540x290,640x343,720x386,1080x580,1280x687,1440x773,2400x1288&amp;from=bu&amp;u=5g8mCeTe1E1RHlXWkxUiHsoUA5cEozqlRCJG9f-7h4A&amp;cs=2400x0" target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-[16px] border border-bone bg-paper focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris" aria-label="Открыть слайд в полном размере: Слайд с выводами: аналитика перед масштабированием, автостратегии на реальных заказах и постоянное тестирование">
+        <img src="https://sun9-77.userapi.com/s/v1/ig2/E7gM-E3BhUsvDa2FeUTDcM1KpIo3SMImzELQPnfo53lXgpBQW_wGV-4UoblzHcdM93l4eD9xG8C7dYcRAbCVBygI.jpg?quality=95&amp;as=32x17,48x26,72x39,108x58,160x86,240x129,360x193,480x258,540x290,640x343,720x386,1080x580,1280x687,1440x773,2400x1288&amp;from=bu&amp;u=5g8mCeTe1E1RHlXWkxUiHsoUA5cEozqlRCJG9f-7h4A&amp;cs=1280x0" alt="Слайд с выводами: аналитика перед масштабированием, автостратегии на реальных заказах и постоянное тестирование" width="1280" height="687" loading="lazy" decoding="async" class="w-full h-auto">
+    </a>
+    <figcaption class="mt-3 text-[13px] leading-[1.55] text-fog">Финальный слайд: система работы и роль автостратегий. Нажмите на слайд, чтобы открыть исходник в полном размере.</figcaption>
+</figure>
+</div>
+</section>
+</div>
+        <div class="mt-12 pt-6 border-t border-bone">
+<p class="text-[14px] text-fog leading-[1.65] mb-3">В исходном посте — авторский комментарий о погружении руководителя в инструменты и все семь слайдов кейса. Абсолютное число заказов, выручка и значение ROMI в публикации не раскрываются.</p>
+<a href="https://vk.ru/wall-20583542_3604" target="_blank" rel="noopener noreferrer" class="inline-flex items-center min-h-[44px] text-[16px] font-medium text-electric-iris hover:text-ink transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md">Читать полную публикацию во ВКонтакте ↗</a>
+</div>
+        <a href="category-digital.html" class="inline-flex items-center min-h-[44px] mt-8 text-[16px] font-medium text-electric-iris hover:text-ink transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md">← Все кейсы направления</a>
     </main>
-    <footer class="bg-ink text-paper py-8 px-4 md:px-8 border-t border-[#1D2939]">
-        <div class="container mx-auto max-w-[1280px] flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div class="text-[14px] text-fog">Никита Копасов © <span id="year"></span></div>
-            <div class="flex gap-6 text-[14px]"><a href="https://t.me/smmxep" target="_blank" rel="noopener noreferrer" class="text-gray-light hover:text-electric-iris transition-colors">Telegram</a><a href="https://vk.ru/smmxep" target="_blank" rel="noopener noreferrer" class="text-gray-light hover:text-electric-iris transition-colors">ВКонтакте</a></div>
-        </div>
-    </footer>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <footer class="w-full border-t border-bone mt-auto relative z-20">
+<div class="max-w-[1200px] mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+<div class="text-[14px] text-fog">© 2026 Никита Копасов. CMO &amp; MarTech Expert.</div>
+<div class="flex gap-6">
+<a href="https://vk.com/kopasovnikita" class="text-[14px] text-fog hover:text-ink transition-colors font-medium min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" target="_blank" rel="noopener noreferrer">ВКонтакте</a>
+<a href="https://t.me/kopasovskiy" class="text-[14px] text-fog hover:text-ink transition-colors font-medium min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" target="_blank" rel="noopener noreferrer">Telegram</a>
+</div>
+</div>
+</footer>
 </body>
 </html>
