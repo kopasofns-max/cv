@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Кейс Solo: выручка кофейни выросла с 663 975 ₽ в июне до 1 644 645,75 ₽ в октябре — в 2,48 раза. План/факт, виральные акции, геймификация и рост среднего чека.">
+    <title>Кейс Solo: рост выручки ×2,5 — Никита Копасов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: {
+            colors: { 'electric-iris': '#6248ff', 'soft-lilac': '#b8adf5', 'iris-mist': '#e0daff', 'ink': '#161616', 'iron': '#4d4d4c', 'fog': '#686868', 'bone': '#e4e2df', 'cream': '#f1f0ee', 'paper': '#ffffff' },
+            fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'] },
+            boxShadow: { 'relume-subtle': '0px 1px 3px 0px rgba(0,0,0,.08), 0px 1px 2px 0px rgba(0,0,0,.04)' }
+        } } }
+    </script>
+    <style>
+        body { font-feature-settings: "ss01" on, "cv11" on; background-color: theme('colors.cream'); color: theme('colors.ink'); -webkit-font-smoothing: antialiased; }
+        .gradient-text { background: linear-gradient(100deg, rgb(255,116,72), rgb(255,72,72) 42%, rgb(98,72,255) 85%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .case-content p + p, .case-content ul, .case-content ol { margin-top: 1rem; }
+        .data-table th, .data-table td { padding: 12px 16px; text-align: left; white-space: nowrap; border-bottom: 1px solid #e4e2df; }
+        .data-table th { color: #686868; font-size: 13px; font-weight: 500; }
+        .data-table td { color: #161616; font-size: 14px; }
+        .data-table tr:last-child td { border-bottom: 0; }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; } }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col relative">
+    <nav class="w-full max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between relative z-50">
+        <a href="index.html" class="flex items-center gap-2 min-h-[44px] hover:opacity-70 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" aria-label="Никита Копасов — на главную">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2L20.6603 7V17L12 22L3.33975 17V7L12 2Z" stroke="#161616" stroke-width="2" stroke-linejoin="round"/></svg>
+            <span class="text-[16px] font-medium tracking-tight">Никита Копасов</span>
+        </a>
+        <a href="category-strategy.html" class="text-[16px] font-medium text-ink hover:text-electric-iris transition-colors min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" aria-label="Назад к кейсам направления"><span class="hidden sm:inline">← Кейсы направления</span><span class="sm:hidden" aria-hidden="true">←</span></a>
+    </nav>
+    <main class="w-full max-w-[900px] mx-auto px-6 pt-12 pb-24 relative z-10">
+        <header class="mb-10">
+            <h1 class="text-[32px] sm:text-[48px] font-medium leading-[1.12] tracking-[-0.03em] text-ink mb-6">Как кофейня Solo увеличила выручку <span class="gradient-text">в 2,5 раза за четыре месяца</span></h1>
+            <div class="flex flex-wrap gap-2.5 mt-6">
+                <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">HoReCa / Кофейня</span>
+                <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">Волгоград</span>
+                <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">Апрель — октябрь 2026</span>
+                <span class="bg-electric-iris text-paper px-3 py-1.5 rounded-[8px] text-[13px] font-medium">Solo + Торт Solo</span>
+            </div>
+        </header>
+        <div class="border-y border-bone py-5 mb-10">
+            <p class="text-[13px] text-fog font-medium uppercase tracking-[0.12em] mb-2">Инструменты</p>
+            <p class="text-[16px] text-ink font-medium leading-[1.6]">План/факт, кассовые выгрузки, Google Таблицы, Яндекс Карты, VK Ads, Senler, EVEBOT, Яндекс Еда</p>
+        </div>
+        <h2 class="text-[26px] font-medium text-ink mb-5">Результат в цифрах</h2>
+        <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle"><dt class="text-[14px] text-fog">Выручка в октябре</dt><dd class="text-[26px] font-medium text-ink mt-2">1 644 645,75 ₽</dd><dd class="text-[14px] text-electric-iris mt-2">В июне — 663 974,70 ₽</dd></div>
+            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle"><dt class="text-[14px] text-fog">Рост к июньскому минимуму</dt><dd class="text-[26px] font-medium text-ink mt-2">×2,48</dd><dd class="text-[14px] text-electric-iris mt-2">За четыре месяца</dd></div>
+            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle"><dt class="text-[14px] text-fog">Средний чек в октябре</dt><dd class="text-[26px] font-medium text-ink mt-2">571,65 ₽</dd><dd class="text-[14px] text-electric-iris mt-2">+43% к маю и июню</dd></div>
+            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle"><dt class="text-[14px] text-fog">Чеки в октябре</dt><dd class="text-[26px] font-medium text-ink mt-2">2 877</dd><dd class="text-[14px] text-electric-iris mt-2">+82% к апрелю</dd></div>
+        </dl>
+        <div class="space-y-12">
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Точка А: сезонный трафик не давал роста чека</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>Весной 2026 года Solo на Мира, 13 работала на локальном трафике. В апреле выручка составила 684 911,80 ₽ при среднем чеке 432,67 ₽. В мае поток вырос до 2 072 чеков, а выручка — до 826 225,92 ₽, но средний чек упал до 398,76 ₽: гости часто брали один напиток и уходили.</p>
+                    <p>В июне выручка откатилась до <strong class="text-ink font-medium">663 974,70 ₽</strong>, число чеков — до 1 665, а средний чек остался на уровне 398,78 ₽. При таком чеке дорогой лид не окупается, поэтому просто увеличить рекламный бюджет было нельзя.</p>
+                    <p>Нужна была система: ежедневный план/факт, работа с меню и допродажами, виральные поводы для визита и механики, которые переводят холодный трафик в гостей без дорогого выкупа охватов.</p>
+                </div>
+            </section>
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Сначала — прогноз продаж и ежедневный контроль</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>После июньской просадки связали медиаплан с прогнозом продаж и подневным план/фактом. Для двух точек задали разные планки по дням недели: у кофейни на Мира основная выручка была в будни, у кондитерской «Торт Solo» на Циолковского — в выходные.</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong class="text-ink font-medium">Мира, 13:</strong> план 33 500 ₽ в будни и 25 000 ₽ в выходные.</li>
+                        <li><strong class="text-ink font-medium">Циолковского, 29:</strong> план 26 000 ₽ в будни и 30 000 ₽ в выходные.</li>
+                        <li><strong class="text-ink font-medium">Базовый план сети на август:</strong> 1 814 500 ₽, целевой ориентир — 2 000 000 ₽ при маркетинговом бюджете 72 000 ₽.</li>
+                    </ul>
+                    <div class="overflow-x-auto mt-6 bg-paper border border-bone rounded-[16px] shadow-relume-subtle">
+                        <table class="data-table w-full min-w-[640px] border-collapse">
+                            <thead><tr><th>Точка</th><th>План на август</th><th>Факт</th><th>Выполнение</th></tr></thead>
+                            <tbody>
+                                <tr><td>Мира, 13</td><td>968 500 ₽</td><td>1 094 560 ₽</td><td>+13%</td></tr>
+                                <tr><td>Циолковского, 29</td><td>846 000 ₽</td><td>966 637 ₽</td><td>+14%</td></tr>
+                                <tr><td><strong>Две точки</strong></td><td><strong>1 814 500 ₽</strong></td><td><strong>2 061 197 ₽</strong></td><td><strong>+14%</strong></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="mt-4">В августе вместо запланированных 72 000 ₽ на маркетинг потратили 49 066 ₽. Чистый рекламный расход без комиссий агрегаторов составил 27 800 ₽ — <strong class="text-ink font-medium">1,34% от выручки</strong>.</p>
+                </div>
+            </section>
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">1. Геймификация: «Почеши пузико котику»</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>Вместо стандартной формы со скидкой собрали интерактив на сайте: пользователь чесал пузико нарисованному котику, а в ответ получал купон на бесплатный айс-латте.</p>
+                    <p>Механика стала лид-магнитом для трафика из Яндекс Карт и ВКонтакте, а также вошла в приветственную цепочку Senler. Подарочный напиток приводил гостя в кофейню, а бариста на кассе предлагали десерты и сэндвичи. Одновременно контакт гостя оставался в базе для дальнейших коммуникаций.</p>
+                </div>
+            </section>
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">2. Виральные акции вместо покупки охватов</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong class="text-ink font-medium">«Кофе за листики», 26 июля:</strong> гость приносил красивый лист с дерева и менял его на напиток. Кофейня получила полную посадку с утра и пользовательский контент в соцсетях.</li>
+                        <li><strong class="text-ink font-medium">«Кофе за слухи», 16 августа:</strong> бесплатный кофе за свежий слух или сплетню, рассказанную бариста. Анонс собрал более 7 200 лайков и 18 500 репостов, а трафик в день акции вырос на 25% к обычному дню.</li>
+                    </ul>
+                    <div class="bg-iris-mist/40 border border-soft-lilac rounded-[12px] p-5 mt-6"><p class="text-ink"><strong>Экономия:</strong> на печать листовок для «Кофе за слухи» планировали 5 000 ₽, но потратили 0 ₽ — анонс распространился через соцсети.</p></div>
+                </div>
+            </section>
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">3. EVEBOT: продукт, который гости снимали сами</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>На кофе-принтере EVEBOT печатали изображения, мемы с котами и фотографии питомцев гостей прямо на пенке. Параллельно запускали конкурсы с фотографиями питомцев и стилизованные карточки отзывов.</p>
+                    <p>Чашка кофе становилась готовым поводом для Reels и Stories: гости снимали процесс печати и готовые напитки, отмечали кофейню и приводили друзей. Это поддерживало органический охват без отдельной оплаты каждого контакта.</p>
+                </div>
+            </section>
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">4. Меню и допродажи: рос не только поток, но и чек</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>Пересобрали продуктовую матрицу и обучили команду нативным допродажам: выпечки, сытных позиций и десертов из «Торт Solo». Отдельно скорректировали цены и витрину в Яндекс Еде, где средний чек заказа достигал 888–1 217 ₽.</p>
+                    <p>На Мира, 13 средний чек вырос с 398,76 ₽ в мае до 488,04 ₽ в августе, 564,99 ₽ в сентябре и <strong class="text-ink font-medium">571,65 ₽ в октябре</strong>. То есть выручка росла за счёт двух множителей одновременно: числа чеков и суммы покупки.</p>
+                </div>
+            </section>
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">5. Performance и геомаркетинг на микробюджете</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]"><ul class="list-disc pl-5 space-y-2">
+                    <li><strong class="text-ink font-medium">Яндекс Карты:</strong> подключили приоритетное размещение, упаковали карточку и гео-сторис, вели трафик на лендинг с котиком. При оплате 30 000 ₽ сразу за три месяца получили специальные условия; август стоил 15 300 ₽ вместо плановых 28 000 ₽.</li>
+                    <li><strong class="text-ink font-medium">VK Ads и Senler:</strong> работали с локальной аудиторией и базой. В августе на таргет ушло 12 500 ₽, за весь период — около 40 000 ₽.</li>
+                    <li><strong class="text-ink font-medium">Контроль юнит-экономики:</strong> неэффективные механики отсекали до запуска, а не после того, как они съедали маржу.</li>
+                </ul></div>
+            </section>
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Динамика по месяцам: Мира, 13</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <div class="overflow-x-auto bg-paper border border-bone rounded-[16px] shadow-relume-subtle">
+                        <table class="data-table w-full min-w-[680px] border-collapse">
+                            <thead><tr><th>Месяц 2026</th><th>Выручка</th><th>Средний чек</th><th>Чеки</th><th>Ключевой драйвер</th></tr></thead>
+                            <tbody>
+                                <tr><td>Апрель</td><td>684 911,80 ₽</td><td>432,67 ₽</td><td>1 583</td><td>Базовая точка</td></tr>
+                                <tr><td>Май</td><td>826 225,92 ₽</td><td>398,76 ₽</td><td>2 072</td><td>Сезонный поток, просадка чека</td></tr>
+                                <tr><td>Июнь</td><td>663 974,70 ₽</td><td>398,78 ₽</td><td>1 665</td><td>Запуск план/факта</td></tr>
+                                <tr><td>Июль</td><td>915 242,40 ₽</td><td>460,15 ₽</td><td>1 989</td><td>Меню, EVEBOT, «Кофе за листики»</td></tr>
+                                <tr><td>Август</td><td>1 094 671,56 ₽</td><td>488,04 ₽</td><td>2 243</td><td>Котик, Яндекс Карты, «Кофе за слухи»</td></tr>
+                                <tr><td>Сентябрь</td><td>1 557 115,51 ₽</td><td>564,99 ₽</td><td>2 756</td><td>Осенние офферы и Senler</td></tr>
+                                <tr><td>Октябрь</td><td><strong>1 644 645,75 ₽</strong></td><td><strong>571,65 ₽</strong></td><td><strong>2 877</strong></td><td>Масштабирование рабочих связок</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="mt-4">К октябрю выручка выросла в 2,48 раза к июньскому минимуму и в 2,4 раза к апрелю. Прирост к апрелю — почти 960 000 ₽ ежемесячной выручки.</p>
+                </div>
+            </section>
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Что не сработало и что пришлось переделать</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]"><ul class="list-disc pl-5 space-y-2">
+                    <li><strong class="text-ink font-medium">Бумажные листовки не понадобились.</strong> На две полиграфические гипотезы закладывали 10 000 ₽, но виральный посев в соцсетях сработал без печати.</li>
+                    <li><strong class="text-ink font-medium">Промокод на десерт без порога чека отменили.</strong> На запуск в ВК планировали 10 000 ₽, но пересчёт показал риск для маржи. Вместо этого трафик пошёл на игру с котиком и айс-латте.</li>
+                    <li><strong class="text-ink font-medium">Ручной план/факт не выдержал нагрузки.</strong> После 3 сентября перестали вручную заполнять старую вкладку и переключились на кассовые выгрузки и сводные дашборды.</li>
+                    <li><strong class="text-ink font-medium">CSV-отчёты пришлось чистить.</strong> В них не было точного числа уникальных чеков и гостей, а возвраты учитывались иначе. Данные собирали из нескольких отчётов и удаляли дубли.</li>
+                </ul></div>
+            </section>
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Итог</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>Solo выросла не за счёт одной удачной рекламной кампании. Виральные акции создавали повод прийти, игра с котиком собирала контакты, EVEBOT давал пользовательский контент, а меню и работа бариста превращали трафик в более крупный чек.</p>
+                    <p>План/факт связывал эти действия с выручкой и помогал вовремя отключать слабые гипотезы. Поэтому рост до 1,64 млн ₽ произошёл без пропорционального увеличения рекламных расходов.</p>
+                    <div class="mt-8 p-6 bg-ink text-paper rounded-[16px]"><p class="font-medium text-[19px] mb-2">Главный вывод</p><p class="text-[16px] leading-[1.65]">Для локального бизнеса с небольшим чеком рост начинается не с увеличения бюджета. Сначала нужны управляемая юнит-экономика, повод для визита и продуктовая механика, которая увеличивает чек. Реклама уже усиливает эту связку.</p></div>
+                </div>
+            </section>
+        </div>
+        <div class="mt-12 pt-6 border-t border-bone">
+            <p class="text-[14px] text-fog leading-[1.65]">В оперативной августовской сводке выручка на Мира, 13 составила 1 094 560 ₽, в финальной кассовой выгрузке — 1 094 671,56 ₽. Разница связана с обработкой возвратов и дублей; в месячной динамике использованы финальные кассовые данные.</p>
+        </div>
+        <a href="category-strategy.html" class="inline-flex items-center min-h-[44px] mt-8 text-[16px] font-medium text-electric-iris hover:text-ink transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md">← Все кейсы направления</a>
+    </main>
+    <footer class="w-full border-t border-bone mt-auto relative z-20"><div class="max-w-[1200px] mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4"><div class="text-[14px] text-fog">© 2026 Никита Копасов. CMO &amp; MarTech Expert.</div><div class="flex gap-6"><a href="https://vk.com/kopasovnikita" class="text-[14px] text-fog hover:text-ink transition-colors font-medium min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" target="_blank" rel="noopener noreferrer">ВКонтакте</a><a href="https://t.me/kopasovskiy" class="text-[14px] text-fog hover:text-ink transition-colors font-medium min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" target="_blank" rel="noopener noreferrer">Telegram</a></div></div></footer>
+</body>
+</html>
