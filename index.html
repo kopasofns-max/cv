@@ -121,6 +121,12 @@
         }
 
         .scroll-reveal { opacity: 0; }
+        @media (hover: none), (max-width: 1023px) { #glow-cursor { display: none; } }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+            .scroll-reveal { opacity: 1; }
+            #glow-cursor { display: none; }
+        }
         .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
     </style>
 </head>
@@ -164,7 +170,7 @@
         <div class="flex flex-row lg:block w-full overflow-x-auto lg:overflow-visible snap-x snap-mandatory gap-6 pt-6 pb-8 hide-scrollbar -mx-6 px-6 lg:mx-0 lg:px-0">
             
             <!-- Карточка 1 (Достижения) -->
-            <div class="flex relative lg:absolute lg:top-4 lg:left-[-2rem] xl:left-0 lg:-rotate-2 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex-col justify-center gap-3 z-0 shrink-0 snap-center">
+            <div class="flex relative lg:absolute lg:top-4 lg:left-4 xl:left-0 lg:-rotate-2 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex-col justify-center gap-3 z-0 shrink-0 snap-center">
                 <div class="absolute -top-3 -right-3 bg-electric-iris text-paper text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle border border-bone z-10 transition-colors" id="card1-tag">
                     SaaS
                 </div>
@@ -181,7 +187,7 @@
             </div>
 
             <!-- Карточка 2 (Tech Stack) -->
-            <div class="flex relative lg:absolute lg:top-16 lg:right-[-2rem] xl:right-0 lg:rotate-2 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex-col justify-center gap-2 z-0 shrink-0 snap-center text-left">
+            <div class="flex relative lg:absolute lg:top-16 lg:right-4 xl:right-0 lg:rotate-2 bg-paper border border-bone rounded-[16px] p-5 shadow-relume-md w-[260px] h-[160px] flex-col justify-center gap-2 z-0 shrink-0 snap-center text-left">
                 <div class="absolute -top-3 -right-3 bg-acid-lemon text-ink text-[12px] font-medium px-3 py-1 rounded-[320px] shadow-relume-subtle border border-bone z-10">
                     Tech Stack
                 </div>
@@ -369,7 +375,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Плитка 1 (С ссылкой) -->
-                <a href="category-digital.html" class="block bg-cream border border-bone rounded-[12px] p-6 case-tile cursor-pointer scroll-reveal group relative hover:-translate-y-1 transition-transform duration-300" style="animation-delay: 0.1s;">
+                <a href="category-digital.html" class="block bg-cream border border-bone rounded-[12px] p-6 case-tile cursor-pointer scroll-reveal group relative hover:-translate-y-1 transition-transform duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris focus-visible:ring-offset-4" style="animation-delay: 0.1s;">
                     <!-- Акцентная линия сверху -->
                     <div class="absolute top-0 left-0 w-full h-[4px] bg-gradient-to-r from-coral-accent to-electric-iris rounded-t-[12px] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                     
@@ -382,54 +388,54 @@
                 </a>
 
                 <!-- Плитка 2 -->
-                <div class="bg-cream border border-bone rounded-[12px] p-6 case-tile cursor-pointer scroll-reveal" style="animation-delay: 0.2s;">
+                <a href="category-strategy.html" class="block bg-cream border border-bone rounded-[12px] p-6 case-tile cursor-pointer scroll-reveal group relative hover:-translate-y-1 transition-transform duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris focus-visible:ring-offset-4" style="animation-delay: 0.2s;">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-[12px] font-medium px-2 py-1 bg-paper border border-bone rounded-md text-iron">Strategy</span>
                         <svg class="case-arrow transition-transform text-iron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </div>
-                    <h3 class="text-[20px] font-medium text-ink leading-[1.3] mb-2">Комплексный маркетинг</h3>
+                    <h3 class="text-[20px] font-medium text-ink leading-[1.3] mb-2 group-hover:text-electric-iris transition-colors">Комплексный маркетинг</h3>
                     <p class="text-[14px] text-fog leading-[1.5]">Выстраивание омниканальных стратегий с нуля, QFD-анализ, CJM, юнит-экономика и вывод на окупаемость.</p>
-                </div>
+                </a>
 
                 <!-- Плитка 3 -->
-                <div class="bg-cream border border-bone rounded-[12px] p-6 case-tile cursor-pointer scroll-reveal" style="animation-delay: 0.3s;">
+                <a href="category-crm.html" class="block bg-cream border border-bone rounded-[12px] p-6 case-tile cursor-pointer scroll-reveal group relative hover:-translate-y-1 transition-transform duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris focus-visible:ring-offset-4" style="animation-delay: 0.3s;">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-[12px] font-medium px-2 py-1 bg-paper border border-bone rounded-md text-iron">Retention</span>
                         <svg class="case-arrow transition-transform text-iron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </div>
-                    <h3 class="text-[20px] font-medium text-ink leading-[1.3] mb-2">CRM и автоворонки</h3>
+                    <h3 class="text-[20px] font-medium text-ink leading-[1.3] mb-2 group-hover:text-electric-iris transition-colors">CRM и автоворонки</h3>
                     <p class="text-[14px] text-fog leading-[1.5]">Senler, BotHelp, Email. Триггерные цепочки, геймификация, реактивация базы и генерация выручки.</p>
-                </div>
+                </a>
 
                 <!-- Плитка 4 -->
-                <div class="bg-cream border border-bone rounded-[12px] p-6 case-tile cursor-pointer scroll-reveal" style="animation-delay: 0.4s;">
+                <a href="category-web.html" class="block bg-cream border border-bone rounded-[12px] p-6 case-tile cursor-pointer scroll-reveal group relative hover:-translate-y-1 transition-transform duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris focus-visible:ring-offset-4" style="animation-delay: 0.4s;">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-[12px] font-medium px-2 py-1 bg-paper border border-bone rounded-md text-iron">Web</span>
                         <svg class="case-arrow transition-transform text-iron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </div>
-                    <h3 class="text-[20px] font-medium text-ink leading-[1.3] mb-2">Создание сайтов</h3>
+                    <h3 class="text-[20px] font-medium text-ink leading-[1.3] mb-2 group-hover:text-electric-iris transition-colors">Создание сайтов</h3>
                     <p class="text-[14px] text-fog leading-[1.5]">Tilda, лендинги, интерактивные элементы. Глубокая проработка UX/UI и конверсионных путей пользователя.</p>
-                </div>
+                </a>
 
                 <!-- Плитка 5 -->
-                <div class="bg-cream border border-bone rounded-[12px] p-6 case-tile cursor-pointer scroll-reveal" style="animation-delay: 0.5s;">
+                <a href="category-analytics.html" class="block bg-cream border border-bone rounded-[12px] p-6 case-tile cursor-pointer scroll-reveal group relative hover:-translate-y-1 transition-transform duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris focus-visible:ring-offset-4" style="animation-delay: 0.5s;">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-[12px] font-medium px-2 py-1 bg-paper border border-bone rounded-md text-iron">Analytics</span>
                         <svg class="case-arrow transition-transform text-iron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </div>
-                    <h3 class="text-[20px] font-medium text-ink leading-[1.3] mb-2">Python & Дашборды</h3>
+                    <h3 class="text-[20px] font-medium text-ink leading-[1.3] mb-2 group-hover:text-electric-iris transition-colors">Python & Дашборды</h3>
                     <p class="text-[14px] text-fog leading-[1.5]">Сбор данных по API (Metrika, Direct, amoCRM), автоматизация рутины, сквозная аналитика (Roistat).</p>
-                </div>
+                </a>
 
                 <!-- Плитка 6 -->
-                <div class="bg-cream border border-bone rounded-[12px] p-6 case-tile cursor-pointer scroll-reveal" style="animation-delay: 0.6s;">
+                <a href="category-ai.html" class="block bg-cream border border-bone rounded-[12px] p-6 case-tile cursor-pointer scroll-reveal group relative hover:-translate-y-1 transition-transform duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris focus-visible:ring-offset-4" style="animation-delay: 0.6s;">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-[12px] font-medium px-2 py-1 bg-paper border border-bone rounded-md text-electric-iris">New!</span>
                         <svg class="case-arrow transition-transform text-iron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </div>
-                    <h3 class="text-[20px] font-medium text-ink leading-[1.3] mb-2">AI & Vibe-coding</h3>
-                    <p class="text-[14px] text-fog leading-[1.5]">Генерация визуала (HeyGen), нейрокомментаторы (Gemini API), быстрая разработка с Cursor AI.</p>
-                </div>
+                    <h3 class="text-[20px] font-medium text-ink leading-[1.3] mb-2 group-hover:text-electric-iris transition-colors">ИИ-контент и вайбкодинг</h3>
+                    <p class="text-[14px] text-fog leading-[1.5]">ИИ-видео и визуал, нейроботы для комментариев, быстрая разработка и автоматизация маркетинга.</p>
+                </a>
             </div>
         </div>
     </section>
@@ -441,14 +447,17 @@
         </h2>
         
         <div class="gradient-border-wrap p-[2px] rounded-[320px] w-full max-w-[640px] shadow-relume-md scroll-reveal">
-            <form onsubmit="event.preventDefault();" class="bg-paper rounded-[320px] flex items-center p-1 w-full relative">
+            <form action="https://t.me/kopasovskiy" method="get" target="_blank" class="bg-paper rounded-[320px] flex items-center p-1 w-full relative">
                 <input 
+                    id="contact-email"
+                    name="text"
                     type="email" 
                     placeholder="Введите ваш email для связи..." 
-                    class="flex-grow bg-transparent text-ink text-[16px] placeholder:text-fog font-normal pl-5 pr-4 py-3 outline-none rounded-l-[320px]"
+                    aria-label="Ваш email для связи"
+                    class="flex-grow min-w-0 bg-transparent text-ink text-[16px] placeholder:text-fog font-normal pl-5 pr-4 py-3 outline-none rounded-l-[320px]"
                     required
                 >
-                <button type="submit" class="bg-electric-iris text-paper font-medium text-[16px] px-6 py-3 rounded-[8px] shadow-relume-subtle transition-all duration-200 hover:bg-iris-mist hover:text-ink">
+                <button type="submit" class="shrink-0 bg-electric-iris text-paper font-medium text-[16px] px-6 py-3 rounded-[8px] shadow-relume-subtle transition-all duration-200 hover:bg-iris-mist hover:text-ink">
                     Написать
                 </button>
             </form>
