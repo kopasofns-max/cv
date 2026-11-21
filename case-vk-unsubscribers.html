@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Кейс Никиты Копасова: как вернуть 24,4% отписавшихся от группы ВК за 60 минут с помощью бота в Senler, вернуть 1 056 подписчиков без бюджета и получить 248 честных CustDev-инсайтов.">
+    <title>Кейс: Возврат 24,4% отписавшихся в ВК через Senler — Никита Копасов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'electric-iris': '#6248ff',
+                        'soft-lilac': '#b8adf5',
+                        'iris-mist': '#e0daff',
+                        'ink': '#161616',
+                        'iron': '#4d4d4c',
+                        'fog': '#686868',
+                        'bone': '#e4e2df',
+                        'cream': '#f1f0ee',
+                        'paper': '#ffffff'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'relume-subtle': '0px 1px 3px 0px rgba(0,0,0,.08), 0px 1px 2px 0px rgba(0,0,0,.04)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-feature-settings: "ss01" on, "cv11" on; background-color: theme('colors.cream'); color: theme('colors.ink'); -webkit-font-smoothing: antialiased; }
+        .gradient-text { background: linear-gradient(100deg, rgb(255,116,72), rgb(255,72,72) 42%, rgb(98,72,255) 85%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .case-content p + p, .case-content ul, .case-content ol { margin-top: 1rem; }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; } }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col relative">
+    <nav class="w-full max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between relative z-50">
+        <a href="index.html" class="flex items-center gap-2 min-h-[44px] hover:opacity-70 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" aria-label="Никита Копасов — на главную">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2L20.6603 7V17L12 22L3.33975 17V7L12 2Z" stroke="#161616" stroke-width="2" stroke-linejoin="round"/></svg>
+            <span class="text-[16px] font-medium tracking-tight">Никита Копасов</span>
+        </a>
+        <a href="category-crm.html" class="text-[16px] font-medium text-ink hover:text-electric-iris transition-colors min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" aria-label="Назад к кейсам направления">
+            <span class="hidden sm:inline">← Кейсы направления</span>
+            <span class="sm:hidden" aria-hidden="true">←</span>
+        </a>
+    </nav>
+
+    <main class="w-full max-w-[900px] mx-auto px-6 pt-12 pb-24 relative z-10">
+        <header class="mb-10">
+            <h1 class="text-[32px] sm:text-[48px] font-medium leading-[1.12] tracking-[-0.03em] text-ink mb-6">
+                Как вернуть <span class="gradient-text">24,4% отписавшихся</span> за 60 минут: бот для удержания и CustDev в Senler
+            </h1>
+            <div class="flex flex-wrap gap-2.5 mt-6">
+                <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">HoReCa / Доставка еды</span>
+                <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">Волгоград</span>
+                <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">2022 — 2023 год</span>
+                <span class="bg-electric-iris text-paper px-3 py-1.5 rounded-[8px] text-[13px] font-medium">Роль: Head of CRM &amp; SMM</span>
+                <span class="bg-iris-mist text-ink border border-soft-lilac px-3 py-1.5 rounded-[8px] text-[13px] font-medium">Retention / Churn Rate</span>
+            </div>
+        </header>
+
+        <div class="border-y border-bone py-5 mb-10">
+            <p class="text-[13px] text-fog font-medium uppercase tracking-[0.12em] mb-2">Инструменты</p>
+            <p class="text-[16px] text-ink font-medium leading-[1.6]">Senler, ВКонтакте, чат-боты, триггерные сценарии, CustDev-опросы, метки аудиторий</p>
+        </div>
+
+        <h2 class="text-[26px] font-medium text-ink mb-5">Результат в цифрах за 12 месяцев</h2>
+        <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle">
+                <dt class="text-[14px] text-fog">Возврат подписчиков</dt>
+                <dd class="text-[26px] font-medium text-ink mt-2">24,4%</dd>
+                <dd class="text-[14px] text-electric-iris mt-2">1 056 человек вернулись в группу обратно</dd>
+            </div>
+            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle">
+                <dt class="text-[14px] text-fog">Стоимость возврата</dt>
+                <dd class="text-[26px] font-medium text-ink mt-2">0 ₽</dd>
+                <dd class="text-[14px] text-electric-iris mt-2">Без платного ретаргетинга и ручных звонков</dd>
+            </div>
+            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle">
+                <dt class="text-[14px] text-fog">Качественные ответы (CustDev)</dt>
+                <dd class="text-[26px] font-medium text-ink mt-2">248 чел.</dd>
+                <dd class="text-[14px] text-electric-iris mt-2">Честно объяснили причину ухода из группы</dd>
+            </div>
+            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle">
+                <dt class="text-[14px] text-fog">Время на внедрение</dt>
+                <dd class="text-[26px] font-medium text-ink mt-2">60 минут</dd>
+                <dd class="text-[14px] text-electric-iris mt-2">Собрано в Senler без разработчиков и кода</dd>
+            </div>
+        </dl>
+
+        <!-- Схема цепочки в Senler -->
+        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle my-8">
+            <img src="img/senler-unsub-bot-scheme.png" alt="Схема чат-бота в Senler для удержания и возврата отписавшихся" class="w-full h-auto rounded-[10px]" loading="lazy">
+            <figcaption class="px-2 pt-3 pb-1 text-[13px] leading-[1.55] text-fog">
+                Архитектура сценария в Senler: триггер отписки от группы → тёплое сообщение-опрос в ЛС → сохранение ответа и присвоение метки → таймеры ожидания (30 мин / 1 день) → проверка условия возврата → благодарность за повторное вступление.
+            </figcaption>
+        </figure>
+
+        <div class="space-y-12">
+            <!-- 1. Проблема -->
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">1. Проблема: подписчики уходят, бюджет сгорает</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>Привлечение подписчиков в сообщество доставки еды стоит денег: таргет VK Ads, конкурсы, блогеры, промо-акции. Но большинство компаний страдают от «эсперанто-маркетинга» — отслеживают только приток в группу, совершенно не замечая оттока (Churn Rate).</p>
+                    <p>Люди отписываются молча: маркетолог видит минус по подписчикам и гадает на кофейной гуще — то ли контент плохой, то ли цены высокие, то ли курьер опоздал. В итоге на привлечение тратятся сотни тысяч рублей, а «дыра в ведре» остаётся незакрытой.</p>
+                    <p>Задача стояла просто: без бюджетов на разработку и сложных интеграций остановить волну отписок, понять реальные причины ухода и вернуть максимальное число людей.</p>
+                </div>
+            </section>
+
+            <!-- 2. Решение -->
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">2. Решение: чат-бот возврата за 60 минут</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>Вместо многомесячной разработки CRM-модулей решение собрали за час в конструкторе Senler:</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+                        <div class="bg-paper border border-bone rounded-[14px] p-5 shadow-relume-subtle">
+                            <h4 class="text-[17px] font-medium text-ink mb-2">1. Мгновенный триггер отписки</h4>
+                            <p class="text-[14px] text-fog leading-[1.55]">Как только пользователь нажимает «Отписаться», бот перехватывает событие и мгновенно отправляет вежливое персонализированное сообщение в ЛС от группы.</p>
+                        </div>
+                        <div class="bg-paper border border-bone rounded-[14px] p-5 shadow-relume-subtle">
+                            <h4 class="text-[17px] font-medium text-ink mb-2">2. Человечный диалог вместо робота</h4>
+                            <p class="text-[14px] text-fog leading-[1.55]">Сообщение без официоза: <em>«%username%, мы вас чем-то обидели? Почему вы вышли из нашей группы? 🥺 Возвращайтесь, чтобы быть в курсе вкусных акций...»</em></p>
+                        </div>
+                        <div class="bg-paper border border-bone rounded-[14px] p-5 shadow-relume-subtle">
+                            <h4 class="text-[17px] font-medium text-ink mb-2">3. Фиксация показаний в CRM</h4>
+                            <p class="text-[14px] text-fog leading-[1.55]">Если пользователь отвечает, бот сохраняет текст ответа в переменную и присваивает метку «Ответили на вопрос бота о выходе» для последующей сегментации.</p>
+                        </div>
+                        <div class="bg-paper border border-bone rounded-[14px] p-5 shadow-relume-subtle">
+                            <h4 class="text-[17px] font-medium text-ink mb-2">4. Валидация и дожим возврата</h4>
+                            <p class="text-[14px] text-fog leading-[1.55]">Через таймеры (30 минут и 1 день) бот проверяет условие «Состоит ли в сообществе». Если вернулся — отправляет теплое сообщение: <em>«Спасибо, что вы с нами! 💚»</em>.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Результаты -->
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">3. Итоги в цифрах за 12 месяцев</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>За год непрерывной работы связка показала феноменальную конверсию в возврат:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong class="text-ink font-medium">4 328 человек</strong> отписались от сообщества за период.</li>
+                        <li><strong class="text-ink font-medium">1 056 подписчиков (24,4%)</strong> вернулись обратно в группу после первого же сообщения бота.</li>
+                        <li><strong class="text-ink font-medium">248 человек</strong> честно написали развёрнутый ответ, почему они решили уйти.</li>
+                        <li>Остальные проигнорировали сообщение, но не пожаловались на спам, так как сообщение приходило единожды и строго по факту действия.</li>
+                    </ul>
+
+                    <div class="bg-iris-mist/40 border border-soft-lilac rounded-[12px] p-5 mt-6">
+                        <p class="text-ink">
+                            <strong>Экономический эффект:</strong> 1 056 сохранённых подписчиков эквивалентны экономии более <strong>80 000 — 100 000 ₽</strong> рекламного бюджета на повторное привлечение аудитории с холодного трафика.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Инсайты -->
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">4. Топ-3 инсайта для бизнеса из CustDev-ответов</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>248 ответов дали компании бесплатную и предельно честную аналитику продукта и сервиса, которую невозможно получить в обычных NPS-опросах:</p>
+                    
+                    <div class="space-y-4 my-6">
+                        <div class="bg-paper border border-bone rounded-[12px] p-4 shadow-relume-subtle">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="font-medium text-ink text-[17px]">1. Переезд в другой город (30% ответов)</span>
+                                <span class="text-electric-iris font-semibold text-[15px]">30%</span>
+                            </div>
+                            <p class="text-[14px] text-fog">Естественный географический отток из региона. Это позволило очистить ожидания и понять, что почти треть отписок не связана с качеством еды или сервиса.</p>
+                        </div>
+                        <div class="bg-paper border border-bone rounded-[12px] p-4 shadow-relume-subtle">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="font-medium text-ink text-[17px]">2. Повышение цен на меню (15% ответов)</span>
+                                <span class="text-electric-iris font-semibold text-[15px]">15%</span>
+                            </div>
+                            <p class="text-[14px] text-fog">Критический инсайт для менеджмента: при индексации цен компания не донесла ценность изменений до клиентов. Ввели практику постепенного ввода новинок и компенсационных комбо-предложений.</p>
+                        </div>
+                        <div class="bg-paper border border-bone rounded-[12px] p-4 shadow-relume-subtle">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="font-medium text-ink text-[17px]">3. «Просто чищу группы / много уведомлений» (14% ответов)</span>
+                                <span class="text-electric-iris font-semibold text-[15px]">14%</span>
+                            </div>
+                            <p class="text-[14px] text-fog">Сигнал SMM-отделу о перегрузе ленты. Скорректировали контент-план: уменьшили количество проходных постов, перешли на дайджесты и повысили ценность каждого выхода.</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 p-6 bg-ink text-paper rounded-[16px]">
+                        <p class="font-medium text-[19px] mb-2">Главный вывод</p>
+                        <p class="text-[16px] leading-[1.65]">
+                            Retention — это не сложные нейросети и не миллионные бюджеты. В 90% случаев достаточно вовремя задать клиенту один простой человеческий вопрос: «Мы вас чем-то обидели?». Каждый четвёртый готов дать бизнесу второй шанс, если видит неравнодушие.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Перелинковка -->
+        <div class="mt-12 pt-6 border-t border-bone flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <a href="category-crm.html" class="inline-flex items-center min-h-[44px] text-[16px] font-medium text-electric-iris hover:text-ink transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md">
+                ← Все кейсы CRM и автоворонок
+            </a>
+            <a href="case-vk-birthdays.html" class="inline-flex items-center min-h-[44px] text-[16px] font-medium text-electric-iris hover:text-ink transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md">
+                Кейс: +1 050 000 ₽ на воронке ко дню рождения →
+            </a>
+        </div>
+    </main>
+
+    <footer class="w-full border-t border-bone mt-auto relative z-20">
+        <div class="max-w-[1200px] mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="text-[14px] text-fog">© 2026 Никита Копасов. CMO &amp; MarTech Expert.</div>
+            <div class="flex gap-6">
+                <a href="https://vk.com/kopasovnikita" class="text-[14px] text-fog hover:text-ink transition-colors font-medium min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" target="_blank" rel="noopener noreferrer">ВКонтакте</a>
+                <a href="https://t.me/kopasovskiy" class="text-[14px] text-fog hover:text-ink transition-colors font-medium min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" target="_blank" rel="noopener noreferrer">Telegram</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
