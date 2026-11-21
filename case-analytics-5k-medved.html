@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Сквозная аналитика для «Медведь Электро» и «5 Киловатт»: разработка единого MarTech-дашборда с нуля за 7 дней на Python, amoCRM, Директе, Ozon и Gemini AI.">
+    <title>Кейс: Сквозная аналитика для «Медведь Электро» и «5 Киловатт» за 7 дней — Никита Копасов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'electric-iris': '#6248ff',
+                        'soft-lilac': '#b8adf5',
+                        'iris-mist': '#e0daff',
+                        'ink': '#161616',
+                        'iron': '#4d4d4c',
+                        'fog': '#686868',
+                        'bone': '#e4e2df',
+                        'cream': '#f1f0ee',
+                        'paper': '#ffffff',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'relume-subtle': '0px 1px 3px 0px rgba(0,0,0,.08), 0px 1px 2px 0px rgba(0,0,0,.04)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-feature-settings: "ss01" on, "cv11" on; background-color: theme('colors.cream'); color: theme('colors.ink'); -webkit-font-smoothing: antialiased; }
+        .gradient-text { background: linear-gradient(100deg, rgb(255,116,72), rgb(255,72,72) 42%, rgb(98,72,255) 85%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .case-content p + p, .case-content ul, .case-content ol { margin-top: 1rem; }
+        .data-table th, .data-table td { padding: 12px 16px; text-align: left; vertical-align: top; border-bottom: 1px solid #e4e2df; }
+        .data-table th { color: #686868; font-size: 13px; font-weight: 500; white-space: nowrap; }
+        .data-table td { color: #161616; font-size: 14px; line-height: 1.55; min-width: 150px; }
+        .data-table td:first-child { min-width: 180px; font-weight: 500; }
+        .data-table tr:last-child td { border-bottom: 0; }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; } }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col relative">
+
+    <!-- Navbar -->
+    <nav class="w-full max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between relative z-50">
+        <a href="index.html" class="flex items-center gap-2 min-h-[44px] hover:opacity-70 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" aria-label="Никита Копасов — на главную">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12 2L20.6603 7V17L12 22L3.33975 17V7L12 2Z" stroke="#161616" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+            <span class="text-[16px] font-medium tracking-tight">Никита Копасов</span>
+        </a>
+        <a href="category-analytics.html" class="text-[16px] font-medium text-ink hover:text-electric-iris transition-colors min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" aria-label="Назад к кейсам направления">
+            <span class="hidden sm:inline">← Кейсы направления</span>
+            <span class="sm:hidden" aria-hidden="true">←</span>
+        </a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="w-full max-w-[900px] mx-auto px-6 pt-12 pb-24 relative z-10">
+        
+        <!-- Header -->
+        <header class="mb-10">
+            <h1 class="text-[32px] sm:text-[48px] font-medium leading-[1.12] tracking-[-0.03em] text-ink mb-6">
+                Сквозная аналитика для «Медведь Электро» и «5 Киловатт»: <span class="gradient-text">от слепой зоны до дашборда с ИИ за 7 дней</span>
+            </h1>
+            <div class="flex flex-wrap gap-2.5 mt-6">
+                <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">E-commerce / Премиум</span>
+                <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">Электровелосипеды</span>
+                <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">Срок разработки: 7 дней</span>
+                <span class="bg-electric-iris text-paper px-3 py-1.5 rounded-[8px] text-[13px] font-medium">Внедрено в production</span>
+            </div>
+        </header>
+
+        <!-- Инструменты -->
+        <div class="border-y border-bone py-5 mb-10">
+            <p class="text-[13px] text-fog font-medium uppercase tracking-[0.12em] mb-2">Стек и технологии</p>
+            <p class="text-[16px] text-ink font-medium leading-[1.6]">
+                Python, amoCRM API, Яндекс Директ API, Яндекс Метрика API, Ozon Seller API, Авито API, Gemini AI (каскад 7 моделей), SARIMAX &amp; Seasonal Naïve Forecast, экзогенные факторы X, Журнал маркетинговых событий, учет оплат vs отгрузок, GitHub Actions, Render
+            </p>
+        </div>
+
+        <!-- Результат в цифрах -->
+        <h2 class="text-[26px] font-medium text-ink mb-5">Результат в цифрах</h2>
+        <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle">
+                <dt class="text-[14px] text-fog">Срок запуска системы</dt>
+                <dd class="text-[26px] font-medium text-ink mt-2">7 дней</dd>
+                <dd class="text-[14px] text-electric-iris mt-2">От пустой идеи до боевого дашборда</dd>
+            </div>
+            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle">
+                <dt class="text-[14px] text-fog">Объединено источников</dt>
+                <dd class="text-[26px] font-medium text-ink mt-2">5 сервисов</dd>
+                <dd class="text-[14px] text-electric-iris mt-2">amoCRM, Директ, Метрика, Ozon, Авито</dd>
+            </div>
+            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle">
+                <dt class="text-[14px] text-fog">Ручные отчеты в Excel</dt>
+                <dd class="text-[26px] font-medium text-ink mt-2">0 часов в неделю</dd>
+                <dd class="text-[14px] text-electric-iris mt-2">Автосбор 3 раза в сутки через GitHub Actions</dd>
+            </div>
+            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle">
+                <dt class="text-[14px] text-fog">ИИ-аналитика</dt>
+                <dd class="text-[26px] font-medium text-ink mt-2">Gemini AI</dd>
+                <dd class="text-[14px] text-electric-iris mt-2">Еженедельный тактический разбор кампаний</dd>
+            </div>
+        </dl>
+
+        <!-- Тело кейса -->
+        <div class="space-y-12">
+            
+            <!-- Раздел 1: Точка А -->
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Точка А: аналитики не было совсем</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>
+                        «Медведь Электро» и «5 Киловатт» продают премиальные и складные электровелосипеды с чеком от 80 000 до 690 000 ₽. В таком бизнесе каждый нецелевой клик в рекламе стоит дорого, а цикл принятия решения может длиться от нескольких дней до месяцев.
+                    </p>
+                    <p>
+                        При этом в компании <strong class="text-ink font-medium">системной аналитики не существовало вообще</strong>:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Слепая CRM:</strong> сделки падали в amoCRM вручную или звонками без UTM-меток, без связи с рекламными кампаниями и без понимания источника.</li>
+                        <li><strong>Отсутствие ClientID:</strong> на сайтах на Tilda формы не прокидывали идентификатор посетителя (`_ym_uid` / `visitor_id`). Вся многолетняя база сделок была полностью оторвана от истории веб-сессий.</li>
+                        <li><strong>Ozon как «черный ящик»:</strong> маркетплейс генерировал миллионные обороты и возвраты, но жил в отдельном кабинете и никак не сопоставлялся с общим маркетинговым P&L.</li>
+                        <li><strong>Искажение гео-данных Метрикой:</strong> из-за особенностей маршрутизации мобильных операторов (МегаФон, МТС, Tele2) и VPN Яндекс Метрика массово определяла реальных региональных покупателей как «Москва».</li>
+                        <li><strong>Два разных бренда:</strong> «Медведь Электро» и «5 Киловатт» имели свои сайты, разные кабинеты Метрики и Авито, но частично общую команду и продажи. Нельзя было просто перемешать данные в кучу.</li>
+                    </ul>
+                    <p>
+                        Покупка готовых enterprise-систем сквозной аналитики не имела смысла: они требуют ежемесячной абонентской платы в десятки тысяч рублей, долгого внедрения и всё равно не решают проблему сырых данных и специфики маркетплейсов. Было решено собрать собственную независимую систему.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Скриншот 1 -->
+            <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle">
+                <img src="img/dashboard-channels.png" alt="Сводный экран дашборда сквозной аналитики 5К и Медведь Электро с заблюренными финансовыми данными" class="w-full h-auto rounded-[10px]" loading="lazy">
+                <figcaption class="px-2 pt-3 pb-1 text-[13px] leading-[1.55] text-fog">
+                    Главный экран сквозного дашборда: переключатель брендов («Медведь Электро» / «5 Киловатт» / «Все»), KPI-карточки (выручка, расходы, ROAS, цикл сделки, касания) и иерархия каналов. Конфиденциальные финансовые показатели скрыты.
+                </figcaption>
+            </figure>
+
+            <!-- Раздел 2: Инженерные вызовы и костыли -->
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Инженерные вызовы: как мы выкручивались и собирали данные</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>
+                        Чтобы склеить разрозненные куски данных в честную картину, пришлось изобретать нестандартные решения и обходить ограничения платформ:
+                    </p>
+
+                    <h3 class="text-[20px] font-medium text-ink mt-6 mb-2">1. Скрипт захвата `ClientID` на Tilda без поломки конверсий</h3>
+                    <p>
+                        Исторические сделки без ClientID уже нельзя связать с веб-визитами задним числом. Но для всех новых заказов мы написали кастомный скрипт <code>tracking/tilda-client-id.js</code>. Он внедряется перед закрывающим тегом <code>&lt;/body&gt;</code> на Tilda, слушает появление любых форм (включая динамические попапы), через <code>ym(counter, 'getClientID')</code> забирает идентификатор и скрыто вшивает его в форму. В amoCRM создали поле <code>ym_client_id</code>, куда идентификатор попадает автоматически.
+                    </p>
+                    <div class="bg-iris-mist/40 border border-soft-lilac rounded-[12px] p-5 my-4">
+                        <strong class="text-ink">Честная методология атрибуции:</strong> Мы принципиально отказались от подделки данных. Сделки без ClientID не считаются «нулевыми визитами» (что исказило бы статистику). Выручка, CPO и заказы считаются по всей массе сделок, а среднее число касаний и цикл сделки — строго по когорте с подтвержденным ClientID.
+                    </div>
+
+                    <h3 class="text-[20px] font-medium text-ink mt-6 mb-2">2. Трёхуровневый гео-декодер против «московской аномалии»</h3>
+                    <p>
+                        Яндекс Метрика за счет провайдерских пулов записывала покупателей из регионов в Москву. Мы построили каскадный алгоритм определения города с абсолютным приоритетом CRM:
+                    </p>
+                    <ol class="list-decimal pl-5 space-y-1">
+                        <li><strong>100% приоритет:</strong> поля сделки amoCRM («Локация», «Город», «Адрес доставки»);</li>
+                        <li><strong>Второй эшелон:</strong> встроенный парсер телефонных кодов DEF по номеру покупателя;</li>
+                        <li><strong>Fallback:</strong> IP-геолокация Метрики используется только тогда, когда город вообще не заполнен в CRM.</li>
+                    </ol>
+
+                    <h3 class="text-[20px] font-medium text-ink mt-6 mb-2">3. Безопасная синхронизация OAuth amoCRM без коллизий</h3>
+                    <p>
+                        У amoCRM крайне чувствительная авторизация: refresh-токен является одноразовым. Если две независимые системы попытаются обновить токен одновременно, авторизация слетит у обеих. Мы изолировали контуры: репозиторий «Медведя» остался единственным владельцем рефреш-токена, а в новый репозиторий <code>analytics-5k</code> через GitHub Actions передается только свежий временный <code>access_token</code> через тонко настроенный PAT-секрет.
+                    </p>
+
+                    <h3 class="text-[20px] font-medium text-ink mt-6 mb-2">4. Интеграция Ozon: бэкфилл 2025 года и фильтр номенклатуры</h3>
+                    <p>
+                        Через Ozon Seller API выгрузили транзакции текущего периода и провели разовый бэкфилл всего 2025 года, чтобы скормить модели прогнозирования годовую сезонность (лаг 52 недели). Чтобы аксессуары за 2 000 ₽ не размывали аналитику дорогостоящих байков, разделили заказы правилом: чеки свыше 300 000 ₽ классифицируются как «Велосипеды», остальные — как «Комплектующие».
+                    </p>
+                </div>
+            </section>
+
+            <!-- Скриншот 2 -->
+            <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle">
+                <img src="img/dashboard-ozon.png" alt="Вкладка аналитики Ozon с динамикой выручки и возвратов по неделям" class="w-full h-auto rounded-[10px]" loading="lazy">
+                <figcaption class="px-2 pt-3 pb-1 text-[13px] leading-[1.55] text-fog">
+                    Аналитика Ozon в общем контуре: понедельная разбивка чистой выручки с учетом возвратов и отмен, разделение на категории («Велосипеды» vs «Комплектующие»).
+                </figcaption>
+            </figure>
+
+            <!-- Раздел 3: ИИ-аналитик и тактический дайджест -->
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Встроенный ИИ-аналитик на базе Gemini</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>
+                        Дашборд с десятками таблиц бесполезен, если у руководителя нет времени в них вчитываться. Поэтому мы внедрили модуль автоматической аналитики:
+                    </p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Каскад из 7 моделей Gemini:</strong> скрипт агрегирует данные за неделю и обращается к Gemini API. Если одна модель упирается в лимит квот или задержку, запрос бесшовно подхватывает следующая модель каскада.</li>
+                        <li><strong>Тактический дайджест по Директу:</strong> ИИ сам сопоставляет расход кампаний по моделям байков (GT, Fold, M2) с закрытыми сделками в amoCRM и пишет конкретные рекомендации: где вырос CPO, какую связку масштабировать, а где пересмотреть минус-слова.</li>
+                        <li><strong>Еженедельное автообновление:</strong> дайджест формируется каждый понедельник в 04:00 утра к началу рабочей недели.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Скриншот 3 -->
+            <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle">
+                <img src="img/dashboard-direct.png" alt="Сквозная аналитика Яндекс Директа с еженедельным тактическим дайджестом Gemini AI" class="w-full h-auto rounded-[10px]" loading="lazy">
+                <figcaption class="px-2 pt-3 pb-1 text-[13px] leading-[1.55] text-fog">
+                    Сквозная аналитика Яндекс Директа: ИИ-дайджест Gemini с рекомендациями по кампаниям, график динамики расхода к фактической выручке в amoCRM и детализация по моделям байков.
+                </figcaption>
+            </figure>
+
+            <!-- Раздел 4: Журнал событий и X-факторы -->
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Журнал маркетинговых событий и экзогенные факторы X</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>
+                        В e-commerce графики выручки никогда не движутся в вакууме. На продажи влияют распродажи, запуск акций, перебои в логистике или замирание спроса. Если аналитическая модель этого не знает, она строит абстрактные галлюцинации.
+                    </p>
+                    <p>
+                        Для решения этой проблемы мы создали <strong class="text-ink font-medium">Журнал маркетинговых событий и акций</strong> (база из 42 зафиксированных событий, управляемая прямо из интерфейса дашборда):
+                    </p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Фиксация ключевых инфоповодов:</strong> распродажи («Чёрная пятница», «11.11»), промо-акции (запуск РСЯ со скидкой 25% на модель М2), сезонные поп-апы и предзаказные кампании.</li>
+                        <li><strong>Учет внешних шоков и логистики:</strong> кризис со складами Ozon FBO, вывоз остатков, изменение цен (+10% / +5%), ужесточение условий доставки (переход на 100% предоплату), поступление контейнеров с мотор-колёсами.</li>
+                        <li><strong>Математический экзогенный вектор X:</strong> каждое событие имеет точные даты, силу влияния (например, спад -30% или прирост +20%) и флаг участия в моделировании <code>is_exog=True</code>. На основе этих данных алгоритм формирует недельный вектор факторов X.</li>
+                        <li><strong>Динамический лаг трафика Метрики:</strong> покупка дорогого велосипеда за 200–600 тыс. ₽ не происходит сиюминутно. Модель закладывает динамический лаг в 2–3 недели между всплеском качественного трафика на сайте и фактическими продажами в CRM.</li>
+                        <li><strong>Связка с ИИ-аналитиком:</strong> Gemini в своих еженедельных выводах строго опирается на Журнал событий. Модели запрещено придумывать абстрактные причины — она сопоставляет спад или рост выручки с конкретными реальными событиями («замирание спроса перед 11.11», «кризис логистики маркетплейса», «старт промо по М2»).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Раздел 5: Прогноз на базе SARIMAX, коэффициенты и отгрузки -->
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Предиктивная модель: SARIMAX, сезонные коэффициенты и разделение оплат vs отгрузок</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>
+                        Стандартные модели прогнозирования ломаются на дорогом сезонном товаре: летом идет взрывной спрос, зимой — спад. Кроме того, в премиальном электротранспорте возникает критический кассово-логистический разрыв: <strong class="text-ink font-medium">оплата клиентом не равна отгрузке байка со склада</strong>.
+                    </p>
+                    <p>
+                        Клиент может внести 100% предоплату по предзаказу в сентябре (деньги поступили на счет), а сборка и отправка тяжелого электробайка со склада состоится только в октябре или ноябре. Если ориентироваться только на оплаты, отдел снабжения и склад не смогут спланировать сборку и закупку комплектующих.
+                    </p>
+                    
+                    <h3 class="text-[20px] font-medium text-ink mt-6 mb-2">Архитектура предиктивной системы:</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>SARIMAX + Seasonal Naïve (лаг 52 недели):</strong> математический расчет строится на полной ретроспективе (включая исторический бэкфилл Ozon за 2025 год). Модель накладывает сезонные коэффициенты и экзогенный вектор факторов X на базовый тренд.</li>
+                        <li><strong>Разделение двух контуров: Оплаты (Cash-in) vs Отгрузки (Shipments):</strong>
+                            <ul class="list-circle pl-5 mt-1 space-y-1">
+                                <li><em>План и факт по оплатам:</em> движение денежных средств по счетам (ДДС);</li>
+                                <li><em>План и факт по отгрузкам:</em> фактический отпуск собранных электровелосипедов со склада (складской учет).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Интерактивная таблица на 9 строк с расчетом сходимости:</strong> система ежемесячно сопоставляет плановые показатели с подтвержденным фактом оплат и фактом отгрузок (`manual_actuals`), мгновенно рассчитывая процент выполнения, дельту в рублях и сходимость прогноза.</li>
+                        <li><strong>Защищенное планирование:</strong> собственник и топ-менеджмент могут редактировать целевые ориентиры и вносить подтвержденные отгрузки прямо в интерфейсе через мастер-PIN владельца. Все расчеты автоматически обновляются для всей команды без перезагрузки дашборда.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Скриншот 4 и 5 в сетке -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle">
+                    <img src="img/dashboard-metrika.png" alt="Вкладка Яндекс Метрики со сквозным учетом сделок и когортами касаний" class="w-full h-auto rounded-[10px]" loading="lazy">
+                    <figcaption class="px-2 pt-3 pb-1 text-[13px] leading-[1.55] text-fog">
+                        Вкладка Яндекс Метрики: график визитов, ассоциированные конверсии и путь сделок до оплаты.
+                    </figcaption>
+                </figure>
+                <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle">
+                    <img src="img/dashboard-audience.png" alt="География и аудитория с нормализацией городов" class="w-full h-auto rounded-[10px]" loading="lazy">
+                    <figcaption class="px-2 pt-3 pb-1 text-[13px] leading-[1.55] text-fog">
+                        Аудитория: реальное распределение городов клиентов после очистки от «московского» бага мобильных провайдеров.
+                    </figcaption>
+                </figure>
+            </div>
+
+            <!-- Раздел 6: Хронология проекта -->
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Хронология: как развернуть Enterprise-уровень за 7 дней</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <div class="overflow-x-auto bg-paper border border-bone rounded-[16px] shadow-relume-subtle">
+                        <table class="data-table w-full min-w-[700px] border-collapse">
+                            <thead>
+                                <tr>
+                                    <th>День</th>
+                                    <th>Фокус спринта</th>
+                                    <th>Что было сделано</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>День 1 (14 ноя)</td>
+                                    <td>Архитектура и коннекторы</td>
+                                    <td>Изоляция репозитория <code>analytics-5k</code>, базовые API-коннекторы к amoCRM, Директу и Авито, безопасный обмен секретами.</td>
+                                </tr>
+                                <tr>
+                                    <td>День 2–3 (15–16 ноя)</td>
+                                    <td>Метрика и ClientID</td>
+                                    <td>Скрипт <code>tilda-client-id.js</code>, категоризация кампаний Директа по моделям (GT, Fold, M2), отладка верификации ClientID.</td>
+                                </tr>
+                                <tr>
+                                    <td>День 4 (17 ноя)</td>
+                                    <td>Прогноз продаж</td>
+                                    <td>Подключение SARIMAX и сезонного наивного прогноза с лагом 52 недели, тесты изоляции данных брендов.</td>
+                                </tr>
+                                <tr>
+                                    <td>День 5 (18 ноя)</td>
+                                    <td>Интеграция Ozon</td>
+                                    <td>Коннектор Ozon Seller API, бэкфилл 2025 года, порог 300k для велосипедов, исправление геолокации amoCRM над IP Метрики.</td>
+                                </tr>
+                                <tr>
+                                    <td>День 6 (19 ноя)</td>
+                                    <td>Внедрение Gemini AI</td>
+                                    <td>Каскад из 7 моделей Gemini, автоматический еженедельный тактический дайджест, интерактивный ввод плана с PIN-кодом.</td>
+                                </tr>
+                                <tr>
+                                    <td>День 7 (20–21 ноя)</td>
+                                    <td>Полировка и деплой</td>
+                                    <td>Расписание автосборки 3 раза в день, деплой сервиса на Render с парольной защитой, единая фильтрация и аудит данных.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Выводы -->
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Выводы и результаты</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong class="text-ink font-medium">Отсутствие готовой аналитики — не приговор:</strong> даже при полном хаосе в исходных данных (звонки без меток, формы без ClientID, изолированный Ozon) можно за неделю построить надежный фундамент.</li>
+                        <li><strong class="text-ink font-medium">Костыли должны быть инженерными:</strong> скрипт для Tilda, эвристика Ozon и приоритет телефонных геокодеров решили проблемы качества данных, с которыми не справляются стандартные сервисы.</li>
+                        <li><strong class="text-ink font-medium">ИИ как рабочий инструмент:</strong> Gemini в дашборде работает не как чат-бот для развлечения, а как дежурный аналитик, экономящий часы времени руководства каждую неделю.</li>
+                    </ul>
+
+                    <div class="mt-8 p-6 bg-ink text-paper rounded-[16px]">
+                        <p class="font-medium text-[19px] mb-2">Главный вывод</p>
+                        <p class="text-[16px] leading-[1.65]">
+                            Современный маркетолог-generalist не ждет, пока компания наймет отдел дата-инженеров и внедрит дорогой софт на полгода. Связка Python, понимания API, гибкого кода и ИИ позволяет развернуть боевую сквозную аналитику уровня крупного ритейла ровно за 7 дней.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Назад к кейсам -->
+        <div class="mt-12 pt-6 border-t border-bone">
+            <a href="category-analytics.html" class="inline-flex items-center min-h-[44px] text-[16px] font-medium text-electric-iris hover:text-ink transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md">
+                ← Все кейсы направления «Python & Дашборды»
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full border-t border-bone mt-auto relative z-20">
+        <div class="max-w-[1200px] mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="text-[14px] text-fog">© 2026 Никита Копасов. CMO &amp; MarTech Expert.</div>
+            <div class="flex gap-6">
+                <a href="https://vk.com/kopasovnikita" class="text-[14px] text-fog hover:text-ink transition-colors font-medium min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" target="_blank" rel="noopener noreferrer">ВКонтакте</a>
+                <a href="https://t.me/kopasovskiy" class="text-[14px] text-fog hover:text-ink transition-colors font-medium min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" target="_blank" rel="noopener noreferrer">Telegram</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
