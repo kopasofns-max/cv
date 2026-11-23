@@ -84,9 +84,9 @@
 
         <!-- Главный скриншот Hero-экрана Медведь М2 -->
         <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle mb-12">
-            <img src="img/medved-site-m2-hero-showcase.png" alt="Флагманская посадочная страница электрофэтбайка «Медведь М2»: кинематографичная темная тема, крупные УТП, чистая типографика" class="w-full h-auto rounded-[10px]" loading="lazy">
+            <img src="img/medved-m2-hero-real.jpg" alt="Главный экран флагманской посадочной страницы электрофэтбайка «Медведь М2»: кинематографичная темная подача, слоган «10 лет инженерной эволюции» и брендовая типографика" class="w-full h-auto rounded-[10px]" loading="lazy">
             <figcaption class="px-2 pt-2.5 pb-0.5 text-[12px] leading-[1.5] text-fog">
-                Флагманская интерактивная посадочная страница «Медведь М2»: тёмная кинематографичная тема, крупная презентация байка, фокус на ключевых технических УТП (скорость, мощность, запас хода) и нативная механика захвата внимания.
+                Главный экран посадочной страницы электрофэтбайка «Медведь М2»: тёмная кинематографичная эстетика, визуальный акцент на силуэте байка и премиальное позиционирование бренда («10 лет инженерной эволюции»).
             </figcaption>
         </figure>
 
@@ -133,23 +133,31 @@
                 <div class="case-content text-[16px] text-fog leading-[1.7]">
                     <p>Посадочная страница для электрофэтбайка «Медведь М2» стала главным объектом инженерной и маркетинговой переработки. Мы превратили стандартный шаблон Тильды в бесшовную интерактивную презентацию корпоративного уровня:</p>
 
-                    <h3 class="text-[20px] font-medium text-ink mt-6 mb-3">1. Архитектура Snap Scroll и кинематографичная подача</h3>
+                    <h3 class="text-[20px] font-medium text-ink mt-6 mb-3">1. Архитектура Snap Scroll, патентная защита и подача преимуществ</h3>
                     <p>Был написан кастомный движок прокрутки (<code class="font-mono text-[14px] text-ink">mainScrollWrapper</code>), реализующий механику <code class="font-mono text-[14px] text-ink">scroll-snap</code>. Каждый экран автоматически фиксируется по центру окна: первый экран с полноэкранным видео и ключевыми цифрами скорости, экран узлов рамы и подвески, интерактивный конфигуратор и блок полевых видеотестов.</p>
-                    <p>Чтобы системные стили Тильды не ломали верстку, внедрили жесткий CSS-щит (<code class="font-mono text-[14px] text-ink">.aker-theme !important</code>), изолировавший кастомный темный дизайн от конструктора и сделавший все всплывающие окна адаптивно-резиновыми (<code class="font-mono text-[14px] text-ink">height: auto</code>).</p>
+                    <p>Чтобы подчеркнуть инженерную уникальность байка, структурировали информацию на два ключевых экрана: демонстрация патентованной конструкции рамы (внутренняя проводка, грязезащита) и прямое Bento-сравнение с типовыми байками других брендов (усиленная грузоподъёмность до 160 кг против 70–100 кг у конкурентов).</p>
 
-                    <!-- Скриншот инженерного блока М2 -->
-                    <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle my-6">
-                        <img src="img/medved-site-m2-specs-features.png" alt="Инженерный экран лендинга Медведь М2: акцент на прочности рамы, подвеске и компонентах" class="w-full h-auto rounded-[10px]" loading="lazy">
-                        <figcaption class="px-2 pt-2.5 pb-0.5 text-[12px] leading-[1.5] text-fog">
-                            Второй экран лендинга «Медведь М2»: пошаговая презентация инженерных узлов — прочность рамы, ход вилки, тормозная система и посадка райдера.
-                        </figcaption>
-                    </figure>
+                    <!-- Сетка: 2 скриншота архитектуры и сравнения преимуществ М2 -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/medved-m2-frame-patents.jpg" alt="Блок «Инновационная конструкция рамы. 7 патентов защищают дизайн и технологию электровелосипеда Медведь М2»" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Экран архитектуры рамы: демонстрация 7 патентов, скрытой в раме проводки и защиты компонентов от воды и грязи.
+                            </figcaption>
+                        </figure>
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/medved-m2-advantages-compare.png" alt="Блок преимуществ «Почему стоит выбрать Медведь М2»: сравнение характеристик и надежности с масс-маркетом" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Bento-блок преимуществ: прямое сравнение «Медведь М2» против других брендов (грузоподъёмность 160 кг vs 70–100 кг, внутренняя проводка vs наружная «лапша»).
+                            </figcaption>
+                        </figure>
+                    </div>
 
                     <h3 class="text-[20px] font-medium text-ink mt-8 mb-3">2. Умный поведенческий триггер спецпредложения (IntersectionObserver)</h3>
                     <p>Вместо раздражающего поп-апа, выскакивающего через 30–60 секунд вслепую, мы внедрили осознанную поведенческую механику. Пользователь получает предложение скидки строго в момент наивысшей заинтересованности:</p>
                     <ul class="list-disc pl-5 space-y-2">
-                        <li>Скрипт на базе <strong class="text-ink font-medium">IntersectionObserver API</strong> непрерывно отслеживает прокрутку до блока с видеотестами и конфигуратором цен.</li>
-                        <li>Как только целевой блок появляется в зоне видимости хотя бы на 10%, запускается скрытый 15-секундный таймер. Если пользователь задержался и внимательно изучает видео — ему открывается персональное спецпредложение.</li>
+                        <li>Скрипт на базе <strong class="text-ink font-medium">IntersectionObserver API</strong> непрерывно отслеживает прокрутку до блока интерактивной видеогалереи (<code class="font-mono text-[14px] text-ink">#rec_video_gallery</code>), где пользователь может выбрать детальный обзор, зимний тест-драйв в сугробах или гонку на 150 км.</li>
+                        <li>Как только секция видео появляется в зоне видимости хотя бы на 10%, запускается скрытый 15-секундный таймер. Если пользователь задержался и внимательно изучает видео — ему открывается персональное спецпредложение.</li>
                         <li>Для исключения навязчивости добавлена запись в <code class="font-mono text-[14px] text-ink">sessionStorage</code> браузера: окно гарантированно показывается не более одного раза за визит.</li>
                     </ul>
 
@@ -168,7 +176,7 @@
 <span class="text-soft-lilac">const</span> observer = <span class="text-soft-lilac">new</span> IntersectionObserver((entries) => {
     entries.forEach(entry => {
         <span class="text-soft-lilac">if</span> (entry.isIntersecting &amp;&amp; !sessionStorage.getItem(<span class="text-emerald-400">'m2_promo_shown'</span>)) {
-            <span class="text-fog">// Запуск таймера только при осознанном нахождении в секции</span>
+            <span class="text-fog">// Запуск таймера только при осознанном просмотре видеообзора</span>
             popupTimer = setTimeout(() => {
                 showPromoPopup();
                 sessionStorage.setItem(<span class="text-emerald-400">'m2_promo_shown'</span>, <span class="text-emerald-400">'true'</span>);
@@ -182,23 +190,55 @@
 observer.observe(targetBlock);</code></pre>
                     </div>
 
-                    <!-- Сетка: Скриншот скрипта М2 и Конфигуратора -->
+                    <!-- Сетка: Скриншот Видеогалереи и Скрипта М2 -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
                         <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
-                            <img src="img/medved-site-m2-smart-scroll-popup.png" alt="Настройка скрипта умного триггера скидки по скроллу в HTML-блоке T123" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <img src="img/medved-m2-video-gallery-trigger.jpg" alt="Секция видеогалереи Медведь М2: табы с детальным обзором, зимним тест-драйвом и гонкой на 150 км" class="w-full h-auto rounded-[10px]" loading="lazy">
                             <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
-                                Внедрение логики в HTML-блоке страницы М2: отслеживание скролла до видеогалереи и 15-секундный тайм-лаг.
+                                Секция видеогалереи в деталях: интерактивные табы (обзор, зимний тест, гонка на 150 км). Именно этот блок выступает якорем для умного триггера спецпредложения.
                             </figcaption>
                         </figure>
                         <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
-                            <img src="img/medved-site-m2-configurator.png" alt="Интерактивный конфигуратор электрофэтбайка Медведь М2: выбор опций, мотора, батареи и цен" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <img src="img/medved-site-m2-smart-scroll-popup.png" alt="Внедрение скрипта умного триггера по скроллу в HTML-блоке T123" class="w-full h-auto rounded-[10px]" loading="lazy">
                             <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
-                                Интерактивный конфигуратор модели М2: наглядный выбор батареи, крыльев, багажника и мгновенный пересчёт стоимости.
+                                Реализация логики в Tilda (блок T123): IntersectionObserver отслеживает доскролл до видеогалереи и запускает 15-секундный таймер.
                             </figcaption>
                         </figure>
                     </div>
 
-                    <h3 class="text-[20px] font-medium text-ink mt-8 mb-3">3. Решение мобильной коллизии со скроллом</h3>
+                    <h3 class="text-[20px] font-medium text-ink mt-8 mb-3">3. Интерактивный конфигуратор флагмана «Медведь M2 ULTRA»</h3>
+                    <p>Для премиального сегмента критически важно дать покупателю возможность «собрать» технику под себя. Мы разработали интерактивный конфигуратор флагманской версии <strong class="text-ink font-medium">«Медведь M2 ULTRA»</strong> (358 036 ₽):</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Мгновенное переключение комплектаций (M2, M2 PRO, M2 DUAL, M2 ULTRA, M2 ULTRA PLUS) с выделением бейджем «ТОП».</li>
+                        <li>Интерактивный выбор цвета (черный, графит, камуфляжный) с автоматической сменой 3D-рендера байка в галерее.</li>
+                        <li>Динамическое отображение ключевых ТТХ: кареточный мотор Bafang M620, запас хода до 90 км, скорость до 50 км/ч, воздушная вилка и трансмиссия Shimano Deore 10.</li>
+                        <li>Бесшовные кнопки чекаута («Купить» в один клик и «В корзину») без ухода со страницы.</li>
+                    </ul>
+
+                    <!-- Скриншот Конфигуратора M2 ULTRA -->
+                    <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle my-6">
+                        <img src="img/medved-m2-configurator-ultra.png" alt="Интерактивный конфигуратор Медведь M2 ULTRA: выбор комплектации, расцветки камуфляж, ТТХ мотора Bafang M620 и цены 358 036 ₽" class="w-full h-auto rounded-[10px]" loading="lazy">
+                        <figcaption class="px-2 pt-2.5 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                            Интерактивный конфигуратор топовой комплектации «Медведь M2 ULTRA»: выбор версии байка, цвета рамы, автоматический вывод ТТХ (мотор Bafang M620, скорость 50 км/ч, трансмиссия Deore 10) и прозрачной цены 358 036 ₽.
+                        </figcaption>
+                    </figure>
+
+                    <h3 class="text-[20px] font-medium text-ink mt-8 mb-3">4. Экосистема бренда и кросс-сейл (Медведь GT и Fold)</h3>
+                    <p>Чтобы не терять пользователей, которым нужен другой формат техники, внизу страницы внедрили блок кросс-сейла со связкой на сопутствующие линейки:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong class="text-ink font-medium">Новинка «Медведь GT»:</strong> флагман GT Dual Battery с двумя аккумуляторами для сверхдальних маршрутов до 160 км.</li>
+                        <li><strong class="text-ink font-medium">Бестселлер «Медведь Fold»:</strong> серия надёжных полноприводных электровелосипедов со складной рамой для удобной перевозки в авто и хранения в квартире.</li>
+                    </ul>
+
+                    <!-- Скриншот Кросс-сейла GT и Fold -->
+                    <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle my-6">
+                        <img src="img/medved-m2-cross-sell-ecosystem.jpg" alt="Блок кросс-сейла внизу страницы М2: карточки флагмана Медведь GT (до 160 км) и складного фэтбайка Медведь Fold" class="w-full h-auto rounded-[10px]" loading="lazy">
+                        <figcaption class="px-2 pt-2.5 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                            Блок кросс-сейла «Вас может также заинтересовать»: удержание трафика через быстрый переход на дальнобойный двухбатарейный «Медведь GT» (до 160 км) или компактный «Медведь Fold».
+                        </figcaption>
+                    </figure>
+
+                    <h3 class="text-[20px] font-medium text-ink mt-8 mb-3">5. Решение мобильной коллизии со скроллом</h3>
                     <p>На этапе тестирования выявили коллизию: на десктопе работал фиксированный скролл-контейнер (<code class="font-mono text-[14px] text-ink">100vh</code>), а на смартфонах ради комфортного чтения мы переключали его в <code class="font-mono text-[14px] text-ink">height: auto</code>. Из-за этого на смартфонах видеогалерея физически находилась в DOM-дереве с первых секунд, и таймер срабатывал сразу при входе.</p>
                     <p>Решение: написали динамическую подмену <code class="font-mono text-[14px] text-ink">root</code> для наблюдателя. Скрипт на лету проверяет ширину экрана (<code class="font-mono text-[14px] text-ink">window.innerWidth &lt;= 768</code>) и переключает отслеживание с кастомного контейнера на стандартный системный viewport браузера, гарантируя точный тайминг на любых смартфонах.</p>
                 </div>
