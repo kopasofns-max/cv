@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Оптимизация Яндекс Директа для «Медведь Электро»: очистка РСЯ, перезапуск Мастера кампаний и первые заявки в CRM для премиальных электровелосипедов.">
+    <meta name="description" content="Оптимизация Яндекс Директа для «Медведь Электро»: очистка РСЯ от мусорного трафика через Python, реанимация Мастера кампаний и первые заявки в CRM для премиальных электровелосипедов.">
     <title>Кейс «Медведь Электро»: оптимизация Яндекс Директа — Никита Копасов</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = { theme: { extend: {
             colors: { 'electric-iris': '#6248ff', 'soft-lilac': '#b8adf5', 'iris-mist': '#e0daff', 'ink': '#161616', 'iron': '#4d4d4c', 'fog': '#686868', 'bone': '#e4e2df', 'cream': '#f1f0ee', 'paper': '#ffffff' },
-            fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'] },
+            fontFamily: { 
+                sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+                mono: ['JetBrains Mono', 'ui-monospace', 'monospace']
+            },
             boxShadow: { 'relume-subtle': '0px 1px 3px 0px rgba(0,0,0,.08), 0px 1px 2px 0px rgba(0,0,0,.04)' }
         } } }
     </script>
@@ -42,114 +45,300 @@
             <div class="flex flex-wrap gap-2.5 mt-6">
                 <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">E-commerce / Премиум</span>
                 <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">Электровелосипеды</span>
-                <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">Первая неделя оптимизации</span>
+                <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">Python Data Mining</span>
+                <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">CRM &amp; Лидогенерация</span>
                 <span class="bg-electric-iris text-paper px-3 py-1.5 rounded-[8px] text-[13px] font-medium">Статус: в активной работе</span>
             </div>
         </header>
+
         <div class="border-y border-bone py-5 mb-10">
-            <p class="text-[13px] text-fog font-medium uppercase tracking-[0.12em] mb-2">Инструменты</p>
-            <p class="text-[16px] text-ink font-medium leading-[1.6]">Яндекс Директ, Поиск, РСЯ, Мастер кампаний, Python, Excel/CSV, CRM</p>
+            <p class="text-[13px] text-fog font-medium uppercase tracking-[0.12em] mb-2">Инструменты &amp; Стек</p>
+            <p class="text-[16px] text-ink font-medium leading-[1.6]">Яндекс Директ (Поиск, РСЯ, Мастер кампаний), Яндекс Метрика, Python (Pandas), Data Mining сырых Excel/CSV отчетов, CRM</p>
         </div>
-        <h2 class="text-[26px] font-medium text-ink mb-5">Промежуточный результат</h2>
-        <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
-            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle"><dt class="text-[14px] text-fog">Мусорный трафик в РСЯ</dt><dd class="text-[26px] font-medium text-ink mt-2">Менее 10%</dd><dd class="text-[14px] text-electric-iris mt-2">До оптимизации — около 85%</dd></div>
-            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle"><dt class="text-[14px] text-fog">Fold / Мастер кампаний</dt><dd class="text-[26px] font-medium text-ink mt-2">4 заявки</dd><dd class="text-[14px] text-electric-iris mt-2">CPA около 1 118 ₽, на старте — 0 показов</dd></div>
-            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle"><dt class="text-[14px] text-fog">М2 / Мастер кампаний</dt><dd class="text-[26px] font-medium text-ink mt-2">8 заявок · CPA 407 ₽</dd><dd class="text-[14px] text-electric-iris mt-2">3 заказа созданы в CRM</dd></div>
-            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle"><dt class="text-[14px] text-fog">Конверсия из клика в лид</dt><dd class="text-[26px] font-medium text-ink mt-2">0,3–0,8%</dd><dd class="text-[14px] text-electric-iris mt-2">До оптимизации — менее 0,08%</dd></div>
+
+        <h2 class="text-[26px] font-medium text-ink mb-5">Промежуточный результат первой недели</h2>
+        <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle">
+                <dt class="text-[14px] text-fog">Мусорный трафик в РСЯ</dt>
+                <dd class="text-[26px] font-medium text-ink mt-2">Менее 10%</dd>
+                <dd class="text-[14px] text-electric-iris mt-2">До оптимизации — около 85% слива</dd>
+            </div>
+            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle">
+                <dt class="text-[14px] text-fog">Fold / Мастер кампаний</dt>
+                <dd class="text-[26px] font-medium text-ink mt-2">4 заявки · CPA 1 118 ₽</dd>
+                <dd class="text-[14px] text-electric-iris mt-2">На старте — 0 показов из-за ошибки в цели</dd>
+            </div>
+            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle">
+                <dt class="text-[14px] text-fog">М2 / Мастер кампаний</dt>
+                <dd class="text-[26px] font-medium text-ink mt-2">8 заявок · CPA 407 ₽</dd>
+                <dd class="text-[14px] text-electric-iris mt-2">3 заказа успешно созданы в CRM</dd>
+            </div>
+            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle">
+                <dt class="text-[14px] text-fog">Флагман GT / Поиск</dt>
+                <dd class="text-[26px] font-medium text-ink mt-2">Заказ в CRM</dd>
+                <dd class="text-[14px] text-electric-iris mt-2">При расходе &lt; 5 000 ₽ на байк за 529 000 ₽</dd>
+            </div>
         </dl>
+
+        <!-- Главный скриншот результатов кабинета -->
+        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle mb-12">
+            <img src="img/medved-campaigns-results-crm.png" alt="Сводная таблица кабинета Яндекс Директ: Мастер кампаний Fold 4 конверсии, М2 8 конверсий и 3 заказа в CRM, Поиск GT 1 заказ в CRM" class="w-full h-auto rounded-[10px]" loading="lazy">
+            <figcaption class="px-2 pt-2.5 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                Сводный отчёт кабинета после перезапуска: кампания «МЭ: Fold МК» ожила и принесла 4 заявки по 1 118 ₽, локомотив «М2 МК» дал 8 заявок по 407 ₽ и 3 заказа в CRM, а на Поиске по флагману «GT» зафиксирован первый подтверждённый заказ при расходе менее 5 000 ₽.
+            </figcaption>
+        </figure>
+
         <div class="space-y-12">
             <section>
                 <h2 class="text-[26px] font-medium text-ink mb-4">Контекст проекта</h2>
                 <div class="case-content text-[16px] text-fog leading-[1.7]">
-                    <p>«Медведь Электро» производит и продаёт электровелосипеды: флагманские «Медведь GT» с чеком до 690 000 ₽, складные Fold и горные М2. Для такого ассортимента дешёвый клик сам по себе ничего не говорит об экономике — нужен квалифицированный лид, который доходит до CRM.</p>
-                    <p>Задача на этом этапе: остановить неконтролируемый расход, очистить трафик от нецелевых площадок, перенастроить обучение алгоритмов и получить заявки по управляемой стоимости.</p>
+                    <p>«Медведь Электро» проектирует и собирает премиальные электровелосипеды: флагманские карбоновые «Медведь GT» с чеком до 690 000 ₽ (по предзаказу от 529 000 ₽), складные городские «Fold» и горные «М2». Для техники с таким чеком дешёвый клик сам по себе ничего не значит — необходим квалифицированный лид (SQL), который заходит в воронку продаж и доходит до статуса «Заказ создан» в CRM.</p>
+                    <p>Задача на этом этапе: экстренно остановить слив бюджета, очистить трафик от фрода и мобильного мусора, реанимировать зависшие автостратегии Яндекса и выстроить прозрачный поток квалифицированных обращений.</p>
                 </div>
             </section>
+
             <section>
-                <h2 class="text-[26px] font-medium text-ink mb-4">Точка А: бюджет уходил в клики, а не в заявки</h2>
-                <div class="case-content text-[16px] text-fog leading-[1.7]"><ul class="list-disc pl-5 space-y-2">
-                    <li><strong class="text-ink font-medium">Ретаргетинг Fold:</strong> 25 000 ₽ расхода, 5 300 кликов и ни одной заявки. В сегмент попадали все посетители с условием «от 15 секунд на сайте», а показы шли в мобильных играх, погодных информерах и утилитах.</li>
-                    <li><strong class="text-ink font-medium">Мастер кампаний Fold:</strong> нулевые показы. Целевая стоимость лида была установлена на уровне 50 ₽ — с таким ограничением алгоритм не участвовал в аукционах.</li>
-                    <li><strong class="text-ink font-medium">РСЯ:</strong> около 85% бюджета уходило на нецелевые площадки и мисклики. Высокий CTR сопровождался сессиями по несколько секунд.</li>
-                    <li><strong class="text-ink font-medium">Общая логика:</strong> оптимизация шла на клики, а не на макроконверсии и качество обращений.</li>
-                </ul></div>
-            </section>
-            <section>
-                <h2 class="text-[26px] font-medium text-ink mb-4">Этап 1. Очистка РСЯ через Python</h2>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Точка А: наследие предыдущего подрядчика (слив в клики, а не в заявки)</h2>
                 <div class="case-content text-[16px] text-fog leading-[1.7]">
-                    <p>Вручную разбирать тысячи источников неэффективно, поэтому выгрузили данные по площадкам в Excel/CSV и обработали их Python-скриптами.</p>
+                    <p>Проект достался в состоянии масштабного нецелевого сжигания бюджета. Все кампании настраивались по устаревшей логике скупки дешёвого трафика без оглядки на юнит-экономику:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong class="text-ink font-medium">Провальный ретаргетинг Fold:</strong> 25 318 ₽ чистого расхода, 5 329 кликов и ровно 0 заявок. Кампания работала на стратегии «Оптимизация кликов». Робот скупал самый неликвидный инвентарь интернета, где пользователи чаще всего случайно задевали экран пальцем.</li>
+                        <li><strong class="text-ink font-medium">Аномальные 234 000 показов:</strong> ретаргетинг на складной байк физически не может иметь такую аудиторию. Специалист включил автоматическое расширение таргетинга (look-alike) и сегмент «все посетители за 540 дней», превратив ретаргетинг в неуправляемую холодную помойку.</li>
+                        <li><strong class="text-ink font-medium">Слив на погодные виджеты и чистилки:</strong> более 4 260 ₽ улетело на пользователей, которые просто смотрели прогноз погоды (<code class="text-ink font-mono text-[14px]">m.pogoda.yandex.ru</code>, <code class="text-ink font-mono text-[14px]">ru.yandex.weatherplugin</code>). А баннеры байка за полмиллиона крутились во встроенной китайской утилите очистки памяти Xiaomi (<code class="text-ink font-mono text-[14px]">com.miui.cleaner</code>), приложении Едадил и детском пасьянсе Маджонг.</li>
+                        <li><strong class="text-ink font-medium">Мёртвый Мастер кампаний Fold:</strong> стоял с нулевыми показами. Подрядчик задал автостратегии нереалистичную цель — 50 ₽ за лид. С таким ограничением алгоритм даже не участвовал в аукционах.</li>
+                        <li><strong class="text-ink font-medium">Техническая маскировка отказов:</strong> красивые «3,5% отказов» в отчётах были самообманом — счётчик Метрики ловил микрособытия на первом экране, создавая иллюзию качественного трафика.</li>
+                    </ul>
+
+                    <!-- Сетка: 2 скриншота старого ретаргетинга -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/medved-retargeting-drain-stats.png" alt="Статистика старого ретаргетинга: 25 318 рублей расхода, 5 329 кликов, 0 конверсий" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Отчёт по кампании «МЭ: Fold - Ретаргетинг»: 25 318 ₽ сожжено на 5 329 пустых переходов при 0 целевых заявок из-за ошибочной стратегии «Оптимизация кликов».
+                            </figcaption>
+                        </figure>
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/medved-retargeting-junk-platforms.png" alt="Площадки старого ретаргетинга: слив в погодных виджетах, com.miui.cleaner и мобильных играх" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Топ площадок ретаргетинга: свыше 4 200 ₽ слито на просмотры погоды, клики в очистке памяти смартфонов Xiaomi (<code class="font-mono text-[11px]">com.miui.cleaner</code>) и играх.
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Этап 1. Очистка РСЯ и Data Mining через Python</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>После тестового пуска РСЯ по флагману GT мгновенно сработала тревога: пока Поиск потратил аккуратные 95 ₽ (3 целевых клика), РСЯ за несколько часов сожгла 1 349,77 ₽ (38 кликов), практически выбрав дневной лимит бюджета.</p>
+
+                    <!-- Скриншот первого слива в РСЯ -->
+                    <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle my-6">
+                        <img src="img/medved-rsya-first-alarm-budget-drain.png" alt="Первая тревога в РСЯ: Поиск потратил 95 рублей, а РСЯ за считанные часы сожгла 1 349 рублей" class="w-full h-auto rounded-[10px]" loading="lazy">
+                        <figcaption class="px-2 pt-2.5 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                            Мониторинг расхода в первый день: аномальный темп выгорания бюджета в сетях (1 349,77 ₽ за 38 кликов) при нуле на макроконверсии потребовал немедленной остановки и хирургической фильтрации площадок.
+                        </figcaption>
+                    </figure>
+
+                    <p>Детальный аудит сырого среза вскрыл абсурдные списания: сайт с готовыми домашними заданиями для школьников <code class="text-ink font-mono text-[14px]">gdz-raketa.ru</code> списал 156,82 ₽ за 3 клика (по 52 ₽ за клик!). Дети списывали алгебру и случайно кликали по баннеру электробайка за полмиллиона. Портал комиксов манги <code class="text-ink font-mono text-[14px]">mangahub.me</code> забрал 52,39 ₽ за 1 клик, а мобильные головоломки вроде <code class="text-ink font-mono text-[14px]">com.loop.clear.cube</code> списывали по 35 ₽.</p>
+
+                    <!-- Сетка: 2 скриншота - мусорные площадки и ограничение CPC -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/medved-rsya-junk-platforms-gdz-games.png" alt="Отчет по площадкам РСЯ: клики школьников по 52 рубля на ГДЗ Ракета, мобильные игры" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Срез отчёта по площадкам: клики по 52 ₽ на сайте ГДЗ, списания в информерах погоды и мобильных играх без единого намёка на целевую платёжеспособность.
+                            </figcaption>
+                        </figure>
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/medved-rsya-cpc-limit-setting.png" alt="Установка ограничения максимальной цены клика до 25 рублей в параметрах стратегии Директа" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Антикризисный потолок: включение ограничения максимальной цены клика (25 ₽) заблокировало разовые списания по 35–52 ₽, не задев качественные площадки (Дзен, ВК).
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <p>Вручную просматривать тысячи строк в медленном веб-интерфейсе Директа неэффективно. Мы выгрузили полную статистику Мастера Отчётов в Excel/CSV и автоматизировали чистку через Python-скрипты:</p>
+
+                    <!-- Блок с Python кодом -->
+                    <div class="bg-ink text-paper rounded-[12px] p-4 font-mono text-[13px] leading-[1.6] overflow-x-auto my-6 border border-iron/60 shadow-relume-subtle">
+                        <div class="flex items-center justify-between pb-3 mb-3 border-b border-iron/40 text-fog text-[12px]">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span>
+                                direct_data_mining.py
+                            </span>
+                            <span>Python 3 · Pandas</span>
+                        </div>
+                        <pre class="text-[#f1f0ee]"><code><span class="text-soft-lilac">import</span> pandas <span class="text-soft-lilac">as</span> pd
+<span class="text-soft-lilac">import</span> re
+
+<span class="text-fog"># Загрузка и парсинг многоуровневого отчёта по площадкам</span>
+df = pd.read_excel(<span class="text-emerald-400">'2026-09-28_medved-electro-new.xlsx'</span>, sheet_name=<span class="text-emerald-400">'Sheet0'</span>, skiprows=5)
+
+<span class="text-fog"># Правила выявления фрода и случайных кликов</span>
+junk_patterns = <span class="text-emerald-400">r'(?:com\.|game\.|puzzle|cleaner|weather|gdz|dsp-|manga|solitaire|tanks)'</span>
+
+junk_mask = (
+    (df[<span class="text-emerald-400">'Площадка'</span>].str.contains(junk_patterns, case=<span class="text-soft-lilac">False</span>, na=<span class="text-soft-lilac">False</span>)) |
+    ((df[<span class="text-emerald-400">'Отказы, %'</span>] > 80) &amp; (df[<span class="text-emerald-400">'Клики'</span>] >= 3)) |
+    ((df[<span class="text-emerald-400">'Расход, ₽'</span>] > 100) &amp; (df[<span class="text-emerald-400">'Конверсии'</span>] == 0) &amp; (df[<span class="text-emerald-400">'Глубина'</span>] &lt; 1.3))
+)
+
+<span class="text-fog"># Формирование чистого блек-листа для импорта в Директ</span>
+blacklist = df[junk_mask][<span class="text-emerald-400">'Площадка'</span>].dropna().unique()
+<span class="text-soft-lilac">with</span> open(<span class="text-emerald-400">'banned_platforms.txt'</span>, <span class="text-emerald-400">'w'</span>) <span class="text-soft-lilac">as</span> f:
+    f.write(<span class="text-emerald-400">'\n'</span>.join(blacklist))
+<span class="text-soft-lilac">print</span>(f<span class="text-emerald-400">"Сформирован блек-лист из {len(blacklist)} источников"</span>)</code></pre>
+                    </div>
+
+                    <p>Скрипт объединил свыше <strong class="text-ink font-medium">1 500 площадок</strong>, отфильтровал DSP-сети, игровые приложения и сайты домашних заданий, сформировав чёрный список из <strong class="text-ink font-medium">более 240 источников</strong> для пакетной загрузки в запрет показов кампании.</p>
+
+                    <!-- Скриншот загрузки блеклиста -->
+                    <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle my-6">
+                        <img src="img/medved-rsya-blacklist-upload.png" alt="Загрузка списка из 240+ запрещенных площадок в параметры рекламной кампании Яндекс Директа" class="w-full h-auto rounded-[10px]" loading="lazy">
+                        <figcaption class="px-2 pt-2.5 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                            Загрузка подготовленного блек-листа в блок «Запрещение показов: Площадки» кабинета Директа. Бюджет перенаправлен на контентные и тематические сайты (Дзен, ВК, технические порталы).
+                        </figcaption>
+                    </figure>
+
+                    <div class="bg-iris-mist/40 border border-soft-lilac rounded-[12px] p-5 mt-6">
+                        <p class="text-ink"><strong>Результат чистки:</strong> доля мусорного трафика в сетях упала с 85% до менее 10%. РСЯ перестала прожигать бюджет и вышла на стабильное обучение, принеся первую заявку при расходе 6 043 ₽.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Этап 2. Остановка старого ретаргетинга и сбор чистой базы</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>Старую кампанию «Fold - Ретаргетинг» остановили полностью: переобучать алгоритм на статистике с 5 300 случайных кликов из погодников было бессмысленно и дороже, чем собрать структуру с нуля.</p>
+                    <p>Для следующего этапа разработали узкий сценарий: собирать в сегмент только тех пользователей, кто провёл на странице модели Fold более 45 секунд либо открывал галерею комплектаций. Из аудитории сразу исключили отказников и клиентов, которые уже оставили контакт в CRM. Стратегия — строгий «Максимум конверсий» с оплатой за целевые действия.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Этап 3. Реанимация Мастера Кампаний Fold</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>Главная причина простоя кампании Fold МК крылась в параметрах автостратегии: предыдущий директолог установил желаемую цену конверсии в 50 ₽. Для рынка электротранспорта с чеком от 150 000 ₽ алгоритм физически не мог найти пользователей по такой стоимости и не вступал в аукцион.</p>
+                    <p>Мы заменили микроцели на реальную макроконверсию <strong class="text-ink font-medium">«Новая заявка»</strong> и подняли ориентир стоимости до 1 000 ₽. Кампания получила необходимый воздух для разгона и мгновенно вышла на рабочий темп.</p>
+                    <p>Итог первой недели: <strong class="text-ink font-medium">4 целевые заявки с CPA 1 118,42 ₽</strong> при расходе 4 473 ₽ и 1 353 кликах. Автостратегия отработала практически 1-в-1 по целевому ориентиру и перешла в стабильную фазу генерации лидов.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Этап 4. Поиск по флагману GT: ценовой барьер в объявлении</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>Для электробайка с чеком до 690 000 ₽ ключевой риск на Поиске — скупка дорогих кликов от людей, которые ищут дешёвые китайские аналоги или не понимают реальной стоимости кастомного карбонового байка.</p>
+                    <p>Чтобы защитить бюджет от нецелевых переходов, внедрили двухуровневую фильтрацию:</p>
                     <ol class="list-decimal pl-5 space-y-2">
-                        <li>Собрали более <strong class="text-ink font-medium">1 500 площадок</strong> в единый массив.</li>
-                        <li>Выявили источники с признаками мусорного трафика: игровые и служебные приложения, аномальные отказы до 100% и микросессии.</li>
-                        <li>Сформировали чёрный список из <strong class="text-ink font-medium">более 240 источников</strong> и загрузили его в запрет показов.</li>
-                        <li>На время переобучения ограничили CPC на уровне 10–25 ₽, чтобы не выкупать дорогие показы на нецелевых сайтах.</li>
+                        <li><strong class="text-ink font-medium">Жёсткая отсечка по возрасту:</strong> в корректировках ставок полностью исключили аудиторию младше 18 лет (-100%).</li>
+                        <li><strong class="text-ink font-medium">Ценовой фильтр прямо в объявлении:</strong> заполнили блок «Цена» — указали актуальную стоимость предзаказа (529 000 ₽) и зачёркнутую старую цену (690 000 ₽). Человек видел порог входа ещё до совершения клика, что отсекало случайный интерес без траты рекламных денег.</li>
                     </ol>
-                    <div class="bg-iris-mist/40 border border-soft-lilac rounded-[12px] p-5 mt-6"><p class="text-ink"><strong>Эффект:</strong> доля мусорного трафика в РСЯ сократилась примерно с 85% до менее 10%. В выдаче остались преимущественно контентные сайты.</p></div>
+
+                    <!-- Сетка: Корректировка возраста + Блок цены в объявлении -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/medved-search-age-exclusion.png" alt="Корректировка ставок в Яндекс Директе: исключение аудитории младше 18 лет на 100%" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Корректировка ставок по демографии: полное отключение показов для аудитории младше 18 лет (-100%) исключило неплатёжеспособные клики.
+                            </figcaption>
+                        </figure>
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/medved-search-price-filter-ad.png" alt="Настройка блока цен в объявлении Яндекс Директа: от 529 000 руб со старой ценой 690 000 руб" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Блок «Цена» в объявлении: трансляция стоимости 529 000 ₽ и скидки от 690 000 ₽ отсекала праздное любопытство ещё до перехода на посадочную страницу.
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <p>Эффект: CTR на Поиске удержался на высоком уровне <strong class="text-ink font-medium">16–20%</strong>. При общем расходе всего в <strong class="text-ink font-medium">4 901 ₽</strong> кампания принесла первый квалифицированный лид (SQL), зафиксированный в статусе <strong class="text-ink font-medium">«Заказ создан» в CRM</strong>.</p>
                 </div>
             </section>
+
             <section>
-                <h2 class="text-[26px] font-medium text-ink mb-4">Этап 2. Остановка старого ретаргетинга</h2>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Сводные данные: что изменилось за первую неделю</h2>
                 <div class="case-content text-[16px] text-fog leading-[1.7]">
-                    <p>Старую кампанию Fold остановили полностью: продолжать обучение на испорченной статистике было дороже, чем собрать новую структуру.</p>
-                    <p>Для следующего запуска подготовили более узкий сегмент: пользователи, которые провели более 45 секунд на странице конкретной модели. Из аудитории исключили отказников и тех, кто уже находится в воронке продаж. Стратегия — «Максимум конверсий» вместо оптимизации кликов.</p>
-                </div>
-            </section>
-            <section>
-                <h2 class="text-[26px] font-medium text-ink mb-4">Этап 3. Перезапуск Мастера кампаний Fold</h2>
-                <div class="case-content text-[16px] text-fog leading-[1.7]">
-                    <p>Заменили микроцели на макроконверсию «Новая заявка» и подняли целевую стоимость лида с нереалистичных 50 ₽ до 1 000 ₽. После изменения вводных алгоритм начал участвовать в аукционах.</p>
-                    <p>Результат первой недели: <strong class="text-ink font-medium">4 целевые заявки с CPA около 1 118 ₽</strong> вместо нулевых показов и заявок на старте.</p>
-                </div>
-            </section>
-            <section>
-                <h2 class="text-[26px] font-medium text-ink mb-4">Этап 4. Поиск по флагманской модели GT</h2>
-                <div class="case-content text-[16px] text-fog leading-[1.7]">
-                    <p>В объявлениях на Поиске зафиксировали актуальные цены — до 690 000 ₽. Это помогло отсеивать нецелевые клики ещё до перехода на сайт: человек заранее понимал стоимость продукта.</p>
-                    <p>CTR объявлений остался на уровне <strong class="text-ink font-medium">16–20%</strong>. За первую неделю появился квалифицированный лид в CRM при расходе менее 5 000 ₽.</p>
-                </div>
-            </section>
-            <section>
-                <h2 class="text-[26px] font-medium text-ink mb-4">Что изменилось за первую неделю</h2>
-                <div class="case-content text-[16px] text-fog leading-[1.7]">
-                    <div class="overflow-x-auto bg-paper border border-bone rounded-[16px] shadow-relume-subtle">
+                    <div class="overflow-x-auto bg-paper border border-bone rounded-[16px] shadow-relume-subtle mb-6">
                         <table class="data-table w-full min-w-[720px] border-collapse">
-                            <thead><tr><th>Метрика</th><th>До оптимизации</th><th>После оптимизации</th></tr></thead>
+                            <thead><tr><th>Кампания / Направление</th><th>До оптимизации (Точка А)</th><th>После оптимизации (Точка Б)</th></tr></thead>
                             <tbody>
-                                <tr><td>Мусорный трафик в РСЯ</td><td>Около 85%: игры, утилиты, DSP и погода</td><td>Менее 10%, преимущественно контентные сайты</td></tr>
-                                <tr><td>Ретаргетинг Fold</td><td>25 000 ₽, 5 300 кликов, 0 заявок</td><td>Кампания остановлена</td></tr>
-                                <tr><td>Мастер кампаний Fold</td><td>0 показов и заявок</td><td>4 заявки, CPA около 1 118 ₽</td></tr>
-                                <tr><td>Мастер кампаний М2</td><td>Нестабильный поток, редкие заявки</td><td>8 заявок, CPA 407 ₽, 3 заказа в CRM</td></tr>
-                                <tr><td>Поиск по GT</td><td>Дорогие клики без конверсий</td><td>Квалифицированный лид в CRM при расходе менее 5 000 ₽</td></tr>
-                                <tr><td>CR из клика в лид</td><td>Менее 0,08%</td><td>0,3–0,8%</td></tr>
+                                <tr>
+                                    <td>Мусорный трафик в РСЯ</td>
+                                    <td>Около 85%: игры, погодные информеры, утилиты Xiaomi, сайты ГДЗ</td>
+                                    <td>Менее 10%: трафик с Дзена, ВК и тематических порталов после загрузки блек-листа из 240+ площадок</td>
+                                </tr>
+                                <tr>
+                                    <td>Ретаргетинг Fold</td>
+                                    <td>25 318 ₽ расхода, 5 329 кликов, 0 заявок (слив на мобильный мусор)</td>
+                                    <td>Кампания остановлена, бюджет спасён, спроектирован узкий сегмент от 45 сек на карточке</td>
+                                </tr>
+                                <tr>
+                                    <td>Мастер кампаний Fold</td>
+                                    <td>0 показов и 0 заявок (заблокирован целью 50 ₽)</td>
+                                    <td>4 целевые заявки, CPA 1 118,42 ₽ при расходе 4 473 ₽ (цель «Новая заявка» 1 000 ₽)</td>
+                                </tr>
+                                <tr>
+                                    <td>Мастер кампаний М2</td>
+                                    <td>Нестабильный поток с хаотичной стоимостью</td>
+                                    <td>8 целевых заявок по 407,77 ₽ (расход 3 262 ₽) → 3 заказа созданы в CRM</td>
+                                </tr>
+                                <tr>
+                                    <td>Поиск по флагману GT</td>
+                                    <td>Спорадические дорогие клики без понимания аудиторией цены</td>
+                                    <td>Квалифицированный лид и заказ в CRM при расходе 4 901 ₽ на байк за 529k–690k ₽</td>
+                                </tr>
+                                <tr>
+                                    <td>Конверсия из клика в лид (CR)</td>
+                                    <td>Менее 0,08% (чистый кликфрод)</td>
+                                    <td>Стабилизировалась в коридоре 0,3% – 0,8%</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </section>
+
             <section>
-                <h2 class="text-[26px] font-medium text-ink mb-4">Почему считаем не только CPL</h2>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Почему смотрим в CRM, а не только на цену клика</h2>
                 <div class="case-content text-[16px] text-fog leading-[1.7]">
-                    <p>Фокус сместился с дешёвых переходов на стоимость квалифицированного обращения и движение по CRM. По М2 восемь заявок дали три созданных заказа; стоимость доведения лида до этапа «Заказ создан» составила около 1 086 ₽.</p>
-                    <p>Это промежуточные, а не финальные результаты. Созданный заказ в CRM не равен выкупленному электровелосипеду, поэтому выводы о выручке и ROMI пока не делаем. Для них нужна сквозная аналитика до фактической продажи.</p>
+                    <p>Для товаров со средним чеком от 200 000 до 690 000 ₽ оптимизация рекламы по стоимости клика или даже по цене «сырого» лида губительна. Главный ориентир — движение заявки по этапам CRM.</p>
+                    <p>По линейке М2 восемь заявок с Мастера кампаний дали <strong class="text-ink font-medium">три подтверждённых заказа в CRM</strong>. Стоимость доведения потенциального клиента до этапа «Заказ создан» составила около <strong class="text-ink font-medium">1 086 ₽</strong>. По флагману GT получен первый квалифицированный заказ с чеком свыше 500 000 ₽ при рекламном расходе менее 5 000 ₽.</p>
+                    <p>Это промежуточные результаты первой недели разгона. Созданный заказ в CRM не равен факту оплаты на расчётный счёт, поэтому финальные выводы о выручке и ROMI мы сделаем после завершения цикла сделки (2–4 недели) и настройки сквозной аналитики.</p>
                 </div>
             </section>
+
             <section>
-                <h2 class="text-[26px] font-medium text-ink mb-4">Следующие шаги</h2>
-                <div class="case-content text-[16px] text-fog leading-[1.7]"><ul class="list-disc pl-5 space-y-2">
-                    <li>Оставить обученным кампаниям GT Search, GT РСЯ и Fold МК окно 48–72 часа без резких корректировок для сбора чистой статистики.</li>
-                    <li>Запустить обновлённый ретаргетинг Fold только на самую тёплую аудиторию.</li>
-                    <li>Интегрировать сквозную аналитику от клика до выкупленного байка.</li>
-                    <li>Масштабировать связку М2 с контролем качества лидов и загрузки отдела продаж.</li>
-                </ul>
-                <div class="mt-8 p-6 bg-ink text-paper rounded-[16px]"><p class="font-medium text-[19px] mb-2">Главный вывод</p><p class="text-[16px] leading-[1.65]">Для товара с высоким чеком нельзя оценивать рекламу по цене клика. Сначала нужно очистить источники трафика и дать алгоритмам корректную макроконверсию, затем — связать заявки с заказами и фактическими продажами.</p></div>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Следующие шаги и статус</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong class="text-ink font-medium">Окно стабильности (48–72 часа):</strong> не вносить резких правок в обученные кампании («GT - Поиск», «GT - РСЯ», «Fold МК»), чтобы алгоритмы Яндекса закрепили профили конвертящих пользователей.</li>
+                        <li><strong class="text-ink font-medium">Запуск обновлённого ретаргетинга:</strong> таргетинг строго на тёплую аудиторию сайта (время на странице от 45 секунд) с исключением базы CRM.</li>
+                        <li><strong class="text-ink font-medium">Масштабирование М2:</strong> плавное увеличение недельного бюджета связки с контролем нагрузки на менеджеров по продажам.</li>
+                        <li><strong class="text-ink font-medium">Сквозная аналитика:</strong> сопоставление ID визитов Яндекс Метрики с фактическими оплатами в CRM для вычисления точного ДРР и ROMI.</li>
+                    </ul>
+
+                    <div class="mt-8 p-6 bg-ink text-paper rounded-[16px]">
+                        <p class="font-medium text-[19px] mb-2">Главный вывод</p>
+                        <p class="text-[16px] leading-[1.65]">
+                            В премиальном сегменте побеждает не «накрутка кликов», а гигиена данных. Сначала нужно отсечь мусорные площадки и дать алгоритмам честную макроконверсию, а затем — оценивать контекстную рекламу не по цене перехода, а по реальному движению сделок в CRM.
+                        </p>
+                    </div>
                 </div>
             </section>
         </div>
+
         <div class="mt-12 pt-6 border-t border-bone">
-            <p class="text-[14px] text-fog leading-[1.65]">Кейс описывает первую неделю активной оптимизации. Работа продолжается: связки масштабируются, ретаргетинг и сквозная аналитика находятся в следующем этапе.</p>
+            <p class="text-[14px] text-fog leading-[1.65]">Кейс отражает первую неделю активных антикризисных работ по Яндекс Директу. Оптимизация продолжается: связки масштабируются, а сквозная аналитика доводится до финальной отгрузки байков.</p>
         </div>
         <a href="category-digital.html" class="inline-flex items-center min-h-[44px] mt-8 text-[16px] font-medium text-electric-iris hover:text-ink transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md">← Все кейсы направления</a>
     </main>
-    <footer class="w-full border-t border-bone mt-auto relative z-20"><div class="max-w-[1200px] mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4"><div class="text-[14px] text-fog">© 2026 Никита Копасов. CMO &amp; MarTech Expert.</div><div class="flex gap-6"><a href="https://vk.com/kopasovnikita" class="text-[14px] text-fog hover:text-ink transition-colors font-medium min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" target="_blank" rel="noopener noreferrer">ВКонтакте</a><a href="https://t.me/kopasovskiy" class="text-[14px] text-fog hover:text-ink transition-colors font-medium min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" target="_blank" rel="noopener noreferrer">Telegram</a></div></div></footer>
+    <footer class="w-full border-t border-bone mt-auto relative z-20">
+        <div class="max-w-[1200px] mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="text-[14px] text-fog">© 2026 Никита Копасов. CMO &amp; MarTech Expert.</div>
+            <div class="flex gap-6">
+                <a href="https://vk.com/kopasovnikita" class="text-[14px] text-fog hover:text-ink transition-colors font-medium min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" target="_blank" rel="noopener noreferrer">ВКонтакте</a>
+                <a href="https://t.me/kopasovskiy" class="text-[14px] text-fog hover:text-ink transition-colors font-medium min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" target="_blank" rel="noopener noreferrer">Telegram</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
