@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Кейс «Медведь Электро»: глубокая кастомизация Tilda, карточный Bento-каталог, интерактивная геймификация с зарядкой батареи, хаки интеграции с amoCRM и рост конверсии в 2.8 раза.">
+    <title>Кейс «Медведь Электро»: переработка сайта и каталога — Никита Копасов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: {
+            colors: { 'electric-iris': '#6248ff', 'soft-lilac': '#b8adf5', 'iris-mist': '#e0daff', 'ink': '#161616', 'iron': '#4d4d4c', 'fog': '#686868', 'bone': '#e4e2df', 'cream': '#f1f0ee', 'paper': '#ffffff' },
+            fontFamily: { 
+                sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+                mono: ['JetBrains Mono', 'ui-monospace', 'monospace']
+            },
+            boxShadow: { 'relume-subtle': '0px 1px 3px 0px rgba(0,0,0,.08), 0px 1px 2px 0px rgba(0,0,0,.04)' }
+        } } }
+    </script>
+    <style>
+        body { font-feature-settings: "ss01" on, "cv11" on; background-color: theme('colors.cream'); color: theme('colors.ink'); -webkit-font-smoothing: antialiased; }
+        .gradient-text { background: linear-gradient(100deg, rgb(255,116,72), rgb(255,72,72) 42%, rgb(98,72,255) 85%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .case-content p + p, .case-content ul, .case-content ol { margin-top: 1rem; }
+        .data-table th, .data-table td { padding: 12px 16px; text-align: left; vertical-align: top; border-bottom: 1px solid #e4e2df; }
+        .data-table th { color: #686868; font-size: 13px; font-weight: 500; white-space: nowrap; }
+        .data-table td { color: #161616; font-size: 14px; line-height: 1.55; min-width: 150px; }
+        .data-table td:first-child { min-width: 180px; font-weight: 500; }
+        .data-table tr:last-child td { border-bottom: 0; }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; } }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col relative">
+    <nav class="w-full max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between relative z-50">
+        <a href="index.html" class="flex items-center gap-2 min-h-[44px] hover:opacity-70 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" aria-label="Никита Копасов — на главную">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2L20.6603 7V17L12 22L3.33975 17V7L12 2Z" stroke="#161616" stroke-width="2" stroke-linejoin="round"/></svg>
+            <span class="text-[16px] font-medium tracking-tight">Никита Копасов</span>
+        </a>
+        <a href="category-web.html" class="text-[16px] font-medium text-ink hover:text-electric-iris transition-colors min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" aria-label="Назад к кейсам создания сайтов"><span class="hidden sm:inline">← Кейсы направления</span><span class="sm:hidden" aria-hidden="true">←</span></a>
+    </nav>
+
+    <main class="w-full max-w-[900px] mx-auto px-6 pt-12 pb-24 relative z-10">
+        <header class="mb-10">
+            <h1 class="text-[32px] sm:text-[48px] font-medium leading-[1.12] tracking-[-0.03em] text-ink mb-6">Переработка сайта «Медведь Электро»: <span class="gradient-text">глубокая кастомизация Tilda, Bento-каталог и рост конверсии в 2.8 раза</span></h1>
+            <div class="flex flex-wrap gap-2.5 mt-6">
+                <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">E-commerce / Премиум</span>
+                <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">Tilda + Custom Code</span>
+                <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">UX/UI &amp; Bento</span>
+                <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">Интерактивная геймификация</span>
+                <span class="bg-electric-iris text-paper px-3 py-1.5 rounded-[8px] text-[13px] font-medium">amoCRM API &amp; Аналитика</span>
+            </div>
+        </header>
+
+        <div class="border-y border-bone py-5 mb-10">
+            <p class="text-[13px] text-fog font-medium uppercase tracking-[0.12em] mb-2">Стек &amp; Технологии</p>
+            <p class="text-[16px] text-ink font-medium leading-[1.6]">Tilda Publishing, HTML5, CSS3 (.aker-theme), Vanilla JavaScript, IntersectionObserver API, MutationObserver, Chrome DevTools реверс-инжиниринг, amoCRM API, Яндекс Метрика</p>
+        </div>
+
+        <h2 class="text-[26px] font-medium text-ink mb-5">Ключевые результаты перезапуска</h2>
+        <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle">
+                <dt class="text-[14px] text-fog">Конверсия в заявку (CR)</dt>
+                <dd class="text-[26px] font-medium text-ink mt-2">3,9%</dd>
+                <dd class="text-[14px] text-electric-iris mt-2">Рост в 2,8 раза (до переработки — 1,4%)</dd>
+            </div>
+            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle">
+                <dt class="text-[14px] text-fog">Отказы (Bounce Rate)</dt>
+                <dd class="text-[26px] font-medium text-ink mt-2">28,7%</dd>
+                <dd class="text-[14px] text-electric-iris mt-2">Снижение в 2,2 раза (было 64,3%)</dd>
+            </div>
+            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle">
+                <dt class="text-[14px] text-fog">Время на сайте</dt>
+                <dd class="text-[26px] font-medium text-ink mt-2">02:18 мин</dd>
+                <dd class="text-[14px] text-electric-iris mt-2">+206% за счёт геймификации и интерактивных блоков</dd>
+            </div>
+            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle">
+                <dt class="text-[14px] text-fog">Потери лидов в CRM</dt>
+                <dd class="text-[26px] font-medium text-ink mt-2">0%</dd>
+                <dd class="text-[14px] text-electric-iris mt-2">Устранён баг потери ~18% заявок из-за конфликта скриптов</dd>
+            </div>
+        </dl>
+
+        <!-- Главный скриншот обновленного каталога -->
+        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle mb-12">
+            <img src="img/medved-site-new-catalog-hero-after.png" alt="Обновленная витрина каталога «Медведь Электро» в премиальном темном Bento-стиле с чистыми карточками" class="w-full h-auto rounded-[10px]" loading="lazy">
+            <figcaption class="px-2 pt-2.5 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                Итоговый результат редизайна: витрина каталога «Медведь Электро» переведена в премиальный минималистичный карточный Bento-стиль (.aker-theme) с быстрой фильтрацией модификаций, нативной интеграцией корзины и акцентом на ключевых характеристиках.
+            </figcaption>
+        </figure>
+
+        <div class="space-y-12">
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Контекст и вызов проекта</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>Бренд «Медведь Электро» производит и собирает премиальные электрофэтбайки (флагманы «Медведь М2», «Медведь GT» с чеком до 690 000 ₽), а также высокотехнологичные Li-ion аккумуляторы с доставкой по всей России. Продукт сложный, технологичный и с высоким средним чеком.</p>
+                    <p>Однако онлайн-витрина бренда работала на стандартных шаблонных блоках Tilda Publishing. Конструктор перестал отвечать требованиям премиального позиционирования: типовая верстка выглядела дёшево и шумно, мобильная адаптация сбоила, а стандартные формы сбора контактов ломались под нагрузкой. Перед нами стояла задача глубоко переработать сайт и посадочные страницы, не уходя со знакомой платформы, но преодолев все её системные ограничения.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Точка А: проблемы старого сайта («До»)</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>Аудит исходных страниц каталога и карточек товаров выявил 4 ключевых барьера для конверсии:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong class="text-ink font-medium">Визуальный шум и хаос в каталоге:</strong> стандартный магазинный блок Тильды перегружал внимание. Карточки сливались, отсутствовали удобные фильтры по напряжению (36V / 48V / 60V) и форм-факторам аккумуляторов («Акула», «Сумка», «Лягушка»). Покупатель не мог с первого взгляда понять ключевые отличия.</li>
+                        <li><strong class="text-ink font-medium">Ломаный UX в карточках товаров:</strong> на страницах электровелосипедов выводилась огромная системная лента миниатюр фотографий, которая отвлекала пользователя от сборки комплектации. Характеристики подавались скучной текстовой «простынёй», а белые шрифты Тильды самопроизвольно сливались со светлыми фонами.</li>
+                        <li><strong class="text-ink font-medium">«Слепой» и агрессивный маркетинг:</strong> стандартные всплывающие окна скидок срабатывали в лоб по таймеру (через 15–60 секунд после входа). Пользователь ещё не успел ознакомиться с техникой, как ему перекрывали экран агрессивным поп-апом, что давало свыше <strong class="text-ink font-medium">64% отказов (Bounce Rate)</strong>.</li>
+                        <li><strong class="text-ink font-medium">Хаос в amoCRM и потеря ~18% лидов:</strong> попытки подключить кастомные поля конфликтовали со скриптом <code class="font-mono text-[14px] text-ink">tilda-forms.js</code> на React. Валидаторы крашились, и часть заявок просто терялась в пути. А те заявки, что доходили, падали с безликим заголовком <code class="font-mono text-[14px] text-ink">Lead from: medved-electro.ru</code> без передачи <code class="font-mono text-[14px] text-ink">visitor_uid</code> и cookies, делая сквозную аналитику невозможной.</li>
+                    </ul>
+
+                    <!-- Сетка: 2 скриншота ДО (Каталог и Карточка) -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/medved-site-old-catalog-before.png" alt="Старый перегруженный каталог на Тильде до переработки: визуальный шум, типовые карточки" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Исходная страница каталога: типовые магазинные карточки Тильды без фильтрации по вольтажу, тяжелые рамки и отсутствие акцента на УТП.
+                            </figcaption>
+                        </figure>
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/medved-site-old-product-page-before.png" alt="Старая карточка товара Тильды с огромной системной лентой миниатюр и нечитаемыми блоками" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Исходная карточка товара: громоздкая системная фотогалерея перекрывала конфигуратор, а неструктурированный текст снижал желание заказывать.
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Этап 1. Редизайн Каталога: карточный Bento-стиль и теневое проксирование</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>Мы полностью переработали архитектуру каталога, отказавшись от стандартных шаблонов конструктора в пользу кастомного карточного Bento-стиля (<code class="font-mono text-[14px] text-ink">.aker-theme</code>), вдохновлённого лаконичной подачей Apple:</p>
+                    <ol class="list-decimal pl-5 space-y-2">
+                        <li><strong class="text-ink font-medium">Изоляция стилей через CSS-щит:</strong> все кастомные блоки обернули в изолированный контейнер с переопределением глобальных стилей Тильды (<code class="font-mono text-[14px] text-ink">!important</code>), нейтрализовав стандартные синие кнопки и неаккуратные шрифтовые скачки платформы.</li>
+                        <li><strong class="text-ink font-medium">Быстрые фильтры по ключевым параметрам:</strong> внедрили переключатели по вольтажу (36V, 48V, 60V) и типу батареи («Акула», «В треугольник рамы», «Багажник»). Покупатель в один клик отсекает неподходящие модели.</li>
+                    </ol>
+
+                    <!-- Скриншот фильтров и карточек -->
+                    <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle my-6">
+                        <img src="img/medved-site-catalog-bento-filters.png" alt="Кастомные карточки аккумуляторов с фильтрами по вольтажу (36V, 48V, 60V) и бейджами емкости" class="w-full h-auto rounded-[10px]" loading="lazy">
+                        <figcaption class="px-2 pt-2.5 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                            Кастомная сетка карточек: информативные контрастные бейджи (вольтаж, ёмкость в А·ч, тип ячеек), компактные фото без обрезки и мгновенное переключение фильтров.
+                        </figcaption>
+                    </figure>
+
+                    <!-- Инженерный хак №1: Теневое проксирование -->
+                    <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle my-6">
+                        <h3 class="text-[19px] font-medium text-ink mb-3 flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-electric-iris inline-block"></span>
+                            Инженерный хак №1: Теневое проксирование каталога
+                        </h3>
+                        <p class="text-[15px] text-fog leading-[1.65]">
+                            Если создать карточки полностью на чистом HTML, ломается штатная логика корзины и оформления заказа Тильды. Чтобы сохранить нативную корзину, применили метод «теневого проксирования»:
+                        </p>
+                        <div class="bg-ink text-paper rounded-[12px] p-4 font-mono text-[12px] leading-[1.6] overflow-x-auto my-4 border border-iron/60">
+                            <div class="text-fog pb-2 mb-2 border-b border-iron/40">proxy_catalog.js</div>
+                            <pre class="text-[#f1f0ee]"><code><span class="text-fog">// Скрываем стандартный блок каталога Тильды через системный атрибут</span>
+document.querySelectorAll(<span class="text-emerald-400">'[data-record-type="754"]'</span>).forEach(el => {
+    el.style.display = <span class="text-emerald-400">'none'</span>;
+});
+
+<span class="text-fog">// При клике на кастомную кнопку «В корзину» эмулируем клик по системной кнопке Тильды</span>
+customBtn.addEventListener(<span class="text-emerald-400">'click'</span>, (e) => {
+    e.preventDefault();
+    <span class="text-soft-lilac">const</span> tildaTargetBtn = document.querySelector(<span class="text-emerald-400">`[data-product-id="${targetId}"] .js-store-prod-btn`</span>);
+    <span class="text-soft-lilac">if</span> (tildaTargetBtn) tildaTargetBtn.click();
+});</code></pre>
+                        </div>
+                        <p class="text-[14px] text-ink font-medium">
+                            Результат: посетитель видит безупречный дизайнерский интерфейс, а заказ бесшовно попадает в штатную корзину интернет-магазина без единого бага.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Этап 2. Интерактивная геймификация «Заряди аккумулятор»</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>Для электротехнической тематики классическая форма «Оставьте телефон и получите каталог» работает всё хуже — пользователи устали от спама. Чтобы кардинально вовлечь холодный трафик, мы разработали интерактивную механику прямо на странице каталога:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong class="text-ink font-medium">Физика свайпа и трения:</strong> пользователь должен пальцем на смартфоне (или курсором мыши) активно «тереть» батарею на экране для её зарядки.</li>
+                        <li><strong class="text-ink font-medium">Визуальный и тактильный отклик:</strong> при трении летят электрические искры (генератор частиц Canvas/CSS), сегменты батареи поочерёдно загораются от красного к неоново-зелёному, а на смартфонах срабатывает виброотклик через <code class="font-mono text-[14px] text-ink">navigator.vibrate()</code>.</li>
+                        <li><strong class="text-ink font-medium">Победный финал и конверсия:</strong> при достижении 100% заряда запускается салют, и появляется стильный поп-ап с персональным промокодом на 10% и кнопками прямого перехода в Telegram.</li>
+                    </ul>
+
+                    <!-- Сетка: 2 скриншота геймификации -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/medved-site-game-battery-sparks.png" alt="Интерактивная игра на сайте: процесс зарядки батареи снопом электрических искр при трении" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Механика геймификации: пользователь пальцем свайпает по батарее, генерируя сноп искр и пошагово наполняя шкалу заряда от 0 до 100%.
+                            </figcaption>
+                        </figure>
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/medved-site-game-reward-popup.png" alt="Всплывающее окно победы с салютом, промокодом на 10% и кнопками перехода в мессенджеры" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Финальное окно победы: салют, промокод на 10% и быстрый переход в Telegram. Около 40% лидов каталога стали приходить через эту механику.
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="bg-iris-mist/40 border border-soft-lilac rounded-[12px] p-5 mt-6">
+                        <p class="text-ink"><strong>Эффект геймификации:</strong> среднее время пребывания на странице выросло на <strong>206% (до 2 минут 18 секунд)</strong>. Перевод клиентов в Telegram-чат позволил менеджерам мгновенно закрывать сделки, отправляя живые видео с производства и тестов батарей.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Этап 3. Реверс-инжиниринг карточки товара через DevTools</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>На детальных посадочных страницах электробайков стандартный движок Тильды упорно конфликтовал с кастомным CSS: перекрашивал текст в белый цвет на светлом фоне и упорно не позволял скрыть системную галерею превью-слайдов.</p>
+                    <p>Через панель Elements и Styles Chrome DevTools мы провели реверс-инжиниринг поведения магазина Тильды:</p>
+                    <ol class="list-decimal pl-5 space-y-2">
+                        <li>Выяснили, что контейнер миниатюр в данном шаблоне именуется не стандартным <code class="font-mono text-[14px] text-ink">.t-slds__thumbsbox</code>, а скрытым классом <code class="font-mono text-[14px] text-ink">.t-slds__thumbsbullet-wrapper</code>.</li>
+                        <li>Внедрили точечный оверрайд, скрыв отвлекающую полосу превьюшек и перекрасив хлебные крошки и меню в фирменный тёмный графит.</li>
+                        <li>Пересобрали скучный блок описания в лаконичные карточки выбора комплектации рамы и мощности мотора.</li>
+                    </ol>
+
+                    <!-- Сетка: DevTools + Чистая карточка ПОСЛЕ -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/medved-site-tilda-devtools-reverse-engineering.png" alt="Реверс-инжиниринг классов Тильды через панель Chrome DevTools: поиск системных селекторов" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Анализ DOM-структуры через Chrome DevTools: локализация системного контейнера миниатюр и нейтрализация конфликтующих стилей платформы.
+                            </figcaption>
+                        </figure>
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/medved-site-clean-product-page-after.png" alt="Итоговая чистая карточка товара после рефакторинга: идеальная читаемость, фокус на комплектации" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Результат («это победа чел)»): чистая, премиальная карточка товара без визуального мусора, с чётким выбором опций и гарантией читаемости.
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Этап 4. Поведенческий триггерный лендинг «Медведь М2»</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>Для флагманского фэтбайка «Медведь М2» требовался формат интерактивной презентации. Мы внедрили кинематографичный движок прокрутки с механикой <code class="font-mono text-[14px] text-ink">scroll-snap</code>: каждый ключевой смысловой экран (видеопрезентация, детали рамы, конфигуратор цен) плавно фиксируется по центру экрана.</p>
+                    <p>Вместо навязчивого поп-апа по таймеру применили поведенческую логику на базе <strong class="text-ink font-medium">IntersectionObserver API</strong>: всплывающее окно спецпредложения срабатывает строго тогда, когда пользователь <strong class="text-ink font-medium">доскроллил до блока цен / видеогалереи и провел там не менее 15 секунд</strong>. Предложение появляется в момент максимального осознанного интереса, что снизило показатель отказов до рекордных <strong class="text-ink font-medium">28,7%</strong>.</p>
+
+                    <!-- Скриншот скрипта М2 -->
+                    <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle my-6">
+                        <img src="img/medved-site-m2-smart-scroll-popup.png" alt="Внедрение скрипта IntersectionObserver для привязки показа спецпредложения к скроллу до секции цен" class="w-full h-auto rounded-[10px]" loading="lazy">
+                        <figcaption class="px-2 pt-2.5 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                            Настройка скрипта умного триггера в блоке T123: отслеживание видимости целевой секции цен и отсрочка показа окна на 15 секунд для отсечения случайных посетителей.
+                        </figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Этап 5. Безотказная интеграция с amoCRM и сквозная аналитика</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>В премиальном e-commerce потеря заявки равна потере десятков тысяч рублей маржи. Стандартные кастомные формы в Tilda регулярно крашили скрипт <code class="font-mono text-[14px] text-ink">tilda-forms.js</code> на React, из-за чего до 18% лидов не отправлялись.</p>
+
+                    <!-- Инженерный хак №2: Эмуляция ввода -->
+                    <div class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle my-6">
+                        <h3 class="text-[19px] font-medium text-ink mb-3 flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span>
+                            Инженерный хак №2: Глубокая эмуляция ввода без конфликта с React
+                        </h3>
+                        <p class="text-[15px] text-fog leading-[1.65]">
+                            Мы решили конфликт через создание скрытой формы Тильды со смещением за пределы экрана (<code class="font-mono text-[13px] text-ink">left: -9999px</code>, не <code class="font-mono text-[13px] text-ink">display: none</code>, чтобы React-валидаторы и капча смогли штатно инициализироваться). Написали JS-мост, передающий значения с ручной генерацией событий ввода:
+                        </p>
+                        <div class="bg-ink text-paper rounded-[12px] p-4 font-mono text-[12px] leading-[1.6] overflow-x-auto my-4 border border-iron/60">
+                            <div class="text-fog pb-2 mb-2 border-b border-iron/40">crm_bridge.js</div>
+                            <pre class="text-[#f1f0ee]"><code><span class="text-fog">// Перенос данных из кастомной формы в скрытую форму Тильды с триггером событий React</span>
+hiddenInput.value = customInput.value;
+hiddenInput.dispatchEvent(<span class="text-soft-lilac">new</span> Event(<span class="text-emerald-400">'input'</span>, { bubbles: <span class="text-soft-lilac">true</span> }));
+hiddenInput.dispatchEvent(<span class="text-soft-lilac">new</span> Event(<span class="text-emerald-400">'change'</span>, { bubbles: <span class="text-soft-lilac">true</span> }));
+
+<span class="text-fog">// Гарантированная передача visitor_uid и cookies для сквозной аналитики</span>
+document.querySelector(<span class="text-emerald-400">'input[name="visitor_uid"]'</span>).value = window.visitorId || getCookie(<span class="text-emerald-400">'_ym_uid'</span>);</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Скриншот передачи visitor_uid -->
+                    <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle my-6">
+                        <img src="img/medved-site-amocrm-visitor-uid-fix.png" alt="Отладка передачи поля visitor_uid и cookies Яндекс Метрики в amoCRM через скрытые поля формы Тильды" class="w-full h-auto rounded-[10px]" loading="lazy">
+                        <figcaption class="px-2 pt-2.5 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                            Проверка передачи данных в amoCRM: успешная связка cookies (<code class="font-mono text-[11px]">_ym_uid</code>, <code class="font-mono text-[11px]">tmr_lvid</code>) и параметра <code class="font-mono text-[11px]">visitor_uid</code> для прозрачной сквозной аналитики от рекламы до кассы.
+                        </figcaption>
+                    </figure>
+
+                    <p>Итог: брак и потери заявок упали до <strong class="text-ink font-medium">0%</strong>. Каждый лид попадает в amoCRM с прозрачным тегом (например, <code class="font-mono text-[14px] text-ink">МЭ: консультация по аккумуляторам</code> или <code class="font-mono text-[14px] text-ink">МЭ: М2 предзаказ</code>) и полной цепочкой UTM-меток рекламного клика.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Сводные данные: результаты «До / После»</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <div class="overflow-x-auto bg-paper border border-bone rounded-[16px] shadow-relume-subtle mb-6">
+                        <table class="data-table w-full min-w-[720px] border-collapse">
+                            <thead><tr><th>Метрика</th><th>До оптимизации</th><th>После оптимизации</th><th>Динамика</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td>Конверсия в заявку (CR)</td>
+                                    <td>1,4% (слабый поток, типовые формы)</td>
+                                    <td>3,9% (Bento-карточки + геймификация)</td>
+                                    <td><strong class="text-emerald-600 font-medium">Рост в 2,8 раза</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Показатель отказов (Bounce Rate)</td>
+                                    <td>64,3% (агрессивные поп-апы в лоб)</td>
+                                    <td>28,7% (умные триггеры по скроллу)</td>
+                                    <td><strong class="text-emerald-600 font-medium">Снижение в 2,2 раза</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Среднее время на сайте</td>
+                                    <td>00:45 мин</td>
+                                    <td>02:18 мин</td>
+                                    <td><strong class="text-emerald-600 font-medium">+206% вовлечения</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Потери лидов (брак скриптов)</td>
+                                    <td>~18% (конфликт React в Tilda)</td>
+                                    <td>0% (эмуляция ввода и скрытый мост)</td>
+                                    <td><strong class="text-emerald-600 font-medium">Устранено полностью</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Стоимость лида (CPL)</td>
+                                    <td>1 150 ₽</td>
+                                    <td>410 ₽</td>
+                                    <td><strong class="text-emerald-600 font-medium">Снижение на 64%</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Лиды через мессенджеры</td>
+                                    <td>&lt; 5%</td>
+                                    <td>~40% (быстрый переход в Telegram)</td>
+                                    <td><strong class="text-emerald-600 font-medium">Рост в 8 раз</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Связка с контекстной рекламой и главный вывод</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>Переработка посадочных страниц и каталога стала фундаментом для перезапуска рекламы в Яндекс Директе (подробный разбор очистки трафика — в <a href="case-medved-direct.html" class="text-electric-iris hover:underline font-medium">кейсе по оптимизации Директа «Медведь Электро»</a>). Когда рекламный трафик ведёт на страницу с высокой конверсией, прозрачными фильтрами и безотказной CRM-интеграцией, стоимость привлечения клиента падает в разы.</p>
+
+                    <div class="mt-8 p-6 bg-ink text-paper rounded-[16px]">
+                        <p class="font-medium text-[19px] mb-2">Главный вывод</p>
+                        <p class="text-[16px] leading-[1.65]">
+                            Конструктор сайтов — это не приговор. При грамотном сочетании инженерного реверс-инжиниринга (теневое проксирование, обход спам-фильтров через эмуляцию событий) и нешаблонного продуктового маркетинга (Bento-сетка, интерактивная геймификация с тактильным откликом) Tilda способна конвертировать холодный трафик на уровне кастомных React-приложений с минимальными затратами на разработку.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="mt-12 pt-6 border-t border-bone flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <a href="category-web.html" class="inline-flex items-center min-h-[44px] text-[16px] font-medium text-electric-iris hover:text-ink transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md">← Все кейсы создания сайтов</a>
+            <a href="case-medved-direct.html" class="inline-flex items-center min-h-[44px] text-[16px] font-medium text-ink hover:text-electric-iris transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md">Смотреть кейс по Яндекс Директу →</a>
+        </div>
+    </main>
+
+    <footer class="w-full border-t border-bone mt-auto relative z-20">
+        <div class="max-w-[1200px] mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="text-[14px] text-fog">© 2026 Никита Копасов. CMO &amp; MarTech Expert.</div>
+            <div class="flex gap-6">
+                <a href="https://vk.com/kopasovnikita" class="text-[14px] text-fog hover:text-ink transition-colors font-medium min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" target="_blank" rel="noopener noreferrer">ВКонтакте</a>
+                <a href="https://t.me/kopasovskiy" class="text-[14px] text-fog hover:text-ink transition-colors font-medium min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" target="_blank" rel="noopener noreferrer">Telegram</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
