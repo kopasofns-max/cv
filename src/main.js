@@ -252,7 +252,7 @@ function getPayload() {
 
 async function requestStrategy(payload) {
   requestController = new AbortController();
-  const timeout = window.setTimeout(() => requestController.abort(), 90000);
+  const timeout = window.setTimeout(() => requestController.abort(), 190000);
   try {
     const response = await fetch(`${workerUrl}/api/strategy`, {
       method: "POST",
@@ -288,7 +288,7 @@ form.addEventListener("submit", async (event) => {
     renderStrategy(strategy, false);
   } catch (error) {
     const message = error.name === "AbortError"
-      ? "Gemini отвечает дольше обычного. Запрос остановлен через 90 секунд — попробуйте ещё раз."
+      ? "Gemini отвечает дольше обычного. Запрос остановлен через 3 минуты — попробуйте ещё раз."
       : error.status === 429
         ? "Слишком много запросов подряд. Подождите минуту и повторите."
         : error.message || "Не удалось создать стратегию. Проверьте соединение и попробуйте ещё раз.";

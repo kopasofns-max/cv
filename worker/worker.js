@@ -81,7 +81,7 @@ async function callGemini(input, env) {
         responseJsonSchema: STRATEGY_SCHEMA
       }
     }),
-    signal: AbortSignal.timeout(75000)
+    signal: AbortSignal.timeout(180000)
   });
 
   if (!response.ok) {
