@@ -17,6 +17,7 @@
                         'electric-iris': '#6248ff', 'soft-lilac': '#b8adf5', 'iris-mist': '#e0daff',
                         'ink': '#161616', 'iron': '#4d4d4c', 'fog': '#686868',
                         'bone': '#e4e2df', 'cream': '#f1f0ee', 'paper': '#ffffff',
+                        'coral-accent': '#ff7448', 'acid-lemon': '#f0f41a'
                     },
                     fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'] },
                     boxShadow: { 'relume-subtle': '0px 1px 3px 0px rgba(0, 0, 0, 0.08), 0px 1px 2px 0px rgba(0, 0, 0, 0.04)' }
@@ -44,7 +45,7 @@
         <header class="mb-12">
             <h1 class="text-[32px] sm:text-[48px] font-medium leading-[1.1] tracking-[-0.03em] text-ink mb-5">Направление: <span class="gradient-text">Комплексный маркетинг</span></h1>
             <p class="text-[18px] sm:text-[20px] font-normal leading-[1.55] text-fog max-w-[680px]">Стратегия, продукт, каналы продаж и юнит-экономика. Не набор рекламных активностей, а система, которая влияет на выручку.</p>
-            <p class="text-[14px] text-iron mt-5">3 кейса · 2 опубликовано</p>
+            <p class="text-[14px] text-iron mt-5">2 кейса · 1 интерактивный сервис · 1 в наполнении</p>
         </header>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <a href="case-dragon-wagon.html" class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle hover:-translate-y-1 hover:shadow-lg transition-all duration-200 group flex flex-col h-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris focus-visible:ring-offset-4">
@@ -77,6 +78,23 @@
                 <div class="flex flex-wrap gap-2 mt-auto mb-5"><span class="text-[12px] text-fog bg-cream px-2.5 py-1 rounded-md">Запуск с нуля</span><span class="text-[12px] text-fog bg-cream px-2.5 py-1 rounded-md">Окупаемость</span></div>
                 <span class="text-[14px] text-fog">Кейс готовится — добавлю цифры и процесс работы</span>
             </article>
+
+            <!-- Интерактивный AI-сервис: Маркетинговая стратегия -->
+            <a href="strategy.html" class="bg-paper border border-bone rounded-[16px] p-6 shadow-relume-subtle hover:-translate-y-1 hover:shadow-lg transition-all duration-200 group flex flex-col h-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris focus-visible:ring-offset-4 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-coral-accent via-electric-iris to-soft-lilac"></div>
+                <div class="flex items-center justify-between gap-4 mb-5">
+                    <span class="text-[12px] font-medium px-2.5 py-1 bg-iris-mist/60 text-electric-iris border border-soft-lilac/50 rounded-md">AI Service · Интерактив</span>
+                    <span class="text-electric-iris font-medium text-[24px] group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h2 class="text-[22px] font-medium text-ink leading-[1.3] mb-3 group-hover:text-electric-iris transition-colors">Нужна стратегия? Соберите за 5 минут</h2>
+                <p class="text-[16px] text-fog leading-[1.6] mb-6 flex-grow">Интерактивный генератор на базе Gemini: введите параметры бизнеса и цели — сервис разложит сегменты аудитории, офферы, связки каналов, креативы и план на 30 дней.</p>
+                <div class="flex flex-wrap gap-2 mt-auto mb-5">
+                    <span class="text-[12px] text-fog bg-cream px-2.5 py-1 rounded-md">Gemini API</span>
+                    <span class="text-[12px] text-fog bg-cream px-2.5 py-1 rounded-md">План 30 дней</span>
+                    <span class="text-[12px] text-fog bg-cream px-2.5 py-1 rounded-md">Unit-экономика</span>
+                </div>
+                <span class="text-[14px] font-medium text-electric-iris group-hover:underline">Собрать стратегию онлайн →</span>
+            </a>
         </div>
     </main>
     <footer class="w-full border-t border-bone mt-auto relative z-20">
