@@ -1,11 +1,11 @@
 name = "strategy-api"
 main = "worker.js"
 compatibility_date = "2026-11-24"
+workers_dev = true
+preview_urls = false
 
 [vars]
-# После подключения домена GitHub Pages замените * на точный origin, например:
-# ALLOWED_ORIGIN = "https://username.github.io"
-ALLOWED_ORIGIN = "*"
+ALLOWED_ORIGIN = "https://kopasofns-max.github.io"
 GEMINI_MODEL = "gemini-3.6-flash"
 
 [[ratelimits]]
