@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Кейс «Ева Ела» (Воронеж): привлечение трафика на бизнес-ланчи и дни рождения через VK Ads. A/B-тесты креативов, сегментация аудиторий, сквозная UTM-аналитика в Яндекс Метрике: 405 целевых конверсий при бюджете 97 150 ₽.">
+    <title>Кейс «Ева Ела»: бизнес-ланчи и дни рождения в VK Ads — Никита Копасов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: {
+            colors: { 'electric-iris': '#6248ff', 'soft-lilac': '#b8adf5', 'iris-mist': '#e0daff', 'ink': '#161616', 'iron': '#4d4d4c', 'fog': '#686868', 'bone': '#e4e2df', 'cream': '#f1f0ee', 'paper': '#ffffff' },
+            fontFamily: {
+                sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+                mono: ['JetBrains Mono', 'ui-monospace', 'monospace']
+            },
+            boxShadow: { 'relume-subtle': '0px 1px 3px 0px rgba(0,0,0,.08), 0px 1px 2px 0px rgba(0,0,0,.04)' }
+        } } }
+    </script>
+    <style>
+        body { font-feature-settings: "ss01" on, "cv11" on; background-color: theme('colors.cream'); color: theme('colors.ink'); -webkit-font-smoothing: antialiased; }
+        .gradient-text { background: linear-gradient(100deg, rgb(255,116,72), rgb(255,72,72) 42%, rgb(98,72,255) 85%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .case-content p + p, .case-content ul, .case-content ol { margin-top: 1rem; }
+        .data-table th, .data-table td { padding: 12px 16px; text-align: left; vertical-align: top; border-bottom: 1px solid #e4e2df; }
+        .data-table th { color: #686868; font-size: 13px; font-weight: 500; white-space: nowrap; }
+        .data-table td { color: #161616; font-size: 14px; line-height: 1.55; }
+        .data-table td:first-child { font-weight: 500; }
+        .data-table tr:last-child td { border-bottom: 0; }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; } }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col relative">
+    <nav class="w-full max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between relative z-50">
+        <a href="index.html" class="flex items-center gap-2 min-h-[44px] hover:opacity-70 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" aria-label="Никита Копасов — на главную">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2L20.6603 7V17L12 22L3.33975 17V7L12 2Z" stroke="#161616" stroke-width="2" stroke-linejoin="round"/></svg>
+            <span class="text-[16px] font-medium tracking-tight">Никита Копасов</span>
+        </a>
+        <a href="category-digital.html" class="text-[16px] font-medium text-ink hover:text-electric-iris transition-colors min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" aria-label="Назад к кейсам направления"><span class="hidden sm:inline">← Кейсы направления</span><span class="sm:hidden" aria-hidden="true">←</span></a>
+    </nav>
+
+    <main class="w-full max-w-[900px] mx-auto px-6 pt-12 pb-24 relative z-10">
+        <header class="mb-10">
+            <h1 class="text-[32px] sm:text-[48px] font-medium leading-[1.12] tracking-[-0.03em] text-ink mb-6">Таргетированная реклама для ресторана «Ева Ела»: <span class="gradient-text">бизнес-ланчи и дни рождения через VK Ads</span></h1>
+            <div class="flex flex-wrap gap-2.5 mt-6">
+                <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">HoReCa / Воронеж</span>
+                <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">VK Ads</span>
+                <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">A/B-тестирование</span>
+                <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">Яндекс Метрика &amp; UTM</span>
+                <span class="bg-electric-iris text-paper px-3 py-1.5 rounded-[8px] text-[13px] font-medium">405 целевых конверсий</span>
+            </div>
+        </header>
+
+        <div class="border-y border-bone py-5 mb-10">
+            <p class="text-[13px] text-fog font-medium uppercase tracking-[0.12em] mb-2">Инструменты &amp; Стек</p>
+            <p class="text-[16px] text-ink font-medium leading-[1.6]">VK Ads (кабинет таргетированной рекламы), Яндекс Метрика (сквозная разметка по UTM-дереву Campaign / Content / Term), Wi-Fi радар, парсинг баз и LAL-аудитории, матрица A/B-гипотез</p>
+        </div>
+
+        <!-- Ключевые показатели -->
+        <section class="mb-14">
+            <h2 class="text-[26px] font-medium text-ink mb-5">Итоговые результаты двух направлений</h2>
+            <dl class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                <div class="bg-paper border border-bone p-5 rounded-[16px] shadow-relume-subtle">
+                    <dt class="text-[13px] text-fog mb-1.5">Дни рождения (ДР)</dt>
+                    <dd class="text-[30px] font-medium text-ink leading-[1.1] tracking-tight mb-2">154 лида</dd>
+                    <dd class="text-[13px] text-electric-iris font-medium">Расход 58 350 ₽ · CPA 379 ₽</dd>
+                </div>
+                <div class="bg-paper border border-bone p-5 rounded-[16px] shadow-relume-subtle">
+                    <dt class="text-[13px] text-fog mb-1.5">Бизнес-ланчи (БЛ)</dt>
+                    <dd class="text-[30px] font-medium text-ink leading-[1.1] tracking-tight mb-2">251 лид</dd>
+                    <dd class="text-[13px] text-electric-iris font-medium">Расход 38 800 ₽ · CPA 155 ₽</dd>
+                </div>
+                <div class="bg-paper border border-bone p-5 rounded-[16px] shadow-relume-subtle">
+                    <dt class="text-[13px] text-fog mb-1.5">Совокупно по двум воронкам</dt>
+                    <dd class="text-[30px] font-medium text-ink leading-[1.1] tracking-tight mb-2">405 конв.</dd>
+                    <dd class="text-[13px] text-fog">При общем бюджете 97 150 ₽</dd>
+                </div>
+                <div class="bg-paper border border-bone p-5 rounded-[16px] shadow-relume-subtle">
+                    <dt class="text-[13px] text-fog mb-1.5">Средний CTR в VK Ads</dt>
+                    <dd class="text-[30px] font-medium text-ink leading-[1.1] tracking-tight mb-2">3,17%</dd>
+                    <dd class="text-[13px] text-fog">eCPC от 1,37 ₽ до 2,04 ₽</dd>
+                </div>
+            </dl>
+
+            <figure>
+                <div class="bg-paper border border-bone rounded-[12px] overflow-hidden shadow-relume-subtle">
+                    <img src="img/eva-vk-campaigns.jpg" alt="Общая сводка кампаний ресторана Ева Ела в кабинете VK Ads" class="w-full h-auto block">
+                </div>
+                <figcaption class="text-[14px] text-fog mt-3 leading-[1.6]">Срез рекламного кабинета VK Ads: параллельно работающие кампании на банкеты, корпоративы, дни рождения («ДР 2026» — 1,34 млн показов, CTR 3,17%, eCPC 1,37 ₽) и дневную посадку («БЛ 2026» и «Бизнес-ланчи 2026» — CTR 3,00–3,29%).</figcaption>
+            </figure>
+        </section>
+
+        <div class="space-y-14">
+
+            <!-- Контекст и архитектура -->
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Контекст проекта и разделение двух воронок</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p><strong class="text-ink font-medium">«Ева Ела»</strong> — двухэтажный ресторан в центре Воронежа (ул. Комиссаржевская, 7, рядом с кинотеатром «Юность»). Заведение объединяет два принципиально разных по экономике продукта, под каждый из которых требовалась отдельная рекламная архитектура:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong class="text-ink font-medium">Дни рождения и праздники (High-Check):</strong> высокий средний чек и длинный цикл выбора площадки. Главная задача — поймать пользователя в узкое «окно принятия решения» за 1–2 недели до даты, показать вариативность залов (от камерного кабинета до закрытия всего ресторана на 100 человек) и дать понятный триггер к бронированию.</li>
+                        <li><strong class="text-ink font-medium">Бизнес-ланчи (Frequency &amp; Local):</strong> загрузка дневной посадки в будни среди тех, кто работает, учится или часто бывает в центре. Здесь решают скорость подачи («обед за 30 минут у Юности»), ценовой якорь и эмоциональные крючки, которые выделяют заведение среди соседних ресторанов.</li>
+                    </ul>
+                    <p>Чтобы не оценивать кампании «вслепую» по кликам в кабинете VK Ads, для каждого сегмента и объявления была внедрена иерархическая UTM-разметка с передачей целевых действий в Яндекс Метрику: верхний уровень (<code class="font-mono text-[13px] bg-paper border border-bone px-1.5 py-0.5 rounded text-ink">dr</code> и <code class="font-mono text-[13px] bg-paper border border-bone px-1.5 py-0.5 rounded text-ink">bl</code>) раскладывается до конкретной аудитории и номера объявления (<code class="font-mono text-[13px] bg-paper border border-bone px-1.5 py-0.5 rounded text-ink">socharki</code>, <code class="font-mono text-[13px] bg-paper border border-bone px-1.5 py-0.5 rounded text-ink">retarget</code>, <code class="font-mono text-[13px] bg-paper border border-bone px-1.5 py-0.5 rounded text-ink">vk2…vk9</code>).</p>
+                </div>
+            </section>
+
+            <!-- Блок 1: Бизнес-ланчи + A/B тесты -->
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Направление 1. Бизнес-ланчи: сегментация аудиторий и A/B-тесты</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7] mb-6">
+                    <p>На привлечение гостей в обеденное время было направлено <strong class="text-ink font-medium">38 800 ₽</strong>, что принесло <strong class="text-ink font-medium">251 целевую конверсию</strong> по средней цене <strong class="text-ink font-medium">~155 ₽ за лид</strong>. Трафик разделили на три ключевых аудиторных сегмента с разным уровнем «теплоты»:</p>
+                </div>
+
+                <!-- Таблица аудиторий БЛ -->
+                <div class="overflow-x-auto bg-paper border border-bone rounded-[16px] shadow-relume-subtle mb-8">
+                    <table class="data-table w-full min-w-[680px] border-collapse">
+                        <thead>
+                            <tr>
+                                <th>Сегмент (UTM)</th>
+                                <th>Механика и таргетинг</th>
+                                <th>Конверсии (Метрика)</th>
+                                <th>Доля в воронке</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="font-mono text-[13px] bg-cream px-1.5 py-0.5 rounded">retarget</code> (Ядро и тёплые базы)</td>
+                                <td>Посетители сайта, look-alike, регулярно обновляемая база телефонов, сбор по Wi-Fi радару, подписчики прямых конкурентов в центре (Seven, Олень, Вера Федоровна) и воронежских гастро-пабликов.</td>
+                                <td><strong class="text-electric-iris">102 конверсии</strong> (2,28% от всех целей)</td>
+                                <td>40,6% от всех БЛ</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-mono text-[13px] bg-cream px-1.5 py-0.5 rounded">intbaryrest</code> (Локальные гастро-интересы)</td>
+                                <td>Жители и сотрудники/студенты с регулярным гео «работа или учёба в центре Воронежа» + интересы «Рестораны и кафе», «Еда и кулинария», «ЗОЖ», «Бизнес».</td>
+                                <td><strong class="text-ink">81 конверсия</strong> (1,81% от всех целей)</td>
+                                <td>32,3% от всех БЛ</td>
+                            </tr>
+                            <tr>
+                                <td><code class="font-mono text-[13px] bg-cream px-1.5 py-0.5 rounded">inttravel</code> (Интерес «Путешествия»)</td>
+                                <td>Тест широкой смежной аудитории с привязкой к концепции ресторана путешественницы Евы и локации у центрального кинотеатра.</td>
+                                <td><strong class="text-ink">68 конверсий</strong> (1,52% от всех целей)</td>
+                                <td>27,1% от всех БЛ</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Скрины Метрики по БЛ -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                    <figure>
+                        <div class="bg-paper border border-bone rounded-[12px] overflow-hidden shadow-relume-subtle h-[280px] flex items-center justify-center p-2">
+                            <img src="img/eva-metrica-bl-overview.jpg" alt="Яндекс Метрика: распределение 251 конверсии по аудиториям бизнес-ланчей" class="max-h-full w-auto object-contain">
+                        </div>
+                        <figcaption class="text-[13px] text-fog mt-2.5 leading-[1.5]">Яндекс Метрика (<code class="font-mono text-[12px]">utm=bl</code>): 251 целевая конверсия — лидерство за тёплой связкой <code class="font-mono text-[12px]">retarget</code> (102) при сильной поддержке интересов к барам и ресторанам (81).</figcaption>
+                    </figure>
+                    <figure>
+                        <div class="bg-paper border border-bone rounded-[12px] overflow-hidden shadow-relume-subtle h-[280px] flex items-center justify-center p-2">
+                            <img src="img/eva-metrica-bl-retarget.jpg" alt="Яндекс Метрика: детализация ретаргетинга БЛ по объявлениям" class="max-h-full w-auto object-contain">
+                        </div>
+                        <figcaption class="text-[13px] text-fog mt-2.5 leading-[1.5]">Разбивка внутри <code class="font-mono text-[12px]">retarget</code> (102 конв.): на знакомой аудитории лучше всего дожимают обновление меню (<code class="font-mono text-[12px]">vk8</code> — 34), соц. доказательство (<code class="font-mono text-[12px]">vk3</code> — 29) и офисный оффер (<code class="font-mono text-[12px]">vk6</code> — 24).</figcaption>
+                    </figure>
+                </div>
+
+                <!-- A/B тестирование БЛ -->
+                <h3 class="text-[20px] font-medium text-ink mb-3">A/B-тестирование гипотез и креативов в VK Ads</h3>
+                <div class="case-content text-[16px] text-fog leading-[1.7] mb-6">
+                    <p>Для кампании по обедам была подготовлена матрица из 15 текстово-графических связок (<code class="font-mono text-[13px] bg-paper border border-bone px-1.5 py-0.5 rounded text-ink">VK 1–VK 15</code>): тестировали неформальное приглашение, близость к к/т «Юность», скорость подачи («за 30 минут»), ценовой якорь («от 490 ₽ + напиток в подарок»), социальное доказательство («1000+ воронежцев») и dog-friendly позиционирование («Можно с хвостиком»).</p>
+                    <p>В прямом сплит-тесте трёх разных смысловых углов на сопоставимых бюджетах (~3,7–4,0 тыс. ₽ на объявление) чётко проявилась разница между <strong class="text-ink font-medium">кликабельностью на холодном охвате</strong> и <strong class="text-ink font-medium">финальной конверсионностью в ретаргетинге</strong>:</p>
+                </div>
+
+                <!-- Скриншот таблицы A/B теста -->
+                <figure class="mb-6">
+                    <div class="bg-paper border border-bone rounded-[12px] overflow-hidden shadow-relume-subtle">
+                        <img src="img/eva-vk-bl-ab-table.jpg" alt="A/B тест трёх объявлений бизнес-ланчей в кабинете VK Ads" class="w-full h-auto block">
+                    </div>
+                    <figcaption class="text-[14px] text-fog mt-3 leading-[1.6]">A/B-тест в VK Ads (суммарный сплит 11 746 ₽, 222 546 показов, 5 842 клика): эмоциональный пет-френдли угол («VK 9: с питомцами») и гео-триггер («VK 2: близость+оффер») обошли шаблонное «соц. доказательство» («VK 3») по CTR в 1,63 раза — 3,15% и 3,14% против 1,93%.</figcaption>
+                </figure>
+
+                <div class="overflow-x-auto bg-paper border border-bone rounded-[16px] shadow-relume-subtle mb-8">
+                    <table class="data-table w-full min-w-[680px] border-collapse">
+                        <thead>
+                            <tr>
+                                <th>Объявление в тесте</th>
+                                <th>Тестируемый оффер / триггер</th>
+                                <th>CTR / eCPC</th>
+                                <th>Роль в воронке</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong class="text-electric-iris">VK 9: «Можно с хвостиком»</strong></td>
+                                <td>Dog-friendly кафе + живые фото гостей с собаками (такса, сиба-ину, шпиц) вместо стандартных тарелок.</td>
+                                <td><strong class="text-ink">CTR 3,15%</strong><br><span class="text-[13px] text-fog">eCPC 2,01 ₽ · 2 013 кликов</span></td>
+                                <td>Абсолютный лидер по пробитию баннерной слепоты в ленте: притягивает лояльный трафик и даёт <code class="font-mono text-[12px]">15</code> дожимов в ретаргетинге.</td>
+                            </tr>
+                            <tr>
+                                <td><strong class="text-electric-iris">VK 2: «Обед за 30 минут»</strong></td>
+                                <td>Снятие главной боли офиса — дефицита времени («у к/т Юность, быстрая кухня + напиток в подарок»).</td>
+                                <td><strong class="text-ink">CTR 3,14%</strong><br><span class="text-[13px] text-fog">eCPC 2,00 ₽ · 1 987 кликов</span></td>
+                                <td>Лучшая цена клика (2,00 ₽) и высокий процент вовлечения — базовый локомотив на холодных локальных аудиториях.</td>
+                            </tr>
+                            <tr>
+                                <td><strong class="text-ink">VK 3: «1000+ воронежцев»</strong></td>
+                                <td>Социальное доказательство + еженедельное обновление меню + точный адрес (Комиссаржевская 7).</td>
+                                <td><strong class="text-ink">CTR 1,93%</strong><br><span class="text-[13px] text-fog">eCPC 2,03 ₽ · 1 842 клика</span></td>
+                                <td>На холодном трафике CTR ниже, но в ретаргетинге даёт <strong class="text-electric-iris">29 конверсий</strong> (№2 после новизны меню <code class="font-mono text-[12px]">vk8</code> — 34 конв.): тёплым гостям важно видеть живой зал и масштаб доверия.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Галерея креативов Dog-friendly (VK 9) -->
+                <p class="text-[14px] font-medium text-ink mb-3">Визуальный сплит победителя по CTR — линейка <code class="font-mono text-[13px]">VK 9</code> (dog-friendly формат):</p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                    <figure class="bg-paper border border-bone rounded-[12px] overflow-hidden shadow-relume-subtle flex flex-col">
+                        <div class="h-[360px] bg-cream/40 flex items-center justify-center p-2">
+                            <img src="img/eva-ad-bl-vk9-dog1.jpg" alt="Креатив VK 9 вариант 1 с таксой" class="max-h-full w-auto object-contain rounded">
+                        </div>
+                        <figcaption class="p-3 text-[12px] text-fog border-t border-bone">Вариант 1: крупный план и текст «Можно с хвостиком — Ева их любит».</figcaption>
+                    </figure>
+                    <figure class="bg-paper border border-bone rounded-[12px] overflow-hidden shadow-relume-subtle flex flex-col">
+                        <div class="h-[360px] bg-cream/40 flex items-center justify-center p-2">
+                            <img src="img/eva-ad-bl-vk9-dog2.jpg" alt="Креатив VK 9 вариант 2 с девушкой и сиба-ину" class="max-h-full w-auto object-contain rounded">
+                        </div>
+                        <figcaption class="p-3 text-[12px] text-fog border-t border-bone">Вариант 2: тёплая посадка в интерьере ресторана — лайфстайл-контакт.</figcaption>
+                    </figure>
+                    <figure class="bg-paper border border-bone rounded-[12px] overflow-hidden shadow-relume-subtle flex flex-col">
+                        <div class="h-[360px] bg-cream/40 flex items-center justify-center p-2">
+                            <img src="img/eva-ad-bl-vk9-dog3.jpg" alt="Креатив VK 9 вариант 3 со шпицем в кафе" class="max-h-full w-auto object-contain rounded">
+                        </div>
+                        <figcaption class="p-3 text-[12px] text-fog border-t border-bone">Вариант 3: светлый кадр у лестницы для теста визуального контраста в ленте.</figcaption>
+                    </figure>
+                </div>
+
+                <!-- Галерея остальных офферов БЛ (VK 2, VK 3, VK 5, VK 15) -->
+                <p class="text-[14px] font-medium text-ink mb-3">Рациональные и ретаргетинговые связки бизнес-ланчей (скорость, цена и социальное доказательство):</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <figure class="bg-paper border border-bone rounded-[12px] overflow-hidden shadow-relume-subtle flex flex-col">
+                        <div class="h-[320px] bg-cream/40 flex items-center justify-center p-2">
+                            <img src="img/eva-ad-bl-vk2-fast.jpg" alt="Креатив VK 2 Обед у к/т Юность за 30 минут" class="max-h-full w-auto object-contain rounded">
+                        </div>
+                        <figcaption class="p-3 text-[12px] text-fog border-t border-bone"><strong class="text-ink">VK 2 (CTR 3,14%):</strong> близость к «Юности» + напиток при заказе.</figcaption>
+                    </figure>
+                    <figure class="bg-paper border border-bone rounded-[12px] overflow-hidden shadow-relume-subtle flex flex-col">
+                        <div class="h-[320px] bg-cream/40 flex items-center justify-center p-2">
+                            <img src="img/eva-ad-bl-vk15-office.jpg" alt="Креатив VK 15 фильтр-кофе и быстрый возврат в офис" class="max-h-full w-auto object-contain rounded">
+                        </div>
+                        <figcaption class="p-3 text-[12px] text-fog border-t border-bone"><strong class="text-ink">VK 15:</strong> фильтр-кофе в подарок и возврат в офис без опозданий.</figcaption>
+                    </figure>
+                    <figure class="bg-paper border border-bone rounded-[12px] overflow-hidden shadow-relume-subtle flex flex-col">
+                        <div class="h-[320px] bg-cream/40 flex items-center justify-center p-2">
+                            <img src="img/eva-ad-bl-vk5-price.jpg" alt="Креатив VK 5 Обеды от 490 рублей и напиток" class="max-h-full w-auto object-contain rounded">
+                        </div>
+                        <figcaption class="p-3 text-[12px] text-fog border-t border-bone"><strong class="text-ink">VK 5:</strong> прямой ценовой якорь «от 490 ₽ + напиток».</figcaption>
+                    </figure>
+                    <figure class="bg-paper border border-bone rounded-[12px] overflow-hidden shadow-relume-subtle flex flex-col">
+                        <div class="h-[320px] bg-cream/40 flex items-center justify-center p-2">
+                            <img src="img/eva-ad-bl-vk3-social.jpg" alt="Креатив VK 3 Уже 1000+ воронежцев обедают в Ева Ела" class="max-h-full w-auto object-contain rounded">
+                        </div>
+                        <figcaption class="p-3 text-[12px] text-fog border-t border-bone"><strong class="text-ink">VK 3:</strong> соц. доказательство для дожима в ретаргетинге (29 конв.).</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <!-- Блок 2: Дни рождения -->
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Направление 2. Дни рождения: гиперсегментация спроса и оцифровка форматов</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7] mb-6">
+                    <p>В кампании «ДР 2026» бюджет составил <strong class="text-ink font-medium">58 350 ₽</strong> (58 351,60 ₽ в отчёте групп VK Ads), охваты превысили <strong class="text-ink font-medium">1,34 млн показов</strong> при CTR <strong class="text-ink font-medium">3,17%</strong> и цене клика <strong class="text-ink font-medium">1,37 ₽</strong>. По данным Яндекс Метрики связка принесла <strong class="text-ink font-medium">154 целевые конверсии</strong> со стоимостью обращения <strong class="text-ink font-medium">~379 ₽</strong>.</p>
+                    <p>Вся воронка строилась на сильном базовом УТП: <strong class="text-ink font-medium">скидка 15% на весь бар за 7 дней до и 7 дней после даты праздника + кусок торта со свечкой в подарок</strong>. Внутри группы аудиторий разделили на три точечных вектора:</p>
+                </div>
+
+                <!-- Скрин групп VK Ads + таблица -->
+                <figure class="mb-6">
+                    <div class="bg-paper border border-bone rounded-[12px] overflow-hidden shadow-relume-subtle">
+                        <img src="img/eva-vk-dr-groups.jpg" alt="Группы объявлений ДР 2026 в кабинете VK Ads" class="w-full h-auto block">
+                    </div>
+                    <figcaption class="text-[14px] text-fog mt-3 leading-[1.6]">Статистика трёх групп в кампании «ДР 2026»: «Скоро ДР» (27 728 ₽, CTR 3,25%), «Интересы» (30 328 ₽, CTR 3,10%) и узкая поисковая «Семантика» (295 ₽, CTR 3,11%).</figcaption>
+                </figure>
+
+                <div class="overflow-x-auto bg-paper border border-bone rounded-[16px] shadow-relume-subtle mb-8">
+                    <table class="data-table w-full min-w-[680px] border-collapse">
+                        <thead>
+                            <tr>
+                                <th>Группа / Аудитория</th>
+                                <th>Логика отбора и бюджет</th>
+                                <th>Визиты / Конверсии</th>
+                                <th>Эффективность</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong class="text-electric-iris">Скоро ДР (<code class="font-mono text-[12px]">socharki</code>)</strong></td>
+                                <td>Сверхгорячий сегмент: пользователи ВКонтакте со скорым днём рождения. Расход <strong class="text-ink">27 727,81 ₽</strong>, CTR 3,25%.</td>
+                                <td>8 869 визитов → <strong class="text-electric-iris">99 конверсий</strong> (2,21%)</td>
+                                <td>Основной драйвер: даёт <strong class="text-ink">64,3% всех лидов по ДР</strong> при минимальной цене привлечения (~280 ₽ за конверсию).</td>
+                            </tr>
+                            <tr>
+                                <td><strong class="text-ink">Интересы (<code class="font-mono text-[12px]">interes</code>)</strong></td>
+                                <td>Широкий масштаб на интересующихся кафе, ресторанами, досугом и организацией праздников. Расход <strong class="text-ink">30 328,34 ₽</strong>, CTR 3,10%.</td>
+                                <td>9 314 визитов → <strong class="text-ink">49 конверсий</strong> (1,09%)</td>
+                                <td>Позволяет удерживать объём показов (739 тыс.), когда база ближайших именинников по Воронежу выгорает.</td>
+                            </tr>
+                            <tr>
+                                <td><strong class="text-ink">Семантика (<code class="font-mono text-[12px]">semantika</code>)</strong></td>
+                                <td>Контекстный таргетинг в VK по поисковым запросам «где отметить ДР», «ресторан для дня рождения». Расход <strong class="text-ink">295,45 ₽</strong>.</td>
+                                <td>78 визитов → <strong class="text-ink">6 конверсий</strong> (0,13%)</td>
+                                <td>Самая высокая конверсия из визита в заявку (<strong class="text-electric-iris">7,69%</strong>) и сверхдешёвый лид (~49 ₽), ограничена лишь ёмкостью локального спроса.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Скрины Метрики по ДР -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                    <figure>
+                        <div class="bg-paper border border-bone rounded-[12px] overflow-hidden shadow-relume-subtle h-[280px] flex items-center justify-center p-2">
+                            <img src="img/eva-metrica-dr-overview.jpg" alt="Яндекс Метрика: распределение 154 конверсий по сегментам ДР" class="max-h-full w-auto object-contain">
+                        </div>
+                        <figcaption class="text-[13px] text-fog mt-2.5 leading-[1.5]">Яндекс Метрика (<code class="font-mono text-[12px]">utm=dr</code>): 154 конверсии — 99 со <code class="font-mono text-[12px]">socharki</code>, 49 с интересов и 6 с прямой семантики.</figcaption>
+                    </figure>
+                    <figure>
+                        <div class="bg-paper border border-bone rounded-[12px] overflow-hidden shadow-relume-subtle h-[280px] flex items-center justify-center p-2">
+                            <img src="img/eva-metrica-dr-socharki.jpg" alt="Яндекс Метрика: разбивка группы Скоро ДР по шести объявлениям" class="max-h-full w-auto object-contain">
+                        </div>
+                        <figcaption class="p-0 text-[13px] text-fog mt-2.5 leading-[1.5]">Внутри <code class="font-mono text-[12px]">socharki</code> тестировались 6 объявлений с разными форматами: верхние три связки собрали 77 из 99 лидов сегмента (38 + 24 + 15).</figcaption>
+                    </figure>
+                </div>
+
+                <!-- Креативы ДР -->
+                <h3 class="text-[20px] font-medium text-ink mb-3">Как упаковали разные сценарии праздника в креативах</h3>
+                <div class="case-content text-[16px] text-fog leading-[1.7] mb-6">
+                    <p>Чтобы не продавать «просто стол», объявления разделили по масштабу компании: от <strong class="text-ink font-medium">камерного кабинета до 15 человек без депозита</strong> и <strong class="text-ink font-medium">второго этажа на 30–40 гостей</strong> (с 10 кранами крафта) до <strong class="text-ink font-medium">закрытия всего двухэтажного ресторана на 100 гостей</strong>. В качестве визуального триггера использовали живые кадры выноса праздничного торта с фейерверками-свечами и эмоциональные фото гостей в интерьере.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <figure class="bg-paper border border-bone rounded-[12px] overflow-hidden shadow-relume-subtle flex flex-col">
+                        <div class="h-[360px] bg-cream/40 flex items-center justify-center p-2">
+                            <img src="img/eva-ad-dr-hook.jpg" alt="Объявление В твой ДР скидка 15% в Ева Ела с выносом торта" class="max-h-full w-auto object-contain rounded">
+                        </div>
+                        <figcaption class="p-3 text-[12px] text-fog border-t border-bone">Прямой персональный хук («А у кого это скоро ДР?») + скидка 15% за 7 дней до/после и торт со свечкой.</figcaption>
+                    </figure>
+                    <figure class="bg-paper border border-bone rounded-[12px] overflow-hidden shadow-relume-subtle flex flex-col">
+                        <div class="h-[360px] bg-cream/40 flex items-center justify-center p-2">
+                            <img src="img/eva-ad-dr-carousel.jpg" alt="Карусель ДР со скидкой 15% на весь бар и описанием двухэтажного пространства" class="max-h-full w-auto object-contain rounded">
+                        </div>
+                        <figcaption class="p-3 text-[12px] text-fog border-t border-bone">Формат карусели: презентация двух этажей и посадочных зон под разный размер компании.</figcaption>
+                    </figure>
+                    <figure class="bg-paper border border-bone rounded-[12px] overflow-hidden shadow-relume-subtle flex flex-col">
+                        <div class="h-[360px] bg-cream/40 flex items-center justify-center p-2">
+                            <img src="img/eva-ad-dr-girls.jpg" alt="Объявление Скидка 15% в День рождения с гостями за столом" class="max-h-full w-auto object-contain rounded">
+                        </div>
+                        <figcaption class="p-3 text-[12px] text-fog border-t border-bone">Лайфстайл-подача с фокусом на девичники и компании подруг с лаконичным CTA «Бронируйте стол».</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <!-- Сводная таблица и выводы -->
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Итоговая матрица результатов</h2>
+                <div class="overflow-x-auto bg-paper border border-bone rounded-[16px] shadow-relume-subtle mb-8">
+                    <table class="data-table w-full min-w-[680px] border-collapse">
+                        <thead>
+                            <tr>
+                                <th>Направление</th>
+                                <th>Рекламный бюджет</th>
+                                <th>Конверсии (Метрика)</th>
+                                <th>Стоимость цели (CPA)</th>
+                                <th>Главный драйвер</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Бизнес-ланчи (<code class="font-mono text-[12px]">bl</code>)</td>
+                                <td>38 800 ₽</td>
+                                <td><strong class="text-electric-iris">251</strong></td>
+                                <td>~155 ₽</td>
+                                <td>Ретаргет (Wi-Fi + конкуренты + база) — 102 лида; A/B-победители <code class="font-mono text-[12px]">VK 9</code> (CTR 3,15%) и <code class="font-mono text-[12px]">VK 2</code> (CTR 3,14%).</td>
+                            </tr>
+                            <tr>
+                                <td>Дни рождения (<code class="font-mono text-[12px]">dr</code>)</td>
+                                <td>58 350 ₽</td>
+                                <td><strong class="text-electric-iris">154</strong></td>
+                                <td>~379 ₽</td>
+                                <td>Аудитория именинников «Скоро ДР» (<code class="font-mono text-[12px]">socharki</code>) — 99 лидов (64% объёма) + семантика с CR 7,69%.</td>
+                            </tr>
+                            <tr class="bg-cream/50">
+                                <td><strong class="text-ink">Итого по проекту</strong></td>
+                                <td><strong class="text-ink">97 150 ₽</strong></td>
+                                <td><strong class="text-electric-iris">405</strong></td>
+                                <td><strong class="text-ink">~240 ₽</strong></td>
+                                <td>Связка точной UTM-атрибуции, сегментации аудиторий и постоянного A/B-обновления креативов.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="p-6 bg-ink text-paper rounded-[16px]">
+                    <p class="font-medium text-[19px] mb-2">Ключевые выводы по таргету для HoReCa</p>
+                    <div class="text-[15px] text-bone leading-[1.7] space-y-2.5">
+                        <p>1. <strong class="text-paper font-medium">Высокий CTR не равен высокой доходимости:</strong> на холодном трафике выигрывают нестандартные триггеры («можно с собакой», «у Юности за 30 минут» — CTR 3,14–3,15%), а на тёплой базе ретаргетинга лучше всего конвертят регулярное обновление меню и социальное доказательство.</p>
+                        <p>2. <strong class="text-paper font-medium">Таргетинг должен бить в календарный момент:</strong> в банкетах и днях рождения сбор именинников перед датой события даёт почти две трети всех заявок (<code class="font-mono text-[12px]">99/154</code>), тогда как общие ресторанные интересы выступают инструментом добора охвата.</p>
+                        <p>3. <strong class="text-paper font-medium">Разделяй и властвуй в UTM:</strong> без проброса <code class="font-mono text-[12px]">utm_campaign / utm_content / utm_term</code> в Яндекс Метрику невозможно увидеть реальную отдачу от конкретных групп (как в примере <code class="font-mono text-[12px]">semantika</code> или <code class="font-mono text-[12px]">vk8 / vk3</code> внутри ретаргета).</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <a href="category-digital.html" class="inline-flex items-center min-h-[44px] mt-12 text-[16px] font-medium text-electric-iris hover:text-ink transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md">← Все кейсы направления</a>
+    </main>
+
+    <footer class="w-full border-t border-bone mt-auto relative z-20">
+        <div class="max-w-[1200px] mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="text-[14px] text-fog">© 2026 Никита Копасов. CMO &amp; MarTech Expert.</div>
+            <div class="flex gap-6">
+                <a href="https://vk.com/kopasovnikita" class="text-[14px] text-fog hover:text-ink transition-colors font-medium min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" target="_blank" rel="noopener noreferrer">ВКонтакте</a>
+                <a href="https://t.me/kopasovskiy" class="text-[14px] text-fog hover:text-ink transition-colors font-medium min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" target="_blank" rel="noopener noreferrer">Telegram</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
