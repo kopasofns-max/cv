@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Кейс «Руки ВВерх! Бар»: запуск направления доставки еды с нуля в 15 городах, собственное приложение на SellKit, система лояльности от фудкоста и рост прибыльности с 1% до 15% за год.">
+    <title>Запуск доставки «Руки ВВерх! Бар» с нуля: рост прибыли с 1% до 15% — Никита Копасов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: {
+            colors: { 'electric-iris': '#6248ff', 'soft-lilac': '#b8adf5', 'iris-mist': '#e0daff', 'ink': '#161616', 'iron': '#4d4d4c', 'fog': '#686868', 'bone': '#e4e2df', 'cream': '#f1f0ee', 'paper': '#ffffff' },
+            fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'] },
+            boxShadow: { 'relume-subtle': '0px 1px 3px 0px rgba(0,0,0,.08), 0px 1px 2px 0px rgba(0,0,0,.04)' }
+        } } }
+    </script>
+    <style>
+        body { font-feature-settings: "ss01" on, "cv11" on; background-color: theme('colors.cream'); color: theme('colors.ink'); -webkit-font-smoothing: antialiased; }
+        .gradient-text { background: linear-gradient(100deg, rgb(255,116,72), rgb(255,72,72) 42%, rgb(98,72,255) 85%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .case-content p + p, .case-content ul, .case-content ol { margin-top: 1rem; }
+        .data-table th { text-align: left; padding: 14px 16px; border-bottom: 2px solid theme('colors.bone'); font-weight: 500; color: theme('colors.ink'); font-size: 14px; }
+        .data-table td { padding: 14px 16px; border-bottom: 1px solid theme('colors.bone'); color: theme('colors.fog'); font-size: 15px; vertical-align: top; }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; } }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col relative">
+    <nav class="w-full max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between relative z-50">
+        <a href="index.html" class="flex items-center gap-2 min-h-[44px] hover:opacity-70 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" aria-label="Никита Копасов — на главную">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2L20.6603 7V17L12 22L3.33975 17V7L12 2Z" stroke="#161616" stroke-width="2" stroke-linejoin="round"/></svg>
+            <span class="text-[16px] font-medium tracking-tight">Никита Копасов</span>
+        </a>
+        <a href="category-strategy.html" class="text-[16px] font-medium text-ink hover:text-electric-iris transition-colors min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" aria-label="Назад к кейсам направления"><span class="hidden sm:inline">← Кейсы направления</span><span class="sm:hidden" aria-hidden="true">←</span></a>
+    </nav>
+
+    <main class="w-full max-w-[900px] mx-auto px-6 pt-12 pb-24 relative z-10">
+        <header class="mb-10">
+            <h1 class="text-[32px] sm:text-[48px] font-medium leading-[1.12] tracking-[-0.03em] text-ink mb-6">Запуск доставки <span class="gradient-text">«Руки ВВерх! Бар»</span> с нуля: рост прибыльности с 1% до 15% за год</h1>
+            <div class="flex flex-wrap gap-2.5 mt-6">
+                <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">HoReCa / Федеральная сеть</span>
+                <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">15 городов РФ (пилот — Санкт-Петербург)</span>
+                <span class="bg-paper border border-bone text-iron px-3 py-1.5 rounded-[8px] text-[13px] font-medium">Ноябрь 2024 — Октябрь 2025</span>
+                <span class="bg-electric-iris text-paper px-3 py-1.5 rounded-[8px] text-[13px] font-medium">Руководитель отдела маркетинга доставки</span>
+            </div>
+        </header>
+
+        <div class="border-y border-bone py-5 mb-10">
+            <p class="text-[13px] text-fog font-medium uppercase tracking-[0.12em] mb-2">Стек и инструменты</p>
+            <p class="text-[16px] text-ink font-medium leading-[1.6]">Бренд-платформа (5W), SellKit, iiko (OLAP / ABC), PrimeHill, Яндекс Еда / Деливери / Купер, Яндекс Директ, VK Ads, Senler, Яндекс Карты, 2ГИС, O2O-механики</p>
+        </div>
+
+        <h2 class="text-[26px] font-medium text-ink mb-5">Ключевые результаты за год</h2>
+        <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle">
+                <dt class="text-[14px] text-fog">Прибыльность (рентабельность)</dt>
+                <dd class="text-[26px] font-medium text-ink mt-2">1% → 15%</dd>
+                <dd class="text-[14px] text-electric-iris mt-2">Рост чистой маржинальности доставки в 15 раз за счёт своих каналов и динамических цен</dd>
+            </div>
+            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle">
+                <dt class="text-[14px] text-fog">Масштаб запуска</dt>
+                <dd class="text-[26px] font-medium text-ink mt-2">15 городов РФ</dd>
+                <dd class="text-[14px] text-electric-iris mt-2">От обкатки гипотез в Санкт-Петербурге до федеральной сети с нуля</dd>
+            </div>
+            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle">
+                <dt class="text-[14px] text-fog">Доля собственных каналов</dt>
+                <dd class="text-[26px] font-medium text-ink mt-2">&gt; 45% заказов</dd>
+                <dd class="text-[14px] text-electric-iris mt-2">Перелив трафика из агрегаторов на сайт delivery.rvbar.ru и приложение</dd>
+            </div>
+            <div class="bg-paper border border-bone rounded-[16px] p-5 shadow-relume-subtle">
+                <dt class="text-[14px] text-fog">Рейтинг в агрегаторах</dt>
+                <dd class="text-[26px] font-medium text-ink mt-2">4,8+ ★</dd>
+                <dd class="text-[14px] text-electric-iris mt-2">Вывод баров в топ выдачи через смарт-график и контроль сервиса</dd>
+            </div>
+        </dl>
+
+        <!-- Главный креатив-визуал -->
+        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle mb-12">
+            <img src="img/rvbar-hero-delivery-promo.jpg" alt="Фирменный креатив доставки Руки ВВерх! Бар: Сергей Жуков, скидка 20% и доставка до 5 утра" class="w-full h-auto max-h-[540px] object-contain mx-auto rounded-[10px]" loading="lazy">
+            <figcaption class="px-2 pt-2.5 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                Единая визуальная ДНК доставки в эстетике 90-х: ночной график до 05:00 утра, личная вовлечённость Сергея Жукова и понятные эмоциональные офферы.
+            </figcaption>
+        </figure>
+
+        <div class="space-y-12">
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Точка А: запуск направления с чистого листа</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>До старта проекта выделенной доставки еды в сети «Руки ВВерх! Бар» не существовало в принципе. Заведения зарабатывали исключительно на посадке в зале и ночных вечеринках, а кухни в дневное время и будни оставались недозагруженными.</p>
+                    <p>Совместно с операционным директором мы взяли задачу построить доставку как самостоятельный, системный и масштабируемый бизнес-юнит. В качестве тестового полигона выбрали <strong class="text-ink font-medium">Санкт-Петербург</strong> (три флагманских бара — на Грибоедова, Московском и Культуры): именно там обкатывали упаковку, технологические карты, интеграции, скрипты персонала и рекламные связки, прежде чем масштабировать модель на Москву и регионы — суммарно <strong class="text-ink font-medium">15 городов присутствия</strong>.</p>
+                    <p>Первые месяцы запуска стали жёсткой проверкой экономики: на старте рентабельность направления держалась на уровне <strong class="text-ink font-medium">~1%</strong>. Главная причина — почти 100% зависимость от агрегаторов с их комиссиями 30–35%, расходы на упаковку, курьерскую логистику и стартовые скидки для привлечения первых заказов.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Этап 1. Бренд-платформа и стратегия «ОПГ»</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>Чтобы не конкурировать с тысячами безликих доставок в лоб ценой, мы разработали детальную <strong class="text-ink font-medium">Бренд-платформу доставки</strong> по методологии 5W:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong class="text-ink font-medium">5 сегментов аудитории:</strong> поклонники Сергея Жукова (хотят прикоснуться к кумиру), постоянные гости баров (повторить позитивный опыт дома), офисные сотрудники (сытные и быстрые обеды), ночные компании после 24:00 и семьи, уставшие от стандартного фастфуда.</li>
+                        <li><strong class="text-ink font-medium">Главное конкурентное преимущество (УТП):</strong> <em>«За ужин отвечает Жуков! Доставляем любимые блюда до 5 утра»</em>. Пока 90% ресторанов закрываются к полуночи, мы забирали весь ночной и поздний спрос с 11:00 до 05:00.</li>
+                        <li><strong class="text-ink font-medium">Единая концепция развития «ОПГ»:</strong>
+                            <ul class="list-disc pl-5 mt-1.5 space-y-1">
+                                <li><strong class="text-ink font-medium">Омниканальность</strong> — одновременный фокус на привлечение новых клиентов и удержание/возврат имеющихся через связку Online + Offline;</li>
+                                <li><strong class="text-ink font-medium">Перфекционизм</strong> — запрет на выпуск «сырого» продукта, жёсткий контроль температуры блюд, брендинга упаковки и сочных фуд-фото;</li>
+                                <li><strong class="text-ink font-medium">Гибкость (в 4P)</strong> — пересборка меню по ABC-анализу, разное ценообразование по каналам, интеграция с iiko и быстрое тестирование гипотез.</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <!-- Схема стратегии ОПГ -->
+                    <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle my-6">
+                        <img src="img/rvbar-strategy-opg-scheme.png" alt="Схема маркетинговой стратегии продвижения доставки ОПГ: Омниканальность, Перфекционизм, Гибкость" class="w-full h-auto rounded-[10px]" loading="lazy">
+                        <figcaption class="px-2 pt-2.5 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                            Верхнеуровневая архитектура стратегии «ОПГ» из бренд-платформы: связка привлечения, конкурентоспособности и гибкого управления 4P (Product, Price, Place, Promotion).
+                        </figcaption>
+                    </figure>
+
+                    <!-- Сетка: MindMap Offline & Online -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/rvbar-mindmap-offline.png" alt="Карта омниканального продвижения собственной доставки в оффлайне и барах" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Ветка Offline-маркетинга: перехват трафика внутри баров (плазмы, чеки, тейбл-тенты, официанты), фасады, листовки в радиусе 3 км и партнёрства с отелями.
+                            </figcaption>
+                        </figure>
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/rvbar-mindmap-online.png" alt="Карта омниканального продвижения собственной доставки в онлайне: SMM, CRM, геосервисы, контекст" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Ветка Online-маркетинга: VK + автоворонки Senler, Telegram/МТС Маркетолог, WhatsApp-рассылки по гостям баров, пуши и геосервисы.
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Этап 2. Своя витрина на SellKit и управление фудкостом</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>Чтобы вырваться из 1% маржинальности и перестать отдавать треть оборота агрегаторам, мы сосредоточились на запуске и прокачке собственных ресурсов продаж:</p>
+                    <ol class="list-decimal pl-5 space-y-2">
+                        <li><strong class="text-ink font-medium">Сайт и мобильное приложение (совместно с SellKit):</strong> разработали и запустили единую платформу доставки <code class="font-mono text-[14px] text-ink">delivery.rvbar.ru</code> и мобильное приложение для всех городов сети с бесшовной интеграцией в кассовую систему <strong class="text-ink font-medium">iiko</strong>.</li>
+                        <li><strong class="text-ink font-medium">Динамическое ценообразование в агрегаторах:</strong> внедрили разделение цен между каналами. В Яндекс Еде и Деливери была разработана механика динамического повышения цен на блюда, чтобы полностью перекрывать комиссию площадки и жёстко укладываться в плановый фудкост.</li>
+                        <li><strong class="text-ink font-medium">Выгода перенесена в свой канал:</strong> самые сильные офферы («Скидка 25% за первый заказ в приложении», «Скидка 10% именинникам», накопление и списание бонусов) клиент получал только при прямом заказе на сайте или в приложении.</li>
+                        <li><strong class="text-ink font-medium">Продуктовая матрица под любой чек:</strong> помимо моментальной доставки запустили отдельные сценарии — «Обеды по подписке» (абонементы на 2, 5, 10 и 20 дней для офисов) и крупночековые «Фуршеты» с подборками на компании.</li>
+                    </ol>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/rvbar-own-website-sellkit.jpg" alt="Собственный сайт доставки delivery.rvbar.ru на базе SellKit: баннеры акций, система лояльности и категории меню" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Собственный сайт <code class="font-mono text-[11px]">delivery.rvbar.ru</code> (на платформе SellKit): интуитивная витрина по городам, баннеры ключевых акций и интеграция бонусного счёта.
+                            </figcaption>
+                        </figure>
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/rvbar-mobile-app-menu.jpg" alt="Мобильная витрина доставки Руки ВВерх Бар: обеды, комбо-наборы и салаты" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Мобильная версия и приложение доставки: быстрое переключение категорий («Обеды», «Комбо-наборы», «Салаты»), понятные фото и заказ в пару тапов.
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Этап 3. Агрегаторы, «Смарт-график» и перелив трафика (O2O)</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>Агрегаторы (Яндекс Еда, Деливери, Купер) мы использовали не просто как «кассу с комиссией», а как верхнюю воронку привлечения новых клиентов:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong class="text-ink font-medium">«Смарт-график» поднятия рейтинга:</strong> для новых баров и точек с проседающим рейтингом (Таганка, Строгино, Можайка, Олимп, Одинцово, Зеленоград) на базе почасовой нагрузки кухни из iiko разработали расписание управляемого выкупа и стимулирования заказов. Это позволяло раскачивать поведенческие факторы в алгоритмах агрегаторов и выводить точки в топ выдачи.</li>
+                        <li><strong class="text-ink font-medium">Триггерные акции внутри площадок:</strong> тестировали и масштабировали связки «Блюдо в подарок», бесплатную доставку для новичков, соинвестированные акции (скидка 20%) и точечные кампании реактивации «Давно не заказывали».</li>
+                        <li><strong class="text-ink font-medium">Системный перехват (O2O в каждом заказе):</strong> к каждому заказу с агрегатора прикладывали брендированную листовку-меню с промокодом на первый заказ в нашем приложении, а сами контейнеры и крафт-пакеты запечатывали наклейками с QR-кодом и прямой выгодой −25%.</li>
+                    </ul>
+
+                    <!-- Сетка: Кампании в агрегаторах -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/rvbar-aggregators-gift-promo.jpg" alt="Акция Блюдо в подарок в Яндекс Еде и Деливери" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Запуск акционных механик «Блюдо в подарок» одновременно в Яндекс Еде и Деливери для роста конверсии витрины в заказ.
+                            </figcaption>
+                        </figure>
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/rvbar-aggregators-reactivation.jpg" alt="Кампании реактивации Давно не заказывали в агрегаторах" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Настройка сегментных кампаний удержания «Давно не заказывали» для возврата остывшей базы в московских и региональных точках.
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <!-- Сетка: Упаковка и перелив (O2O) -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-6">
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/rvbar-aggregator-flyer-insert.jpg" alt="Листовка с меню и промокодом 10% для вложения в заказы агрегаторов" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Листовка-вкладыш в заказы агрегаторов с промокодом на первый заказ в собственных каналах.
+                            </figcaption>
+                        </figure>
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/rvbar-branded-container-sticker.jpg" alt="Брендированный стикер на контейнер доставки Руки Вверх" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Наклейка на каждый контейнер с адресом прямого сайта <code class="font-mono text-[11px]">delivery.rvbar.ru</code> и акцентом на ночную доставку.
+                            </figcaption>
+                        </figure>
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/rvbar-kraft-bag-qr.jpg" alt="Крафтовый пакет с QR кодом скидки 25% за заказ в приложении" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Брендированный крафт-пакет с крупным QR-кодом на скидку 25% в мобильном приложении.
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Этап 4. Система лояльности от фудкоста (PrimeHill + iiko)</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>Вместо того чтобы раздавать стандартный «плоский» кэшбэк 10% на всё меню и терять прибыль на низкомаржинальных позициях, мы подняли OLAP-выгрузки продаж из iiko за 4 месяца по всей сети и спроектировали экономически выверенную систему лояльности на базе <strong class="text-ink font-medium">PrimeHill</strong>:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong class="text-ink font-medium">Кэшбэк до 25%, привязанный к себестоимости:</strong> чем ниже фудкост группы блюд — тем выше кэшбэк. Максимальные <strong class="text-ink font-medium">10–25%</strong> начислялись на высокомаржинальные супы, пасту, гарниры и салаты, а минимальные <strong class="text-ink font-medium">3–5%</strong> — на тяжёлое горячее, бургеры и закуски. Внешне это дало сильное УТП <em>«Кэшбэк до 25%»</em>, но средний фактический расход бонусов оставался в рамках безопасной экономики.</li>
+                        <li><strong class="text-ink font-medium">Загрузка кухни днём (×1,5 кэшбэк):</strong> при заказе с 11:00 до 16:00 гости получали повышенный кэшбэк ×1,5 — это системно стимулировало дневной спрос до вечерней посадки в барах.</li>
+                        <li><strong class="text-ink font-medium">Антифрод и стимулирование возвратов:</strong> кэшбэком можно оплатить до 25% чека (только на сайте и в приложении, без пересечения с промокодами), а баллы сгорают каждые 90 дней, подталкивая гостя к повторному заказу.</li>
+                        <li><strong class="text-ink font-medium">Геймификация в приложении:</strong> внедрили игровую механику «рулетки» с выигрышем промокодов и подарочных блюд, что подняло вовлечённость и средний чек.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Этап 5. Комплексный маркетинг: от зала бара до геосервисов и соцсетей</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <p>Запустили полноценную омниканальную экосистему вокруг каждого из 15 городов:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong class="text-ink font-medium">Монетизация зального трафика баров:</strong> поставили брендированные тейбл-тенты с QR-кодами на столы, вывели рекламные ролики доставки на плазмы залов (с уникальными UTM-метками под каждый бар), внедрили скрипты для официантов и объявления ведущих со сцены.</li>
+                        <li><strong class="text-ink font-medium">Геосервисы (бесплатный горячий трафик):</strong> заполнили разделы «Витрина», «Сторис» и «Новости» в Яндекс Картах, 2ГИС и Zoon, вшив прямые ссылки с метками и оффером доставки.</li>
+                        <li><strong class="text-ink font-medium">Соцсети, таргет и CRM-цепочки:</strong> встроили доставку в контент-планы всех групп ВК, запустили таргетинг с ведением на <strong class="text-ink font-medium">Senler</strong> (автовыдача промокодов, чат-бот с поздравлением ко Дню рождения и скидкой 10–15%), настроили пуш-рассылки через PrimeHill и мобильное приложение.</li>
+                        <li><strong class="text-ink font-medium">Эффектные креативы в эстетике 90-х:</strong> отрисовали серию ярких рекламных макетов с участием Сергея Жукова, Дока Брауна («Назад в будущее») и авторских стикеров.</li>
+                    </ul>
+
+                    <!-- Сетка: Карты + Тейбл-тент -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/rvbar-yandex-maps-storefront.jpg" alt="Витрина и сторис доставки Руки ВВерх Бар на Яндекс Картах" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Упаковка карточки на Яндекс Картах: отдельные сторис про доставку, витрина с акциями и прямая кнопка заказа.
+                            </figcaption>
+                        </figure>
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/rvbar-offline-table-tent.jpg" alt="Тейбл-тент на столе в баре с рекламой доставки до 5 утра и QR кодом" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Оффлайн-точка касания внутри бара: тейбл-тент на столиках с QR-кодом и оффером ночной доставки до 5 утра.
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <!-- Сетка: Креативы -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-6">
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/rvbar-creative-doc-brown-25.jpg" alt="Рекламный креатив в стиле 90-х: Скидка 25% за первый заказ в приложении" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Креатив для таргета и соцсетей с отсылкой к культовому кино 90-х: яркий визуальный крючок на −25% в приложении.
+                            </figcaption>
+                        </figure>
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/rvbar-app-promo-hand.jpg" alt="Промо-баннер мобильного приложения Руки ВВерх Доставка" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Продуктовый макет для сторис, плазм и баннеров сайта с демонстрацией живого интерфейса приложения.
+                            </figcaption>
+                        </figure>
+                        <figure class="bg-paper border border-bone rounded-[16px] p-3 shadow-relume-subtle flex flex-col justify-between">
+                            <img src="img/rvbar-sticker-zhukov-gift.jpg" alt="Брендированный стикер Здоровый подарок за здоровый заказ с Сергеем Жуковым" class="w-full h-auto rounded-[10px]" loading="lazy">
+                            <figcaption class="px-1 pt-3 pb-0.5 text-[12px] leading-[1.5] text-fog">
+                                Мерч и эмоциональный стикерпак в заказы («Здоровый подарок за здоровый заказ»), повышающий виральность и UGC.
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-[26px] font-medium text-ink mb-4">Сводные итоги года: трансформация экономики</h2>
+                <div class="case-content text-[16px] text-fog leading-[1.7]">
+                    <div class="overflow-x-auto bg-paper border border-bone rounded-[16px] shadow-relume-subtle mb-6">
+                        <table class="data-table w-full min-w-[700px] border-collapse">
+                            <thead><tr><th>Показатель</th><th>На старте проекта (Точка А)</th><th>Через год системной работы (Точка Б)</th><th>Динамика</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td>Прибыльность (рентабельность)</td>
+                                    <td>~1% (комиссии и стартовые скидки съедали прибыль)</td>
+                                    <td>15% (выход на устойчивую операционную маржинальность)</td>
+                                    <td><strong class="text-emerald-600 font-medium">Рост в 15 раз</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>География и масштаб</td>
+                                    <td>0 баров на доставке (пилотный запуск в СПб)</td>
+                                    <td>15 городов РФ (единые стандарты, бренд-платформа и маркетинг)</td>
+                                    <td><strong class="text-emerald-600 font-medium">Федеральное покрытие</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Сплит каналов продаж</td>
+                                    <td>~95–100% в агрегаторах с высокой комиссией</td>
+                                    <td>&gt; 45% заказов через собственный сайт и приложение (SellKit)</td>
+                                    <td><strong class="text-emerald-600 font-medium">Системный перелив O2O</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Управление фудкостом</td>
+                                    <td>Размытая экономика, единые цены во всех каналах</td>
+                                    <td>Динамическое повышение цен в агрегаторах + сортировка меню по ABC</td>
+                                    <td><strong class="text-emerald-600 font-medium">Целевой фудкост в норме</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Лояльность и возвраты</td>
+                                    <td>Разовые заказы без оцифровки базы доставки</td>
+                                    <td>СЛ на базе PrimeHill от маржинальности + Senler-воронки и пуши</td>
+                                    <td><strong class="text-emerald-600 font-medium">Рост повторных заказов ×2,4</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Рейтинг на площадках</td>
+                                    <td>Новые карточки без истории и отзывов</td>
+                                    <td>4,8+ ★ и удержание позиций в топе выдачи Яндекс Еды и Деливери</td>
+                                    <td><strong class="text-emerald-600 font-medium">Устойчивый органический трафик</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mt-8 p-6 bg-ink text-paper rounded-[16px]">
+                        <p class="font-medium text-[19px] mb-2">Главный вывод</p>
+                        <p class="text-[16px] leading-[1.65]">
+                            Доставка в ресторанной сети с сильным брендом не должна работать как «бесплатная витрина для агрегаторов». Когда единая бренд-платформа, собственный продукт (сайт и приложение), динамическое ценообразование, оцифрованная система лояльности и перехват оффлайн-трафика внутри баров работают в одной связке — направление за год превращается из эксперимента с околонулевой маржой в высокодоходный бизнес-юнит с рентабельностью 15%.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="mt-12 pt-6 border-t border-bone flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <a href="category-strategy.html" class="inline-flex items-center min-h-[44px] text-[16px] font-medium text-electric-iris hover:text-ink transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md">← Все кейсы направления</a>
+            <a href="strategy.html" class="inline-flex items-center min-h-[44px] text-[16px] font-medium text-ink hover:text-electric-iris transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md">Собрать стратегию для своего бизнеса →</a>
+        </div>
+    </main>
+
+    <footer class="w-full border-t border-bone mt-auto relative z-20">
+        <div class="max-w-[1200px] mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="text-[14px] text-fog">© 2026 Никита Копасов. CMO &amp; MarTech Expert.</div>
+            <div class="flex gap-6">
+                <a href="https://vk.com/kopasovnikita" class="text-[14px] text-fog hover:text-ink transition-colors font-medium min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" target="_blank" rel="noopener noreferrer">ВКонтакте</a>
+                <a href="https://t.me/kopasovskiy" class="text-[14px] text-fog hover:text-ink transition-colors font-medium min-h-[44px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-iris rounded-md" target="_blank" rel="noopener noreferrer">Telegram</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
